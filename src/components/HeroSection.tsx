@@ -7,6 +7,7 @@ import scrollImg4 from "@/assets/scroll-img-4.png";
 import scrollImg5 from "@/assets/scroll-img-5.jpg";
 import scrollImg6 from "@/assets/scroll-img-6.jpg";
 import scrollImg7 from "@/assets/scroll-img-7.jpg";
+import scrollImg8 from "@/assets/scroll-img-8.jpg";
 
 const slides = [
   {
@@ -38,6 +39,11 @@ const slides = [
     image: scrollImg7,
     popupIcon: <Sparkles className="w-5 h-5 text-primary" />,
     popupText: "I've reserved your spot for the event.",
+  },
+  {
+    image: scrollImg8,
+    popupIcon: <Sparkles className="w-5 h-5 text-primary" />,
+    popupText: "Your campus tour has been confirmed.",
   },
 ];
 
