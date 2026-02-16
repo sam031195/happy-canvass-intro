@@ -59,6 +59,10 @@ const HeroSection = () => {
   // Phase 1 (0-35%): Popup slides in from right, image stays still
   // Phase 2 (35-55%): Popup zooms out, image stays still
   // Phase 3 (55-100%): Image slides to next
+  // We append a duplicate of the first image at the end for seamless looping
+  const stripSlides = [...slides, slides[0]];
+  const stripCount = stripSlides.length;
+
   const getImageProgress = () => {
     let imgProgress = 0;
     for (let i = 0; i < totalSlides; i++) {
@@ -86,12 +90,12 @@ const HeroSection = () => {
         <div
           className="absolute inset-0 flex"
           style={{
-            width: `${totalSlides * 100}%`,
-            transform: `translateX(-${(imageOffset / totalSlides) * 100}%)`,
+            width: `${stripCount * 100}%`,
+            transform: `translateX(-${(imageOffset / stripCount) * 100}%)`,
           }}
         >
-          {slides.map((slide, i) => (
-            <div key={i} className="relative h-full" style={{ width: `${100 / totalSlides}%` }}>
+          {stripSlides.map((slide, i) => (
+            <div key={i} className="relative h-full" style={{ width: `${100 / stripCount}%` }}>
               <img
                 src={slide.image}
                 alt={`Slide ${i + 1}`}
