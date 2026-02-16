@@ -15,11 +15,11 @@ const DecagonDifferenceSection = () => {
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
           {/* Left text */}
           <div className="flex-1 max-w-xl">
-            <p className="text-2xl lg:text-3xl text-foreground/80 leading-relaxed mb-8">
+            <p className="text-lg lg:text-xl text-foreground/80 leading-relaxed mb-8">
               Move past complex configuration languages that slow iteration, inflate costs, and drain engineering time.
             </p>
 
-            <p className="text-2xl lg:text-3xl leading-relaxed mb-10">
+            <p className="text-lg lg:text-xl leading-relaxed mb-10">
               <span className="text-[hsl(252,60%,55%)] font-semibold">Agent Operating Procedures (AOPs)</span>{" "}
               <span className="text-foreground/80">
                 let you define agent workflows in natural language, so you can refine behavior and optimize performance as fast as your business moves.
