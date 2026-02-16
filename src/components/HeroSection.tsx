@@ -53,6 +53,26 @@ const HeroSection = () => {
 
   const totalSlides = slides.length;
 
+  // Each slide's scroll range is split into 3 phases:
+  // Phase 1 (0-35%): Popup slides in from right, image stays still
+  // Phase 2 (35-55%): Popup zooms out, image stays still
+  // Phase 3 (55-100%): Image slides to next
+  const getImageProgress = () => {
+    let imgProgress = 0;
+    for (let i = 0; i < totalSlides; i++) {
+      const slideStart = i / totalSlides;
+      const slideEnd = (i + 1) / totalSlides;
+      const imgPhaseStart = slideStart + (slideEnd - slideStart) * 0.55;
+      if (progress > imgPhaseStart) {
+        const t = Math.min(1, (progress - imgPhaseStart) / ((slideEnd - slideStart) * 0.45));
+        imgProgress = i + t;
+      }
+    }
+    return imgProgress;
+  };
+
+  const imageOffset = getImageProgress();
+
   return (
     <section
       ref={sectionRef}
@@ -60,12 +80,12 @@ const HeroSection = () => {
       style={{ height: `${(totalSlides + 1) * 100}vh` }}
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden">
-        {/* Background images strip - scrolls left to right */}
+        {/* Background images strip */}
         <div
           className="absolute inset-0 flex"
           style={{
             width: `${totalSlides * 100}%`,
-            transform: `translateX(-${(progress * (totalSlides - 1) / totalSlides) * 100}%)`,
+            transform: `translateX(-${(imageOffset / totalSlides) * 100}%)`,
           }}
         >
           {slides.map((slide, i) => (
@@ -122,48 +142,45 @@ const HeroSection = () => {
           {/* Spacer to push popup cards and arrow to bottom */}
           <div className="flex-1" />
 
-          {/* Popup cards - slide in from right to center, then zoom out */}
+          {/* Popup cards - slide right-to-left, stop at center arrow, then zoom out */}
           {slides.map((slide, i) => {
             const slideStart = i / totalSlides;
             const slideEnd = (i + 1) / totalSlides;
-            // Phase 1: slide in from right (0-40% of slide)
-            const slideInEnd = slideStart + (slideEnd - slideStart) * 0.4;
-            // Phase 2: hold at center (40-65% of slide)
-            const holdEnd = slideStart + (slideEnd - slideStart) * 0.65;
-            // Phase 3: zoom out and fade (65-100% of slide)
+            const slideRange = slideEnd - slideStart;
+            // Phase 1: popup slides in from right to center (0-35%)
+            const slideInEnd = slideStart + slideRange * 0.35;
+            // Phase 2: popup zooms out (35-55%)
+            const zoomOutEnd = slideStart + slideRange * 0.55;
 
             let opacity = 0;
             let scale = 1;
-            let translateX = 120; // start off-screen right (%)
+            let translateXpx = 600; // start off-screen right in px
 
-            if (progress >= slideStart && progress <= slideEnd) {
+            if (progress >= slideStart && progress < zoomOutEnd) {
               if (progress < slideInEnd) {
-                // Sliding in from right to center
+                // Sliding in from right to left-aligned with center
                 const t = (progress - slideStart) / (slideInEnd - slideStart);
-                opacity = Math.min(1, t * 1.5);
+                opacity = Math.min(1, t * 2);
                 scale = 1;
-                translateX = 120 * (1 - t); // 120% -> 0%
-              } else if (progress < holdEnd) {
-                // Holding at center
-                opacity = 1;
-                scale = 1;
-                translateX = 0;
+                translateXpx = 600 * (1 - t); // 600px -> 0px
               } else {
-                // Zoom out and fade
-                const t = (progress - holdEnd) / (slideEnd - holdEnd);
+                // Zoom out and fade at resting position
+                const t = (progress - slideInEnd) / (zoomOutEnd - slideInEnd);
                 opacity = 1 - t;
-                scale = 1 + 0.3 * t; // zoom out
-                translateX = 0;
+                scale = 1 + 0.4 * t;
+                translateXpx = 0;
               }
             }
 
             return (
               <div
                 key={i}
-                className="absolute bottom-20 left-1/2 pointer-events-none"
+                className="absolute bottom-16 pointer-events-none"
                 style={{
+                  left: "50%",
                   opacity,
-                  transform: `translateX(calc(-50% + ${translateX}%)) scale(${scale})`,
+                  transform: `translateX(calc(-100% + ${translateXpx}px)) scale(${scale})`,
+                  transformOrigin: "center center",
                   transition: "none",
                 }}
               >
