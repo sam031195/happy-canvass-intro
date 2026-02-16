@@ -154,20 +154,20 @@ const HeroSection = () => {
 
             let opacity = 0;
             let scale = 1;
-            let translateXpx = 600; // start off-screen right in px
+            let translateXpx = 800; // start off-screen right in px
 
             if (progress >= slideStart && progress < zoomOutEnd) {
               if (progress < slideInEnd) {
-                // Sliding in from right to left-aligned with center
+                // Sliding in from right, stops when left edge hits center
                 const t = (progress - slideStart) / (slideInEnd - slideStart);
                 opacity = Math.min(1, t * 2);
                 scale = 1;
-                translateXpx = 600 * (1 - t); // 600px -> 0px
+                translateXpx = 800 * (1 - t); // 800px -> 0px (left edge at center)
               } else {
-                // Zoom out and fade at resting position
+                // Zoom out and fade — stays in place, no further movement
                 const t = (progress - slideInEnd) / (zoomOutEnd - slideInEnd);
                 opacity = 1 - t;
-                scale = 1 + 0.4 * t;
+                scale = 1 + 0.5 * t;
                 translateXpx = 0;
               }
             }
@@ -179,8 +179,8 @@ const HeroSection = () => {
                 style={{
                   left: "50%",
                   opacity,
-                  transform: `translateX(calc(-100% + ${translateXpx}px)) scale(${scale})`,
-                  transformOrigin: "center center",
+                  transform: `translateX(${translateXpx}px) scale(${scale})`,
+                  transformOrigin: "left center",
                   transition: "none",
                 }}
               >
