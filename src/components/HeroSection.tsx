@@ -5,6 +5,9 @@ import heroBg from "@/assets/hero-bg.png";
 import scrollImg2 from "@/assets/scroll-img-2.png";
 import scrollImg3 from "@/assets/scroll-img-3.png";
 import scrollImg4 from "@/assets/scroll-img-4.png";
+import scrollImg5 from "@/assets/scroll-img-5.jpg";
+import scrollImg6 from "@/assets/scroll-img-6.jpg";
+import scrollImg7 from "@/assets/scroll-img-7.jpg";
 
 const slides = [
   {
@@ -28,9 +31,19 @@ const slides = [
     popupText: "Your refund has been processed instantly.",
   },
   {
-    image: scrollImg3,
+    image: scrollImg5,
     popupIcon: <Sparkles className="w-5 h-5 text-primary" />,
     popupText: "I've found 3 perfect matches for you.",
+  },
+  {
+    image: scrollImg6,
+    popupIcon: <Sparkles className="w-5 h-5 text-primary" />,
+    popupText: "Your account has been verified successfully.",
+  },
+  {
+    image: scrollImg7,
+    popupIcon: <Sparkles className="w-5 h-5 text-primary" />,
+    popupText: "I've reserved your spot for the event.",
   },
 ];
 
