@@ -33,76 +33,96 @@ const DecagonDifferenceSection = () => {
 
           {/* Right: 3D glassmorphic cube illustration */}
           <div className="flex-1 flex items-center justify-center">
-            <div className="relative w-[380px] h-[380px] lg:w-[440px] lg:h-[440px]">
-              {/* Glow effects */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[hsl(252,60%,80%,0.3)] via-transparent to-[hsl(20,80%,80%,0.2)] blur-2xl" />
+            <div className="relative w-[420px] h-[420px] lg:w-[500px] lg:h-[500px]" style={{ perspective: "1200px" }}>
+              {/* Soft glow behind the cube */}
+              <div className="absolute inset-[-20%] rounded-full bg-gradient-to-br from-[hsla(252,60%,85%,0.4)] via-[hsla(252,50%,90%,0.2)] to-[hsla(280,40%,85%,0.3)] blur-3xl" />
 
-              {/* Back layer - code */}
+              {/* 3D cube container */}
               <div
-                className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[85%] h-[55%] rounded-xl"
+                className="absolute inset-0"
                 style={{
-                  background: "linear-gradient(180deg, hsla(252,50%,85%,0.3) 0%, hsla(252,50%,75%,0.15) 100%)",
-                  backdropFilter: "blur(8px)",
-                  border: "1px solid hsla(252,40%,80%,0.3)",
-                  transform: "translateX(-50%) perspective(800px) rotateX(15deg) rotateY(-5deg)",
+                  transformStyle: "preserve-3d",
+                  transform: "rotateX(20deg) rotateY(-25deg)",
                 }}
               >
-                <div className="p-5 pt-6 text-xs font-mono text-[hsl(252,50%,55%)] opacity-70 leading-relaxed space-y-1">
-                  <p>options = get_upgrade_options(res)</p>
-                  <p>upgrade = await upgrade_selection(options)</p>
-                  <p className="mt-2">if upgrade.price &gt; 0: await</p>
-                  <p className="pl-4">confirm_payment(user.payment_method)</p>
-                  <p className="mt-2">apply_upgrade(res, upgrade)</p>
-                  <p>send_confirmation(user.email, res)</p>
+                {/* Bottom face (code layer) */}
+                <div
+                  className="absolute left-[8%] right-[8%] bottom-[5%] h-[35%] rounded-xl"
+                  style={{
+                    background: "linear-gradient(180deg, hsla(252,40%,88%,0.35) 0%, hsla(252,45%,80%,0.2) 100%)",
+                    backdropFilter: "blur(10px)",
+                    border: "1px solid hsla(252,40%,85%,0.35)",
+                    transform: "translateZ(0px)",
+                  }}
+                >
+                  <div className="p-5 text-xs font-mono text-[hsl(252,50%,55%)] opacity-60 leading-relaxed space-y-0.5">
+                    <p>options = get_upgrade_options(res)</p>
+                    <p>upgrade = await upgrade_selection(options)</p>
+                    <p className="mt-1">if upgrade.price &gt; 0: await</p>
+                    <p className="pl-4">confirm_payment(user.payment_method)</p>
+                    <p className="mt-1">apply_upgrade(res, upgrade)</p>
+                    <p>send_confirmation(user.email, res)</p>
+                  </div>
                 </div>
-              </div>
 
-              {/* Middle layer - purple accent */}
-              <div
-                className="absolute bottom-[30%] left-1/2 w-[70%] h-[15%] rounded-lg"
-                style={{
-                  background: "linear-gradient(135deg, hsla(252,60%,65%,0.4) 0%, hsla(252,50%,75%,0.2) 100%)",
-                  backdropFilter: "blur(12px)",
-                  border: "1px solid hsla(252,40%,80%,0.25)",
-                  transform: "translateX(-50%) perspective(800px) rotateX(15deg) rotateY(-5deg)",
-                  borderStyle: "dashed",
-                }}
-              />
+                {/* Middle purple accent layer */}
+                <div
+                  className="absolute left-[12%] right-[12%] bottom-[38%] h-[12%] rounded-lg"
+                  style={{
+                    background: "linear-gradient(135deg, hsla(252,65%,65%,0.45) 0%, hsla(252,55%,75%,0.25) 100%)",
+                    backdropFilter: "blur(14px)",
+                    border: "1px dashed hsla(252,50%,80%,0.4)",
+                    transform: "translateZ(20px)",
+                  }}
+                />
 
-              {/* Top layer - natural language card */}
-              <div
-                className="absolute top-4 left-1/2 w-[88%] h-[52%] rounded-xl"
-                style={{
-                  background: "linear-gradient(180deg, hsla(0,0%,100%,0.7) 0%, hsla(252,30%,95%,0.5) 100%)",
-                  backdropFilter: "blur(20px)",
-                  WebkitBackdropFilter: "blur(20px)",
-                  border: "1px solid hsla(0,0%,100%,0.6)",
-                  boxShadow: "0 8px 32px hsla(252,40%,50%,0.1), 0 2px 8px hsla(0,0%,0%,0.05)",
-                  transform: "translateX(-50%) perspective(800px) rotateX(8deg) rotateY(-5deg)",
-                }}
-              >
-                <div className="p-6 lg:p-8">
-                  <h3 className="text-lg lg:text-xl font-bold text-[hsl(252,50%,40%)] italic mb-4">
-                    AOP for a room upgrade
-                  </h3>
-                  <ol className="space-y-2 text-sm lg:text-base text-[hsl(252,40%,35%)]">
-                    <li>1. Verify user and reservation ID.</li>
-                    <li>2. Check eligibility and constraints.</li>
-                    <li>3. Offer upgrade options with terms.</li>
-                    <li>4. Apply the upgrade. If there's a charge, confirm payment method.</li>
-                    <li>5. Send new confirmation email.</li>
-                  </ol>
+                {/* Top face (AOP card) */}
+                <div
+                  className="absolute left-[5%] right-[5%] top-[2%] h-[50%] rounded-xl"
+                  style={{
+                    background: "linear-gradient(180deg, hsla(0,0%,100%,0.75) 0%, hsla(252,30%,96%,0.55) 100%)",
+                    backdropFilter: "blur(24px)",
+                    WebkitBackdropFilter: "blur(24px)",
+                    border: "1px solid hsla(0,0%,100%,0.65)",
+                    boxShadow: "0 12px 40px hsla(252,40%,50%,0.12), 0 4px 12px hsla(0,0%,0%,0.05)",
+                    transform: "translateZ(40px)",
+                  }}
+                >
+                  <div className="p-6 lg:p-8">
+                    <h3 className="text-lg lg:text-xl font-bold text-[hsl(252,50%,40%)] italic mb-4">
+                      AOP for a room upgrade
+                    </h3>
+                    <ol className="space-y-2 text-sm lg:text-base text-[hsl(252,40%,35%)]">
+                      <li>1. Verify user and reservation ID.</li>
+                      <li>2. Check eligibility and constraints.</li>
+                      <li>3. Offer upgrade options with terms.</li>
+                      <li>4. Apply the upgrade. If there's a charge, confirm payment method.</li>
+                      <li>5. Send new confirmation email.</li>
+                    </ol>
+                  </div>
                 </div>
-              </div>
 
-              {/* Dashed center line */}
-              <div
-                className="absolute left-1/2 top-[20%] bottom-[10%] w-px"
-                style={{
-                  borderLeft: "2px dashed hsla(0,0%,100%,0.5)",
-                  transform: "translateX(-50%)",
-                }}
-              />
+                {/* Right side panel */}
+                <div
+                  className="absolute right-[5%] top-[2%] bottom-[5%] w-[15%] rounded-r-xl"
+                  style={{
+                    background: "linear-gradient(90deg, hsla(252,40%,88%,0.15) 0%, hsla(252,50%,82%,0.25) 100%)",
+                    backdropFilter: "blur(8px)",
+                    border: "1px solid hsla(252,40%,85%,0.2)",
+                    transformOrigin: "left center",
+                    transform: "translateZ(0px) rotateY(70deg)",
+                  }}
+                />
+
+                {/* Vertical dashed center line */}
+                <div
+                  className="absolute left-1/2 top-[8%] bottom-[8%] w-px"
+                  style={{
+                    borderLeft: "2px dashed hsla(0,0%,100%,0.5)",
+                    transform: "translateX(-50%) translateZ(10px)",
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>
