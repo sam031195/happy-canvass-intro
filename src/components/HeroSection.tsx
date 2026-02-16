@@ -122,46 +122,64 @@ const HeroSection = () => {
           {/* Spacer to push popup cards and arrow to bottom */}
           <div className="flex-1" />
 
-          {/* Popup cards - bottom right, matching screenshot design */}
+          {/* Popup cards - slide in from right to center, then zoom out */}
           {slides.map((slide, i) => {
             const slideStart = i / totalSlides;
             const slideEnd = (i + 1) / totalSlides;
-            const fadeInEnd = slideStart + (slideEnd - slideStart) * 0.25;
-            const fadeOutStart = slideEnd - (slideEnd - slideStart) * 0.25;
+            // Phase 1: slide in from right (0-40% of slide)
+            const slideInEnd = slideStart + (slideEnd - slideStart) * 0.4;
+            // Phase 2: hold at center (40-65% of slide)
+            const holdEnd = slideStart + (slideEnd - slideStart) * 0.65;
+            // Phase 3: zoom out and fade (65-100% of slide)
 
             let opacity = 0;
-            let scale = 0.85;
+            let scale = 1;
+            let translateX = 120; // start off-screen right (%)
 
             if (progress >= slideStart && progress <= slideEnd) {
-              if (progress < fadeInEnd) {
-                const t = (progress - slideStart) / (fadeInEnd - slideStart);
-                opacity = t;
-                scale = 0.85 + 0.15 * t;
-              } else if (progress > fadeOutStart) {
-                const t = (progress - fadeOutStart) / (slideEnd - fadeOutStart);
-                opacity = 1 - t;
-                scale = 1 - 0.15 * t;
-              } else {
+              if (progress < slideInEnd) {
+                // Sliding in from right to center
+                const t = (progress - slideStart) / (slideInEnd - slideStart);
+                opacity = Math.min(1, t * 1.5);
+                scale = 1;
+                translateX = 120 * (1 - t); // 120% -> 0%
+              } else if (progress < holdEnd) {
+                // Holding at center
                 opacity = 1;
                 scale = 1;
+                translateX = 0;
+              } else {
+                // Zoom out and fade
+                const t = (progress - holdEnd) / (slideEnd - holdEnd);
+                opacity = 1 - t;
+                scale = 1 + 0.3 * t; // zoom out
+                translateX = 0;
               }
             }
 
             return (
               <div
                 key={i}
-                className="absolute bottom-20 right-12 lg:right-24 pointer-events-none"
+                className="absolute bottom-20 left-1/2 pointer-events-none"
                 style={{
                   opacity,
-                  transform: `scale(${scale})`,
+                  transform: `translateX(calc(-50% + ${translateX}%)) scale(${scale})`,
                   transition: "none",
                 }}
               >
-                <div className="flex items-center gap-3 bg-background/60 backdrop-blur-xl rounded-2xl px-5 py-4 shadow-lg min-w-[260px] max-w-[320px]">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-foreground flex items-center justify-center">
-                    {slide.popupIcon}
+                <div
+                  className="flex items-center gap-4 rounded-2xl px-6 py-5 shadow-xl min-w-[300px] max-w-[380px]"
+                  style={{
+                    background: "linear-gradient(135deg, hsla(252, 50%, 70%, 0.35) 0%, hsla(252, 40%, 80%, 0.25) 100%)",
+                    backdropFilter: "blur(20px)",
+                    WebkitBackdropFilter: "blur(20px)",
+                    border: "1px solid hsla(0, 0%, 100%, 0.25)",
+                  }}
+                >
+                  <div className="flex-shrink-0 w-11 h-11 rounded-full bg-[hsl(252,60%,60%)] flex items-center justify-center">
+                    <Sparkles className="w-5 h-5 text-white" />
                   </div>
-                  <p className="text-sm font-medium text-foreground/90 leading-snug">
+                  <p className="text-base font-semibold text-white leading-snug drop-shadow-sm">
                     {slide.popupText}
                   </p>
                 </div>
