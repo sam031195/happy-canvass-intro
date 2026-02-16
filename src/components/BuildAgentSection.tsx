@@ -6,13 +6,13 @@ const BuildAgentSection = () => {
       <div
         className="relative rounded-3xl overflow-hidden"
         style={{
-          background: "hsl(0, 0%, 8%)",
+          background: "hsl(0, 0%, 100%)",
           minHeight: "90vh",
         }}
       >
         <div className="px-10 lg:px-16 py-16 lg:py-20 h-full">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-[hsl(0,0%,25%)] px-4 py-2 text-sm font-medium text-white mb-20">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[hsl(0,0%,80%)] bg-[hsl(0,0%,95%)] px-4 py-2 text-sm font-medium text-[hsl(0,0%,15%)] mb-20">
             <Sparkles className="w-4 h-4" fill="currentColor" />
             Complete, unified platform
           </div>
@@ -21,10 +21,10 @@ const BuildAgentSection = () => {
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-0">
             {/* Left side - text */}
             <div className="flex-1 max-w-xl lg:pr-12">
-              <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
+              <h2 className="text-4xl lg:text-5xl font-bold text-[hsl(0,0%,10%)] leading-tight mb-6">
                 <span className="text-[hsl(252,80%,65%)]">Build</span> your agent
               </h2>
-              <p className="text-base lg:text-lg text-[hsl(0,0%,60%)] leading-relaxed max-w-md">
+              <p className="text-base lg:text-lg text-[hsl(0,0%,45%)] leading-relaxed max-w-md">
                 Define your workflows with natural-language AOPs that deliver faster time to value, greater transparency, and trusted results at scale.
               </p>
             </div>
@@ -32,21 +32,21 @@ const BuildAgentSection = () => {
             {/* Center - vertical line with step number */}
             <div className="hidden lg:flex flex-col items-center pt-4">
               {/* Vertical line top */}
-              <div className="w-px h-24 bg-[hsl(0,0%,30%)]" />
+              <div className="w-px h-24 bg-[hsl(0,0%,80%)]" />
 
               {/* Step number circle */}
               <div
-                className="w-14 h-14 rounded-full flex items-center justify-center text-xl font-semibold text-[hsl(0,0%,15%)] my-2 shrink-0"
+                className="w-14 h-14 rounded-full flex items-center justify-center text-xl font-semibold text-white my-2 shrink-0"
                 style={{
-                  background: "linear-gradient(180deg, hsl(0,0%,95%) 0%, hsl(0,0%,80%) 100%)",
-                  boxShadow: "0 4px 20px hsla(0,0%,100%,0.15)",
+                  background: "linear-gradient(180deg, hsl(0,0%,20%) 0%, hsl(0,0%,10%) 100%)",
+                  boxShadow: "0 4px 20px hsla(0,0%,0%,0.15)",
                 }}
               >
                 1
               </div>
 
               {/* Vertical line bottom */}
-              <div className="w-px flex-1 bg-[hsl(0,0%,30%)]" />
+              <div className="w-px flex-1 bg-[hsl(0,0%,80%)]" />
             </div>
 
             {/* Right side - chat & AOP cards */}
@@ -72,28 +72,27 @@ const BuildAgentSection = () => {
               <div
                 className="rounded-2xl p-6 max-w-sm"
                 style={{
-                  background: "linear-gradient(180deg, hsla(0,0%,100%,0.12) 0%, hsla(0,0%,100%,0.06) 100%)",
-                  backdropFilter: "blur(20px)",
-                  border: "1px solid hsla(0,0%,100%,0.12)",
+                  background: "linear-gradient(180deg, hsl(0,0%,96%) 0%, hsl(0,0%,93%) 100%)",
+                  border: "1px solid hsl(0,0%,85%)",
                 }}
               >
                 {/* Highlighted rule */}
                 <div
                   className="rounded-lg px-4 py-3 mb-4"
                   style={{
-                    background: "hsla(0,0%,100%,0.1)",
-                    border: "1px solid hsla(0,0%,100%,0.08)",
+                    background: "hsl(0,0%,100%)",
+                    border: "1px solid hsl(0,0%,88%)",
                   }}
                 >
-                  <p className="text-sm text-white leading-relaxed">
+                  <p className="text-sm text-[hsl(0,0%,15%)] leading-relaxed">
                     <span className="text-[hsl(0,0%,55%)]">1.</span>{" "}
-                    <span className="text-white">If </span>
-                    <span className="text-[hsl(252,80%,65%)]">@user_flagged_for_fraud</span>
+                    <span className="text-[hsl(0,0%,15%)]">If </span>
+                    <span className="text-[hsl(252,80%,55%)]">@user_flagged_for_fraud</span>
                   </p>
-                  <p className="text-sm text-white leading-relaxed pl-4">
+                  <p className="text-sm text-[hsl(0,0%,15%)] leading-relaxed pl-4">
                     <span className="text-[hsl(0,0%,55%)]">a.</span>{" "}
-                    <span className="text-white">Switch to </span>
-                    <span className="text-[hsl(25,90%,60%)]">#Escalation request</span>
+                    <span className="text-[hsl(0,0%,15%)]">Switch to </span>
+                    <span className="text-[hsl(25,90%,50%)]">#Escalation request</span>
                   </p>
                 </div>
 
@@ -101,28 +100,28 @@ const BuildAgentSection = () => {
                 <div className="space-y-4 text-sm leading-relaxed">
                   <p>
                     <span className="text-[hsl(0,0%,55%)]">2.</span>{" "}
-                    <span className="text-[hsl(0,0%,75%)]">Use </span>
-                    <span className="text-[hsl(252,80%,65%)]">@load_user_orders</span>
+                    <span className="text-[hsl(0,0%,45%)]">Use </span>
+                    <span className="text-[hsl(252,80%,55%)]">@load_user_orders</span>
                   </p>
                   <div>
                     <p>
                       <span className="text-[hsl(0,0%,55%)]">3.</span>{" "}
-                      <span className="text-[hsl(0,0%,75%)]">Ask the user which of the orders they would like to return</span>
+                      <span className="text-[hsl(0,0%,45%)]">Ask the user which of the orders they would like to return</span>
                     </p>
                   </div>
                   <div>
                     <p>
                       <span className="text-[hsl(0,0%,55%)]">4.</span>{" "}
-                      <span className="text-[hsl(0,0%,75%)]">If </span>
-                      <span className="text-[hsl(252,80%,65%)]">@order_exchange_eligible</span>
+                      <span className="text-[hsl(0,0%,45%)]">If </span>
+                      <span className="text-[hsl(252,80%,55%)]">@order_exchange_eligible</span>
                     </p>
                     <p className="pl-4">
                       <span className="text-[hsl(0,0%,55%)]">a.</span>{" "}
-                      <span className="text-[hsl(0,0%,75%)]">Explain to the user that their order is eligible for a free exchange.</span>
+                      <span className="text-[hsl(0,0%,45%)]">Explain to the user that their order is eligible for a free exchange.</span>
                     </p>
                     <p className="pl-4">
                       <span className="text-[hsl(0,0%,55%)]">b.</span>{" "}
-                      <span className="text-[hsl(0,0%,75%)]">Confirm new size and color of</span>
+                      <span className="text-[hsl(0,0%,45%)]">Confirm new size and color of</span>
                     </p>
                   </div>
                 </div>
@@ -135,7 +134,7 @@ const BuildAgentSection = () => {
         <div
           className="absolute bottom-0 right-0 w-[400px] h-[400px] pointer-events-none"
           style={{
-            background: "radial-gradient(circle, hsla(252,60%,50%,0.15) 0%, transparent 70%)",
+            background: "radial-gradient(circle, hsla(252,60%,50%,0.06) 0%, transparent 70%)",
           }}
         />
       </div>
