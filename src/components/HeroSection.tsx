@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, ArrowDown, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroBg from "@/assets/hero-bg.png";
 import scrollImg2 from "@/assets/scroll-img-2.png";
 import scrollImg3 from "@/assets/scroll-img-3.png";
 import scrollImg4 from "@/assets/scroll-img-4.png";
@@ -10,11 +9,6 @@ import scrollImg6 from "@/assets/scroll-img-6.jpg";
 import scrollImg7 from "@/assets/scroll-img-7.jpg";
 
 const slides = [
-  {
-    image: heroBg,
-    popupIcon: <Sparkles className="w-5 h-5 text-primary" />,
-    popupText: "I've applied your membership perks.",
-  },
   {
     image: scrollImg2,
     popupIcon: <Sparkles className="w-5 h-5 text-primary" />,
