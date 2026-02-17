@@ -37,6 +37,13 @@ const PROGRAMS_BY_UNIVERSITY: Record<string, ProgramOption[]> = {
     { name: "BS in Artificial Intelligence and Decision Making", department: "School of Engineering" },
     { name: "BS in Mathematics with Computer Science", department: "Department of Mathematics, School of Science" },
   ],
+  "University of Pennsylvania": [
+    { name: "Computer & Information Science, MSE", department: "School of Engineering and Applied Science" },
+    { name: "Computer & Information Technology, MCIT", department: "School of Engineering and Applied Science" },
+    { name: "Artificial Intelligence, MSE", department: "School of Engineering and Applied Science" },
+    { name: "Systems Engineering, MSE", department: "School of Engineering and Applied Science" },
+    { name: "Scientific Computing, MSE", department: "School of Engineering and Applied Science" },
+  ],
 };
 const DEFAULT_PROGRAMS: ProgramOption[] = [
   { name: "B.Tech" }, { name: "M.Tech" }, { name: "BCA" }, { name: "MCA" }, { name: "B.Sc" }, { name: "M.Sc" },
