@@ -41,7 +41,7 @@ const WayForwardSection = () => {
           WebkitMaskComposite: "destination-in",
         }}
       />
-      <div className="max-w-5xl mx-auto px-8 lg:px-12">
+      <div className="relative z-10 max-w-5xl mx-auto px-8 lg:px-12">
         {/* Heading */}
         <h2
           className="text-4xl lg:text-5xl font-bold text-center mb-12"
