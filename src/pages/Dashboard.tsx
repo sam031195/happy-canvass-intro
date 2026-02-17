@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { Send, ChevronDown, Bot } from "lucide-react";
+import { Send, ChevronDown, Bot, Sparkles } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 
 const MODELS = [
@@ -121,8 +121,22 @@ const Dashboard = () => {
                 className="flex-1 bg-transparent border-none outline-none text-foreground placeholder:text-muted-foreground text-base min-w-0"
               />
 
+              {/* AI Mode */}
+              <button className="group relative shrink-0 rounded-full px-4 py-2 text-sm font-medium text-foreground flex items-center gap-1.5 bg-background border border-border transition-all duration-300 hover:border-transparent">
+                {/* Animated gradient border on hover */}
+                <span className="pointer-events-none absolute -inset-[2px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"
+                  style={{
+                    background: "conic-gradient(from var(--ai-angle, 0deg), #4285f4, #ea4335, #fbbc05, #34a853, #4285f4)",
+                    animation: "ai-spin 2s linear infinite",
+                  }}
+                />
+                <span className="pointer-events-none absolute inset-0 rounded-full bg-background -z-[5]" />
+                <Sparkles className="h-4 w-4" />
+                AI Mode
+              </button>
+
               {/* Send */}
-              <button className="h-10 w-10 rounded-full bg-primary flex items-center justify-center hover:bg-primary/85 transition-colors shrink-0">
+              <button className="h-10 w-10 rounded-full bg-gradient-to-b from-[hsl(0,0%,35%)] to-[hsl(0,0%,8%)] shadow-[inset_0_1px_0_hsla(0,0%,100%,0.1)] flex items-center justify-center hover:opacity-90 transition-opacity shrink-0">
                 <Send className="h-4 w-4 text-primary-foreground" />
               </button>
             </div>
