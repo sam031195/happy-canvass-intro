@@ -41,9 +41,9 @@ const Section3cRight = () => (
       <div className="relative z-10">
         {/* User bubble - teal */}
         <div className="flex justify-end mb-6">
-          <div className="px-5 py-3 flex items-center gap-3 w-full" style={{ background: "linear-gradient(180deg, hsl(0,0%,95%) 0%, hsl(252,58%,65%) 100%)", borderRadius: "999px" }}>
-            <span className="text-xs font-semibold px-3 py-0.5 shrink-0" style={{ background: "hsla(0,0%,0%,0.1)", color: "hsl(0,0%,10%)", borderRadius: "999px" }}>User</span>
-            <span className="text-sm font-medium text-[hsl(0,0%,10%)]">What is our largest business expense?</span>
+          <div className="px-5 py-3 flex items-center gap-3 w-full" style={{ background: "linear-gradient(180deg, hsl(250,20%,82%) 0%, hsl(252,58%,65%) 100%)", borderRadius: "999px" }}>
+            <span className="text-xs font-semibold px-3 py-0.5 shrink-0" style={{ background: "hsla(0,0%,100%,0.2)", color: "hsl(0,0%,100%)", borderRadius: "999px" }}>User</span>
+            <span className="text-sm font-medium text-white">What is our largest business expense?</span>
           </div>
         </div>
 

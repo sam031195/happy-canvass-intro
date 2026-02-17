@@ -31,9 +31,9 @@ const Section3bRight = () => (
       />
       <div className="relative z-10">
         <div className="flex justify-end mb-5">
-          <div className="px-5 py-3 flex items-center gap-3 w-full" style={{ background: "linear-gradient(180deg, hsl(0,0%,95%) 0%, hsl(252,58%,65%) 100%)", borderRadius: "999px" }}>
-            <span className="text-xs font-semibold px-3 py-0.5 shrink-0" style={{ background: "hsla(0,0%,0%,0.1)", color: "hsl(0,0%,10%)", borderRadius: "999px" }}>User</span>
-            <span className="text-sm font-medium text-[hsl(0,0%,10%)]">Add new contacts as leads</span>
+          <div className="px-5 py-3 flex items-center gap-3 w-full" style={{ background: "linear-gradient(180deg, hsl(250,20%,82%) 0%, hsl(252,58%,65%) 100%)", borderRadius: "999px" }}>
+            <span className="text-xs font-semibold px-3 py-0.5 shrink-0" style={{ background: "hsla(0,0%,100%,0.2)", color: "hsl(0,0%,100%)", borderRadius: "999px" }}>User</span>
+            <span className="text-sm font-medium text-white">Add new contacts as leads</span>
           </div>
         </div>
         <p className="text-xs font-medium mb-3" style={{ color: "hsl(0,0%,35%)" }}>Contact details</p>

@@ -2,9 +2,9 @@ import { ReactNode, useEffect, useRef, useState } from "react";
 
 export const TimelineCircle = ({ number }: { number: number }) => (
   <div
-    className="w-14 h-14 rounded-full flex items-center justify-center text-xl font-semibold text-[hsl(0,0%,10%)] shrink-0"
+    className="w-14 h-14 rounded-full flex items-center justify-center text-xl font-semibold text-white shrink-0"
     style={{
-      background: "linear-gradient(180deg, hsl(0,0%,95%) 0%, hsl(252,58%,65%) 100%)",
+      background: "linear-gradient(180deg, hsl(250,20%,82%) 0%, hsl(252,58%,65%) 100%)",
       boxShadow: "0 4px 20px hsla(0,0%,0%,0.15)",
     }}
   >

@@ -33,9 +33,9 @@ const Section3aRight = () => (
       />
       <div className="relative z-10">
         <div className="flex justify-end mb-4">
-          <div className="rounded-full px-5 py-3 flex items-center gap-3 inline-flex" style={{ background: "linear-gradient(180deg, hsl(0,0%,95%) 0%, hsl(252,58%,65%) 100%)" }}>
-            <span className="text-xs font-semibold px-3 py-0.5 rounded-full" style={{ background: "hsla(0,0%,0%,0.1)", color: "hsl(0,0%,10%)" }}>User</span>
-            <span className="text-sm font-medium text-[hsl(0,0%,10%)] whitespace-nowrap">Help me contact the venues listed for Happy Hour.</span>
+          <div className="rounded-full px-5 py-3 flex items-center gap-3 inline-flex" style={{ background: "linear-gradient(180deg, hsl(250,20%,82%) 0%, hsl(252,58%,65%) 100%)" }}>
+            <span className="text-xs font-semibold px-3 py-0.5 rounded-full" style={{ background: "hsla(0,0%,100%,0.2)", color: "hsl(0,0%,100%)" }}>User</span>
+            <span className="text-sm font-medium text-white whitespace-nowrap">Help me contact the venues listed for Happy Hour.</span>
           </div>
         </div>
         <p className="text-xs font-medium text-[hsl(0,0%,50%)] mb-3">Creating steps</p>
