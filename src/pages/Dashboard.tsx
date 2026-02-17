@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { Search, ChevronDown, Bot, Sparkles } from "lucide-react";
 import { useState, useRef, useEffect, useCallback } from "react";
+import SyllabusFinderDialog from "@/components/SyllabusFinderDialog";
 
 const MODELS = [
   { label: "GPT 5", value: "openai/gpt-5" },
@@ -22,6 +23,7 @@ const Dashboard = () => {
   const [modelOpen, setModelOpen] = useState(false);
   const [aiGradientPos, setAiGradientPos] = useState({ x: 50, y: 50 });
   const [aiHovered, setAiHovered] = useState(false);
+  const [syllabusOpen, setSyllabusOpen] = useState(false);
   const aiBtnRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -86,9 +88,11 @@ const Dashboard = () => {
             variant="hero-outline"
             size="lg"
             className="mt-8 border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10"
+            onClick={() => setSyllabusOpen(true)}
           >
             Browse Syllabus
           </Button>
+          <SyllabusFinderDialog open={syllabusOpen} onOpenChange={setSyllabusOpen} />
 
           {/* Search bar */}
           <div className="mt-6 w-full max-w-3xl">
