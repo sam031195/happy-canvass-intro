@@ -85,7 +85,8 @@ const WayForwardSection = () => {
               key={i}
               className="flex flex-col"
               style={{
-                background: "hsl(0,0%,100%)",
+                background: "hsla(0,0%,100%,0.55)",
+                backdropFilter: "blur(2px)",
                 border: "1px solid hsl(0,0%,82%)",
                 borderRadius: "4px",
               }}
