@@ -6,9 +6,9 @@ import Section3dContent, { Section3dConnector } from "./Section3dCard";
 
 const EndToEndSection = () => {
   return (
-    <section className="px-6 lg:px-10 py-4">
+    <section>
       <div
-        className="relative rounded overflow-hidden"
+        className="relative overflow-hidden"
         style={{ background: "hsl(0, 0%, 92%)" }}
       >
         <div className="px-10 lg:px-16 pt-16 lg:pt-20">
