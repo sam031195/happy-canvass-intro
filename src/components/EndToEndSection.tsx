@@ -12,7 +12,7 @@ const EndToEndSection = () => {
       >
         <div className="px-10 lg:px-16 py-16 lg:py-20 h-full">
           {/* Main content area */}
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-0">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-0 overflow-hidden">
             {/* Left side - icon + text */}
             <div className="flex-1 max-w-xl lg:pr-12">
               {/* Icon */}
@@ -55,7 +55,7 @@ const EndToEndSection = () => {
             </div>
 
             {/* Right side - Agent chat UI */}
-            <div className="flex-1 flex flex-col items-center lg:items-start lg:pl-12 gap-3 pt-4">
+            <div className="flex-1 flex flex-col items-center lg:items-start lg:pl-12 gap-3 pt-4 min-w-0">
               {/* Chat card */}
               <div
                 className="rounded-lg p-5 lg:p-6 relative overflow-hidden w-full"
