@@ -53,19 +53,17 @@ const DEFAULT_PROGRAMS: ProgramOption[] = [
   { name: "B.Tech" }, { name: "M.Tech" }, { name: "BCA" }, { name: "MCA" }, { name: "B.Sc" }, { name: "M.Sc" },
 ];
 
-const SEMESTERS: string[] = [];
-
 interface Props {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  onProgramSelected?: (university: string, program: string) => void;
 }
 
-const SyllabusFinderDialog = ({ open, onOpenChange }: Props) => {
+const SyllabusFinderDialog = ({ open, onOpenChange, onProgramSelected }: Props) => {
   const [step, setStep] = useState(0);
   const [university, setUniversity] = useState("");
   const [program, setProgram] = useState("");
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [showResults, setShowResults] = useState(false);
 
   const programs = university && PROGRAMS_BY_UNIVERSITY[university] ? PROGRAMS_BY_UNIVERSITY[university] : DEFAULT_PROGRAMS;
   const currentOptions = step === 0 ? UNIVERSITIES : programs.map(p => p.name);
@@ -80,15 +78,16 @@ const SyllabusFinderDialog = ({ open, onOpenChange }: Props) => {
     if (step === 0) {
       setTimeout(() => setStep(1), 300);
     } else if (step === 1) {
-      // Program selected → show results
-      setTimeout(() => setShowResults(true), 300);
+      // Program selected → close dialog, open full-screen page
+      setTimeout(() => {
+        onProgramSelected?.(university, val);
+        handleOpenChange(false);
+      }, 300);
     }
   };
 
   const handleBack = () => {
-    if (showResults) {
-      setShowResults(false);
-    } else if (step > 0) {
+    if (step > 0) {
       setStep(step - 1);
       setDropdownOpen(false);
     } else {
@@ -102,7 +101,6 @@ const SyllabusFinderDialog = ({ open, onOpenChange }: Props) => {
       setUniversity("");
       setProgram("");
       setDropdownOpen(false);
-      setShowResults(false);
     }
     onOpenChange(open);
   };
@@ -118,160 +116,111 @@ const SyllabusFinderDialog = ({ open, onOpenChange }: Props) => {
       >
         <DialogTitle className="sr-only">Find Your Syllabus</DialogTitle>
         <div className="flex flex-col min-h-[520px]">
-          {showResults ? (
-            <>
-              {/* Results view */}
-              <div className="flex items-center justify-center gap-1 pt-6 pb-2">
-                <span className="px-3.5 py-1.5 rounded-full text-sm font-medium text-primary-foreground"
+          {/* Breadcrumb steps */}
+          <div className="flex items-center justify-center gap-1 pt-6 pb-2">
+            {STEPS.map((s, i) => (
+              <div key={s} className="flex items-center gap-1">
+                <button
+                  onClick={() => i <= step && setStep(i)}
+                  className={`px-3.5 py-1.5 rounded-full text-sm font-medium transition-colors ${
+                    i === step
+                      ? "text-primary-foreground"
+                      : i < step
+                        ? "text-primary-foreground/70 hover:text-primary-foreground/90 cursor-pointer"
+                        : "text-primary-foreground/30 cursor-default"
+                  }`}
+                  style={
+                    i === step
+                      ? {
+                          background: "linear-gradient(180deg, hsl(0 0% 35%), hsl(0 0% 8%))",
+                          boxShadow: "inset 0 1px 0 hsla(0,0%,100%,0.1)",
+                        }
+                      : undefined
+                  }
+                  disabled={i > step}
+                >
+                  {s}
+                </button>
+                {i < STEPS.length - 1 && (
+                  <span className="text-primary-foreground/20 text-sm mx-0.5">›</span>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Title */}
+          <div className="text-center pt-4 pb-2 px-6">
+            <h2 className="text-2xl font-bold text-primary-foreground">Find Your Syllabus</h2>
+            <p className="text-primary-foreground/50 text-sm mt-1.5">
+              Follow the steps to find the curriculum for your course.
+            </p>
+          </div>
+
+          {/* Content */}
+          <div className="flex-1 flex flex-col items-center justify-start px-6 pb-4 overflow-y-auto">
+            <p className="text-base font-semibold text-primary-foreground mb-3">
+              {step + 1}. Select Your {STEPS[step]}
+            </p>
+
+            {/* Custom dropdown */}
+            <div className="relative w-full max-w-[420px]">
+              <button
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-sm transition-colors"
+                style={{
+                  background: "hsla(0,0%,100%,0.06)",
+                  border: "1px solid hsla(0,0%,100%,0.1)",
+                  color: currentValue ? "hsl(0 0% 95%)" : "hsl(0 0% 50%)",
+                }}
+              >
+                {currentValue || placeholders[step]}
+                <ChevronDown className="h-4 w-4 text-primary-foreground/40" />
+              </button>
+
+              {dropdownOpen && (
+                <div
+                  className="w-full mt-1 z-50 rounded-lg py-1 max-h-[200px] overflow-y-auto"
                   style={{
-                    background: "linear-gradient(180deg, hsl(0 0% 35%), hsl(0 0% 8%))",
-                    boxShadow: "inset 0 1px 0 hsla(0,0%,100%,0.1)",
+                    background: "hsl(230 25% 16%)",
+                    border: "1px solid hsla(0,0%,100%,0.1)",
+                    boxShadow: "0 10px 40px hsla(0,0%,0%,0.5)",
                   }}
                 >
-                  Syllabus
-                </span>
-              </div>
-
-              <div className="text-center pt-4 pb-2 px-6">
-                <h2 className="text-2xl font-bold text-primary-foreground">Your Syllabus</h2>
-                <p className="text-primary-foreground/50 text-sm mt-1.5">
-                  {university} · {program}
-                </p>
-              </div>
-
-              <div className="flex-1 flex flex-col items-center justify-center px-6 pb-4">
-                <div className="w-full max-w-[480px] rounded-xl p-6 text-center"
-                  style={{
-                    background: "hsla(0,0%,100%,0.04)",
-                    border: "1px solid hsla(0,0%,100%,0.08)",
-                  }}
-                >
-                  <p className="text-primary-foreground/70 text-sm">
-                    Syllabus content for <span className="font-semibold text-primary-foreground">{program}</span> will appear here.
-                  </p>
-                  <p className="text-primary-foreground/40 text-xs mt-2">Coming soon</p>
+                  {currentOptions.map((opt, idx) => {
+                    const programInfo = currentPrograms ? currentPrograms[idx] : null;
+                    return (
+                      <button
+                        key={opt}
+                        onClick={() => handleSelect(opt)}
+                        className="w-full text-left px-4 py-2.5 text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                        style={{ background: opt === currentValue ? "hsla(0,0%,100%,0.08)" : undefined }}
+                        onMouseEnter={(e) => (e.currentTarget.style.background = "hsla(0,0%,100%,0.06)")}
+                        onMouseLeave={(e) => (e.currentTarget.style.background = opt === currentValue ? "hsla(0,0%,100%,0.08)" : "")}
+                      >
+                        <span className="text-sm font-semibold text-primary-foreground">{opt}</span>
+                        {programInfo?.department && (
+                          <span className="block text-xs italic text-primary-foreground/50 mt-0.5">
+                            {programInfo.department}
+                          </span>
+                        )}
+                      </button>
+                    );
+                  })}
                 </div>
-              </div>
+              )}
+            </div>
+          </div>
 
-              <div className="px-6 pb-5">
-                <button
-                  onClick={handleBack}
-                  className="flex items-center gap-1 text-sm text-primary-foreground/60 hover:text-primary-foreground/90 transition-colors"
-                >
-                  <ChevronLeft className="h-4 w-4" />
-                  Back
-                </button>
-              </div>
-            </>
-          ) : (
-            <>
-              {/* Breadcrumb steps */}
-              <div className="flex items-center justify-center gap-1 pt-6 pb-2">
-                {STEPS.map((s, i) => (
-                  <div key={s} className="flex items-center gap-1">
-                    <button
-                      onClick={() => i <= step && setStep(i)}
-                      className={`px-3.5 py-1.5 rounded-full text-sm font-medium transition-colors ${
-                        i === step
-                          ? "text-primary-foreground"
-                          : i < step
-                            ? "text-primary-foreground/70 hover:text-primary-foreground/90 cursor-pointer"
-                            : "text-primary-foreground/30 cursor-default"
-                      }`}
-                      style={
-                        i === step
-                          ? {
-                              background: "linear-gradient(180deg, hsl(0 0% 35%), hsl(0 0% 8%))",
-                              boxShadow: "inset 0 1px 0 hsla(0,0%,100%,0.1)",
-                            }
-                          : undefined
-                      }
-                      disabled={i > step}
-                    >
-                      {s}
-                    </button>
-                    {i < STEPS.length - 1 && (
-                      <span className="text-primary-foreground/20 text-sm mx-0.5">›</span>
-                    )}
-                  </div>
-                ))}
-              </div>
-
-              {/* Title */}
-              <div className="text-center pt-4 pb-2 px-6">
-                <h2 className="text-2xl font-bold text-primary-foreground">Find Your Syllabus</h2>
-                <p className="text-primary-foreground/50 text-sm mt-1.5">
-                  Follow the steps to find the curriculum for your course.
-                </p>
-              </div>
-
-              {/* Content */}
-              <div className="flex-1 flex flex-col items-center justify-start px-6 pb-4 overflow-y-auto">
-                <p className="text-base font-semibold text-primary-foreground mb-3">
-                  {step + 1}. Select Your {STEPS[step]}
-                </p>
-
-                {/* Custom dropdown */}
-                <div className="relative w-full max-w-[420px]">
-                  <button
-                    onClick={() => setDropdownOpen(!dropdownOpen)}
-                    className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-sm transition-colors"
-                    style={{
-                      background: "hsla(0,0%,100%,0.06)",
-                      border: "1px solid hsla(0,0%,100%,0.1)",
-                      color: currentValue ? "hsl(0 0% 95%)" : "hsl(0 0% 50%)",
-                    }}
-                  >
-                    {currentValue || placeholders[step]}
-                    <ChevronDown className="h-4 w-4 text-primary-foreground/40" />
-                  </button>
-
-                  {dropdownOpen && (
-                    <div
-                      className="w-full mt-1 z-50 rounded-lg py-1 max-h-[200px] overflow-y-auto"
-                      style={{
-                        background: "hsl(230 25% 16%)",
-                        border: "1px solid hsla(0,0%,100%,0.1)",
-                        boxShadow: "0 10px 40px hsla(0,0%,0%,0.5)",
-                      }}
-                    >
-                      {currentOptions.map((opt, idx) => {
-                        const programInfo = currentPrograms ? currentPrograms[idx] : null;
-                        return (
-                          <button
-                            key={opt}
-                            onClick={() => handleSelect(opt)}
-                            className="w-full text-left px-4 py-2.5 text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-                            style={{ background: opt === currentValue ? "hsla(0,0%,100%,0.08)" : undefined }}
-                            onMouseEnter={(e) => (e.currentTarget.style.background = "hsla(0,0%,100%,0.06)")}
-                            onMouseLeave={(e) => (e.currentTarget.style.background = opt === currentValue ? "hsla(0,0%,100%,0.08)" : "")}
-                          >
-                            <span className="text-sm font-semibold text-primary-foreground">{opt}</span>
-                            {programInfo?.department && (
-                              <span className="block text-xs italic text-primary-foreground/50 mt-0.5">
-                                {programInfo.department}
-                              </span>
-                            )}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              {/* Footer */}
-              <div className="px-6 pb-5">
-                <button
-                  onClick={handleBack}
-                  className="flex items-center gap-1 text-sm text-primary-foreground/60 hover:text-primary-foreground/90 transition-colors"
-                >
-                  <ChevronLeft className="h-4 w-4" />
-                  Back
-                </button>
-              </div>
-            </>
-          )}
+          {/* Footer */}
+          <div className="px-6 pb-5">
+            <button
+              onClick={handleBack}
+              className="flex items-center gap-1 text-sm text-primary-foreground/60 hover:text-primary-foreground/90 transition-colors"
+            >
+              <ChevronLeft className="h-4 w-4" />
+              Back
+            </button>
+          </div>
         </div>
       </DialogContent>
     </Dialog>

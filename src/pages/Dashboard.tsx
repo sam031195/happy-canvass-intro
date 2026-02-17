@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Search, ChevronDown, Bot, Sparkles } from "lucide-react";
 import { useState, useRef, useEffect, useCallback } from "react";
 import SyllabusFinderDialog from "@/components/SyllabusFinderDialog";
+import SyllabusPage from "@/components/SyllabusPage";
 
 const MODELS = [
   { label: "GPT 5", value: "openai/gpt-5" },
@@ -24,6 +25,7 @@ const Dashboard = () => {
   const [aiGradientPos, setAiGradientPos] = useState({ x: 50, y: 50 });
   const [aiHovered, setAiHovered] = useState(false);
   const [syllabusOpen, setSyllabusOpen] = useState(false);
+  const [syllabusSelection, setSyllabusSelection] = useState<{ university: string; program: string } | null>(null);
   const aiBtnRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -44,6 +46,21 @@ const Dashboard = () => {
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
   }, []);
+
+  const handleProgramSelected = (university: string, program: string) => {
+    setSyllabusSelection({ university, program });
+  };
+
+  // Show full-screen syllabus page if a program was selected
+  if (syllabusSelection) {
+    return (
+      <SyllabusPage
+        university={syllabusSelection.university}
+        program={syllabusSelection.program}
+        onBack={() => setSyllabusSelection(null)}
+      />
+    );
+  }
 
   return (
     <section className="relative h-screen w-full overflow-hidden flex flex-col">
@@ -92,7 +109,11 @@ const Dashboard = () => {
           >
             Browse Syllabus
           </Button>
-          <SyllabusFinderDialog open={syllabusOpen} onOpenChange={setSyllabusOpen} />
+          <SyllabusFinderDialog
+            open={syllabusOpen}
+            onOpenChange={setSyllabusOpen}
+            onProgramSelected={handleProgramSelected}
+          />
 
           {/* Search bar */}
           <div className="mt-6 w-full max-w-3xl">
@@ -146,7 +167,6 @@ const Dashboard = () => {
                 onMouseLeave={() => setAiHovered(false)}
                 className="relative shrink-0 rounded-full px-4 py-2 text-sm font-medium text-primary-foreground flex items-center gap-1.5 border border-primary-foreground/20"
               >
-                {/* Gradient glow that follows cursor */}
                 <span
                   className="pointer-events-none absolute -inset-[2.5px] rounded-full -z-10 transition-opacity duration-300"
                   style={{
