@@ -155,18 +155,6 @@ const WayForwardSection = () => {
         </div>
       </div>
 
-      {/* Edge-to-edge upside-down banner video */}
-      <div className="w-full mt-24">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full block"
-          style={{ transform: "rotate(180deg)" }}
-          src="/videos/banner-video.webm"
-        />
-      </div>
     </section>
   );
 };
