@@ -60,7 +60,7 @@ const EndToEndSection = () => {
                     <div
                       className="rounded-full px-5 py-3 flex items-center gap-3 inline-flex"
                       style={{
-                        background: "hsl(175,30%,35%)",
+                        background: "hsl(252,50%,55%)",
                       }}
                     >
                       <span
