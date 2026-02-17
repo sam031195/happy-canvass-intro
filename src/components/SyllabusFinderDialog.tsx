@@ -178,7 +178,7 @@ const SyllabusFinderDialog = ({ open, onOpenChange }: Props) => {
                         onMouseEnter={(e) => (e.currentTarget.style.background = "hsla(0,0%,100%,0.06)")}
                         onMouseLeave={(e) => (e.currentTarget.style.background = opt === currentValue ? "hsla(0,0%,100%,0.08)" : "")}
                       >
-                        <span className="text-sm font-semibold" style={{ color: "hsl(210 60% 55%)" }}>{opt}</span>
+                        <span className="text-sm font-semibold text-primary-foreground">{opt}</span>
                         {programInfo?.department && (
                           <span className="block text-xs italic text-primary-foreground/50 mt-0.5">
                             {programInfo.department}
