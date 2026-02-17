@@ -160,7 +160,7 @@ const SyllabusFinderDialog = ({ open, onOpenChange }: Props) => {
 
               {dropdownOpen && (
                 <div
-                  className="absolute left-0 right-0 top-full mt-1 z-50 rounded-lg py-1 max-h-[300px] overflow-y-auto"
+                  className="absolute left-0 right-0 bottom-full mb-1 z-50 rounded-lg py-1 max-h-[260px] overflow-y-auto"
                   style={{
                     background: "hsl(230 25% 16%)",
                     border: "1px solid hsla(0,0%,100%,0.1)",
