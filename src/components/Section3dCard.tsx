@@ -8,15 +8,19 @@ import insuranceImg from "@/assets/section3d-insurance.jpg";
 const Section3dContent = () => {
   return (
     <div className="px-10 lg:px-16 pb-16 lg:pb-20">
-      {/* Connecting line + sparkle icon */}
-      <div className="flex flex-col items-center">
-        <div className="w-px" style={{ height: "60px", background: "hsl(0,0%,80%)" }} />
-        <div
-          className="w-14 h-14 rounded-full flex items-center justify-center shrink-0"
-          style={{ background: "hsl(252,50%,55%)" }}
-        >
-          <Sparkles className="w-6 h-6 text-white" />
+      {/* Connecting line + sparkle icon — aligned with timeline center */}
+      <div className="flex flex-col lg:flex-row lg:items-start">
+        <div className="hidden lg:block flex-1 max-w-xl lg:pr-12" />
+        <div className="flex flex-col items-center" style={{ width: "56px" }}>
+          <div className="w-px" style={{ height: "80px", background: "hsl(0,0%,80%)" }} />
+          <div
+            className="w-14 h-14 rounded-full flex items-center justify-center shrink-0"
+            style={{ background: "hsl(252,50%,55%)" }}
+          >
+            <Sparkles className="w-6 h-6 text-white" />
+          </div>
         </div>
+        <div className="hidden lg:block flex-1 lg:pl-12" />
       </div>
 
       {/* Dark card */}
