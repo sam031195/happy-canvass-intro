@@ -2,7 +2,7 @@ import { TimelineSection } from "./timeline/TimelineStep";
 import { Section3aLeft, Section3aRight } from "./timeline/Section3aCard";
 import { Section3bLeft, Section3bRight } from "./timeline/Section3bCard";
 import { Section3cLeft, Section3cRight } from "./timeline/Section3cCard";
-import Section3dContent from "./Section3dCard";
+import Section3dContent, { Section3dConnector } from "./Section3dCard";
 
 const EndToEndSection = () => {
   return (
@@ -19,10 +19,12 @@ const EndToEndSection = () => {
               { stepNumber: 3, left: <Section3cLeft />, right: <Section3cRight /> },
             ]}
           >
-            {/* Section 3d — inside timeline so lines are continuous */}
-            <Section3dContent />
+            {/* Sparkle connector inside timeline so line reaches it */}
+            <Section3dConnector />
           </TimelineSection>
         </div>
+        {/* Dark card outside timeline so line stops at sparkle */}
+        <Section3dContent />
       </div>
     </section>
   );

@@ -5,22 +5,26 @@ import carImg from "@/assets/section3d-car.jpg";
 import marathonImg from "@/assets/section3d-marathon.jpg";
 import insuranceImg from "@/assets/section3d-insurance.jpg";
 
+/** Sparkle connector — renders inside TimelineSection so lines reach it */
+export const Section3dConnector = () => (
+  <div className="flex flex-col lg:flex-row lg:items-start" style={{ paddingTop: "80px" }}>
+    <div className="hidden lg:block flex-1 max-w-xl lg:pr-12" />
+    <div className="flex flex-col items-center" style={{ width: "56px" }}>
+      <div
+        className="w-14 h-14 rounded-full flex items-center justify-center shrink-0"
+        style={{ background: "hsl(252,50%,55%)" }}
+      >
+        <Sparkles className="w-6 h-6 text-white" />
+      </div>
+    </div>
+    <div className="hidden lg:block flex-1 lg:pl-12" />
+  </div>
+);
+
+/** Dark card — renders outside TimelineSection so lines don't extend through it */
 const Section3dContent = () => {
   return (
     <div className="px-10 lg:px-16 pb-16 lg:pb-20">
-      {/* Sparkle icon — aligned with timeline center column */}
-      <div className="flex flex-col lg:flex-row lg:items-start" style={{ paddingTop: "80px" }}>
-        <div className="hidden lg:block flex-1 max-w-xl lg:pr-12" />
-        <div className="flex flex-col items-center" style={{ width: "56px" }}>
-          <div
-            className="w-14 h-14 rounded-full flex items-center justify-center shrink-0"
-            style={{ background: "hsl(252,50%,55%)" }}
-          >
-            <Sparkles className="w-6 h-6 text-white" />
-          </div>
-        </div>
-        <div className="hidden lg:block flex-1 lg:pl-12" />
-      </div>
 
       {/* Dark card */}
       <div
