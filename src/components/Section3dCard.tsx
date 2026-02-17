@@ -5,34 +5,37 @@ import carImg from "@/assets/section3d-car.jpg";
 import marathonImg from "@/assets/section3d-marathon.jpg";
 import insuranceImg from "@/assets/section3d-insurance.jpg";
 
-/** Sparkle connector — renders inside TimelineSection so lines reach it */
+/** Spacer inside TimelineSection so the line extends down to the card */
 export const Section3dConnector = () => (
-  <div className="flex flex-col lg:flex-row lg:items-start" style={{ paddingTop: "80px" }}>
-    <div className="hidden lg:block flex-1 max-w-xl lg:pr-12" />
-    <div className="flex flex-col items-center" style={{ width: "56px" }}>
-      <div
-        className="w-14 h-14 rounded-full flex items-center justify-center shrink-0"
-        style={{ background: "hsl(252,50%,55%)" }}
-      >
-        <Sparkles className="w-6 h-6 text-white" />
-      </div>
-    </div>
-    <div className="hidden lg:block flex-1 lg:pl-12" />
-  </div>
+  <div style={{ height: "80px" }} />
 );
 
-/** Dark card — renders outside TimelineSection so lines don't extend through it */
+/** Dark card with sparkle on top edge */
 const Section3dContent = () => {
   return (
     <div className="px-10 lg:px-16 pb-16 lg:pb-20">
 
-      {/* Dark card */}
-      <div
-        className="mt-6 overflow-hidden"
-        style={{
-          background: "hsl(0,0%,10%)",
-          border: "1px solid hsl(0,0%,20%)",
-          borderRadius: "12px",
+      {/* Dark card with sparkle overlapping top edge */}
+      <div className="relative">
+        {/* Sparkle icon centered on top edge of card */}
+        <div
+          className="absolute left-1/2 -translate-x-1/2 z-10"
+          style={{ top: "-28px" }}
+        >
+          <div
+            className="w-14 h-14 rounded-full flex items-center justify-center"
+            style={{ background: "hsl(252,50%,55%)" }}
+          >
+            <Sparkles className="w-6 h-6 text-white" />
+          </div>
+        </div>
+
+        <div
+          className="overflow-hidden"
+          style={{
+            background: "hsl(0,0%,10%)",
+            border: "1px solid hsl(0,0%,20%)",
+            borderRadius: "12px",
         }}
       >
         <div className="flex flex-col lg:flex-row">
@@ -208,6 +211,7 @@ const Section3dContent = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
