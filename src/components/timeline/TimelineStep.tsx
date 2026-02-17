@@ -4,8 +4,8 @@ export const TimelineCircle = ({ number }: { number: number }) => (
   <div
     className="w-14 h-14 rounded-full flex items-center justify-center text-xl font-semibold text-white shrink-0"
     style={{
-      background: "linear-gradient(180deg, hsl(250,20%,82%) 0%, hsl(252,58%,65%) 100%)",
-      boxShadow: "0 4px 20px hsla(0,0%,0%,0.15)",
+    background: "linear-gradient(180deg, hsl(0,0%,35%) 0%, hsl(0,0%,8%) 100%)",
+      boxShadow: "0 4px 20px hsla(0,0%,0%,0.25), inset 0 1px 0 hsla(0,0%,100%,0.1)",
     }}
   >
     {number}
