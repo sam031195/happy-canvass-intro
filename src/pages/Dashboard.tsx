@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import { Search } from "lucide-react";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -43,13 +44,23 @@ const Dashboard = () => {
           <h1 className="text-5xl lg:text-7xl font-semibold text-primary-foreground leading-tight tracking-tight max-w-3xl">
             Shape the next era of intelligence.
           </h1>
-          <Button
-            variant="hero-outline"
-            size="lg"
-            className="mt-8 border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10"
-          >
-            Open Roles
-          </Button>
+            <Button
+              variant="hero-outline"
+              size="lg"
+              className="mt-8 border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10"
+            >
+              Open Roles
+            </Button>
+            <div className="mt-6 w-full max-w-2xl">
+              <div className="flex items-center bg-background/95 backdrop-blur-sm rounded-2xl px-5 py-3 shadow-lg">
+                <Search className="h-5 w-5 text-muted-foreground shrink-0" />
+                <input
+                  type="text"
+                  placeholder="Research a topic"
+                  className="flex-1 bg-transparent border-none outline-none text-foreground placeholder:text-muted-foreground text-base ml-3"
+                />
+              </div>
+            </div>
         </div>
       </div>
     </section>
