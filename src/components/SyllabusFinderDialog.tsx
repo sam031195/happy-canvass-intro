@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/dialog";
 import { ChevronDown, ChevronLeft } from "lucide-react";
 
-const STEPS = ["University", "Program", "Scheme", "Syllabus"] as const;
+const STEPS = ["University", "Program", "Syllabus"] as const;
 
 const UNIVERSITIES = [
   "University of Washington", "University of Oxford", "Massachusetts Institute Of Technology",
@@ -18,7 +18,7 @@ const PROGRAMS_BY_UNIVERSITY: Record<string, string[]> = {
   "University of Washington": ["MSIS", "MSIM", "MSCS", "MSBA", "MSCM", "MBA"],
 };
 const DEFAULT_PROGRAMS = ["B.Tech", "M.Tech", "BCA", "MCA", "B.Sc", "M.Sc"];
-const SCHEMES = ["2024-25", "2023-24", "2022-23", "2021-22"];
+
 const SEMESTERS = ["1st Syllabus", "2nd Syllabus", "3rd Syllabus", "4th Syllabus", "5th Syllabus", "6th Syllabus", "7th Syllabus", "8th Syllabus"];
 
 interface Props {
@@ -30,22 +30,21 @@ const SyllabusFinderDialog = ({ open, onOpenChange }: Props) => {
   const [step, setStep] = useState(0);
   const [university, setUniversity] = useState("");
   const [program, setProgram] = useState("");
-  const [scheme, setScheme] = useState("");
   const [semester, setSemester] = useState("");
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const programs = university && PROGRAMS_BY_UNIVERSITY[university] ? PROGRAMS_BY_UNIVERSITY[university] : DEFAULT_PROGRAMS;
-  const currentOptions = step === 0 ? UNIVERSITIES : step === 1 ? programs : step === 2 ? SCHEMES : SEMESTERS;
-  const currentValue = step === 0 ? university : step === 1 ? program : step === 2 ? scheme : semester;
-  const setCurrentValue = step === 0 ? setUniversity : step === 1 ? setProgram : step === 2 ? setScheme : setSemester;
-  const placeholders = ["Choose a university", "Choose a program", "Choose a scheme", "Choose a syllabus"];
+  const currentOptions = step === 0 ? UNIVERSITIES : step === 1 ? programs : SEMESTERS;
+  const currentValue = step === 0 ? university : step === 1 ? program : semester;
+  const setCurrentValue = step === 0 ? setUniversity : step === 1 ? setProgram : setSemester;
+  const placeholders = ["Choose a university", "Choose a program", "Choose a syllabus"];
 
   const handleSelect = (val: string) => {
     setCurrentValue(val);
     setDropdownOpen(false);
     // Auto-advance after brief delay
     setTimeout(() => {
-      if (step < 3) setStep(step + 1);
+      if (step < 2) setStep(step + 1);
     }, 300);
   };
 
@@ -64,7 +63,6 @@ const SyllabusFinderDialog = ({ open, onOpenChange }: Props) => {
       setStep(0);
       setUniversity("");
       setProgram("");
-      setScheme("");
       setSemester("");
       setDropdownOpen(false);
     }
