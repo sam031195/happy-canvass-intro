@@ -6,13 +6,13 @@ const DecagonDifferenceSection = () => {
     <section className="bg-background py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-8 lg:px-12">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 rounded-full bg-[hsl(0,0%,92%)] px-4 py-2 text-sm font-medium text-foreground mb-10">
+        <div className="inline-flex items-center gap-2 rounded-full bg-[hsl(0,0%,92%)] px-4 py-2 text-sm font-medium text-foreground mb-6">
           <Sparkles className="w-4 h-4" fill="currentColor" />
           The Decagon difference
         </div>
 
         {/* Content grid */}
-        <div className="flex flex-col lg:flex-row items-end gap-16 lg:gap-24">
+        <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
           {/* Left text */}
           <div className="flex-1 max-w-xl">
             <p className="text-lg text-foreground/80 leading-relaxed mb-6">
