@@ -28,16 +28,6 @@ interface TimelineSectionProps {
 
 export const TimelineSection = ({ steps }: TimelineSectionProps) => (
   <div className="relative">
-    {/* Continuous vertical line behind everything - desktop only */}
-    <div
-      className="hidden lg:block absolute w-px bg-[hsl(0,0%,80%)]"
-      style={{
-        left: "calc(50% - 0.5px)",
-        top: "0",
-        bottom: "0",
-        maxWidth: "420px",
-      }}
-    />
 
     {/* Use a wrapper to position the line at the timeline column center */}
     <div className="relative">
