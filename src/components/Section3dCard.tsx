@@ -21,7 +21,7 @@ const Section3dContent = () => {
         <div className="flex justify-center" style={{ width: "56px" }}>
           <div
             className="w-14 h-14 rounded-full flex items-center justify-center shrink-0"
-            style={{ background: "linear-gradient(180deg, hsl(0,0%,25%) 0%, hsl(0,0%,8%) 100%)" }}
+            style={{ background: "linear-gradient(135deg, hsl(230,60%,12%) 0%, hsl(255,50%,35%) 100%)" }}
           >
             <Sparkles className="w-6 h-6 text-white" />
           </div>
