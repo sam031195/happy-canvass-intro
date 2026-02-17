@@ -32,10 +32,10 @@ const WayForwardSection = () => {
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage:
-            "linear-gradient(hsl(220,20%,88%) 1px, transparent 1px), linear-gradient(90deg, hsl(220,20%,88%) 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
-          mask: "radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 70%)",
-          WebkitMask: "radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 70%)",
+            "linear-gradient(hsl(220,15%,88%) 1px, transparent 1px), linear-gradient(90deg, hsl(220,15%,88%) 1px, transparent 1px)",
+          backgroundSize: "20px 20px",
+          mask: "radial-gradient(ellipse 85% 80% at 50% 50%, black 40%, transparent 75%)",
+          WebkitMask: "radial-gradient(ellipse 85% 80% at 50% 50%, black 40%, transparent 75%)",
         }}
       />
       <div className="max-w-5xl mx-auto px-8 lg:px-12">
