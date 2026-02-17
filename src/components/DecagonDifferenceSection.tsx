@@ -12,7 +12,7 @@ const DecagonDifferenceSection = () => {
         </div>
 
         {/* Content grid */}
-        <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           {/* Left text */}
           <div className="flex-1 max-w-xl">
             <p className="text-lg text-foreground/80 leading-relaxed mb-6">
@@ -32,14 +32,14 @@ const DecagonDifferenceSection = () => {
           </div>
 
           {/* Right: Video */}
-          <div className="flex-1 flex items-end justify-center">
-            <div className="relative w-full max-w-[560px] rounded-2xl overflow-hidden bg-background">
+          <div className="flex-1 flex items-center justify-center">
+            <div className="relative w-full max-w-[480px] max-h-[400px] rounded-2xl overflow-hidden bg-background">
               <video
                 autoPlay
                 loop
                 muted
                 playsInline
-                className="w-full h-auto rounded-2xl"
+                className="w-full h-full object-contain rounded-2xl"
                 style={{ mixBlendMode: "multiply" }}
                 src="/videos/ai-as-it-should-be.webm"
               />
