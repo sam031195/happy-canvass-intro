@@ -1,23 +1,17 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, ArrowDown, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import carousel1 from "@/assets/carousel-1.png";
-import carousel2 from "@/assets/carousel-2.jpg";
-import carousel3 from "@/assets/carousel-3.png";
 
 const slides = [
   {
-    image: carousel1,
     popupIcon: <Sparkles className="w-5 h-5 text-primary" />,
     popupText: "Your order has been upgraded to express.",
   },
   {
-    image: carousel2,
     popupIcon: <Sparkles className="w-5 h-5 text-primary" />,
     popupText: "I've scheduled your callback for tomorrow.",
   },
   {
-    image: carousel3,
     popupIcon: <Sparkles className="w-5 h-5 text-primary" />,
     popupText: "Your refund has been processed instantly.",
   },
@@ -43,56 +37,13 @@ const HeroSection = () => {
 
   const totalSlides = slides.length;
 
-  // Each slide's scroll range is split into 3 phases:
-  // Phase 1 (0-35%): Popup slides in from right, image stays still
-  // Phase 2 (35-55%): Popup zooms out, image stays still
-  // Phase 3 (55-100%): Image slides to next
-  // We append a duplicate of the first image at the end for seamless looping
-  const stripSlides = [...slides, slides[0]];
-  const stripCount = stripSlides.length;
-
-  const getImageProgress = () => {
-    let imgProgress = 0;
-    for (let i = 0; i < totalSlides; i++) {
-      const slideStart = i / totalSlides;
-      const slideEnd = (i + 1) / totalSlides;
-      const imgPhaseStart = slideStart + (slideEnd - slideStart) * 0.55;
-      if (progress > imgPhaseStart) {
-        const t = Math.min(1, (progress - imgPhaseStart) / ((slideEnd - slideStart) * 0.45));
-        imgProgress = i + t;
-      }
-    }
-    return imgProgress;
-  };
-
-  const imageOffset = getImageProgress();
-
   return (
     <section
       ref={sectionRef}
       className="relative"
       style={{ height: `${(totalSlides + 1) * 100}vh` }}
     >
-      <div className="sticky top-0 h-screen w-full overflow-hidden">
-        {/* Background images strip */}
-        <div
-          className="absolute inset-0 flex"
-          style={{
-            width: `${stripCount * 100}%`,
-            transform: `translateX(-${(imageOffset / stripCount) * 100}%)`,
-          }}
-        >
-          {stripSlides.map((slide, i) => (
-            <div key={i} className="relative h-full" style={{ width: `${100 / stripCount}%` }}>
-              <img
-                src={slide.image}
-                alt={`Slide ${i + 1}`}
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-            </div>
-          ))}
-        </div>
-
+      <div className="sticky top-0 h-screen w-full overflow-hidden bg-background">
         {/* Fixed hero content overlay */}
         <div className="relative z-10 flex flex-col h-full">
           {/* Navbar */}
@@ -141,24 +92,20 @@ const HeroSection = () => {
             const slideStart = i / totalSlides;
             const slideEnd = (i + 1) / totalSlides;
             const slideRange = slideEnd - slideStart;
-            // Phase 1: popup slides in from right to center (0-35%)
             const slideInEnd = slideStart + slideRange * 0.35;
-            // Phase 2: popup zooms out (35-55%)
             const zoomOutEnd = slideStart + slideRange * 0.55;
 
             let opacity = 0;
             let scale = 1;
-            let translateXpx = 800; // start off-screen right in px
+            let translateXpx = 800;
 
             if (progress >= slideStart && progress < zoomOutEnd) {
               if (progress < slideInEnd) {
-                // Sliding in from right, stops when left edge hits center
                 const t = (progress - slideStart) / (slideInEnd - slideStart);
                 opacity = Math.min(1, t * 2);
                 scale = 1;
-                translateXpx = 800 * (1 - t); // 800px -> 0px (left edge at center)
+                translateXpx = 800 * (1 - t);
               } else {
-                // Zoom out and fade — stays in place, no further movement
                 const t = (progress - slideInEnd) / (zoomOutEnd - slideInEnd);
                 opacity = 1 - t;
                 scale = 1 + 0.5 * t;
