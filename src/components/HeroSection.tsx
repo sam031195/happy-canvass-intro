@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, ArrowDown, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 import heroSlide1 from "@/assets/hero-slide-1.png";
 import heroSlide2 from "@/assets/hero-slide-2.png";
 import heroSlide3 from "@/assets/hero-slide-3.jpg";
@@ -24,6 +25,7 @@ const slides = [
 ];
 
 const HeroSection = () => {
+  const navigate = useNavigate();
   const sectionRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
 
@@ -100,7 +102,7 @@ const HeroSection = () => {
               <a href="#" className="hover:text-foreground transition-colors">Company</a>
             </div>
             <div className="flex items-center gap-3">
-              <Button variant="hero-outline" size="default">Sign in</Button>
+              <Button variant="hero-outline" size="default" onClick={() => navigate("/signin")}>Sign in</Button>
               <Button variant="hero" size="default">Get a demo</Button>
             </div>
           </nav>
