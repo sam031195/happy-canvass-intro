@@ -193,13 +193,13 @@ const HeroSection = () => {
                 <div
                   className="flex items-center gap-4 rounded-2xl px-6 py-5 shadow-xl min-w-[300px] max-w-[380px]"
                   style={{
-                    background: "linear-gradient(135deg, hsla(252, 50%, 70%, 0.35) 0%, hsla(252, 40%, 80%, 0.25) 100%)",
+                    background: "linear-gradient(135deg, hsla(215, 35%, 35%, 0.35) 0%, hsla(205, 45%, 55%, 0.25) 100%)",
                     backdropFilter: "blur(20px)",
                     WebkitBackdropFilter: "blur(20px)",
                     border: "1px solid hsla(0, 0%, 100%, 0.25)",
                   }}
                 >
-                  <div className="flex-shrink-0 w-11 h-11 rounded-full bg-[hsl(252,60%,60%)] flex items-center justify-center">
+                  <div className="flex-shrink-0 w-11 h-11 rounded-full bg-[hsl(210,40%,40%)] flex items-center justify-center">
                     <Sparkles className="w-5 h-5 text-white" />
                   </div>
                   <p className="text-base font-semibold text-white leading-snug drop-shadow-sm">
