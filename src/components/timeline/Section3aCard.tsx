@@ -3,7 +3,7 @@ import { AlignJustify } from "lucide-react";
 const Section3aLeft = () => (
   <>
     <div
-      className="w-14 h-14 rounded-xl flex items-center justify-center mb-8"
+      className="w-14 h-14 rounded flex items-center justify-center mb-8"
       style={{ background: "hsl(0,0%,96%)", border: "1px solid hsl(0,0%,82%)" }}
     >
       <AlignJustify className="w-6 h-6 text-[hsl(0,0%,25%)]" />
@@ -21,7 +21,7 @@ const Section3aRight = () => (
   <>
     {/* Chat card */}
     <div
-      className="rounded-lg p-5 lg:p-6 relative overflow-hidden w-full"
+      className="rounded p-5 lg:p-6 relative overflow-hidden w-full"
       style={{ background: "hsl(0,0%,97%)", border: "1px solid hsl(0,0%,85%)" }}
     >
       <div
@@ -39,7 +39,7 @@ const Section3aRight = () => (
           </div>
         </div>
         <p className="text-xs font-medium text-[hsl(0,0%,50%)] mb-3">Creating steps</p>
-        <div className="rounded-md px-4 py-3 mb-3 flex items-start gap-2" style={{ background: "hsl(0,0%,95%)", borderLeft: "2px solid hsl(0,0%,80%)" }}>
+        <div className="rounded px-4 py-3 mb-3 flex items-start gap-2" style={{ background: "hsl(0,0%,95%)", borderLeft: "2px solid hsl(0,0%,80%)" }}>
           <span className="text-[hsl(0,0%,60%)] text-sm mt-0.5 font-mono leading-none">⌶</span>
           <p className="text-sm text-[hsl(0,0%,25%)] leading-relaxed">Model thoughts: 'The user needs help with Happy Hour planning.'</p>
         </div>
@@ -65,7 +65,7 @@ const Section3aRight = () => (
     </div>
 
     {/* Eval card */}
-    <div className="rounded-lg px-6 py-5 w-full" style={{ background: "hsl(0,0%,97%)", border: "1px solid hsl(0,0%,85%)" }}>
+    <div className="rounded px-6 py-5 w-full" style={{ background: "hsl(0,0%,97%)", border: "1px solid hsl(0,0%,85%)" }}>
       <p className="text-xs font-bold text-[hsl(0,0%,25%)] tracking-wider mb-3">EVAL</p>
       <div className="flex items-center justify-between mb-1.5">
         <span className="text-sm font-semibold" style={{ color: "hsl(0,0%,25%)" }}>Adept Planning</span>

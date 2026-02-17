@@ -35,7 +35,7 @@ const Section3dContent = () => {
         style={{
           background: "hsl(0,0%,100%)",
           border: "1px solid hsl(0,0%,85%)",
-          borderRadius: "12px",
+          borderRadius: "4px",
           marginTop: "-28px",
       }}>
         <div className="flex flex-col lg:flex-row">
@@ -47,7 +47,7 @@ const Section3dContent = () => {
                 {/* Playlist card */}
                 <div
                   className="relative overflow-hidden flex-1"
-                  style={{ borderRadius: "8px" }}
+                  style={{ borderRadius: "4px" }}
                 >
                   <img
                     src={marathonImg}
@@ -100,7 +100,7 @@ const Section3dContent = () => {
                 {/* Insurance card */}
                 <div
                   className="relative overflow-hidden flex-1"
-                  style={{ borderRadius: "8px" }}
+                  style={{ borderRadius: "4px" }}
                 >
                   <img
                     src={insuranceImg}
@@ -127,7 +127,7 @@ const Section3dContent = () => {
               {/* Column 2 — Woman photo */}
               <div
                 className="relative overflow-hidden"
-                style={{ borderRadius: "8px" }}
+                style={{ borderRadius: "4px" }}
               >
                 <img
                   src={womanImg}
@@ -139,7 +139,7 @@ const Section3dContent = () => {
               {/* Column 3 — Car rental card */}
               <div
                 className="relative overflow-hidden"
-                style={{ borderRadius: "8px" }}
+                style={{ borderRadius: "4px" }}
               >
                 <img
                   src={carImg}
