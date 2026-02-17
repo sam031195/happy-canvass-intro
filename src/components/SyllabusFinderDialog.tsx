@@ -14,10 +14,26 @@ const UNIVERSITIES = [
   "Georgia Tech University", "University of Michigan", "Johns Hopkins University", "Brown University",
 ];
 
-const PROGRAMS_BY_UNIVERSITY: Record<string, string[]> = {
-  "University of Washington": ["MSIS", "MSIM", "MSCS", "MSBA", "MSCM", "MBA"],
+interface ProgramOption {
+  name: string;
+  department?: string;
+}
+
+const PROGRAMS_BY_UNIVERSITY: Record<string, ProgramOption[]> = {
+  "University of Washington": [
+    { name: "MSIS" }, { name: "MSIM" }, { name: "MSCS" }, { name: "MSBA" }, { name: "MSCM" }, { name: "MBA" },
+  ],
+  "University of Oxford": [
+    { name: "Mathematics and Foundations of Computer Science MSc", department: "Department of Computer Science, Mathematical Institute" },
+    { name: "Advanced Computer Science MSc", department: "Department of Computer Science" },
+    { name: "Software Engineering MSc", department: "Department of Computer Science" },
+    { name: "Artificial Intelligence for Business MSc", department: "Department of Computer Science" },
+    { name: "Mathematical Modelling and Scientific Computing MSc", department: "Mathematical Institute" },
+  ],
 };
-const DEFAULT_PROGRAMS = ["B.Tech", "M.Tech", "BCA", "MCA", "B.Sc", "M.Sc"];
+const DEFAULT_PROGRAMS: ProgramOption[] = [
+  { name: "B.Tech" }, { name: "M.Tech" }, { name: "BCA" }, { name: "MCA" }, { name: "B.Sc" }, { name: "M.Sc" },
+];
 
 const SEMESTERS = ["1st Syllabus", "2nd Syllabus", "3rd Syllabus", "4th Syllabus", "5th Syllabus", "6th Syllabus", "7th Syllabus", "8th Syllabus"];
 
@@ -34,9 +50,10 @@ const SyllabusFinderDialog = ({ open, onOpenChange }: Props) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const programs = university && PROGRAMS_BY_UNIVERSITY[university] ? PROGRAMS_BY_UNIVERSITY[university] : DEFAULT_PROGRAMS;
-  const currentOptions = step === 0 ? UNIVERSITIES : step === 1 ? programs : SEMESTERS;
+  const currentOptions = step === 0 ? UNIVERSITIES : step === 1 ? programs.map(p => p.name) : SEMESTERS;
   const currentValue = step === 0 ? university : step === 1 ? program : semester;
   const setCurrentValue = step === 0 ? setUniversity : step === 1 ? setProgram : setSemester;
+  const currentPrograms = step === 1 ? programs : null;
   const placeholders = ["Choose a university", "Choose a program", "Choose a syllabus"];
 
   const handleSelect = (val: string) => {
@@ -150,18 +167,26 @@ const SyllabusFinderDialog = ({ open, onOpenChange }: Props) => {
                     boxShadow: "0 10px 40px hsla(0,0%,0%,0.5)",
                   }}
                 >
-                  {currentOptions.map((opt) => (
-                    <button
-                      key={opt}
-                      onClick={() => handleSelect(opt)}
-                      className="w-full text-left px-4 py-2.5 text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-                      style={{ background: opt === currentValue ? "hsla(0,0%,100%,0.08)" : undefined }}
-                      onMouseEnter={(e) => (e.currentTarget.style.background = "hsla(0,0%,100%,0.06)")}
-                      onMouseLeave={(e) => (e.currentTarget.style.background = opt === currentValue ? "hsla(0,0%,100%,0.08)" : "")}
-                    >
-                      {opt}
-                    </button>
-                  ))}
+                  {currentOptions.map((opt, idx) => {
+                    const programInfo = currentPrograms ? currentPrograms[idx] : null;
+                    return (
+                      <button
+                        key={opt}
+                        onClick={() => handleSelect(opt)}
+                        className="w-full text-left px-4 py-2.5 text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                        style={{ background: opt === currentValue ? "hsla(0,0%,100%,0.08)" : undefined }}
+                        onMouseEnter={(e) => (e.currentTarget.style.background = "hsla(0,0%,100%,0.06)")}
+                        onMouseLeave={(e) => (e.currentTarget.style.background = opt === currentValue ? "hsla(0,0%,100%,0.08)" : "")}
+                      >
+                        <span className="text-sm font-semibold" style={{ color: "hsl(210 60% 55%)" }}>{opt}</span>
+                        {programInfo?.department && (
+                          <span className="block text-xs italic text-primary-foreground/50 mt-0.5">
+                            {programInfo.department}
+                          </span>
+                        )}
+                      </button>
+                    );
+                  })}
                 </div>
               )}
             </div>
