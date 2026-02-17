@@ -49,7 +49,7 @@ const Dashboard = () => {
               size="lg"
               className="mt-8 border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10"
             >
-              Open Roles
+              Browse Syllabus
             </Button>
             <div className="mt-6 w-full max-w-2xl">
               <div className="flex items-center bg-background/95 backdrop-blur-sm rounded-2xl px-5 py-3 shadow-lg">
