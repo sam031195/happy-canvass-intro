@@ -21,7 +21,11 @@ interface ProgramOption {
 
 const PROGRAMS_BY_UNIVERSITY: Record<string, ProgramOption[]> = {
   "University of Washington": [
-    { name: "MSIS" }, { name: "MSIM" }, { name: "MSCS" }, { name: "MSBA" }, { name: "MSCM" }, { name: "MBA" },
+    { name: "Masters in Information System / MSIS", department: "Foster School of Business" },
+    { name: "Masters in Information Management / MSIM", department: "Information School" },
+    { name: "Masters in Computer Science / MSCS", department: "Paul G. Allen School of Computer Science & Engineering" },
+    { name: "Masters in Business Analytics / MSBA", department: "Foster School of Business" },
+    { name: "Masters in Supply Chain & Management / MSCM", department: "Foster School of Business" },
   ],
   "University of Oxford": [
     { name: "Mathematics and Foundations of Computer Science MSc", department: "Department of Computer Science, Mathematical Institute" },
