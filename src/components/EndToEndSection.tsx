@@ -18,10 +18,11 @@ const EndToEndSection = () => {
               { stepNumber: 2, left: <Section3bLeft />, right: <Section3bRight /> },
               { stepNumber: 3, left: <Section3cLeft />, right: <Section3cRight /> },
             ]}
-          />
+          >
+            {/* Section 3d — inside timeline so lines are continuous */}
+            <Section3dContent />
+          </TimelineSection>
         </div>
-        {/* Section 3d — inside same container */}
-        <Section3dContent />
       </div>
     </section>
   );

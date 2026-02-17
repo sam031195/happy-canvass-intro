@@ -24,9 +24,10 @@ interface StepConfig {
 
 interface TimelineSectionProps {
   steps: StepConfig[];
+  children?: ReactNode;
 }
 
-export const TimelineSection = ({ steps }: TimelineSectionProps) => {
+export const TimelineSection = ({ steps, children }: TimelineSectionProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [fillPercent, setFillPercent] = useState(0);
 
@@ -96,6 +97,9 @@ export const TimelineSection = ({ steps }: TimelineSectionProps) => {
             </div>
           </div>
         ))}
+
+        {/* Children (e.g. Section 3d) inside same line container */}
+        {children}
       </div>
     </div>
   );
