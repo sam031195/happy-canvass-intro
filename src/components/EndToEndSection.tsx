@@ -6,7 +6,7 @@ const EndToEndSection = () => {
       <div
         className="relative rounded-xl overflow-hidden"
         style={{
-          background: "hsl(0, 0%, 95%)",
+          background: "hsl(0, 0%, 92%)",
           minHeight: "80vh",
         }}
       >
@@ -19,8 +19,8 @@ const EndToEndSection = () => {
               <div
                 className="w-14 h-14 rounded-xl flex items-center justify-center mb-8"
                 style={{
-                  background: "hsl(0,0%,100%)",
-                  border: "1px solid hsl(0,0%,85%)",
+                  background: "hsl(0,0%,96%)",
+                  border: "1px solid hsl(0,0%,82%)",
                 }}
               >
                 <AlignJustify className="w-6 h-6 text-[hsl(0,0%,25%)]" />
@@ -40,8 +40,8 @@ const EndToEndSection = () => {
               <div
                 className="rounded-lg p-5 lg:p-6 relative overflow-hidden"
                 style={{
-                  background: "hsl(0,0%,100%)",
-                  border: "1px solid hsl(0,0%,87%)",
+                  background: "hsl(0,0%,97%)",
+                  border: "1px solid hsl(0,0%,85%)",
                 }}
               >
                 {/* Grid pattern background */}
@@ -87,7 +87,7 @@ const EndToEndSection = () => {
                   <div
                     className="rounded-md px-4 py-3 mb-3 flex items-start gap-2"
                     style={{
-                      background: "hsl(40,25%,96%)",
+                      background: "hsl(0,0%,95%)",
                       borderLeft: "2px solid hsl(0,0%,80%)",
                     }}
                   >
@@ -131,7 +131,7 @@ const EndToEndSection = () => {
                       style={{
                         border: "1px solid hsl(0,0%,75%)",
                         color: "hsl(0,0%,30%)",
-                        background: "hsl(0,0%,100%)",
+                        background: "hsl(0,0%,96%)",
                       }}
                     >
                       Creating an action plan...
@@ -144,8 +144,8 @@ const EndToEndSection = () => {
               <div
                 className="rounded-lg px-6 py-5"
                 style={{
-                  background: "hsl(0,0%,100%)",
-                  border: "1px solid hsl(0,0%,87%)",
+                      background: "hsl(0,0%,97%)",
+                      border: "1px solid hsl(0,0%,85%)",
                 }}
               >
                 <p className="text-xs font-bold text-[hsl(0,0%,25%)] tracking-wider mb-3">
