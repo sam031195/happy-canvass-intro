@@ -1,6 +1,7 @@
 import HeroSection from "@/components/HeroSection";
 import DecagonDifferenceSection from "@/components/DecagonDifferenceSection";
 import BuildAgentSection from "@/components/BuildAgentSection";
+import EndToEndSection from "@/components/EndToEndSection";
 
 const Index = () => {
   return (
@@ -8,6 +9,7 @@ const Index = () => {
       <HeroSection />
       <DecagonDifferenceSection />
       <BuildAgentSection />
+      <EndToEndSection />
     </main>
   );
 };
