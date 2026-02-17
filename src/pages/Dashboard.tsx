@@ -92,11 +92,9 @@ const Dashboard = () => {
 
           {/* Search bar */}
           <div className="mt-6 w-full max-w-3xl">
-            <div className="relative flex items-center rounded-2xl px-5 py-3.5 gap-3">
-              {/* Animated gradient border running full circle */}
-              <span className="pointer-events-none absolute -inset-[1.5px] rounded-2xl -z-10" style={{ background: 'conic-gradient(from var(--ai-angle, 0deg), transparent 0%, transparent 70%, hsl(220 80% 55%) 80%, hsla(220,80%,55%,0.6) 85%, transparent 95%)', animation: 'ai-spin 3s linear infinite' }} />
-              {/* Inner background */}
-              <span className="pointer-events-none absolute inset-0 rounded-2xl -z-[5]" style={{ background: 'hsl(0 0% 8% / 0.95)', boxShadow: '0 4px 30px hsla(0,0%,0%,0.4)' }} />
+            <div className="relative flex items-center rounded-full px-5 py-3.5 gap-3" style={{ background: 'hsl(0 0% 8% / 0.85)', boxShadow: '0 0 0 1px hsla(0,0%,100%,0.12), 0 4px 30px hsla(0,0%,0%,0.4), 0 2px 8px 0 hsla(220,80%,55%,0.25) inset' }}>
+              {/* Blue bottom glow */}
+              <span className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-1/3 h-[2px] rounded-full" style={{ background: 'linear-gradient(90deg, transparent, hsl(220 80% 55%), transparent)' }} />
               {/* Model selector */}
               <div className="relative shrink-0" ref={dropdownRef}>
                 <button
