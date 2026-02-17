@@ -33,7 +33,7 @@ const DecagonDifferenceSection = () => {
 
           {/* Right: Video */}
           <div className="flex-1 flex items-center justify-center">
-            <div className="relative w-full max-w-[480px] max-h-[400px] rounded-2xl overflow-hidden bg-background">
+            <div className="relative w-full max-w-[480px] rounded-2xl overflow-hidden bg-background">
               <video
                 autoPlay
                 loop
