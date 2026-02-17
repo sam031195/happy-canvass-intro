@@ -4,7 +4,7 @@ const EndToEndSection = () => {
   return (
     <section className="px-6 lg:px-10 py-4">
       <div
-        className="relative rounded-2xl overflow-hidden"
+        className="relative rounded-xl overflow-hidden"
         style={{
           background: "hsl(0, 0%, 95%)",
           minHeight: "80vh",
@@ -46,7 +46,7 @@ const EndToEndSection = () => {
               >
                 {/* Grid pattern background */}
                 <div
-                  className="absolute inset-0 pointer-events-none opacity-[0.35]"
+                  className="absolute inset-0 pointer-events-none opacity-[0.25]"
                   style={{
                     backgroundImage:
                       "linear-gradient(hsl(0,0%,85%) 1px, transparent 1px), linear-gradient(90deg, hsl(0,0%,85%) 1px, transparent 1px)",
@@ -83,12 +83,12 @@ const EndToEndSection = () => {
                     Creating steps
                   </p>
 
-                  {/* Model thought card 1 - white bg with left border */}
+                  {/* Model thought card 1 - cream bg with left border */}
                   <div
                     className="rounded-md px-4 py-3 mb-3 flex items-start gap-2"
                     style={{
-                      background: "hsl(0,0%,100%)",
-                      borderLeft: "2px solid hsl(0,0%,78%)",
+                      background: "hsl(40,25%,96%)",
+                      borderLeft: "2px solid hsl(0,0%,80%)",
                     }}
                   >
                     <span className="text-[hsl(0,0%,60%)] text-sm mt-0.5 font-mono leading-none">⌶</span>
