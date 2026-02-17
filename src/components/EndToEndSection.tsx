@@ -2,6 +2,7 @@ import { TimelineSection } from "./timeline/TimelineStep";
 import { Section3aLeft, Section3aRight } from "./timeline/Section3aCard";
 import { Section3bLeft, Section3bRight } from "./timeline/Section3bCard";
 import { Section3cLeft, Section3cRight } from "./timeline/Section3cCard";
+import Section3dContent from "./Section3dCard";
 
 const EndToEndSection = () => {
   return (
@@ -19,6 +20,8 @@ const EndToEndSection = () => {
             ]}
           />
         </div>
+        {/* Section 3d — inside same container */}
+        <Section3dContent />
       </div>
     </section>
   );
