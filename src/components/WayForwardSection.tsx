@@ -27,20 +27,14 @@ const WayForwardSection = () => {
       className="relative py-24 lg:py-32 overflow-hidden"
       style={{ background: "hsl(230,30%,97%)" }}
     >
-      {/* Grid background with dots at intersections */}
+      {/* Grid background image */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: [
-            "linear-gradient(hsl(228,50%,85%) 1px, transparent 1px)",
-            "linear-gradient(90deg, hsl(228,50%,85%) 1px, transparent 1px)",
-            "linear-gradient(hsl(228,45%,82%) 1.5px, transparent 1.5px)",
-            "linear-gradient(90deg, hsl(228,45%,82%) 1.5px, transparent 1.5px)",
-            "radial-gradient(circle 2px at center, hsl(228,50%,78%) 1.5px, transparent 1.5px)",
-          ].join(", "),
-          backgroundSize: "32px 32px, 32px 32px, 128px 128px, 128px 128px, 32px 32px",
-          mask: "radial-gradient(ellipse 85% 80% at 50% 50%, black 40%, transparent 75%)",
-          WebkitMask: "radial-gradient(ellipse 85% 80% at 50% 50%, black 40%, transparent 75%)",
+          backgroundImage: "url('/images/grid-bg.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
         }}
       />
       <div className="max-w-5xl mx-auto px-8 lg:px-12">
