@@ -33,7 +33,7 @@ const Section3aRight = () => (
       />
       <div className="relative z-10">
         <div className="flex justify-end mb-4">
-          <div className="rounded-full px-5 py-3 flex items-center gap-3 inline-flex" style={{ background: "linear-gradient(135deg, hsl(215,35%,30%) 0%, hsl(205,45%,55%) 100%)" }}>
+          <div className="rounded-full px-5 py-3 flex items-center gap-3 inline-flex" style={{ background: "linear-gradient(135deg, hsl(260,30%,35%) 0%, hsl(280,35%,50%) 100%)" }}>
             <span className="text-xs font-semibold px-3 py-0.5 rounded-full" style={{ background: "hsla(0,0%,100%,0.2)", color: "hsl(0,0%,100%)" }}>User</span>
             <span className="text-sm font-medium text-white whitespace-nowrap">Help me contact the venues listed for Happy Hour.</span>
           </div>
