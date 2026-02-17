@@ -20,7 +20,7 @@ const DecagonDifferenceSection = () => {
             </p>
 
             <p className="text-lg leading-relaxed mb-6">
-              <span className="text-[hsl(235,40%,50%)] font-semibold">Agent Operating Procedures (AOPs)</span>{" "}
+              <span className="text-[hsl(270,35%,50%)] font-semibold">Agent Operating Procedures (AOPs)</span>{" "}
               <span className="text-foreground/80">
                 let you define agent workflows in natural language, so you can refine behavior and optimize performance as fast as your business moves.
               </span>

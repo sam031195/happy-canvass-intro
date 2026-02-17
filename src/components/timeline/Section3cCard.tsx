@@ -41,7 +41,7 @@ const Section3cRight = () => (
       <div className="relative z-10">
         {/* User bubble - teal */}
         <div className="flex justify-end mb-6">
-          <div className="px-5 py-3 flex items-center gap-3 w-full" style={{ background: "linear-gradient(135deg, hsl(225,35%,32%) 0%, hsl(240,35%,52%) 100%)", borderRadius: "999px" }}>
+          <div className="px-5 py-3 flex items-center gap-3 w-full" style={{ background: "linear-gradient(135deg, hsl(260,30%,35%) 0%, hsl(280,35%,50%) 100%)", borderRadius: "999px" }}>
             <span className="text-xs font-semibold px-3 py-0.5 shrink-0" style={{ background: "hsla(0,0%,100%,0.2)", color: "hsl(0,0%,100%)", borderRadius: "999px" }}>User</span>
             <span className="text-sm font-medium text-white">What is our largest business expense?</span>
           </div>
