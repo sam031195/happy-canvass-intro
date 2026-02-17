@@ -80,53 +80,51 @@ const Dashboard = () => {
           </Button>
 
           {/* Search bar */}
-          <div className="mt-6 w-full max-w-2xl">
-            <div className="flex flex-col bg-background/95 backdrop-blur-sm rounded-2xl shadow-lg">
-              {/* Input row */}
-              <div className="flex items-center px-5 pt-4 pb-2">
-                <input
-                  type="text"
-                  placeholder="Ask anything..."
-                  className="flex-1 bg-transparent border-none outline-none text-foreground placeholder:text-muted-foreground text-base"
-                />
-                <button className="ml-3 h-10 w-10 rounded-full bg-primary flex items-center justify-center hover:bg-primary/85 transition-colors shrink-0">
-                  <Send className="h-4 w-4 text-primary-foreground" />
+          <div className="mt-6 w-full max-w-3xl">
+            <div className="flex items-center bg-background/95 backdrop-blur-sm rounded-2xl shadow-lg px-4 py-3 gap-3">
+              {/* Model selector */}
+              <div className="relative shrink-0" ref={dropdownRef}>
+                <button
+                  onClick={() => setModelOpen((v) => !v)}
+                  className="flex items-center gap-2 border border-border rounded-full px-3 py-2 text-sm text-foreground hover:bg-accent transition-colors"
+                >
+                  <Bot className="h-4 w-4 text-primary" />
+                  {selectedModel.label}
+                  <ChevronDown className="h-3.5 w-3.5 text-muted-foreground" />
                 </button>
+                {modelOpen && (
+                  <div className="absolute left-0 top-full mt-1 z-50 bg-popover border border-border rounded-lg shadow-lg py-1 min-w-[160px]">
+                    {MODELS.map((m) => (
+                      <button
+                        key={m.value}
+                        onClick={() => {
+                          setSelectedModel(m);
+                          setModelOpen(false);
+                        }}
+                        className={`w-full text-left px-4 py-2 text-sm hover:bg-accent transition-colors ${
+                          m.value === selectedModel.value
+                            ? "text-primary font-medium"
+                            : "text-foreground"
+                        }`}
+                      >
+                        {m.label}
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
 
-              {/* Model selector row */}
-              <div className="px-5 pb-4 pt-1">
-                <div className="relative" ref={dropdownRef}>
-                  <button
-                    onClick={() => setModelOpen((v) => !v)}
-                    className="flex items-center gap-2 border border-border rounded-full px-3 py-1.5 text-sm text-foreground hover:bg-accent transition-colors"
-                  >
-                    <Bot className="h-4 w-4 text-primary" />
-                    {selectedModel.label}
-                    <ChevronDown className="h-3.5 w-3.5 text-muted-foreground" />
-                  </button>
-                  {modelOpen && (
-                    <div className="absolute left-0 top-full mt-1 z-50 bg-popover border border-border rounded-lg shadow-lg py-1 min-w-[160px]">
-                      {MODELS.map((m) => (
-                        <button
-                          key={m.value}
-                          onClick={() => {
-                            setSelectedModel(m);
-                            setModelOpen(false);
-                          }}
-                          className={`w-full text-left px-4 py-2 text-sm hover:bg-accent transition-colors ${
-                            m.value === selectedModel.value
-                              ? "text-primary font-medium"
-                              : "text-foreground"
-                          }`}
-                        >
-                          {m.label}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </div>
+              {/* Input */}
+              <input
+                type="text"
+                placeholder="Ask anything..."
+                className="flex-1 bg-transparent border-none outline-none text-foreground placeholder:text-muted-foreground text-base min-w-0"
+              />
+
+              {/* Send */}
+              <button className="h-10 w-10 rounded-full bg-primary flex items-center justify-center hover:bg-primary/85 transition-colors shrink-0">
+                <Send className="h-4 w-4 text-primary-foreground" />
+              </button>
             </div>
 
             {/* Suggestions */}
