@@ -58,7 +58,7 @@ const Section3dContent = () => {
                     <div
                       className="px-3 py-2 text-xs font-semibold self-end text-right"
                       style={{
-                        background: "hsl(210,40%,40%)",
+                        background: "hsl(265,30%,42%)",
                         color: "hsl(0,0%,100%)",
                         borderRadius: "8px",
                         maxWidth: "160px",
@@ -69,7 +69,7 @@ const Section3dContent = () => {
                     <div className="mt-auto flex items-start gap-2">
                       <div
                         className="w-6 h-6 rounded-full flex items-center justify-center shrink-0"
-                        style={{ background: "hsl(210,40%,40%)" }}
+                        style={{ background: "hsl(265,30%,42%)" }}
                       >
                         <Sparkles className="w-3 h-3 text-white" />
                       </div>
@@ -150,7 +150,7 @@ const Section3dContent = () => {
                   <div
                     className="w-8 h-8 rounded-full flex items-center justify-center mb-3 self-end"
                      style={{
-                       background: "hsla(210,40%,40%,0.7)",
+                       background: "hsla(265,30%,42%,0.7)",
                       backdropFilter: "blur(4px)",
                     }}
                   >
