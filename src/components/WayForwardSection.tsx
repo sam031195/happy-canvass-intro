@@ -24,6 +24,7 @@ const cards = [
 
 const WayForwardSection = () => {
   return (
+    <>
     <section
       className="relative py-24 lg:py-32 overflow-hidden"
       style={{ background: "hsl(0,0%,100%)" }}
@@ -155,16 +156,17 @@ const WayForwardSection = () => {
           </Button>
         </div>
       </div>
+    </section>
 
-      {/* CTA Footer Image */}
-      <div className="w-full mt-24">
+      {/* CTA Footer Image — outside the section to avoid overlap */}
+      <div className="w-full">
         <img
           src={ctaFooter}
           alt="CTA Footer"
           className="w-full block"
         />
       </div>
-    </section>
+    </>
   );
 };
 
