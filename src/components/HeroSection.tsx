@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowRight, ArrowDown, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import carousel1 from "@/assets/carousel-1.png";
+import carousel2 from "@/assets/carousel-2.jpg";
+import carousel3 from "@/assets/carousel-3.png";
 
 const slides = [
   {
@@ -10,12 +12,12 @@ const slides = [
     popupText: "Your order has been upgraded to express.",
   },
   {
-    image: carousel1,
+    image: carousel2,
     popupIcon: <Sparkles className="w-5 h-5 text-primary" />,
     popupText: "I've scheduled your callback for tomorrow.",
   },
   {
-    image: carousel1,
+    image: carousel3,
     popupIcon: <Sparkles className="w-5 h-5 text-primary" />,
     popupText: "Your refund has been processed instantly.",
   },

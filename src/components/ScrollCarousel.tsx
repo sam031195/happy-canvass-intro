@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import carousel1 from "@/assets/carousel-1.png";
+import carousel2 from "@/assets/carousel-2.jpg";
+import carousel3 from "@/assets/carousel-3.png";
 
 const slides = [
   {
@@ -8,19 +10,14 @@ const slides = [
     description: "Deliver instant, personalized responses to every customer query with intelligent automation.",
   },
   {
-    image: carousel1,
+    image: carousel2,
     title: "Enterprise Scale",
     description: "Handle millions of conversations simultaneously without compromising quality or speed.",
   },
   {
-    image: carousel1,
+    image: carousel3,
     title: "Seamless Integration",
     description: "Connect with your existing tools and workflows in minutes, not months.",
-  },
-  {
-    image: carousel1,
-    title: "Smart Analytics",
-    description: "Gain deep insights into customer behavior and agent performance in real time.",
   },
 ];
 
