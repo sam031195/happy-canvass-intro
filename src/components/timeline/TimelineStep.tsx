@@ -56,11 +56,11 @@ export const TimelineSection = ({ steps }: TimelineSectionProps) => (
       {steps.map((step, i) => (
         <div
           key={step.stepNumber}
-          className="flex flex-col lg:flex-row gap-8 lg:gap-0 overflow-hidden relative"
+          className="flex flex-col lg:flex-row lg:items-start gap-8 lg:gap-0 overflow-hidden relative"
           style={{ paddingTop: i === 0 ? "0" : "80px" }}
         >
           {/* Left */}
-          <div className="flex-1 max-w-xl lg:pr-12">
+          <div className="flex-1 max-w-xl lg:pr-12 pt-4">
             {step.left}
           </div>
 
