@@ -9,8 +9,9 @@ import { ChevronDown, ChevronLeft } from "lucide-react";
 const STEPS = ["University", "Program", "Scheme", "Semester"] as const;
 
 const UNIVERSITIES = [
-  "MIT", "Stanford University", "Harvard University", "IIT Delhi",
-  "IIT Bombay", "Oxford University", "Cambridge University",
+  "University of Washington", "University of Oxford", "Massachusetts Institute Of Technology",
+  "California Institute of Technology", "Stanford University", "University of Pennsylvania",
+  "Georgia Tech University", "University of Michigan", "Johns Hopkins University", "Brown University",
 ];
 
 const PROGRAMS = ["B.Tech", "M.Tech", "BCA", "MCA", "B.Sc", "M.Sc"];
