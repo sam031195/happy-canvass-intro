@@ -31,7 +31,7 @@ const Section3bRight = () => (
       />
       <div className="relative z-10">
         <div className="flex justify-end mb-5">
-          <div className="px-5 py-3 flex items-center gap-3 w-full" style={{ background: "hsl(195,25%,38%)", borderRadius: "999px" }}>
+          <div className="px-5 py-3 flex items-center gap-3 w-full" style={{ background: "hsl(252,50%,55%)", borderRadius: "999px" }}>
             <span className="text-xs font-semibold px-3 py-0.5 shrink-0" style={{ background: "hsla(0,0%,100%,0.2)", color: "hsl(0,0%,100%)", borderRadius: "999px" }}>User</span>
             <span className="text-sm font-medium text-white">Add new contacts as leads</span>
           </div>
@@ -45,7 +45,7 @@ const Section3bRight = () => (
         </div>
         <div className="flex justify-center mb-4">
           <div className="px-6 py-4" style={{ border: "2px dashed hsl(0,0%,55%)", borderRadius: "6px" }}>
-            <div className="px-6 py-2.5 text-sm font-medium text-center" style={{ background: "hsl(160,15%,78%)", color: "hsl(0,0%,25%)", borderRadius: "6px" }}>
+            <div className="px-6 py-2.5 text-sm font-medium text-center" style={{ background: "hsl(0,0%,85%)", color: "hsl(0,0%,25%)", borderRadius: "6px" }}>
               Add lead
             </div>
           </div>
@@ -72,8 +72,8 @@ const Section3bRight = () => (
     <div className="px-6 py-5 w-full" style={{ background: "hsl(0,0%,97%)", border: "1px solid hsl(0,0%,85%)", borderRadius: "8px" }}>
       <p className="text-xs font-bold tracking-wider mb-3" style={{ color: "hsl(0,0%,25%)" }}>EVAL</p>
       <div className="flex items-center justify-between">
-        <span className="text-sm font-semibold" style={{ color: "hsl(175,40%,35%)" }}>Adept Locate</span>
-        <span className="text-sm font-semibold" style={{ color: "hsl(150,55%,38%)" }}>93</span>
+        <span className="text-sm font-semibold" style={{ color: "hsl(0,0%,25%)" }}>Adept Locate</span>
+        <span className="text-sm font-semibold" style={{ color: "hsl(0,0%,25%)" }}>93</span>
       </div>
     </div>
   </>

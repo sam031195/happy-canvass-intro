@@ -41,7 +41,7 @@ const Section3cRight = () => (
       <div className="relative z-10">
         {/* User bubble - teal */}
         <div className="flex justify-end mb-6">
-          <div className="px-5 py-3 flex items-center gap-3 w-full" style={{ background: "hsl(195,25%,38%)", borderRadius: "999px" }}>
+          <div className="px-5 py-3 flex items-center gap-3 w-full" style={{ background: "hsl(252,50%,55%)", borderRadius: "999px" }}>
             <span className="text-xs font-semibold px-3 py-0.5 shrink-0" style={{ background: "hsla(0,0%,100%,0.2)", color: "hsl(0,0%,100%)", borderRadius: "999px" }}>User</span>
             <span className="text-sm font-medium text-white">What is our largest business expense?</span>
           </div>
@@ -159,8 +159,8 @@ const Section3cRight = () => (
     <div className="px-6 py-5 w-full" style={{ background: "hsl(0,0%,97%)", border: "1px solid hsl(0,0%,85%)", borderRadius: "8px" }}>
       <p className="text-xs font-bold tracking-wider mb-3" style={{ color: "hsl(0,0%,25%)" }}>EVAL</p>
       <div className="flex items-center justify-between">
-        <span className="text-sm font-semibold" style={{ color: "hsl(175,40%,35%)" }}>Adept Web VQA</span>
-        <span className="text-sm font-semibold" style={{ color: "hsl(150,55%,38%)" }}>88.2</span>
+        <span className="text-sm font-semibold" style={{ color: "hsl(0,0%,25%)" }}>Adept Web VQA</span>
+        <span className="text-sm font-semibold" style={{ color: "hsl(0,0%,25%)" }}>88.2</span>
       </div>
     </div>
   </>
