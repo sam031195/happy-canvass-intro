@@ -9,10 +9,10 @@ const Section3dContent = () => {
   return (
     <div className="px-10 lg:px-16 pb-16 lg:pb-20">
       {/* Connecting line + sparkle icon — aligned with timeline center column */}
-      <div className="flex flex-col lg:flex-row lg:items-start" style={{ paddingTop: "80px" }}>
+      <div className="flex flex-col lg:flex-row lg:items-start">
         <div className="hidden lg:block flex-1 max-w-xl lg:pr-12" />
         <div className="flex flex-col items-center" style={{ width: "56px" }}>
-          <div className="w-px" style={{ height: "120px", background: "hsl(0,0%,80%)" }} />
+          <div className="w-px" style={{ height: "200px", background: "hsl(0,0%,80%)" }} />
           <div
             className="w-14 h-14 rounded-full flex items-center justify-center shrink-0"
             style={{ background: "hsl(252,50%,55%)" }}
