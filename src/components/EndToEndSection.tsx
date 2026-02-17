@@ -47,7 +47,7 @@ const EndToEndSection = () => {
                   boxShadow: "0 4px 20px hsla(0,0%,0%,0.15)",
                 }}
               >
-                2
+                1
               </div>
 
               {/* Vertical line bottom */}
