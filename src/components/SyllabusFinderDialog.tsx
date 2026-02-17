@@ -89,7 +89,7 @@ const SyllabusFinderDialog = ({ open, onOpenChange }: Props) => {
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent
-        className="sm:max-w-[680px] p-0 border-0 overflow-visible"
+        className="sm:max-w-[680px] p-0 border-0 overflow-hidden"
         style={{
           background: "linear-gradient(160deg, hsl(230 30% 14%) 0%, hsl(250 25% 12%) 40%, hsl(220 30% 10%) 100%)",
           boxShadow: "0 25px 80px hsla(0,0%,0%,0.6), 0 0 0 1px hsla(0,0%,100%,0.08)",
@@ -138,13 +138,13 @@ const SyllabusFinderDialog = ({ open, onOpenChange }: Props) => {
           </div>
 
           {/* Content */}
-          <div className="flex-1 flex flex-col items-center justify-center px-6 pb-4">
+          <div className="flex-1 flex flex-col items-center justify-start px-6 pb-4 overflow-y-auto">
             <p className="text-base font-semibold text-primary-foreground mb-3">
               {step + 1}. Select Your {STEPS[step]}
             </p>
 
             {/* Custom dropdown */}
-            <div className="relative w-full max-w-[320px]">
+            <div className="relative w-full max-w-[420px]">
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
                 className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-sm transition-colors"
@@ -160,7 +160,7 @@ const SyllabusFinderDialog = ({ open, onOpenChange }: Props) => {
 
               {dropdownOpen && (
                 <div
-                  className="absolute left-0 right-0 top-full mt-1 z-50 rounded-lg py-1 max-h-[260px] overflow-y-auto"
+                  className="w-full mt-1 z-50 rounded-lg py-1 max-h-[200px] overflow-y-auto"
                   style={{
                     background: "hsl(230 25% 16%)",
                     border: "1px solid hsla(0,0%,100%,0.1)",
