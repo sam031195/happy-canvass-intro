@@ -21,7 +21,7 @@ const Section3dContent = () => {
         <div className="flex justify-center" style={{ width: "56px" }}>
           <div
             className="w-14 h-14 rounded-full flex items-center justify-center shrink-0"
-            style={{ background: "hsl(252,50%,55%)" }}
+            style={{ background: "linear-gradient(180deg, hsl(0,0%,25%) 0%, hsl(0,0%,8%) 100%)" }}
           >
             <Sparkles className="w-6 h-6 text-white" />
           </div>
@@ -174,7 +174,7 @@ const Section3dContent = () => {
             <h2
               className="text-3xl lg:text-[2.6rem] font-bold leading-tight mb-6"
             >
-              <span style={{ color: "hsl(252,50%,55%)" }}>
+              <span style={{ color: "hsl(0,0%,10%)" }}>
                 Your business evolves.
               </span>
               <br />
