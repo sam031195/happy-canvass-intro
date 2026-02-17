@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import ctaFooter from "@/assets/cta-footer.avif";
 
 const cards = [
   {
@@ -155,6 +156,14 @@ const WayForwardSection = () => {
         </div>
       </div>
 
+      {/* CTA Footer Image */}
+      <div className="w-full mt-24">
+        <img
+          src={ctaFooter}
+          alt="CTA Footer"
+          className="w-full block"
+        />
+      </div>
     </section>
   );
 };
