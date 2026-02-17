@@ -106,3 +106,15 @@
     line-height: 1.7;
   }
 }
+
+@property --ai-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes ai-spin {
+  to {
+    --ai-angle: 360deg;
+  }
+}
