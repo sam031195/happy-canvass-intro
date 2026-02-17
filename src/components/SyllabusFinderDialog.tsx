@@ -89,7 +89,7 @@ const SyllabusFinderDialog = ({ open, onOpenChange }: Props) => {
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent
-        className="sm:max-w-[680px] p-0 border-0 overflow-hidden"
+        className="sm:max-w-[680px] p-0 border-0 overflow-visible"
         style={{
           background: "linear-gradient(160deg, hsl(230 30% 14%) 0%, hsl(250 25% 12%) 40%, hsl(220 30% 10%) 100%)",
           boxShadow: "0 25px 80px hsla(0,0%,0%,0.6), 0 0 0 1px hsla(0,0%,100%,0.08)",
@@ -160,7 +160,7 @@ const SyllabusFinderDialog = ({ open, onOpenChange }: Props) => {
 
               {dropdownOpen && (
                 <div
-                  className="absolute left-0 right-0 bottom-full mb-1 z-50 rounded-lg py-1 max-h-[260px] overflow-y-auto"
+                  className="absolute left-0 right-0 top-full mt-1 z-50 rounded-lg py-1 max-h-[260px] overflow-y-auto"
                   style={{
                     background: "hsl(230 25% 16%)",
                     border: "1px solid hsla(0,0%,100%,0.1)",
