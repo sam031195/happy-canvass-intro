@@ -56,7 +56,7 @@ const BuildAgentSection = () => {
                 <div
                   className="inline-flex items-center gap-3 rounded-full px-5 py-3"
                   style={{
-                    background: "linear-gradient(135deg, hsl(230,55%,15%) 0%, hsl(250,45%,25%) 100%)",
+                    background: "linear-gradient(135deg, hsl(230,60%,12%) 0%, hsl(255,50%,35%) 100%)",
                   }}
                 >
                   <div className="w-8 h-8 rounded-full bg-[hsl(240,40%,30%)] flex items-center justify-center">
