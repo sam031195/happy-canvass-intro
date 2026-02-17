@@ -22,7 +22,7 @@ const BuildAgentSection = () => {
             {/* Left side - text */}
             <div className="flex-1 max-w-xl lg:pr-12">
               <h2 className="text-4xl lg:text-5xl font-bold text-[hsl(0,0%,10%)] leading-tight mb-6">
-                <span className="text-[hsl(252,80%,65%)]">Build</span> your agent
+                <span className="text-[hsl(205,45%,45%)]">Build</span> your agent
               </h2>
               <p className="text-base lg:text-lg text-[hsl(0,0%,45%)] leading-relaxed max-w-md">
                 Define your workflows with natural-language AOPs that deliver faster time to value, greater transparency, and trusted results at scale.
@@ -56,10 +56,10 @@ const BuildAgentSection = () => {
                 <div
                   className="inline-flex items-center gap-3 rounded-full px-5 py-3"
                   style={{
-                    background: "linear-gradient(135deg, hsl(252,60%,50%) 0%, hsl(252,50%,40%) 100%)",
+                    background: "linear-gradient(135deg, hsl(215,35%,30%) 0%, hsl(205,45%,55%) 100%)",
                   }}
                 >
-                  <div className="w-8 h-8 rounded-full bg-[hsl(252,50%,60%)] flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-full bg-[hsl(205,40%,50%)] flex items-center justify-center">
                     <AudioLines className="w-4 h-4 text-white" />
                   </div>
                   <span className="text-sm font-medium text-white whitespace-nowrap">
@@ -87,7 +87,7 @@ const BuildAgentSection = () => {
                   <p className="text-sm text-[hsl(0,0%,15%)] leading-relaxed">
                     <span className="text-[hsl(0,0%,55%)]">1.</span>{" "}
                     <span className="text-[hsl(0,0%,15%)]">If </span>
-                    <span className="text-[hsl(252,80%,55%)]">@user_flagged_for_fraud</span>
+                    <span className="text-[hsl(205,45%,45%)]">@user_flagged_for_fraud</span>
                   </p>
                   <p className="text-sm text-[hsl(0,0%,15%)] leading-relaxed pl-4">
                     <span className="text-[hsl(0,0%,55%)]">a.</span>{" "}
@@ -101,7 +101,7 @@ const BuildAgentSection = () => {
                   <p>
                     <span className="text-[hsl(0,0%,55%)]">2.</span>{" "}
                     <span className="text-[hsl(0,0%,45%)]">Use </span>
-                    <span className="text-[hsl(252,80%,55%)]">@load_user_orders</span>
+                    <span className="text-[hsl(205,45%,45%)]">@load_user_orders</span>
                   </p>
                   <div>
                     <p>
@@ -113,7 +113,7 @@ const BuildAgentSection = () => {
                     <p>
                       <span className="text-[hsl(0,0%,55%)]">4.</span>{" "}
                       <span className="text-[hsl(0,0%,45%)]">If </span>
-                      <span className="text-[hsl(252,80%,55%)]">@order_exchange_eligible</span>
+                      <span className="text-[hsl(205,45%,45%)]">@order_exchange_eligible</span>
                     </p>
                     <p className="pl-4">
                       <span className="text-[hsl(0,0%,55%)]">a.</span>{" "}
@@ -134,7 +134,7 @@ const BuildAgentSection = () => {
         <div
           className="absolute bottom-0 right-0 w-[400px] h-[400px] pointer-events-none"
           style={{
-            background: "radial-gradient(circle, hsla(252,60%,50%,0.06) 0%, transparent 70%)",
+            background: "radial-gradient(circle, hsla(205,45%,50%,0.06) 0%, transparent 70%)",
           }}
         />
       </div>
