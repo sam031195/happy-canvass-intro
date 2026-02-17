@@ -128,7 +128,7 @@ const Dashboard = () => {
               {/* Input */}
               <input
                 type="text"
-                placeholder="Ask anything..."
+                placeholder="Find open source repos..."
                 className="flex-1 bg-transparent border-none outline-none text-foreground placeholder:text-muted-foreground text-base min-w-0"
               />
 
