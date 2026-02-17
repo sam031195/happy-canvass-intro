@@ -36,7 +36,7 @@ const Section3dContent = () => {
           background: "hsl(0,0%,10%)",
           border: "1px solid hsl(0,0%,20%)",
           borderRadius: "12px",
-          marginTop: "-28px",
+          marginTop: "-56px",
       }}>
         <div className="flex flex-col lg:flex-row">
           {/* Left — Image collage */}
