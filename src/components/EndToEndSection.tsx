@@ -11,10 +11,10 @@ const EndToEndSection = () => {
         }}
       >
         <div className="px-10 lg:px-16 py-16 lg:py-20 h-full">
-          {/* Content grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[60vh]">
+          {/* Main content area */}
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-0">
             {/* Left side - icon + text */}
-            <div className="max-w-md">
+            <div className="flex-1 max-w-xl lg:pr-12">
               {/* Icon */}
               <div
                 className="w-14 h-14 rounded-xl flex items-center justify-center mb-8"
@@ -34,11 +34,31 @@ const EndToEndSection = () => {
               </p>
             </div>
 
+            {/* Center - vertical line with step number */}
+            <div className="hidden lg:flex flex-col items-center pt-4">
+              {/* Vertical line top */}
+              <div className="w-px h-24 bg-[hsl(0,0%,80%)]" />
+
+              {/* Step number circle */}
+              <div
+                className="w-14 h-14 rounded-full flex items-center justify-center text-xl font-semibold text-white my-2 shrink-0"
+                style={{
+                  background: "linear-gradient(180deg, hsl(0,0%,20%) 0%, hsl(0,0%,10%) 100%)",
+                  boxShadow: "0 4px 20px hsla(0,0%,0%,0.15)",
+                }}
+              >
+                2
+              </div>
+
+              {/* Vertical line bottom */}
+              <div className="w-px flex-1 bg-[hsl(0,0%,80%)]" />
+            </div>
+
             {/* Right side - Agent chat UI */}
-            <div className="flex flex-col gap-3">
+            <div className="flex-1 flex flex-col items-center lg:items-start lg:pl-12 gap-3 pt-4">
               {/* Chat card */}
               <div
-                className="rounded-lg p-5 lg:p-6 relative overflow-hidden"
+                className="rounded-lg p-5 lg:p-6 relative overflow-hidden w-full"
                 style={{
                   background: "hsl(0,0%,97%)",
                   border: "1px solid hsl(0,0%,85%)",
@@ -83,7 +103,7 @@ const EndToEndSection = () => {
                     Creating steps
                   </p>
 
-                  {/* Model thought card 1 - cream bg with left border */}
+                  {/* Model thought card 1 */}
                   <div
                     className="rounded-md px-4 py-3 mb-3 flex items-start gap-2"
                     style={{
@@ -97,7 +117,7 @@ const EndToEndSection = () => {
                     </p>
                   </div>
 
-                  {/* Model thought 2 - plain text with left border indicator */}
+                  {/* Model thought 2 */}
                   <div className="flex items-start gap-2 mb-2 ml-0.5">
                     <span className="text-[hsl(0,0%,60%)] text-sm mt-0.5 font-mono leading-none">⌶</span>
                     <p className="text-sm text-[hsl(0,0%,55%)] leading-relaxed">
@@ -142,10 +162,10 @@ const EndToEndSection = () => {
 
               {/* Eval card */}
               <div
-                className="rounded-lg px-6 py-5"
+                className="rounded-lg px-6 py-5 w-full"
                 style={{
-                      background: "hsl(0,0%,97%)",
-                      border: "1px solid hsl(0,0%,85%)",
+                  background: "hsl(0,0%,97%)",
+                  border: "1px solid hsl(0,0%,85%)",
                 }}
               >
                 <p className="text-xs font-bold text-[hsl(0,0%,25%)] tracking-wider mb-3">
