@@ -24,14 +24,20 @@ const cards = [
 const WayForwardSection = () => {
   return (
     <section
-      className="relative py-24 lg:py-32"
-      style={{
-        background: "hsl(0,0%,96%)",
-        backgroundImage:
-          "linear-gradient(hsl(220,30%,90%) 1px, transparent 1px), linear-gradient(90deg, hsl(220,30%,90%) 1px, transparent 1px)",
-        backgroundSize: "28px 28px",
-      }}
+      className="relative py-24 lg:py-32 overflow-hidden"
+      style={{ background: "hsl(0,0%,96%)" }}
     >
+      {/* Grid background with edge blur */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(hsl(220,20%,88%) 1px, transparent 1px), linear-gradient(90deg, hsl(220,20%,88%) 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+          mask: "radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 70%)",
+          WebkitMask: "radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 70%)",
+        }}
+      />
       <div className="max-w-5xl mx-auto px-8 lg:px-12">
         {/* Heading */}
         <h2
