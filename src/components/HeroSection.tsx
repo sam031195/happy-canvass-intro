@@ -1,17 +1,23 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, ArrowDown, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import heroSlide1 from "@/assets/hero-slide-1.png";
+import heroSlide2 from "@/assets/hero-slide-2.png";
+import heroSlide3 from "@/assets/hero-slide-3.jpg";
 
 const slides = [
   {
+    image: heroSlide1,
     popupIcon: <Sparkles className="w-5 h-5 text-primary" />,
     popupText: "Your order has been upgraded to express.",
   },
   {
+    image: heroSlide2,
     popupIcon: <Sparkles className="w-5 h-5 text-primary" />,
     popupText: "I've scheduled your callback for tomorrow.",
   },
   {
+    image: heroSlide3,
     popupIcon: <Sparkles className="w-5 h-5 text-primary" />,
     popupText: "Your refund has been processed instantly.",
   },
@@ -36,6 +42,24 @@ const HeroSection = () => {
   }, []);
 
   const totalSlides = slides.length;
+  const stripSlides = [...slides, slides[0]];
+  const stripCount = stripSlides.length;
+
+  const getImageProgress = () => {
+    let imgProgress = 0;
+    for (let i = 0; i < totalSlides; i++) {
+      const slideStart = i / totalSlides;
+      const slideEnd = (i + 1) / totalSlides;
+      const imgPhaseStart = slideStart + (slideEnd - slideStart) * 0.55;
+      if (progress > imgPhaseStart) {
+        const t = Math.min(1, (progress - imgPhaseStart) / ((slideEnd - slideStart) * 0.45));
+        imgProgress = i + t;
+      }
+    }
+    return imgProgress;
+  };
+
+  const imageOffset = getImageProgress();
 
   return (
     <section
@@ -43,7 +67,26 @@ const HeroSection = () => {
       className="relative"
       style={{ height: `${(totalSlides + 1) * 100}vh` }}
     >
-      <div className="sticky top-0 h-screen w-full overflow-hidden bg-background">
+      <div className="sticky top-0 h-screen w-full overflow-hidden">
+        {/* Background images strip */}
+        <div
+          className="absolute inset-0 flex"
+          style={{
+            width: `${stripCount * 100}%`,
+            transform: `translateX(-${(imageOffset / stripCount) * 100}%)`,
+          }}
+        >
+          {stripSlides.map((slide, i) => (
+            <div key={i} className="relative h-full" style={{ width: `${100 / stripCount}%` }}>
+              <img
+                src={slide.image}
+                alt={`Slide ${i + 1}`}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
+
         {/* Fixed hero content overlay */}
         <div className="relative z-10 flex flex-col h-full">
           {/* Navbar */}
