@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { Send, ChevronDown, Bot, Sparkles } from "lucide-react";
+import { Search, ChevronDown, Bot, Sparkles } from "lucide-react";
 import { useState, useRef, useEffect, useCallback } from "react";
 
 const MODELS = [
@@ -92,16 +92,18 @@ const Dashboard = () => {
 
           {/* Search bar */}
           <div className="mt-6 w-full max-w-3xl">
-            <div className="flex items-center bg-background/95 backdrop-blur-sm rounded-2xl shadow-lg px-4 py-3 gap-3">
+            <div className="relative flex items-center rounded-full px-5 py-3.5 gap-3" style={{ background: 'hsl(0 0% 8% / 0.85)', boxShadow: '0 0 0 1px hsla(0,0%,100%,0.12), 0 4px 30px hsla(0,0%,0%,0.4), 0 2px 8px 0 hsla(220,80%,55%,0.25) inset' }}>
+              {/* Blue bottom glow */}
+              <span className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-1/3 h-[2px] rounded-full" style={{ background: 'linear-gradient(90deg, transparent, hsl(220 80% 55%), transparent)' }} />
               {/* Model selector */}
               <div className="relative shrink-0" ref={dropdownRef}>
                 <button
                   onClick={() => setModelOpen((v) => !v)}
-                  className="flex items-center gap-2 border border-border rounded-full px-3 py-2 text-sm text-foreground hover:bg-accent transition-colors"
+                  className="flex items-center gap-2 border border-primary-foreground/20 rounded-full px-3 py-2 text-sm text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
                 >
-                  <Bot className="h-4 w-4 text-primary" />
+                  <Bot className="h-4 w-4 text-primary-foreground/70" />
                   {selectedModel.label}
-                  <ChevronDown className="h-3.5 w-3.5 text-muted-foreground" />
+                  <ChevronDown className="h-3.5 w-3.5 text-primary-foreground/50" />
                 </button>
                 {modelOpen && (
                   <div className="absolute left-0 top-full mt-1 z-50 bg-popover border border-border rounded-lg shadow-lg py-1 min-w-[160px]">
@@ -129,7 +131,7 @@ const Dashboard = () => {
               <input
                 type="text"
                 placeholder="Find open source repos..."
-                className="flex-1 bg-transparent border-none outline-none text-foreground placeholder:text-muted-foreground text-base min-w-0"
+                className="flex-1 bg-transparent border-none outline-none text-primary-foreground placeholder:text-primary-foreground/40 text-base min-w-0"
               />
 
               {/* AI Mode */}
@@ -138,7 +140,7 @@ const Dashboard = () => {
                 onMouseMove={handleAiMouseMove}
                 onMouseEnter={() => setAiHovered(true)}
                 onMouseLeave={() => setAiHovered(false)}
-                className="relative shrink-0 rounded-full px-4 py-2 text-sm font-medium text-foreground flex items-center gap-1.5 border border-border"
+                className="relative shrink-0 rounded-full px-4 py-2 text-sm font-medium text-primary-foreground flex items-center gap-1.5 border border-primary-foreground/20"
               >
                 {/* Gradient glow that follows cursor */}
                 <span
@@ -148,14 +150,14 @@ const Dashboard = () => {
                     background: `radial-gradient(circle 60px at ${aiGradientPos.x}% ${aiGradientPos.y}%, #4285f4, #ea4335, #fbbc05, #34a853, transparent 70%)`,
                   }}
                 />
-                <span className="pointer-events-none absolute inset-0 rounded-full bg-background -z-[5]" />
+                <span className="pointer-events-none absolute inset-0 rounded-full -z-[5]" style={{ background: 'hsl(0 0% 8%)' }} />
                 <Sparkles className="h-4 w-4" />
                 AI Mode
               </button>
 
-              {/* Send */}
-              <button className="h-10 w-10 rounded-full bg-gradient-to-b from-[hsl(0,0%,35%)] to-[hsl(0,0%,8%)] shadow-[inset_0_1px_0_hsla(0,0%,100%,0.1)] flex items-center justify-center hover:opacity-90 transition-opacity shrink-0">
-                <Send className="h-4 w-4 text-primary-foreground" />
+              {/* Search icon */}
+              <button className="h-10 w-10 rounded-full flex items-center justify-center hover:bg-primary-foreground/10 transition-colors shrink-0">
+                <Search className="h-5 w-5 text-primary-foreground/60" />
               </button>
             </div>
 
