@@ -111,7 +111,7 @@ const SignIn = () => {
           {/* Form */}
           <form
             className="space-y-4"
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={(e) => { e.preventDefault(); navigate("/dashboard"); }}
           >
             {isSignUp && (
               <div>
