@@ -37,9 +37,10 @@ export const TimelineSection = ({ steps }: TimelineSectionProps) => {
       const rect = el.getBoundingClientRect();
       const windowH = window.innerHeight;
       // Start filling when container top reaches 60% of viewport
-      const startTrigger = windowH * 0.6;
-      const scrolled = startTrigger - rect.top;
-      const totalRange = rect.height;
+      const start = windowH * 0.6;
+      const end = windowH * 0.3;
+      const scrolled = start - rect.top;
+      const totalRange = rect.height - (windowH - start) + end;
       const pct = Math.min(100, Math.max(0, (scrolled / totalRange) * 100));
       setFillPercent(pct);
     };
