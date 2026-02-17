@@ -68,8 +68,8 @@ const Section3aRight = () => (
     <div className="rounded-lg px-6 py-5 w-full" style={{ background: "hsl(0,0%,97%)", border: "1px solid hsl(0,0%,85%)" }}>
       <p className="text-xs font-bold text-[hsl(0,0%,25%)] tracking-wider mb-3">EVAL</p>
       <div className="flex items-center justify-between mb-1.5">
-        <span className="text-sm font-semibold" style={{ color: "hsl(175,40%,35%)" }}>Adept Planning</span>
-        <span className="text-sm font-semibold" style={{ color: "hsl(150,55%,38%)" }}>88</span>
+        <span className="text-sm font-semibold" style={{ color: "hsl(0,0%,25%)" }}>Adept Planning</span>
+        <span className="text-sm font-semibold" style={{ color: "hsl(0,0%,25%)" }}>88</span>
       </div>
       <div className="w-full h-px mb-1.5" style={{ backgroundImage: "linear-gradient(to right, hsl(0,0%,78%) 3px, transparent 3px)", backgroundSize: "7px 1px" }} />
       <div className="flex items-center justify-between">
