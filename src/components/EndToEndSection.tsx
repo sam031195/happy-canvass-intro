@@ -8,7 +8,7 @@ const EndToEndSection = () => {
   return (
     <section className="px-6 lg:px-10 py-4">
       <div
-        className="relative rounded-xl overflow-hidden"
+        className="relative rounded overflow-hidden"
         style={{ background: "hsl(0, 0%, 92%)" }}
       >
         <div className="px-10 lg:px-16 pt-16 lg:pt-20">

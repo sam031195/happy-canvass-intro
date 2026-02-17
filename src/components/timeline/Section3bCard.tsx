@@ -2,7 +2,7 @@ const Section3bLeft = () => (
   <>
     <div
       className="w-14 h-14 flex items-center justify-center mb-8"
-      style={{ background: "hsl(0,0%,96%)", border: "1px solid hsl(0,0%,82%)", borderRadius: "8px" }}
+      style={{ background: "hsl(0,0%,96%)", border: "1px solid hsl(0,0%,82%)", borderRadius: "4px" }}
     >
       <span className="text-sm font-mono font-medium" style={{ color: "hsl(0,0%,25%)" }}>x,y</span>
     </div>
@@ -20,7 +20,7 @@ const Section3bRight = () => (
     {/* Locate chat card */}
     <div
       className="p-5 lg:p-6 relative overflow-hidden w-full"
-      style={{ background: "hsl(0,0%,97%)", border: "1px solid hsl(0,0%,85%)", borderRadius: "8px" }}
+      style={{ background: "hsl(0,0%,97%)", border: "1px solid hsl(0,0%,85%)", borderRadius: "4px" }}
     >
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.25]"
@@ -37,15 +37,15 @@ const Section3bRight = () => (
           </div>
         </div>
         <p className="text-xs font-medium mb-3" style={{ color: "hsl(0,0%,35%)" }}>Contact details</p>
-        <div className="px-4 py-3 mb-2.5 text-sm" style={{ background: "hsl(0,0%,100%)", border: "1px solid hsl(0,0%,82%)", borderRadius: "6px", color: "hsl(0,0%,20%)" }}>
+        <div className="px-4 py-3 mb-2.5 text-sm" style={{ background: "hsl(0,0%,100%)", border: "1px solid hsl(0,0%,82%)", borderRadius: "3px", color: "hsl(0,0%,20%)" }}>
           John Appleseed
         </div>
-        <div className="px-4 py-3 mb-4 text-sm" style={{ background: "hsl(0,0%,100%)", border: "1px solid hsl(0,0%,82%)", borderRadius: "6px", color: "hsl(0,0%,20%)" }}>
+        <div className="px-4 py-3 mb-4 text-sm" style={{ background: "hsl(0,0%,100%)", border: "1px solid hsl(0,0%,82%)", borderRadius: "3px", color: "hsl(0,0%,20%)" }}>
           San Francisco, CA
         </div>
         <div className="flex justify-center mb-4">
-          <div className="px-6 py-4" style={{ border: "2px dashed hsl(0,0%,55%)", borderRadius: "6px" }}>
-            <div className="px-6 py-2.5 text-sm font-medium text-center" style={{ background: "hsl(0,0%,85%)", color: "hsl(0,0%,25%)", borderRadius: "6px" }}>
+          <div className="px-6 py-4" style={{ border: "2px dashed hsl(0,0%,55%)", borderRadius: "3px" }}>
+            <div className="px-6 py-2.5 text-sm font-medium text-center" style={{ background: "hsl(0,0%,85%)", color: "hsl(0,0%,25%)", borderRadius: "3px" }}>
               Add lead
             </div>
           </div>
@@ -59,7 +59,7 @@ const Section3bRight = () => (
           </span>
         </div>
         <div className="flex justify-end">
-          <div className="px-4 py-3 font-mono text-xs leading-relaxed" style={{ background: "hsl(0,0%,12%)", color: "hsl(0,0%,80%)", border: "1px solid hsl(0,0%,30%)", borderRadius: "6px" }}>
+          <div className="px-4 py-3 font-mono text-xs leading-relaxed" style={{ background: "hsl(0,0%,12%)", color: "hsl(0,0%,80%)", border: "1px solid hsl(0,0%,30%)", borderRadius: "3px" }}>
             <span style={{ color: "hsl(0,0%,65%)" }}>Lead button coordinates:</span>
             <br />
             <span style={{ color: "hsl(0,50%,75%)" }}>52, 75, 93, 15</span>
@@ -69,7 +69,7 @@ const Section3bRight = () => (
     </div>
 
     {/* Eval card */}
-    <div className="px-6 py-5 w-full" style={{ background: "hsl(0,0%,97%)", border: "1px solid hsl(0,0%,85%)", borderRadius: "8px" }}>
+    <div className="px-6 py-5 w-full" style={{ background: "hsl(0,0%,97%)", border: "1px solid hsl(0,0%,85%)", borderRadius: "4px" }}>
       <p className="text-xs font-bold tracking-wider mb-3" style={{ color: "hsl(0,0%,25%)" }}>EVAL</p>
       <div className="flex items-center justify-between">
         <span className="text-sm font-semibold" style={{ color: "hsl(0,0%,25%)" }}>Adept Locate</span>

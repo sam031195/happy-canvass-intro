@@ -3,7 +3,7 @@ const Section3cLeft = () => (
     {/* Icon - browser/screen with eye */}
     <div
       className="w-14 h-14 flex items-center justify-center mb-8"
-      style={{ background: "hsl(0,0%,96%)", border: "1px solid hsl(0,0%,82%)", borderRadius: "8px" }}
+      style={{ background: "hsl(0,0%,96%)", border: "1px solid hsl(0,0%,82%)", borderRadius: "4px" }}
     >
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style={{ color: "hsl(0,0%,25%)" }}>
         <rect x="2" y="4" width="20" height="14" rx="2" stroke="currentColor" strokeWidth="1.5" fill="none" />
@@ -28,7 +28,7 @@ const Section3cRight = () => (
     {/* Main card */}
     <div
       className="p-5 lg:p-6 relative overflow-hidden w-full"
-      style={{ background: "hsl(0,0%,97%)", border: "1px solid hsl(0,0%,85%)", borderRadius: "8px" }}
+      style={{ background: "hsl(0,0%,97%)", border: "1px solid hsl(0,0%,85%)", borderRadius: "4px" }}
     >
       {/* Grid pattern */}
       <div
@@ -77,7 +77,7 @@ const Section3cRight = () => (
           {/* Software column - dashed border */}
           <div
             className="flex flex-col items-center flex-1 py-2"
-            style={{ border: "2px dashed hsl(0,0%,55%)", borderRadius: "6px" }}
+            style={{ border: "2px dashed hsl(0,0%,55%)", borderRadius: "3px" }}
           >
             <p className="text-xs font-medium mb-3" style={{ color: "hsl(0,0%,35%)" }}>Software</p>
             <div className="w-full px-3 mb-3">
@@ -145,7 +145,7 @@ const Section3cRight = () => (
             style={{
               background: "hsl(0,30%,95%)",
               border: "1px solid hsl(0,0%,75%)",
-              borderRadius: "6px",
+              borderRadius: "3px",
               color: "hsl(0,0%,20%)",
             }}
           >
@@ -156,7 +156,7 @@ const Section3cRight = () => (
     </div>
 
     {/* Eval card */}
-    <div className="px-6 py-5 w-full" style={{ background: "hsl(0,0%,97%)", border: "1px solid hsl(0,0%,85%)", borderRadius: "8px" }}>
+    <div className="px-6 py-5 w-full" style={{ background: "hsl(0,0%,97%)", border: "1px solid hsl(0,0%,85%)", borderRadius: "4px" }}>
       <p className="text-xs font-bold tracking-wider mb-3" style={{ color: "hsl(0,0%,25%)" }}>EVAL</p>
       <div className="flex items-center justify-between">
         <span className="text-sm font-semibold" style={{ color: "hsl(0,0%,25%)" }}>Adept Web VQA</span>
