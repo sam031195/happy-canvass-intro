@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import ctaFooter from "@/assets/cta-footer.avif";
+import ctaFooter from "@/assets/cta-footer-new.png";
 
 const cards = [
   {
