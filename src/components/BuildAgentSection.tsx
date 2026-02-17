@@ -38,8 +38,8 @@ const BuildAgentSection = () => {
               <div
                 className="w-14 h-14 rounded-full flex items-center justify-center text-xl font-semibold text-white my-2 shrink-0"
                 style={{
-                  background: "linear-gradient(180deg, hsl(250,20%,82%) 0%, hsl(252,58%,65%) 100%)",
-                  boxShadow: "0 4px 20px hsla(0,0%,0%,0.15)",
+                  background: "linear-gradient(180deg, hsl(0,0%,35%) 0%, hsl(0,0%,8%) 100%)",
+                  boxShadow: "0 4px 20px hsla(0,0%,0%,0.25), inset 0 1px 0 hsla(0,0%,100%,0.1)",
                 }}
               >
                 1
@@ -56,7 +56,7 @@ const BuildAgentSection = () => {
                 <div
                   className="inline-flex items-center gap-3 rounded-full px-5 py-3"
                   style={{
-                    background: "linear-gradient(180deg, hsl(250,20%,82%) 0%, hsl(252,58%,65%) 100%)",
+                    background: "linear-gradient(180deg, hsl(0,0%,35%) 0%, hsl(0,0%,8%) 100%)",
                   }}
                 >
                   <div className="w-8 h-8 rounded-full bg-[hsl(240,40%,30%)] flex items-center justify-center">
