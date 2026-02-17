@@ -23,10 +23,10 @@ const Section3dContent = () => {
           border: "1px solid hsl(0,0%,20%)",
           borderRadius: "12px",
       }}>
-        {/* Sparkle icon — centered on bottom edge */}
+        {/* Sparkle icon — centered on top edge */}
         <div
           className="absolute left-1/2 -translate-x-1/2 z-10"
-          style={{ bottom: "-28px" }}
+          style={{ top: "-28px" }}
         >
           <div
             className="w-14 h-14 rounded-full flex items-center justify-center"
