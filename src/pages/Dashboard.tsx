@@ -29,9 +29,17 @@ const Dashboard = () => {
         </div>
       </nav>
 
-      {/* Content section */}
-      <div className="relative flex-1 bg-gradient-to-b from-[hsl(210,40%,45%)] to-[hsl(260,20%,65%)]">
-        <div className="flex flex-col items-center justify-center h-full text-center px-6">
+      {/* Video section */}
+      <div className="relative flex-1">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          src="/videos/banner-post-signup.webm"
+        />
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
           <h1 className="text-5xl lg:text-7xl font-semibold text-primary-foreground leading-tight tracking-tight max-w-3xl">
             Shape the next era of intelligence.
           </h1>
