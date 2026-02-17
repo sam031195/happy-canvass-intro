@@ -1,23 +1,21 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, ArrowDown, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import scrollImg5 from "@/assets/scroll-img-5.jpg";
-import scrollImg7 from "@/assets/scroll-img-7.jpg";
-import scrollImg8 from "@/assets/scroll-img-8.jpg";
+import carousel1 from "@/assets/carousel-1.png";
 
 const slides = [
   {
-    image: scrollImg5,
+    image: carousel1,
     popupIcon: <Sparkles className="w-5 h-5 text-primary" />,
     popupText: "Your order has been upgraded to express.",
   },
   {
-    image: scrollImg7,
+    image: carousel1,
     popupIcon: <Sparkles className="w-5 h-5 text-primary" />,
     popupText: "I've scheduled your callback for tomorrow.",
   },
   {
-    image: scrollImg8,
+    image: carousel1,
     popupIcon: <Sparkles className="w-5 h-5 text-primary" />,
     popupText: "Your refund has been processed instantly.",
   },

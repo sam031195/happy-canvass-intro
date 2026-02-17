@@ -1,27 +1,24 @@
 import { useEffect, useRef, useState } from "react";
-import heroBg from "@/assets/hero-bg.png";
-import scrollImg7 from "@/assets/scroll-img-7.jpg";
-import scrollImg5 from "@/assets/scroll-img-5.jpg";
-import scrollImg8 from "@/assets/scroll-img-8.jpg";
+import carousel1 from "@/assets/carousel-1.png";
 
 const slides = [
   {
-    image: heroBg,
+    image: carousel1,
     title: "AI-Powered Support",
     description: "Deliver instant, personalized responses to every customer query with intelligent automation.",
   },
   {
-    image: scrollImg7,
+    image: carousel1,
     title: "Enterprise Scale",
     description: "Handle millions of conversations simultaneously without compromising quality or speed.",
   },
   {
-    image: scrollImg5,
+    image: carousel1,
     title: "Seamless Integration",
     description: "Connect with your existing tools and workflows in minutes, not months.",
   },
   {
-    image: scrollImg8,
+    image: carousel1,
     title: "Smart Analytics",
     description: "Gain deep insights into customer behavior and agent performance in real time.",
   },
