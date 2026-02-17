@@ -6,7 +6,7 @@ const DecagonDifferenceSection = () => {
     <section className="bg-background py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-8 lg:px-12">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 rounded-full bg-[hsl(0,0%,92%)] px-4 py-2 text-sm font-medium text-foreground mb-8">
+        <div className="inline-flex items-center gap-2 rounded-full bg-[hsl(0,0%,92%)] px-4 py-2 text-sm font-medium text-foreground mb-4">
           <Sparkles className="w-4 h-4" fill="currentColor" />
           The Decagon difference
         </div>
