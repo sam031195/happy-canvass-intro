@@ -27,14 +27,18 @@ const WayForwardSection = () => {
       className="relative py-24 lg:py-32 overflow-hidden"
       style={{ background: "hsl(230,30%,97%)" }}
     >
-      {/* Grid background image */}
+      {/* Grid background image — tiled, with edge fade */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage: "url('/images/grid-bg.png')",
-          backgroundSize: "cover",
+          backgroundSize: "600px",
           backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
+          backgroundRepeat: "repeat",
+          mask: "linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)",
+          maskComposite: "intersect",
+          WebkitMask: "linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)",
+          WebkitMaskComposite: "destination-in",
         }}
       />
       <div className="max-w-5xl mx-auto px-8 lg:px-12">
