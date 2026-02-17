@@ -12,14 +12,14 @@ const DecagonDifferenceSection = () => {
         </div>
 
         {/* Content grid */}
-        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+        <div className="flex flex-col lg:flex-row items-end gap-16 lg:gap-24">
           {/* Left text */}
           <div className="flex-1 max-w-xl">
-            <p className="text-lg text-foreground/80 leading-relaxed mb-8">
+            <p className="text-lg text-foreground/80 leading-relaxed mb-6">
               Move past complex configuration languages that slow iteration, inflate costs, and drain engineering time.
             </p>
 
-            <p className="text-lg leading-relaxed mb-10">
+            <p className="text-lg leading-relaxed mb-6">
               <span className="text-[hsl(252,60%,55%)] font-semibold">Agent Operating Procedures (AOPs)</span>{" "}
               <span className="text-foreground/80">
                 let you define agent workflows in natural language, so you can refine behavior and optimize performance as fast as your business moves.
@@ -32,7 +32,7 @@ const DecagonDifferenceSection = () => {
           </div>
 
           {/* Right: Video */}
-          <div className="flex-1 flex items-center justify-center">
+          <div className="flex-1 flex items-end justify-center">
             <div className="relative w-full max-w-[560px] rounded-2xl overflow-hidden bg-background">
               <video
                 autoPlay
