@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { Send, ChevronDown, Bot, Sparkles } from "lucide-react";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 
 const MODELS = [
   { label: "GPT 5", value: "openai/gpt-5" },
@@ -20,7 +20,18 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const [selectedModel, setSelectedModel] = useState(MODELS[0]);
   const [modelOpen, setModelOpen] = useState(false);
+  const [aiGradientPos, setAiGradientPos] = useState({ x: 50, y: 50 });
+  const [aiHovered, setAiHovered] = useState(false);
+  const aiBtnRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const handleAiMouseMove = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setAiGradientPos({
+      x: ((e.clientX - rect.left) / rect.width) * 100,
+      y: ((e.clientY - rect.top) / rect.height) * 100,
+    });
+  }, []);
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -122,12 +133,19 @@ const Dashboard = () => {
               />
 
               {/* AI Mode */}
-              <button className="relative shrink-0 rounded-full px-4 py-2 text-sm font-medium text-foreground flex items-center gap-1.5 border-none">
-                {/* Animated gradient border - always visible */}
-                <span className="pointer-events-none absolute -inset-[2.5px] rounded-full -z-10"
+              <button
+                ref={aiBtnRef}
+                onMouseMove={handleAiMouseMove}
+                onMouseEnter={() => setAiHovered(true)}
+                onMouseLeave={() => setAiHovered(false)}
+                className="relative shrink-0 rounded-full px-4 py-2 text-sm font-medium text-foreground flex items-center gap-1.5 border border-border"
+              >
+                {/* Gradient glow that follows cursor */}
+                <span
+                  className="pointer-events-none absolute -inset-[2.5px] rounded-full -z-10 transition-opacity duration-300"
                   style={{
-                    background: "conic-gradient(from var(--ai-angle, 0deg), #4285f4, #ea4335, #fbbc05, #34a853, #4285f4)",
-                    animation: "ai-spin 3s linear infinite",
+                    opacity: aiHovered ? 1 : 0,
+                    background: `radial-gradient(circle 60px at ${aiGradientPos.x}% ${aiGradientPos.y}%, #4285f4, #ea4335, #fbbc05, #34a853, transparent 70%)`,
                   }}
                 />
                 <span className="pointer-events-none absolute inset-0 rounded-full bg-background -z-[5]" />
