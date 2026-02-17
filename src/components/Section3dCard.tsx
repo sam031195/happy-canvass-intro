@@ -33,8 +33,8 @@ const Section3dContent = () => {
       <div
         className="relative overflow-visible"
         style={{
-          background: "hsl(0,0%,10%)",
-          border: "1px solid hsl(0,0%,20%)",
+          background: "hsl(0,0%,100%)",
+          border: "1px solid hsl(0,0%,85%)",
           borderRadius: "12px",
           marginTop: "-28px",
       }}>
@@ -178,20 +178,20 @@ const Section3dContent = () => {
                 Your business evolves.
               </span>
               <br />
-              <span style={{ color: "hsl(0,0%,100%)" }}>
+              <span style={{ color: "hsl(0,0%,10%)" }}>
                 Your AI agent should too.
               </span>
             </h2>
             <p
               className="text-base lg:text-lg leading-relaxed mb-4"
-              style={{ color: "hsl(0,0%,65%)" }}
+              style={{ color: "hsl(0,0%,40%)" }}
             >
               Every update to your agent shouldn't require an engineering sprint
               or vendor support ticket.
             </p>
             <p
               className="text-base lg:text-lg leading-relaxed mb-8"
-              style={{ color: "hsl(0,0%,65%)" }}
+              style={{ color: "hsl(0,0%,40%)" }}
             >
               Decagon enables rapid iteration across the entire agent lifecycle,
               so teams can ship new workflows faster and continuously improve
@@ -200,10 +200,10 @@ const Section3dContent = () => {
             <div>
               <Button
                 variant="hero-outline"
-                className="px-8 py-3 text-base"
+                className="px-8 py-3 text-base rounded-full"
                 style={{
-                  borderColor: "hsl(252,50%,55%)",
-                  color: "hsl(252,50%,55%)",
+                  borderColor: "hsl(0,0%,20%)",
+                  color: "hsl(0,0%,10%)",
                 }}
               >
                 Learn more
