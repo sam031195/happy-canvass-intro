@@ -5,12 +5,12 @@ import carImg from "@/assets/section3d-car.jpg";
 import marathonImg from "@/assets/section3d-marathon.jpg";
 import insuranceImg from "@/assets/section3d-insurance.jpg";
 
-const Section3dCard = () => {
+const Section3dContent = () => {
   return (
-    <section className="px-6 lg:px-10 pb-4">
+    <div className="px-10 lg:px-16 pb-16 lg:pb-20">
       {/* Connecting line + sparkle icon */}
-      <div className="flex flex-col items-center" style={{ marginTop: "-1px" }}>
-        <div className="w-px" style={{ height: "60px", background: "hsl(0,0%,50%)" }} />
+      <div className="flex flex-col items-center">
+        <div className="w-px" style={{ height: "60px", background: "hsl(0,0%,80%)" }} />
         <div
           className="w-14 h-14 rounded-full flex items-center justify-center shrink-0"
           style={{ background: "hsl(252,50%,55%)" }}
@@ -202,8 +202,8 @@ const Section3dCard = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default Section3dCard;
+export default Section3dContent;
