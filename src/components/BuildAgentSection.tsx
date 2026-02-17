@@ -36,9 +36,9 @@ const BuildAgentSection = () => {
 
               {/* Step number circle */}
               <div
-                className="w-14 h-14 rounded-full flex items-center justify-center text-xl font-semibold text-white my-2 shrink-0"
+                className="w-14 h-14 rounded-full flex items-center justify-center text-xl font-semibold text-[hsl(0,0%,10%)] my-2 shrink-0"
                 style={{
-                  background: "linear-gradient(180deg, hsl(250,20%,82%) 0%, hsl(252,58%,65%) 100%)",
+                  background: "linear-gradient(180deg, hsl(0,0%,95%) 0%, hsl(252,58%,65%) 100%)",
                   boxShadow: "0 4px 20px hsla(0,0%,0%,0.15)",
                 }}
               >
@@ -56,13 +56,13 @@ const BuildAgentSection = () => {
                 <div
                   className="inline-flex items-center gap-3 rounded-full px-5 py-3"
                   style={{
-                    background: "linear-gradient(180deg, hsl(250,20%,82%) 0%, hsl(252,58%,65%) 100%)",
+                    background: "linear-gradient(180deg, hsl(0,0%,95%) 0%, hsl(252,58%,65%) 100%)",
                   }}
                 >
-                  <div className="w-8 h-8 rounded-full bg-[hsl(240,40%,30%)] flex items-center justify-center">
-                    <AudioLines className="w-4 h-4 text-white" />
+                   <div className="w-8 h-8 rounded-full bg-[hsl(252,40%,55%)] flex items-center justify-center">
+                    <AudioLines className="w-4 h-4 text-[hsl(0,0%,10%)]" />
                   </div>
-                  <span className="text-sm font-medium text-white whitespace-nowrap">
+                  <span className="text-sm font-medium text-[hsl(0,0%,10%)] whitespace-nowrap">
                     Hi, I want to request a refund
                   </span>
                 </div>
