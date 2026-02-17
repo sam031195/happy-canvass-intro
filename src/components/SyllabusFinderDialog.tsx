@@ -30,6 +30,13 @@ const PROGRAMS_BY_UNIVERSITY: Record<string, ProgramOption[]> = {
     { name: "Artificial Intelligence for Business MSc", department: "Department of Computer Science" },
     { name: "Mathematical Modelling and Scientific Computing MSc", department: "Mathematical Institute" },
   ],
+  "Massachusetts Institute Of Technology": [
+    { name: "Master of Engineering", department: "School of Engineering" },
+    { name: "Master of Business Analytics", department: "MIT Sloan School of Management" },
+    { name: "BS in Computer Science and Engineering", department: "School of Engineering" },
+    { name: "BS in Artificial Intelligence and Decision Making", department: "School of Engineering" },
+    { name: "BS in Mathematics with Computer Science", department: "Department of Mathematics, School of Science" },
+  ],
 };
 const DEFAULT_PROGRAMS: ProgramOption[] = [
   { name: "B.Tech" }, { name: "M.Tech" }, { name: "BCA" }, { name: "MCA" }, { name: "B.Sc" }, { name: "M.Sc" },
