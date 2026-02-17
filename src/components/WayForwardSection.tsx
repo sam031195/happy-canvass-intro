@@ -25,7 +25,7 @@ const WayForwardSection = () => {
   return (
     <section
       className="relative py-24 lg:py-32 overflow-hidden"
-      style={{ background: "hsl(230,30%,97%)" }}
+      style={{ background: "hsl(0,0%,100%)" }}
     >
       {/* Grid background image — tiled, with edge fade */}
       <div
