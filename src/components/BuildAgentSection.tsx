@@ -38,7 +38,7 @@ const BuildAgentSection = () => {
               <div
                 className="w-14 h-14 rounded-full flex items-center justify-center text-xl font-semibold text-white my-2 shrink-0"
                 style={{
-                  background: "linear-gradient(180deg, hsl(0,0%,20%) 0%, hsl(0,0%,10%) 100%)",
+                  background: "linear-gradient(135deg, hsl(230,60%,12%) 0%, hsl(255,50%,35%) 100%)",
                   boxShadow: "0 4px 20px hsla(0,0%,0%,0.15)",
                 }}
               >
