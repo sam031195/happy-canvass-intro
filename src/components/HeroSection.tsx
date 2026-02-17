@@ -1,37 +1,25 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, ArrowDown, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import scrollImg2 from "@/assets/scroll-img-2.png";
-import scrollImg3 from "@/assets/scroll-img-3.png";
-import scrollImg4 from "@/assets/scroll-img-4.png";
+import scrollImg5 from "@/assets/scroll-img-5.jpg";
 import scrollImg7 from "@/assets/scroll-img-7.jpg";
 import scrollImg8 from "@/assets/scroll-img-8.jpg";
 
 const slides = [
   {
-    image: scrollImg2,
+    image: scrollImg5,
     popupIcon: <Sparkles className="w-5 h-5 text-primary" />,
     popupText: "Your order has been upgraded to express.",
   },
   {
-    image: scrollImg3,
+    image: scrollImg7,
     popupIcon: <Sparkles className="w-5 h-5 text-primary" />,
     popupText: "I've scheduled your callback for tomorrow.",
   },
   {
-    image: scrollImg4,
-    popupIcon: <Sparkles className="w-5 h-5 text-primary" />,
-    popupText: "Your refund has been processed instantly.",
-  },
-  {
-    image: scrollImg7,
-    popupIcon: <Sparkles className="w-5 h-5 text-primary" />,
-    popupText: "I've reserved your spot for the event.",
-  },
-  {
     image: scrollImg8,
     popupIcon: <Sparkles className="w-5 h-5 text-primary" />,
-    popupText: "Your campus tour has been confirmed.",
+    popupText: "Your refund has been processed instantly.",
   },
 ];
 
