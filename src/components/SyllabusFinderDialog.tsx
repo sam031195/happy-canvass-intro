@@ -14,7 +14,10 @@ const UNIVERSITIES = [
   "Georgia Tech University", "University of Michigan", "Johns Hopkins University", "Brown University",
 ];
 
-const PROGRAMS = ["B.Tech", "M.Tech", "BCA", "MCA", "B.Sc", "M.Sc"];
+const PROGRAMS_BY_UNIVERSITY: Record<string, string[]> = {
+  "University of Washington": ["MSIS", "MSIM", "MSCS", "MSBA", "MSCM", "MBA"],
+};
+const DEFAULT_PROGRAMS = ["B.Tech", "M.Tech", "BCA", "MCA", "B.Sc", "M.Sc"];
 const SCHEMES = ["2024-25", "2023-24", "2022-23", "2021-22"];
 const SEMESTERS = ["1st Semester", "2nd Semester", "3rd Semester", "4th Semester", "5th Semester", "6th Semester", "7th Semester", "8th Semester"];
 
@@ -31,7 +34,8 @@ const SyllabusFinderDialog = ({ open, onOpenChange }: Props) => {
   const [semester, setSemester] = useState("");
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const currentOptions = step === 0 ? UNIVERSITIES : step === 1 ? PROGRAMS : step === 2 ? SCHEMES : SEMESTERS;
+  const programs = university && PROGRAMS_BY_UNIVERSITY[university] ? PROGRAMS_BY_UNIVERSITY[university] : DEFAULT_PROGRAMS;
+  const currentOptions = step === 0 ? UNIVERSITIES : step === 1 ? programs : step === 2 ? SCHEMES : SEMESTERS;
   const currentValue = step === 0 ? university : step === 1 ? program : step === 2 ? scheme : semester;
   const setCurrentValue = step === 0 ? setUniversity : step === 1 ? setProgram : step === 2 ? setScheme : setSemester;
   const placeholders = ["Choose a university", "Choose a program", "Choose a scheme", "Choose a semester"];
