@@ -92,11 +92,11 @@ const Dashboard = () => {
 
           {/* Search bar */}
           <div className="mt-6 w-full max-w-3xl">
-            <div className="relative flex items-center rounded-2xl px-5 py-3.5 gap-3" style={{ background: 'hsl(0 0% 8% / 0.85)', boxShadow: '0 0 0 1px hsla(0,0%,100%,0.12), 0 4px 30px hsla(0,0%,0%,0.4)' }}>
-              {/* Animated blue gradient line at bottom */}
-              <span className="pointer-events-none absolute bottom-0 left-0 w-full h-[2px] rounded-b-2xl overflow-hidden">
-                <span className="block w-full h-full" style={{ background: 'linear-gradient(90deg, transparent 0%, transparent 20%, hsl(220 80% 55%) 50%, transparent 80%, transparent 100%)', backgroundSize: '200% 100%', animation: 'gradient-slide 3s ease-in-out infinite' }} />
-              </span>
+            <div className="relative flex items-center rounded-2xl px-5 py-3.5 gap-3">
+              {/* Animated gradient border running full circle */}
+              <span className="pointer-events-none absolute -inset-[1.5px] rounded-2xl -z-10" style={{ background: 'conic-gradient(from var(--ai-angle, 0deg), transparent 0%, transparent 70%, hsl(220 80% 55%) 80%, hsla(220,80%,55%,0.6) 85%, transparent 95%)', animation: 'ai-spin 3s linear infinite' }} />
+              {/* Inner background */}
+              <span className="pointer-events-none absolute inset-0 rounded-2xl -z-[5]" style={{ background: 'hsl(0 0% 8% / 0.95)', boxShadow: '0 4px 30px hsla(0,0%,0%,0.4)' }} />
               {/* Model selector */}
               <div className="relative shrink-0" ref={dropdownRef}>
                 <button
