@@ -122,12 +122,12 @@ const Dashboard = () => {
               />
 
               {/* AI Mode */}
-              <button className="group relative shrink-0 rounded-full px-4 py-2 text-sm font-medium text-foreground flex items-center gap-1.5 bg-background border border-border transition-all duration-300 hover:border-transparent">
-                {/* Animated gradient border on hover */}
-                <span className="pointer-events-none absolute -inset-[2px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"
+              <button className="relative shrink-0 rounded-full px-4 py-2 text-sm font-medium text-foreground flex items-center gap-1.5 border-none">
+                {/* Animated gradient border - always visible */}
+                <span className="pointer-events-none absolute -inset-[2.5px] rounded-full -z-10"
                   style={{
                     background: "conic-gradient(from var(--ai-angle, 0deg), #4285f4, #ea4335, #fbbc05, #34a853, #4285f4)",
-                    animation: "ai-spin 2s linear infinite",
+                    animation: "ai-spin 3s linear infinite",
                   }}
                 />
                 <span className="pointer-events-none absolute inset-0 rounded-full bg-background -z-[5]" />
