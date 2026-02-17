@@ -1,6 +1,7 @@
 import { TimelineStep } from "./timeline/TimelineStep";
 import { Section3aLeft, Section3aRight } from "./timeline/Section3aCard";
 import { Section3bLeft, Section3bRight } from "./timeline/Section3bCard";
+import { Section3cLeft, Section3cRight } from "./timeline/Section3cCard";
 
 const EndToEndSection = () => {
   return (
@@ -20,6 +21,11 @@ const EndToEndSection = () => {
             stepNumber={2}
             left={<Section3bLeft />}
             right={<Section3bRight />}
+          />
+          <TimelineStep
+            stepNumber={3}
+            left={<Section3cLeft />}
+            right={<Section3cRight />}
           />
         </div>
       </div>
