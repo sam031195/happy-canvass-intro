@@ -307,7 +307,44 @@ const Dashboard = () => {
               style={{ color: "hsla(220, 15%, 90%, 0.95)", caretColor: "hsla(220, 80%, 65%, 0.9)" }}
             />
 
-            {/* AI Mode */}
+            {/* Search */}
+            <button
+              className="h-9 w-9 flex items-center justify-center shrink-0 transition-colors"
+              style={{ background: "hsla(0,0%,100%,0.95)", color: "hsla(0,0%,5%,1)", borderRadius: "4px" }}
+              onMouseEnter={(e) => (e.currentTarget as HTMLButtonElement).style.background = "hsla(0,0%,100%,1)"}
+              onMouseLeave={(e) => (e.currentTarget as HTMLButtonElement).style.background = "hsla(0,0%,100%,0.95)"}
+            >
+              <Search className="h-4 w-4" />
+            </button>
+          </div>
+
+          {/* Suggestions + AI Mode */}
+          <div className="mt-4 flex items-center justify-between gap-2">
+            <div className="flex flex-wrap gap-2">
+              {SUGGESTIONS.map((s) => (
+                <button
+                  key={s}
+                  className="px-4 py-2 rounded-full text-xs font-medium transition-all duration-150"
+                  style={{
+                    background: "hsla(230, 25%, 6%, 0.8)",
+                    border: "1px solid hsla(0, 0%, 100%, 0.07)",
+                    color: "hsla(220, 15%, 58%, 0.9)",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLButtonElement).style.borderColor = "hsla(0, 0%, 100%, 0.13)";
+                    (e.currentTarget as HTMLButtonElement).style.color = "hsla(220, 15%, 82%, 0.95)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLButtonElement).style.borderColor = "hsla(0, 0%, 100%, 0.07)";
+                    (e.currentTarget as HTMLButtonElement).style.color = "hsla(220, 15%, 58%, 0.9)";
+                  }}
+                >
+                  {s}
+                </button>
+              ))}
+            </div>
+
+            {/* AI Mode — right aligned */}
             <button
               ref={aiBtnRef}
               onMouseMove={handleAiMouseMove}
@@ -333,41 +370,6 @@ const Dashboard = () => {
               <Sparkles className="h-3.5 w-3.5 relative z-10" style={{ color: "hsla(220, 20%, 80%, 0.95)" }} />
               <span className="relative z-10">AI Mode</span>
             </button>
-
-            {/* Search */}
-            <button
-              className="h-9 w-9 flex items-center justify-center shrink-0 transition-colors"
-              style={{ background: "hsla(0,0%,100%,0.95)", color: "hsla(0,0%,5%,1)", borderRadius: "4px" }}
-              onMouseEnter={(e) => (e.currentTarget as HTMLButtonElement).style.background = "hsla(0,0%,100%,1)"}
-              onMouseLeave={(e) => (e.currentTarget as HTMLButtonElement).style.background = "hsla(0,0%,100%,0.95)"}
-            >
-              <Search className="h-4 w-4" />
-            </button>
-          </div>
-
-          {/* Suggestions */}
-          <div className="mt-4 flex flex-wrap justify-center gap-2">
-            {SUGGESTIONS.map((s) => (
-              <button
-                key={s}
-                className="px-4 py-2 rounded-full text-xs font-medium transition-all duration-150"
-                style={{
-                  background: "hsla(230, 25%, 6%, 0.8)",
-                  border: "1px solid hsla(0, 0%, 100%, 0.07)",
-                  color: "hsla(220, 15%, 58%, 0.9)",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLButtonElement).style.borderColor = "hsla(0, 0%, 100%, 0.13)";
-                  (e.currentTarget as HTMLButtonElement).style.color = "hsla(220, 15%, 82%, 0.95)";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLButtonElement).style.borderColor = "hsla(0, 0%, 100%, 0.07)";
-                  (e.currentTarget as HTMLButtonElement).style.color = "hsla(220, 15%, 58%, 0.9)";
-                }}
-              >
-                {s}
-              </button>
-            ))}
           </div>
         </div>
       </div>
