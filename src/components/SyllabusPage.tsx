@@ -200,9 +200,9 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
       style={{
         backgroundColor: "hsl(230, 18%, 6%)",
         backgroundImage: [
-          "radial-gradient(ellipse 55% 45% at 18% 100%, hsla(18, 72%, 44%, 0.28) 0%, transparent 65%)",
-          "radial-gradient(ellipse 60% 40% at 62% 100%, hsla(270, 60%, 48%, 0.22) 0%, transparent 60%)",
-          "radial-gradient(ellipse 40% 30% at 40% 85%, hsla(340, 55%, 38%, 0.15) 0%, transparent 55%)",
+          "radial-gradient(ellipse 60% 40% at 35% 100%, hsla(18, 72%, 44%, 0.28) 0%, transparent 65%)",
+          "radial-gradient(ellipse 60% 40% at 65% 100%, hsla(270, 60%, 48%, 0.22) 0%, transparent 60%)",
+          "radial-gradient(ellipse 45% 30% at 50% 100%, hsla(340, 55%, 38%, 0.15) 0%, transparent 55%)",
         ].join(", "),
       }}
     >
