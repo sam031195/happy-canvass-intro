@@ -937,6 +937,35 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
             </div>
 
           </div>
+          {/* ── Course Modules section ── */}
+          <div className="mb-6">
+            <div className="flex items-center justify-between mb-4">
+              <p
+                className="text-xs tracking-widest uppercase font-semibold"
+                style={{ color: "hsla(215, 25%, 60%, 0.5)" }}
+              >
+                Course Modules
+              </p>
+              <span
+                className="text-xs"
+                style={{ color: "hsla(215, 20%, 50%, 0.5)" }}
+              >
+                {detail.modules.length} modules · click to expand
+              </span>
+            </div>
+
+            <div className="flex flex-col gap-2">
+              {detail.modules.map((mod) => (
+                <ModuleRow
+                  key={mod.number}
+                  mod={mod}
+                  showChatBtn={isGenAI}
+                  onChatClick={() => openChat(`Module ${mod.number}: ${mod.title}`)}
+                />
+              ))}
+            </div>
+          </div>
+
           {/* ── Skills + Prerequisites grid ── */}
           <div className="grid grid-cols-12 gap-3 mb-6">
 
@@ -1018,40 +1047,12 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
                 </div>
               </div>
             ) : (
-              /* Full-width skills when no prerequisites */
               <div className="col-span-8" />
             )}
 
           </div>
 
-          {/* ── Course Modules section ── */}
-          <div>
-            <div className="flex items-center justify-between mb-4">
-              <p
-                className="text-xs tracking-widest uppercase font-semibold"
-                style={{ color: "hsla(215, 25%, 60%, 0.5)" }}
-              >
-                Course Modules
-              </p>
-              <span
-                className="text-xs"
-                style={{ color: "hsla(215, 20%, 50%, 0.5)" }}
-              >
-                {detail.modules.length} modules · click to expand
-              </span>
-            </div>
-
-            <div className="flex flex-col gap-2 pb-10">
-              {detail.modules.map((mod) => (
-                <ModuleRow
-                  key={mod.number}
-                  mod={mod}
-                  showChatBtn={isGenAI}
-                  onChatClick={() => openChat(`Module ${mod.number}: ${mod.title}`)}
-                />
-              ))}
-            </div>
-          </div>
+          <div className="pb-10" />
         </div>
       </div>
 
