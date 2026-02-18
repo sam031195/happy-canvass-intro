@@ -214,7 +214,14 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
   if (!detail) return null;
 
   if (notebookContext !== null) {
-    return <AINotebookPage context={notebookContext} onClose={() => setNotebookContext(null)} />;
+    return (
+      <AINotebookPage
+        context={notebookContext}
+        courseName={detail.name}
+        modules={detail.modules}
+        onClose={() => setNotebookContext(null)}
+      />
+    );
   }
 
 
