@@ -62,9 +62,20 @@ const Dashboard = () => {
   return (
     <div className="relative min-h-screen w-full overflow-hidden flex flex-col" style={{ background: "hsl(230, 25%, 4%)" }}>
 
+      {/* ── Background video ── */}
+      <video
+        className="pointer-events-none absolute inset-0 z-0 w-full h-full object-cover"
+        src="/videos/ai_overview_bg_vid-2.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={{ opacity: 0.18 }}
+      />
+
       {/* ── Dot grid texture ── */}
       <div
-        className="pointer-events-none absolute inset-0 z-0"
+        className="pointer-events-none absolute inset-0 z-[1]"
         style={{
           backgroundImage: "radial-gradient(hsla(0,0%,100%,0.04) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
@@ -73,7 +84,7 @@ const Dashboard = () => {
 
       {/* ── Ambient glow top ── */}
       <div
-        className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 z-0"
+        className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 z-[2]"
         style={{
           width: "800px",
           height: "400px",
