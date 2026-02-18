@@ -83,7 +83,7 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
           className="text-4xl sm:text-5xl lg:text-6xl font-light text-white tracking-tight"
           style={{ letterSpacing: "-0.03em" }}
         >
-          Semester 1 — Core Subjects
+          Winter Quarter — Core Subjects
         </h1>
         <p className="text-white/35 text-base mt-4 max-w-xl mx-auto">
           {program}
