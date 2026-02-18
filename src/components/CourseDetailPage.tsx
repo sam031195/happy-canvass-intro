@@ -406,88 +406,10 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
 
       {/* Main content: two columns */}
       <div className="flex flex-1 overflow-hidden">
-        {/* LEFT — Modules list */}
-        <div className="flex-1 overflow-y-auto px-8 lg:px-14 py-8">
-          <p
-            className="text-xs tracking-widest uppercase font-medium mb-7"
-            style={{ color: "hsla(215, 25%, 60%, 0.5)" }}
-          >
-            Course Modules
-          </p>
-
-          <div className="flex flex-col gap-3">
-            {detail.modules.map((mod, idx) => (
-              <div
-                key={mod.number}
-                className="group flex gap-5 p-5 rounded-sm transition-all duration-200"
-                style={{
-                  background: "hsla(228, 45%, 7%, 0.85)",
-                  border: "1px solid hsla(218, 35%, 30%, 0.15)",
-                }}
-                onMouseEnter={e => {
-                  (e.currentTarget as HTMLDivElement).style.border =
-                    "1px solid hsla(218, 40%, 45%, 0.28)";
-                  (e.currentTarget as HTMLDivElement).style.background =
-                    "hsla(228, 45%, 9%, 0.92)";
-                }}
-                onMouseLeave={e => {
-                  (e.currentTarget as HTMLDivElement).style.border =
-                    "1px solid hsla(218, 35%, 30%, 0.15)";
-                  (e.currentTarget as HTMLDivElement).style.background =
-                    "hsla(228, 45%, 7%, 0.85)";
-                }}
-              >
-                {/* Module number */}
-                <div
-                  className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold mt-0.5"
-                  style={{
-                    background: "hsla(228, 45%, 14%, 1)",
-                    border: "1px solid hsla(218, 40%, 40%, 0.2)",
-                    color: "hsla(215, 25%, 65%, 0.7)",
-                  }}
-                >
-                  {String(mod.number).padStart(2, "0")}
-                </div>
-
-                {/* Content */}
-                <div className="flex-1 min-w-0">
-                  <h3
-                    className="text-sm font-semibold mb-2.5"
-                    style={{ color: "hsla(210, 20%, 94%, 0.95)", letterSpacing: "-0.01em" }}
-                  >
-                    {mod.title}
-                  </h3>
-                  <ul className="flex flex-col gap-1.5">
-                    {mod.topics.map((topic, ti) => (
-                      <li
-                        key={ti}
-                        className="flex items-start gap-2 text-xs leading-relaxed"
-                        style={{ color: "hsla(215, 18%, 68%, 0.75)" }}
-                      >
-                        <span
-                          className="mt-1.5 shrink-0 w-1 h-1 rounded-full"
-                          style={{ background: "hsla(215, 30%, 55%, 0.45)" }}
-                        />
-                        {topic}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Vertical divider */}
-        <div
-          className="shrink-0 w-px my-8"
-          style={{ background: "hsla(218, 40%, 50%, 0.1)" }}
-        />
-
-        {/* RIGHT — Syllabus Summary */}
+        {/* LEFT — Syllabus Summary */}
         <div
           className="w-[340px] lg:w-[380px] shrink-0 overflow-y-auto px-7 py-8"
-          style={{ borderLeft: "none" }}
+          style={{ borderRight: "none" }}
         >
           <p
             className="text-xs tracking-widest uppercase font-medium mb-7"
@@ -618,6 +540,85 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
             </div>
           )}
         </div>
+
+        {/* Vertical divider */}
+        <div
+          className="shrink-0 w-px my-8"
+          style={{ background: "hsla(218, 40%, 50%, 0.1)" }}
+        />
+
+        {/* RIGHT — Modules list */}
+        <div className="flex-1 overflow-y-auto px-8 lg:px-14 py-8">
+          <p
+            className="text-xs tracking-widest uppercase font-medium mb-7"
+            style={{ color: "hsla(215, 25%, 60%, 0.5)" }}
+          >
+            Course Modules
+          </p>
+
+          <div className="flex flex-col gap-3">
+            {detail.modules.map((mod, idx) => (
+              <div
+                key={mod.number}
+                className="group flex gap-5 p-5 rounded-sm transition-all duration-200"
+                style={{
+                  background: "hsla(228, 45%, 7%, 0.85)",
+                  border: "1px solid hsla(218, 35%, 30%, 0.15)",
+                }}
+                onMouseEnter={e => {
+                  (e.currentTarget as HTMLDivElement).style.border =
+                    "1px solid hsla(218, 40%, 45%, 0.28)";
+                  (e.currentTarget as HTMLDivElement).style.background =
+                    "hsla(228, 45%, 9%, 0.92)";
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLDivElement).style.border =
+                    "1px solid hsla(218, 35%, 30%, 0.15)";
+                  (e.currentTarget as HTMLDivElement).style.background =
+                    "hsla(228, 45%, 7%, 0.85)";
+                }}
+              >
+                {/* Module number */}
+                <div
+                  className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold mt-0.5"
+                  style={{
+                    background: "hsla(228, 45%, 14%, 1)",
+                    border: "1px solid hsla(218, 40%, 40%, 0.2)",
+                    color: "hsla(215, 25%, 65%, 0.7)",
+                  }}
+                >
+                  {String(mod.number).padStart(2, "0")}
+                </div>
+
+                {/* Content */}
+                <div className="flex-1 min-w-0">
+                  <h3
+                    className="text-sm font-semibold mb-2.5"
+                    style={{ color: "hsla(210, 20%, 94%, 0.95)", letterSpacing: "-0.01em" }}
+                  >
+                    {mod.title}
+                  </h3>
+                  <ul className="flex flex-col gap-1.5">
+                    {mod.topics.map((topic, ti) => (
+                      <li
+                        key={ti}
+                        className="flex items-start gap-2 text-xs leading-relaxed"
+                        style={{ color: "hsla(215, 18%, 68%, 0.75)" }}
+                      >
+                        <span
+                          className="mt-1.5 shrink-0 w-1 h-1 rounded-full"
+                          style={{ background: "hsla(215, 30%, 55%, 0.45)" }}
+                        />
+                        {topic}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
       </div>
     </div>
   );
