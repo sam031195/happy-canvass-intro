@@ -140,11 +140,11 @@ const AIChatPanel = ({ open, onClose, context }: { open: boolean; onClose: () =>
   return (
     <>
       <div className="fixed inset-0 z-[70] transition-opacity duration-300" style={{ background: "hsla(230, 18%, 3%, 0.7)", opacity: open ? 1 : 0, pointerEvents: open ? "auto" : "none", backdropFilter: "blur(6px)" }} onClick={onClose} />
-      <div className="fixed right-0 top-0 bottom-0 z-[80] flex flex-col transition-transform duration-300 ease-out" style={{ width: "min(480px, 100vw)", transform: open ? "translateX(0)" : "translateX(100%)", background: "hsl(228, 18%, 5%)", borderLeft: "1px solid hsla(0, 0%, 100%, 0.07)" }}>
+      <div className="fixed right-0 top-0 bottom-0 z-[80] flex flex-col transition-transform duration-300 ease-out" style={{ width: "min(480px, 100vw)", transform: open ? "translateX(0)" : "translateX(100%)", background: "hsl(230, 25%, 4%)", borderLeft: "1px solid hsla(0, 0%, 100%, 0.07)" }}>
         <div className="flex items-center justify-between px-6 py-5 shrink-0" style={{ borderBottom: "1px solid hsla(0, 0%, 100%, 0.06)" }}>
           <div className="flex items-center gap-3">
             <div className="shrink-0 rounded-full" style={{ padding: "1.5px", background: "conic-gradient(from var(--ai-angle), #4285f4, #ea4335, #fbbc05, #34a853, #4285f4)", animation: "ai-spin 3s linear infinite" }}>
-              <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: "hsl(228, 18%, 5%)" }}>
+              <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: "hsl(230, 25%, 4%)" }}>
                 <Bot className="h-4 w-4" style={{ color: "hsla(0, 0%, 90%, 0.9)" }} />
               </div>
             </div>
@@ -299,7 +299,7 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
   return (
     <div
       className="fixed inset-0 z-[60] flex flex-col overflow-hidden animate-in fade-in duration-300"
-      style={{ background: "hsl(230, 18%, 6%)" }}
+      style={{ background: "hsl(230, 25%, 4%)" }}
     >
       {/* ── Dot grid texture ── */}
       <div

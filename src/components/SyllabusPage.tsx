@@ -159,7 +159,7 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
   return (
     <div
       className="fixed inset-0 z-50 flex flex-col overflow-y-auto animate-in fade-in duration-300"
-      style={{ background: "hsl(230, 18%, 6%)" }}
+      style={{ background: "hsl(230, 25%, 4%)" }}
     >
       {/* Dot grid texture overlay */}
       <div
