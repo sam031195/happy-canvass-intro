@@ -428,23 +428,23 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
 
               {/* Skills You'll Gain */}
               <div
-                className="rounded-2xl p-6"
-                style={{ background: "hsla(0, 0%, 6%, 1)", border: "1px solid hsla(0, 0%, 100%, 0.07)" }}
+                style={{ background: "hsla(230, 25%, 6%, 1)", border: "1px solid hsla(220, 20%, 100%, 0.06)", borderRadius: "6px", padding: "24px" }}
               >
                 <div className="flex items-center gap-2 mb-5">
-                  <Zap className="h-4 w-4" style={{ color: "hsla(0, 0%, 50%, 0.8)" }} />
-                  <span className="text-sm font-semibold" style={{ color: "hsla(0, 0%, 85%, 0.9)", letterSpacing: "-0.01em" }}>
+                  <Zap className="h-4 w-4" style={{ color: "hsla(220, 40%, 75%, 0.9)" }} />
+                  <span className="text-sm font-semibold" style={{ color: "hsla(210, 25%, 90%, 0.95)", letterSpacing: "-0.01em" }}>
                     Skills You'll Gain
                   </span>
                 </div>
                 <div className="flex flex-col gap-2">
                   {detail.summary.skills.map((skill, i) => (
-                    <div key={i} className="flex items-center gap-3 py-2.5 px-3 rounded-xl transition-colors duration-150" style={{ background: "hsla(0, 0%, 9%, 1)", border: "1px solid hsla(0, 0%, 100%, 0.05)" }}
-                      onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.background = "hsla(0, 0%, 11%, 1)"; (e.currentTarget as HTMLDivElement).style.borderColor = "hsla(0, 0%, 100%, 0.09)"; }}
-                      onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.background = "hsla(0, 0%, 9%, 1)"; (e.currentTarget as HTMLDivElement).style.borderColor = "hsla(0, 0%, 100%, 0.05)"; }}
+                    <div key={i} className="flex items-center gap-3 py-2.5 px-3 transition-colors duration-150"
+                      style={{ background: "hsla(230, 22%, 9%, 1)", border: "1px solid hsla(220, 20%, 100%, 0.05)", borderRadius: "5px" }}
+                      onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.background = "hsla(230, 22%, 11%, 1)"; (e.currentTarget as HTMLDivElement).style.borderColor = "hsla(220, 20%, 100%, 0.09)"; }}
+                      onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.background = "hsla(230, 22%, 9%, 1)"; (e.currentTarget as HTMLDivElement).style.borderColor = "hsla(220, 20%, 100%, 0.05)"; }}
                     >
-                      <CheckCircle2 className="h-3.5 w-3.5 shrink-0" style={{ color: "hsla(0, 0%, 35%, 0.8)" }} />
-                      <span className="text-xs leading-snug" style={{ color: "hsla(0, 0%, 68%, 0.88)" }}>{skill}</span>
+                      <CheckCircle2 className="h-3.5 w-3.5 shrink-0" style={{ color: "hsla(220, 35%, 62%, 0.85)" }} />
+                      <span className="text-xs leading-snug" style={{ color: "hsla(220, 18%, 68%, 0.9)" }}>{skill}</span>
                     </div>
                   ))}
                 </div>
@@ -453,20 +453,19 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
               {/* Prerequisites */}
               {detail.summary.prerequisites && detail.summary.prerequisites.length > 0 && (
                 <div
-                  className="rounded-2xl p-6"
-                  style={{ background: "hsla(0, 0%, 6%, 1)", border: "1px solid hsla(0, 0%, 100%, 0.07)" }}
+                  style={{ background: "hsla(230, 25%, 6%, 1)", border: "1px solid hsla(220, 20%, 100%, 0.06)", borderRadius: "6px", padding: "24px" }}
                 >
                   <div className="flex items-center gap-2 mb-5">
-                    <ListChecks className="h-4 w-4" style={{ color: "hsla(0, 0%, 50%, 0.8)" }} />
-                    <span className="text-sm font-semibold" style={{ color: "hsla(0, 0%, 85%, 0.9)", letterSpacing: "-0.01em" }}>
+                    <ListChecks className="h-4 w-4" style={{ color: "hsla(220, 40%, 75%, 0.9)" }} />
+                    <span className="text-sm font-semibold" style={{ color: "hsla(210, 25%, 90%, 0.95)", letterSpacing: "-0.01em" }}>
                       Prerequisites
                     </span>
                   </div>
                   <div className="flex flex-col gap-2">
                     {detail.summary.prerequisites.map((req, i) => (
-                      <div key={i} className="flex items-start gap-3 py-2.5 px-3 rounded-xl" style={{ background: "hsla(0, 0%, 9%, 1)", border: "1px solid hsla(0, 0%, 100%, 0.05)" }}>
-                        <span className="mt-[5px] shrink-0 w-[5px] h-[5px] rounded-full" style={{ background: "hsla(0, 0%, 28%, 0.7)" }} />
-                        <span className="text-xs leading-relaxed" style={{ color: "hsla(0, 0%, 60%, 0.85)" }}>{req}</span>
+                      <div key={i} className="flex items-start gap-3 py-2.5 px-3" style={{ background: "hsla(230, 22%, 9%, 1)", border: "1px solid hsla(220, 20%, 100%, 0.05)", borderRadius: "5px" }}>
+                        <span className="mt-[5px] shrink-0 w-[5px] h-[5px] rounded-full" style={{ background: "hsla(220, 20%, 38%, 0.7)" }} />
+                        <span className="text-xs leading-relaxed" style={{ color: "hsla(220, 18%, 65%, 0.88)" }}>{req}</span>
                       </div>
                     ))}
                   </div>
@@ -475,30 +474,29 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
 
               {/* Outcome */}
               <div
-                className="rounded-2xl p-6"
-                style={{ background: "hsla(0, 0%, 6%, 1)", border: "1px solid hsla(0, 0%, 100%, 0.07)" }}
+                style={{ background: "hsla(230, 25%, 6%, 1)", border: "1px solid hsla(220, 20%, 100%, 0.06)", borderRadius: "6px", padding: "24px" }}
               >
                 <div className="flex items-center gap-2 mb-4">
-                  <TrendingUp className="h-4 w-4" style={{ color: "hsla(0, 0%, 50%, 0.8)" }} />
-                  <span className="text-sm font-semibold" style={{ color: "hsla(0, 0%, 85%, 0.9)", letterSpacing: "-0.01em" }}>
+                  <TrendingUp className="h-4 w-4" style={{ color: "hsla(220, 40%, 75%, 0.9)" }} />
+                  <span className="text-sm font-semibold" style={{ color: "hsla(210, 25%, 90%, 0.95)", letterSpacing: "-0.01em" }}>
                     Course Outcome
                   </span>
                 </div>
-                <p className="text-xs leading-relaxed" style={{ color: "hsla(0, 0%, 55%, 0.88)" }}>
+                <p className="text-xs leading-relaxed" style={{ color: "hsla(220, 18%, 65%, 0.9)" }}>
                   {detail.summary.outcome}
                 </p>
 
                 {/* Progress bar */}
-                <div className="mt-5 pt-5" style={{ borderTop: "1px solid hsla(0, 0%, 100%, 0.05)" }}>
+                <div className="mt-5 pt-5" style={{ borderTop: "1px solid hsla(220, 20%, 100%, 0.05)" }}>
                   <div className="flex items-center justify-between mb-2.5">
-                    <span className="text-[11px] font-semibold tracking-widest uppercase" style={{ color: "hsla(0, 0%, 35%, 0.7)" }}>
+                    <span className="text-[11px] font-semibold tracking-widest uppercase" style={{ color: "hsla(220, 15%, 38%, 0.75)" }}>
                       Curriculum Coverage
                     </span>
-                    <span className="text-xs font-bold" style={{ color: "hsla(0, 0%, 65%, 0.8)" }}>
+                    <span className="text-xs font-bold" style={{ color: "hsla(220, 15%, 62%, 0.85)" }}>
                       {completionPct}%
                     </span>
                   </div>
-                  <div className="w-full rounded-full overflow-hidden" style={{ height: "4px", background: "hsla(0, 0%, 12%, 1)" }}>
+                  <div className="w-full rounded-full overflow-hidden" style={{ height: "4px", background: "hsla(230, 22%, 12%, 1)" }}>
                     <div
                       className="h-full rounded-full"
                       style={{
