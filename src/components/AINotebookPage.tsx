@@ -1,6 +1,5 @@
 import {
   X,
-  Send,
   Bot,
   User,
   Plus,
@@ -27,6 +26,7 @@ import {
   PenLine,
   ArrowRight,
   ChevronLeft,
+  BookOpen,
 } from "lucide-react";
 import { useState, useRef, useEffect, useCallback } from "react";
 
@@ -52,12 +52,20 @@ const STUDIO_TOOLS: StudioTool[] = [
   { label: "Data Table", icon: <Table2 className="h-4 w-4" /> },
 ];
 
+interface Module {
+  number: number;
+  title: string;
+  topics: string[];
+}
+
 interface Props {
   context: string;
+  courseName?: string;
+  modules?: Module[];
   onClose: () => void;
 }
 
-const AINotebookPage = ({ context, onClose }: Props) => {
+const AINotebookPage = ({ context, courseName, modules = [], onClose }: Props) => {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
   const [sourceSearch, setSourceSearch] = useState("");
@@ -65,8 +73,9 @@ const AINotebookPage = ({ context, onClose }: Props) => {
   const [sendHovered, setSendHovered] = useState(false);
   const [leftCollapsed, setLeftCollapsed] = useState(false);
   const [rightCollapsed, setRightCollapsed] = useState(false);
-  // The center modal is shown initially (like NotebookLM's onboarding card)
-  const [modalDismissed, setModalDismissed] = useState(false);
+  const [activeModule, setActiveModule] = useState<number | null>(null);
+  // Start with modal dismissed — sources UI is now inline in the center bottom
+  const [modalDismissed, setModalDismissed] = useState(true);
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -226,100 +235,76 @@ const AINotebookPage = ({ context, onClose }: Props) => {
           </div>
 
           {!leftCollapsed && (
-            <div className="flex flex-col flex-1 overflow-y-auto px-3 pt-3 pb-4 gap-2.5">
+            <div className="flex flex-col flex-1 overflow-y-auto pb-4 gap-0">
 
-              {/* + Add sources button — full width, outlined */}
-              <button
-                className="w-full flex items-center justify-center gap-2 py-2 text-[13px] font-medium transition-colors rounded"
-                style={{
-                  background: "transparent",
-                  border: `1px solid hsla(0,0%,100%,0.14)`,
-                  borderRadius: "6px",
-                  color: labelColor,
-                }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "hsla(230,22%,11%,1)"; }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "transparent"; }}
-              >
-                <Plus className="h-3.5 w-3.5" />
-                Add sources
-              </button>
-
-              {/* Search box: search row + pills row as one card */}
-              <div
-                style={{
-                  background: "hsla(230, 22%, 10%, 1)",
-                  border: `1px solid hsla(0,0%,100%,0.12)`,
-                  borderRadius: "6px",
-                  overflow: "hidden",
-                }}
-              >
-                {/* Search input row */}
-                <div className="flex items-center gap-2 px-3 py-2.5">
-                  <Search className="h-3.5 w-3.5 shrink-0" style={{ color: subtext }} />
-                  <input
-                    type="text"
-                    value={sourceSearch}
-                    onChange={(e) => setSourceSearch(e.target.value)}
-                    placeholder="Search the web for new sources"
-                    className="flex-1 bg-transparent border-none outline-none text-[12px]"
-                    style={{ color: labelColor, caretColor: "hsla(220, 80%, 65%, 0.9)" }}
-                  />
-                </div>
-                {/* Filter pills row */}
-                <div
-                  className="flex items-center gap-2 px-3 py-2"
-                  style={{ borderTop: "1px solid hsla(0,0%,100%,0.06)" }}
-                >
-                  <button
-                    className="flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-medium rounded-full"
-                    style={{
-                      border: `1px solid hsla(0,0%,100%,0.11)`,
-                      color: labelColor,
-                      background: "hsla(230, 22%, 14%, 1)",
-                    }}
+              {/* ── Course title row ── */}
+              <div className="px-4 pt-4 pb-3">
+                <div className="flex items-center gap-2.5">
+                  <BookOpen className="h-4 w-4 shrink-0" style={{ color: "hsla(220, 60%, 62%, 0.85)" }} />
+                  <span
+                    className="text-[12px] font-semibold leading-snug"
+                    style={{ color: headingColor }}
                   >
-                    <Globe className="h-3 w-3" />
-                    Web
-                    <ChevronDown className="h-2.5 w-2.5" />
-                  </button>
-                  <button
-                    className="flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-medium rounded-full"
-                    style={{
-                      border: `1px solid hsla(0,0%,100%,0.11)`,
-                      color: labelColor,
-                      background: "hsla(230, 22%, 14%, 1)",
-                    }}
-                  >
-                    <Zap className="h-3 w-3" />
-                    Fast Research
-                    <ChevronDown className="h-2.5 w-2.5" />
-                  </button>
-                  <button
-                    className="ml-auto flex items-center justify-center w-6 h-6 rounded-full transition-colors"
-                    style={{
-                      background: "hsla(0,0%,85%,0.9)",
-                      color: "hsl(230,18%,6%)",
-                    }}
-                    onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "hsla(0,0%,100%,1)"; }}
-                    onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "hsla(0,0%,85%,0.9)"; }}
-                  >
-                    <ArrowRight className="h-3 w-3" />
-                  </button>
+                    {courseName || context}
+                  </span>
                 </div>
               </div>
 
-              {/* Saved sources empty state */}
-              <div className="flex flex-col items-center gap-2 pt-6 pb-2 text-center">
-                <FileText className="h-8 w-8" style={{ color: "hsla(220, 15%, 28%, 0.6)" }} />
-                <p className="text-[12px] font-medium" style={{ color: "hsla(220, 15%, 45%, 0.75)" }}>
-                  Saved sources will appear here
-                </p>
-                <p
-                  className="text-[11px] leading-relaxed max-w-[200px]"
-                  style={{ color: "hsla(220, 15%, 35%, 0.65)" }}
+              {/* ── Module list with left accent border ── */}
+              <div className="px-4 flex flex-col gap-0">
+                <div
+                  className="flex flex-col gap-0"
+                  style={{
+                    borderLeft: "1.5px solid hsla(220, 60%, 55%, 0.35)",
+                    paddingLeft: "12px",
+                    marginLeft: "6px",
+                  }}
                 >
-                  Click Add source above to add PDFs, websites, text, videos, or audio files. Or import a file directly from Google Drive.
-                </p>
+                  {modules.length > 0 ? modules.map((mod) => (
+                    <button
+                      key={mod.number}
+                      onClick={() => setActiveModule(activeModule === mod.number ? null : mod.number)}
+                      className="group flex flex-col w-full text-left py-2.5 pr-1 transition-all"
+                      style={{}}
+                    >
+                      <div className="flex items-start gap-2">
+                        <span
+                          className="text-[12px] leading-snug transition-colors"
+                          style={{
+                            color: activeModule === mod.number
+                              ? "hsla(220, 70%, 70%, 1)"
+                              : labelColor,
+                            fontWeight: activeModule === mod.number ? "600" : "400",
+                          }}
+                        >
+                          {mod.title}
+                        </span>
+                      </div>
+                      {/* Expanded topics */}
+                      {activeModule === mod.number && mod.topics.length > 0 && (
+                        <div className="flex flex-col gap-1 mt-2 pl-0">
+                          {mod.topics.map((topic, ti) => (
+                            <span
+                              key={ti}
+                              className="text-[11px] leading-snug pl-2"
+                              style={{
+                                color: "hsla(220, 15%, 48%, 0.75)",
+                                borderLeft: "1px solid hsla(220, 60%, 45%, 0.2)",
+                              }}
+                            >
+                              {topic}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </button>
+                  )) : (
+                    /* Fallback if no modules passed */
+                    <div className="py-6 text-center">
+                      <p className="text-[12px]" style={{ color: subtext }}>No modules available</p>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           )}
@@ -549,11 +534,106 @@ const AINotebookPage = ({ context, onClose }: Props) => {
             </div>
           )}
 
-          {/* Bottom input bar */}
+          {/* ── Bottom: Add Sources UI (replaces "Start typing...") ── */}
           <div
-            className="px-5 py-3 shrink-0"
+            className="px-5 py-4 shrink-0 flex flex-col gap-3"
             style={{ borderTop: `1px solid ${border}`, background: "hsl(230, 18%, 6%)" }}
           >
+            {/* Search the web row */}
+            <div
+              className="flex flex-col overflow-hidden"
+              style={{
+                border: "1.5px solid hsla(220, 80%, 58%, 0.5)",
+                borderRadius: "8px",
+                background: "hsla(230, 22%, 9%, 1)",
+              }}
+            >
+              <div className="flex items-center gap-2.5 px-4 py-3">
+                <Search className="h-4 w-4 shrink-0" style={{ color: subtext }} />
+                <input
+                  type="text"
+                  value={sourceSearch}
+                  onChange={(e) => setSourceSearch(e.target.value)}
+                  placeholder="Search the web for new sources…"
+                  className="flex-1 bg-transparent border-none outline-none text-sm"
+                  style={{ color: labelColor, caretColor: "hsla(220,80%,65%,0.9)" }}
+                />
+              </div>
+              <div
+                className="flex items-center gap-2 px-4 py-2.5"
+                style={{ borderTop: "1px solid hsla(0,0%,100%,0.07)" }}
+              >
+                <button
+                  className="flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-medium rounded-full"
+                  style={{ border: `1px solid hsla(0,0%,100%,0.13)`, color: labelColor, background: "hsla(230, 22%, 14%, 1)" }}
+                >
+                  <Globe className="h-3 w-3" />
+                  Web
+                  <ChevronDown className="h-2.5 w-2.5" />
+                </button>
+                <button
+                  className="flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-medium rounded-full"
+                  style={{ border: `1px solid hsla(0,0%,100%,0.13)`, color: labelColor, background: "hsla(230, 22%, 14%, 1)" }}
+                >
+                  <Zap className="h-3 w-3" />
+                  Fast Research
+                  <ChevronDown className="h-2.5 w-2.5" />
+                </button>
+                <button
+                  className="ml-auto flex items-center justify-center w-6 h-6 rounded-full"
+                  style={{ background: "hsla(0,0%,85%,0.95)", color: "hsl(230,18%,6%)" }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "hsla(0,0%,100%,1)"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "hsla(0,0%,85%,0.95)"; }}
+                >
+                  <ArrowRight className="h-3 w-3" />
+                </button>
+              </div>
+            </div>
+
+            {/* Drop zone */}
+            <div
+              className="flex flex-col items-center gap-3 py-5 px-6"
+              style={{
+                border: "1.5px dashed hsla(0,0%,100%,0.09)",
+                borderRadius: "8px",
+                background: "hsla(230, 22%, 8%, 0.5)",
+              }}
+            >
+              <div className="text-center">
+                <p className="text-sm font-medium" style={{ color: headingColor }}>or drop your files</p>
+                <p className="text-xs mt-0.5" style={{ color: subtext }}>
+                  pdf, images, docs, audio,{" "}
+                  <span className="underline cursor-pointer" style={{ color: "hsla(220, 70%, 65%, 0.9)" }}>and more</span>
+                </p>
+              </div>
+              {/* Upload option buttons */}
+              <div className="flex items-center gap-2 flex-wrap justify-center">
+                {[
+                  { label: "Upload files", icon: <Upload className="h-3.5 w-3.5" /> },
+                  { label: "Websites", icon: <Link className="h-3.5 w-3.5" /> },
+                  { label: "Drive", icon: <HardDrive className="h-3.5 w-3.5" /> },
+                  { label: "Copied text", icon: <Clipboard className="h-3.5 w-3.5" /> },
+                ].map(({ label, icon }) => (
+                  <button
+                    key={label}
+                    className="flex items-center gap-2 px-3.5 py-2 text-[12px] font-medium transition-colors"
+                    style={{
+                      background: "hsla(230, 22%, 12%, 1)",
+                      border: `1px solid hsla(0,0%,100%,0.1)`,
+                      borderRadius: "6px",
+                      color: labelColor,
+                    }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "hsla(230, 22%, 16%, 1)"; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "hsla(230, 22%, 12%, 1)"; }}
+                  >
+                    {icon}
+                    {label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Chat input */}
             <div
               className="flex items-center gap-3 px-4 py-2.5"
               style={{
@@ -567,13 +647,11 @@ const AINotebookPage = ({ context, onClose }: Props) => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSend()}
-                placeholder="Start typing..."
+                placeholder="Ask anything about this module…"
                 className="flex-1 bg-transparent border-none outline-none text-sm"
                 style={{ color: "hsla(220, 15%, 88%, 0.95)", caretColor: "hsla(220,80%,65%,0.9)" }}
               />
-              <span className="text-xs shrink-0" style={{ color: subtext }}>
-                0 sources
-              </span>
+              <span className="text-xs shrink-0" style={{ color: subtext }}>0 sources</span>
               <div
                 className="relative shrink-0 rounded-full"
                 style={{
