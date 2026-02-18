@@ -66,7 +66,7 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
         alt=""
         aria-hidden="true"
         className="pointer-events-none select-none absolute inset-0 w-full h-full object-cover"
-        style={{ opacity: 0.7 }}
+        style={{ opacity: 0.32, mixBlendMode: "screen" }}
       />
       {/* Back button */}
       <div className="relative z-10 px-8 lg:px-16 pt-8">
