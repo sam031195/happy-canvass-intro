@@ -364,7 +364,7 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
           {/* Running-gradient AI button — shown only for the GenAI course */}
           {courseCode === "MSIS 549 B" && (
             <div
-              className="shrink-0 mt-1 rounded-full"
+              className="shrink-0 self-center rounded-full"
               style={{
                 padding: "0.3px",
                 background: "conic-gradient(from var(--ai-angle), #4285f4, #ea4335, #fbbc05, #34a853, #4285f4)",
@@ -374,7 +374,7 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
               <button
                 className="relative flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-opacity hover:opacity-90"
                 style={{
-                  background: "hsl(230, 18%, 8%)",
+                  background: "hsl(230, 18%, 5%)",
                   color: "hsla(210, 20%, 92%, 0.95)",
                 }}
               >
