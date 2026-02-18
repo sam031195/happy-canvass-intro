@@ -125,8 +125,84 @@ const IT_MARKETING_DETAIL: CourseDetail = {
   },
 };
 
+const ML_AI_BUSINESS_DETAIL: CourseDetail = {
+  code: "MSIS 549 B",
+  name: "Machine Learning & AI for Business Applications",
+  description:
+    "Bridges ML theory and enterprise practice — covering use-case identification, model deployment, and ROI evaluation for AI-driven business transformation.",
+  credits: 4,
+  duration: "10 Weeks",
+  modules: [
+    {
+      number: 1,
+      title: "Generative AI and the Future of Work",
+      topics: [
+        "Deconstruction of work: asking, execution, evaluation (Brynjolfsson framework)",
+        "The human as architect — AI agents as construction crew",
+        "Hands-on with ChatGPT, Claude, and Gemini",
+        "NotebookLM for research synthesis and knowledge management",
+        "Ethical challenges: bias, fairness, and societal implications",
+      ],
+    },
+    {
+      number: 2,
+      title: "AI and Creative Problem Solving",
+      topics: [
+        "Rapid prototyping and fast iteration cycles with AI",
+        "Vibe coding — intuitive AI-assisted software development",
+        "Building products, websites, games, and personal webpages",
+        "Harnessing AI for maximum creative leverage",
+      ],
+    },
+    {
+      number: 3,
+      title: "Agentic AI Systems",
+      topics: [
+        "In-depth exploration of AI agents and automation",
+        "No-code and custom-coded agentic implementations",
+        "Human-AI collaboration design principles",
+        "Deployment strategies in real-world organizational contexts",
+      ],
+    },
+    {
+      number: 4,
+      title: "Human-AI Decision-Making",
+      topics: [
+        "Case studies of successful GenAI implementations across industries",
+        "Designing systems that support human decision-makers",
+        "Frameworks for evaluating AI outputs and recommendations",
+        "Building robust evaluation pipelines for AI-augmented workflows",
+      ],
+    },
+    {
+      number: 5,
+      title: "GenAI and Agentic Fair",
+      topics: [
+        "Interactive showcase — poster-session format with live demos",
+        "Present apps, websites, or AI agents addressing real-world problems",
+        "Alumni evaluation: creativity, technical execution, and practical impact",
+        "Capstone: translate GenAI concepts into functional solutions",
+      ],
+    },
+  ],
+  summary: {
+    overview:
+      "This course bridges ML theory and enterprise practice, giving students hands-on experience with leading AI platforms, agentic systems, and human-AI decision frameworks. Students will build real products and present them at a capstone GenAI Fair.",
+    skills: [
+      "Prompt engineering across ChatGPT, Claude & Gemini",
+      "Rapid prototyping and vibe coding",
+      "Designing and deploying agentic AI systems",
+      "Human-AI decision-making frameworks",
+      "Ethical AI evaluation and fairness analysis",
+    ],
+    outcome:
+      "Graduates will be equipped to lead AI-driven transformation initiatives, design human-AI workflows, and deploy generative AI solutions that deliver measurable business impact.",
+  },
+};
+
 const COURSE_DETAILS: Record<string, CourseDetail> = {
   "MSIS 521 B": IT_MARKETING_DETAIL,
+  "MSIS 549 B": ML_AI_BUSINESS_DETAIL,
 };
 
 interface Props {
