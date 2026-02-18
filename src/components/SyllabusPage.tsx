@@ -198,11 +198,11 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
     <div
       className="fixed inset-0 z-50 flex flex-col overflow-y-auto animate-in fade-in duration-300"
       style={{
-        backgroundColor: "hsl(230, 18%, 6%)",
+        backgroundColor: "hsl(230, 25%, 5%)",
         backgroundImage: [
-          "radial-gradient(ellipse 60% 40% at 35% 100%, hsla(18, 72%, 44%, 0.28) 0%, transparent 65%)",
-          "radial-gradient(ellipse 60% 40% at 65% 100%, hsla(270, 60%, 48%, 0.22) 0%, transparent 60%)",
-          "radial-gradient(ellipse 45% 30% at 50% 100%, hsla(340, 55%, 38%, 0.15) 0%, transparent 55%)",
+          "radial-gradient(ellipse 65% 45% at 35% 100%, hsla(220, 85%, 42%, 0.3) 0%, transparent 65%)",
+          "radial-gradient(ellipse 65% 45% at 65% 100%, hsla(258, 70%, 48%, 0.25) 0%, transparent 65%)",
+          "radial-gradient(ellipse 40% 28% at 50% 100%, hsla(235, 75%, 55%, 0.18) 0%, transparent 55%)",
         ].join(", "),
       }}
     >
