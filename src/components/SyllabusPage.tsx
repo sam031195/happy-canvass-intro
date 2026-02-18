@@ -118,13 +118,13 @@ const CourseCard = ({ course }: { course: Course }) => (
       >
         {course.name}
       </h3>
-      <p className="text-white/45 text-sm leading-relaxed">{course.description}</p>
+      <p className="text-white/65 text-sm leading-relaxed">{course.description}</p>
     </div>
     <div className="mt-6 flex items-center justify-between">
-      <span className="text-xs text-white/30 font-medium tracking-wider uppercase">
+      <span className="text-xs text-white/50 font-medium tracking-wider uppercase">
         {course.code}
       </span>
-      <span className="text-xs text-white/25 font-medium">{course.type}</span>
+      <span className="text-xs text-white/45 font-medium">{course.type}</span>
     </div>
   </div>
 );
@@ -154,7 +154,7 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
 
       {/* Page header */}
       <div className="px-8 lg:px-16 pt-16 pb-4 text-center">
-        <p className="text-white/40 text-sm tracking-widest uppercase mb-4">
+        <p className="text-white/60 text-sm tracking-widest uppercase mb-4">
           {university}
         </p>
         <h1
@@ -163,7 +163,7 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
         >
           Core Subjects
         </h1>
-        <p className="text-white/35 text-base mt-4 max-w-xl mx-auto">
+        <p className="text-white/55 text-base mt-4 max-w-xl mx-auto">
           {program}
         </p>
       </div>
@@ -184,7 +184,7 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
                 className="flex-1 h-px"
                 style={{ background: "hsla(220,30%,50%,0.12)" }}
               />
-              <span className="text-xs text-white/25 tracking-widest uppercase">
+              <span className="text-xs text-white/45 tracking-widest uppercase">
                 Core
               </span>
             </div>
