@@ -24,7 +24,7 @@ const QUARTERS_BY_PROGRAM: Record<string, Quarter[]> = {
           description:
             "Develops analytical skills for interpreting and communicating insights from business data using statistical tools, visualization techniques, and data-driven decision frameworks.",
           type: "Core",
-          icon: <BarChart2 className="h-7 w-7" />,
+          icon: <BarChart2 className="h-6 w-6" />,
         },
         {
           code: "MSIS 504",
@@ -32,7 +32,7 @@ const QUARTERS_BY_PROGRAM: Record<string, Quarter[]> = {
           description:
             "Introduces quantitative modeling and optimization methods to support strategic and operational decision-making, including linear programming, simulation, and risk analysis.",
           type: "Core",
-          icon: <GitBranch className="h-7 w-7" />,
+          icon: <GitBranch className="h-6 w-6" />,
         },
         {
           code: "MSIS 503",
@@ -40,7 +40,7 @@ const QUARTERS_BY_PROGRAM: Record<string, Quarter[]> = {
           description:
             "Examines principles of operations management, process design, quality control, and efficiency optimization across service and manufacturing business environments.",
           type: "Core",
-          icon: <Settings className="h-7 w-7" />,
+          icon: <Settings className="h-6 w-6" />,
         },
         {
           code: "MSIS 501",
@@ -48,7 +48,7 @@ const QUARTERS_BY_PROGRAM: Record<string, Quarter[]> = {
           description:
             "Analyzes how information systems enable competitive advantage, drive digital transformation, and align with organizational goals in dynamic business landscapes.",
           type: "Core",
-          icon: <Layers className="h-7 w-7" />,
+          icon: <Layers className="h-6 w-6" />,
         },
       ],
     },
@@ -61,7 +61,7 @@ const QUARTERS_BY_PROGRAM: Record<string, Quarter[]> = {
           description:
             "Introduces machine learning algorithms, predictive modeling, and data mining techniques applied to real-world business intelligence and decision-making challenges.",
           type: "Core",
-          icon: <BrainCircuit className="h-7 w-7" />,
+          icon: <BrainCircuit className="h-6 w-6" />,
         },
         {
           code: "MSIS 543",
@@ -69,7 +69,7 @@ const QUARTERS_BY_PROGRAM: Record<string, Quarter[]> = {
           description:
             "Covers advanced data warehousing architectures, ETL processes, dimensional modeling, and enterprise-scale analytics infrastructure design and management.",
           type: "Core",
-          icon: <Database className="h-7 w-7" />,
+          icon: <Database className="h-6 w-6" />,
         },
         {
           code: "MSIS 524",
@@ -77,7 +77,7 @@ const QUARTERS_BY_PROGRAM: Record<string, Quarter[]> = {
           description:
             "Provides frameworks and methodologies for planning, executing, and delivering complex IT initiatives on time and within budget using agile and waterfall approaches.",
           type: "Core",
-          icon: <FolderKanban className="h-7 w-7" />,
+          icon: <FolderKanban className="h-6 w-6" />,
         },
         {
           code: "MSIS 512",
@@ -85,7 +85,7 @@ const QUARTERS_BY_PROGRAM: Record<string, Quarter[]> = {
           description:
             "Addresses cybersecurity principles, risk assessment, compliance frameworks, and strategies for protecting organizational assets in interconnected digital environments.",
           type: "Core",
-          icon: <Shield className="h-7 w-7" />,
+          icon: <Shield className="h-6 w-6" />,
         },
       ],
     },
@@ -98,7 +98,7 @@ const QUARTERS_BY_PROGRAM: Record<string, Quarter[]> = {
           description:
             "Explores how digital technologies reshape marketing strategy, customer engagement, and brand building in an increasingly connected and data-driven global economy.",
           type: "Core",
-          icon: <TrendingUp className="h-7 w-7" />,
+          icon: <TrendingUp className="h-6 w-6" />,
         },
         {
           code: "MSIS 522 B",
@@ -106,7 +106,7 @@ const QUARTERS_BY_PROGRAM: Record<string, Quarter[]> = {
           description:
             "Deep dives into supervised and unsupervised learning, neural networks, and ensemble methods with a focus on practical implementation and model optimization.",
           type: "Core",
-          icon: <BrainCircuit className="h-7 w-7" />,
+          icon: <BrainCircuit className="h-6 w-6" />,
         },
         {
           code: "MSIS 549 B",
@@ -114,7 +114,7 @@ const QUARTERS_BY_PROGRAM: Record<string, Quarter[]> = {
           description:
             "Bridges ML theory and enterprise practice — covering use-case identification, model deployment, and ROI evaluation for AI-driven business transformation.",
           type: "Core",
-          icon: <Bot className="h-7 w-7" />,
+          icon: <Bot className="h-6 w-6" />,
         },
         {
           code: "MSIS 523 B",
@@ -122,7 +122,7 @@ const QUARTERS_BY_PROGRAM: Record<string, Quarter[]> = {
           description:
             "Covers governance frameworks, regulatory compliance, risk management, and organizational policies for building resilient cybersecurity programs.",
           type: "Core",
-          icon: <Lock className="h-7 w-7" />,
+          icon: <Lock className="h-6 w-6" />,
         },
       ],
     },
@@ -137,32 +137,61 @@ interface Props {
 
 const CourseCard = ({ course }: { course: Course }) => (
   <div
-    className="group relative flex flex-col justify-between p-7 min-h-[280px] transition-all duration-300 hover:translate-y-[-2px]"
+    className="group flex flex-col p-8 min-h-[300px] transition-all duration-300 ease-out hover:-translate-y-1"
     style={{
-      background:
-        "linear-gradient(160deg, hsla(225,25%,25%,0.5) 0%, hsla(230,20%,18%,0.45) 100%)",
-      backdropFilter: "blur(24px)",
-      WebkitBackdropFilter: "blur(24px)",
-      border: "1px solid hsla(220,30%,50%,0.12)",
-      borderRadius: "4px",
+      background: "hsla(228, 38%, 17%, 0.88)",
+      border: "1px solid hsla(218, 45%, 48%, 0.2)",
+      borderRadius: "13px",
+      boxShadow: "0 2px 12px hsla(230, 60%, 8%, 0.4)",
+      transition: "transform 0.3s ease, box-shadow 0.3s ease",
+    }}
+    onMouseEnter={e => {
+      (e.currentTarget as HTMLDivElement).style.boxShadow =
+        "0 8px 32px hsla(230, 60%, 8%, 0.6), 0 0 0 1px hsla(218, 55%, 55%, 0.25)";
+    }}
+    onMouseLeave={e => {
+      (e.currentTarget as HTMLDivElement).style.boxShadow =
+        "0 2px 12px hsla(230, 60%, 8%, 0.4)";
     }}
   >
-    <div>
-      <div className="text-white/60 mb-8">{course.icon}</div>
-      <h3
-        className="text-xl font-semibold text-white leading-tight mb-4"
-        style={{ letterSpacing: "-0.02em" }}
-      >
-        {course.name}
-      </h3>
-      <p className="text-white/65 text-sm leading-relaxed">{course.description}</p>
+    {/* Icon */}
+    <div
+      className="mb-7 w-10 h-10 flex items-center justify-center rounded-lg"
+      style={{
+        background: "hsla(218, 40%, 30%, 0.5)",
+        border: "1px solid hsla(218, 45%, 55%, 0.2)",
+        color: "hsla(210, 20%, 82%, 0.9)",
+      }}
+    >
+      {course.icon}
     </div>
-    <div className="mt-6 flex items-center justify-between">
-      <span className="text-xs text-white/50 font-medium tracking-wider uppercase">
-        {course.code}
-      </span>
-      <span className="text-xs text-white/45 font-medium">{course.type}</span>
-    </div>
+
+    {/* Code label */}
+    <span
+      className="text-xs font-medium mb-2 block tracking-widest uppercase"
+      style={{ color: "hsla(210, 30%, 70%, 0.5)" }}
+    >
+      {course.code}
+    </span>
+
+    {/* Title */}
+    <h3
+      className="text-xl font-semibold leading-snug mb-4"
+      style={{
+        color: "hsla(210, 20%, 95%, 1)",
+        letterSpacing: "-0.01em",
+      }}
+    >
+      {course.name}
+    </h3>
+
+    {/* Description */}
+    <p
+      className="text-sm leading-relaxed"
+      style={{ color: "hsla(215, 20%, 75%, 0.8)" }}
+    >
+      {course.description}
+    </p>
   </div>
 );
 
@@ -171,18 +200,27 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex flex-col animate-in fade-in duration-300 overflow-y-auto"
+      className="fixed inset-0 z-50 flex flex-col overflow-y-auto animate-in fade-in duration-300"
       style={{
-        background:
-          "radial-gradient(ellipse 120% 80% at 50% 100%, hsla(230,60%,22%,0.55) 0%, hsla(260,40%,12%,0.3) 40%, hsl(0,0%,3%) 80%)",
-        backgroundColor: "hsl(0,0%,3%)",
+        backgroundColor: "hsl(232, 40%, 7%)",
+        backgroundImage:
+          "radial-gradient(ellipse 90% 60% at 15% 100%, hsla(260, 70%, 28%, 0.45) 0%, transparent 60%), radial-gradient(ellipse 70% 50% at 85% 95%, hsla(240, 65%, 22%, 0.38) 0%, transparent 55%), radial-gradient(ellipse 50% 40% at 50% 80%, hsla(250, 55%, 18%, 0.25) 0%, transparent 50%)",
       }}
     >
       {/* Back button */}
       <div className="px-8 lg:px-16 pt-8">
         <button
           onClick={onBack}
-          className="flex items-center gap-2 text-sm text-white/50 hover:text-white/80 transition-colors"
+          className="flex items-center gap-2 text-sm transition-colors"
+          style={{ color: "hsla(210, 20%, 70%, 0.55)" }}
+          onMouseEnter={e =>
+            ((e.currentTarget as HTMLButtonElement).style.color =
+              "hsla(210, 20%, 90%, 0.85)")
+          }
+          onMouseLeave={e =>
+            ((e.currentTarget as HTMLButtonElement).style.color =
+              "hsla(210, 20%, 70%, 0.55)")
+          }
         >
           <ChevronLeft className="h-4 w-4" />
           Back to Dashboard
@@ -190,44 +228,60 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
       </div>
 
       {/* Page header */}
-      <div className="px-8 lg:px-16 pt-16 pb-4 text-center">
-        <p className="text-white/60 text-sm tracking-widest uppercase mb-4">
+      <div className="px-8 lg:px-16 pt-16 pb-6 text-center">
+        <p
+          className="text-xs tracking-widest uppercase mb-5"
+          style={{ color: "hsla(215, 30%, 65%, 0.6)" }}
+        >
           {university}
         </p>
         <h1
-          className="text-4xl sm:text-5xl lg:text-6xl font-light text-white tracking-tight"
-          style={{ letterSpacing: "-0.03em" }}
+          className="text-4xl sm:text-5xl lg:text-6xl font-semibold"
+          style={{
+            color: "hsla(210, 20%, 97%, 1)",
+            letterSpacing: "-0.03em",
+            lineHeight: 1.1,
+          }}
         >
           Core Subjects
         </h1>
-        <p className="text-white/55 text-base mt-4 max-w-xl mx-auto">
+        <p
+          className="text-base mt-4 max-w-lg mx-auto"
+          style={{ color: "hsla(215, 20%, 72%, 0.72)" }}
+        >
           {program}
         </p>
       </div>
 
       {/* Quarters */}
-      <div className="px-8 lg:px-16 pt-14 pb-24 flex-1 flex flex-col gap-20 max-w-[1400px] mx-auto w-full">
+      <div className="px-8 lg:px-16 pt-12 pb-28 flex-1 flex flex-col gap-20 max-w-[1400px] mx-auto w-full">
         {quarters.map((quarter) => (
           <section key={quarter.label}>
-            {/* Quarter label */}
+            {/* Quarter label row */}
             <div className="flex items-center gap-5 mb-8">
               <h2
-                className="text-2xl font-light text-white"
-                style={{ letterSpacing: "-0.02em" }}
+                className="text-xl font-medium whitespace-nowrap"
+                style={{
+                  color: "hsla(210, 20%, 92%, 0.9)",
+                  letterSpacing: "-0.015em",
+                }}
               >
                 {quarter.label}
               </h2>
               <div
                 className="flex-1 h-px"
-                style={{ background: "hsla(220,30%,50%,0.12)" }}
+                style={{ background: "hsla(218, 40%, 50%, 0.15)" }}
               />
-              <span className="text-xs text-white/45 tracking-widest uppercase">
+              <span
+                className="text-xs tracking-widest uppercase font-medium"
+                style={{ color: "hsla(215, 25%, 60%, 0.45)" }}
+              >
                 Core
               </span>
             </div>
 
             {/* Cards grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {quarter.courses.map((course) => (
                 <CourseCard key={course.code} course={course} />
               ))}
