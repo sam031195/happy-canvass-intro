@@ -70,7 +70,7 @@ const Dashboard = () => {
         loop
         muted
         playsInline
-        style={{ opacity: 0.5 }}
+        style={{ opacity: 0.75 }}
       />
 
       {/* ── Dot grid texture ── */}
