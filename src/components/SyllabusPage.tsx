@@ -67,13 +67,13 @@ const CourseCard = ({ course, onClick, index }: { course: Course; onClick?: () =
           ? "hsla(230, 22%, 9%, 1)"
           : "hsla(230, 25%, 6%, 1)",
         border: hovered
-          ? "1px solid hsla(0, 0%, 100%, 0.12)"
-          : "1px solid hsla(0, 0%, 100%, 0.06)",
-        borderRadius: "16px",
+          ? "1px solid hsla(220, 20%, 100%, 0.12)"
+          : "1px solid hsla(220, 20%, 100%, 0.06)",
+        borderRadius: "6px",
         cursor: isClickable ? "pointer" : "default",
         transform: hovered ? "translateY(-2px)" : "translateY(0)",
         boxShadow: hovered
-          ? "0 16px 48px hsla(0, 0%, 0%, 0.5), 0 0 0 1px hsla(0,0%,100%,0.05)"
+          ? "0 16px 48px hsla(230, 30%, 0%, 0.5), 0 0 0 1px hsla(220,30%,100%,0.05)"
           : "0 1px 3px hsla(0, 0%, 0%, 0.4)",
       }}
       onClick={onClick}
@@ -84,7 +84,7 @@ const CourseCard = ({ course, onClick, index }: { course: Course; onClick?: () =
       <div className="flex items-start justify-between mb-6">
         <div
           className="flex items-center justify-center"
-          style={{ color: hovered ? "hsla(0, 0%, 85%, 0.95)" : "hsla(0, 0%, 40%, 0.8)", transition: "color 0.2s" }}
+          style={{ color: hovered ? "hsla(210, 40%, 92%, 0.97)" : "hsla(220, 25%, 68%, 0.85)", transition: "color 0.2s" }}
         >
           {course.icon}
         </div>
@@ -92,7 +92,7 @@ const CourseCard = ({ course, onClick, index }: { course: Course; onClick?: () =
           <ArrowUpRight
             className="h-4 w-4 transition-all duration-200"
             style={{
-              color: "hsla(0, 0%, 35%, 0.5)",
+              color: "hsla(220, 20%, 65%, 0.6)",
               opacity: hovered ? 1 : 0,
               transform: hovered ? "translate(1px, -1px)" : "translate(0,0)",
             }}
@@ -103,7 +103,7 @@ const CourseCard = ({ course, onClick, index }: { course: Course; onClick?: () =
       {/* Code */}
       <span
         className="text-[10px] font-bold tracking-[0.16em] uppercase mb-2 block"
-        style={{ color: "hsla(0, 0%, 32%, 0.8)" }}
+        style={{ color: "hsla(220, 15%, 45%, 0.85)" }}
       >
         {course.code}
       </span>
@@ -111,7 +111,7 @@ const CourseCard = ({ course, onClick, index }: { course: Course; onClick?: () =
       {/* Title */}
       <h3
         className="text-base font-semibold leading-snug mb-3 flex-1"
-        style={{ color: "hsla(0, 0%, 92%, 0.95)", letterSpacing: "-0.02em", lineHeight: 1.35 }}
+        style={{ color: "hsla(210, 25%, 93%, 0.97)", letterSpacing: "-0.02em", lineHeight: 1.35 }}
       >
         {course.name}
       </h3>
@@ -119,7 +119,7 @@ const CourseCard = ({ course, onClick, index }: { course: Course; onClick?: () =
       {/* Description */}
       <p
         className="text-xs leading-relaxed"
-        style={{ color: "hsla(0, 0%, 45%, 0.85)", lineHeight: 1.7 }}
+        style={{ color: "hsla(220, 18%, 60%, 0.88)", lineHeight: 1.7 }}
       >
         {course.description}
       </p>
@@ -129,8 +129,8 @@ const CourseCard = ({ course, onClick, index }: { course: Course; onClick?: () =
         <div
           className="mt-5 pt-4 flex items-center gap-1.5 text-[11px] font-semibold tracking-wide uppercase transition-all duration-200"
           style={{
-            borderTop: "1px solid hsla(0,0%,100%,0.05)",
-            color: hovered ? "hsla(0, 0%, 70%, 0.9)" : "hsla(0, 0%, 30%, 0.6)",
+            borderTop: "1px solid hsla(220,20%,100%,0.06)",
+            color: hovered ? "hsla(220, 20%, 78%, 0.92)" : "hsla(220, 15%, 42%, 0.7)",
           }}
         >
           View Modules
