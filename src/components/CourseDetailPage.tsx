@@ -299,11 +299,30 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
   return (
     <div
       className="fixed inset-0 z-[60] flex flex-col overflow-hidden animate-in fade-in duration-300"
-      style={{ background: "hsl(228, 15%, 4%)" }}
+      style={{ background: "hsl(0, 0%, 3%)" }}
     >
+      {/* ── Dot grid texture ── */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{
+          backgroundImage: "radial-gradient(hsla(0,0%,100%,0.04) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+        }}
+      />
+
+      {/* ── Ambient glow top ── */}
+      <div
+        className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 z-0"
+        style={{
+          width: "800px",
+          height: "400px",
+          background: "radial-gradient(ellipse at center top, hsla(220, 70%, 40%, 0.12) 0%, transparent 70%)",
+        }}
+      />
+
       {/* ── Nav ── */}
       <div
-        className="flex items-center gap-3 px-8 lg:px-12 py-4 shrink-0"
+        className="relative z-10 flex items-center gap-3 px-8 lg:px-12 py-4 shrink-0"
         style={{ borderBottom: "1px solid hsla(0, 0%, 100%, 0.06)" }}
       >
         <button
