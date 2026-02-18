@@ -112,9 +112,9 @@ const QUARTERS_BY_PROGRAM: Record<string, Quarter[]> = {
         },
         {
           code: "MSIS 549 B",
-          name: "Machine Learning & AI for Business Applications",
+          name: "AI and GenAI for Business Applications",
           description:
-            "Bridges ML theory and enterprise practice — covering use-case identification, model deployment, and ROI evaluation for AI-driven business transformation.",
+            "Equips students to design, deploy, and evaluate generative AI systems — from LLMs and RAG pipelines to agentic workflows and multimodal solutions for enterprise transformation.",
           type: "Core",
           icon: <Bot className="h-6 w-6" />,
         },
