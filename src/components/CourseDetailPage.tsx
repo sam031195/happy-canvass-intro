@@ -13,7 +13,6 @@ import {
   User,
   Target,
   Layers,
-  TrendingUp,
   ChevronDown,
   ChevronRight,
 } from "lucide-react";
@@ -834,7 +833,7 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
 
             {/* CELL 1 — Credits metric */}
             <div
-              className="col-span-3 rounded-2xl p-5 flex flex-col justify-between"
+              className="col-span-4 rounded-2xl p-5 flex flex-col justify-between"
               style={{
                 background: "hsla(228, 45%, 8%, 0.9)",
                 border: "1px solid hsla(218, 35%, 30%, 0.18)",
@@ -864,7 +863,7 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
 
             {/* CELL 2 — Duration metric */}
             <div
-              className="col-span-3 rounded-2xl p-5 flex flex-col justify-between"
+              className="col-span-4 rounded-2xl p-5 flex flex-col justify-between"
               style={{
                 background: "hsla(228, 45%, 8%, 0.9)",
                 border: "1px solid hsla(218, 35%, 30%, 0.18)",
@@ -894,7 +893,7 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
 
             {/* CELL 3 — Modules metric */}
             <div
-              className="col-span-3 rounded-2xl p-5 flex flex-col justify-between"
+              className="col-span-4 rounded-2xl p-5 flex flex-col justify-between"
               style={{
                 background: "hsla(228, 45%, 8%, 0.9)",
                 border: "1px solid hsla(218, 35%, 30%, 0.18)",
@@ -922,35 +921,6 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
               </div>
             </div>
 
-            {/* CELL 4 — Skills metric */}
-            <div
-              className="col-span-3 rounded-2xl p-5 flex flex-col justify-between"
-              style={{
-                background: "hsla(228, 45%, 8%, 0.9)",
-                border: "1px solid hsla(218, 35%, 30%, 0.18)",
-              }}
-            >
-              <div
-                className="w-9 h-9 rounded-xl flex items-center justify-center mb-4"
-                style={{
-                  background: "hsla(38, 80%, 28%, 0.4)",
-                  border: "1px solid hsla(38, 80%, 50%, 0.2)",
-                }}
-              >
-                <TrendingUp className="h-[18px] w-[18px]" style={{ color: "hsla(38, 80%, 72%, 0.9)" }} />
-              </div>
-              <div>
-                <p
-                  className="text-4xl font-bold"
-                  style={{ color: "hsla(210, 20%, 97%, 1)", letterSpacing: "-0.04em" }}
-                >
-                  {detail.summary.skills.length}
-                </p>
-                <p className="text-xs mt-1" style={{ color: "hsla(215, 20%, 55%, 0.7)" }}>
-                  Skills Gained
-                </p>
-              </div>
-            </div>
 
             {/* CELL 5 — Overview (wide) */}
             <div
