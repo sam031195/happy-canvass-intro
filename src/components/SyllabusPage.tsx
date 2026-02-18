@@ -1,5 +1,4 @@
 import { ChevronLeft, BookOpen, FileText, Layers, Settings } from "lucide-react";
-import syllabusGradientBg from "@/assets/syllabus-gradient-bg.avif";
 
 interface Course {
   code: string;
@@ -58,18 +57,14 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
   return (
     <div
       className="fixed inset-0 z-50 flex flex-col animate-in fade-in duration-300 overflow-y-auto"
-      style={{ backgroundColor: "hsl(0,0%,3%)" }}
+      style={{
+        background:
+          "radial-gradient(ellipse 120% 80% at 50% 100%, hsla(230,60%,22%,0.55) 0%, hsla(260,40%,12%,0.3) 40%, hsl(0,0%,3%) 80%)",
+        backgroundColor: "hsl(0,0%,3%)",
+      }}
     >
-      {/* Background gradient image */}
-      <img
-        src={syllabusGradientBg}
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none select-none absolute inset-0 w-full h-full object-cover"
-        style={{ opacity: 0.32, mixBlendMode: "screen" }}
-      />
       {/* Back button */}
-      <div className="relative z-10 px-8 lg:px-16 pt-8">
+      <div className="px-8 lg:px-16 pt-8">
         <button
           onClick={onBack}
           className="flex items-center gap-2 text-sm text-white/50 hover:text-white/80 transition-colors"
@@ -80,7 +75,7 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
       </div>
 
       {/* Centered heading */}
-      <div className="relative z-10 px-8 lg:px-16 pt-16 pb-4 text-center">
+      <div className="px-8 lg:px-16 pt-16 pb-4 text-center">
         <p className="text-white/40 text-sm tracking-widest uppercase mb-4">
           {university}
         </p>
@@ -96,7 +91,7 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
       </div>
 
       {/* Cards grid */}
-      <div className="relative z-10 px-8 lg:px-16 pt-12 pb-20 flex-1">
+      <div className="px-8 lg:px-16 pt-12 pb-20 flex-1">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-[1400px] mx-auto">
           {courses.map((course) => (
             <div
