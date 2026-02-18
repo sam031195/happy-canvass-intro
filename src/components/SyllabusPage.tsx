@@ -137,45 +137,65 @@ interface Props {
 
 const CourseCard = ({ course }: { course: Course }) => (
   <div
-    className="group flex flex-col p-8 min-h-[300px] transition-all duration-300 ease-out hover:-translate-y-1"
+    className="group relative flex flex-col p-7 min-h-[300px] cursor-default overflow-hidden"
     style={{
-      background: "hsla(228, 45%, 8%, 0.92)",
-      border: "1px solid hsla(218, 35%, 30%, 0.18)",
-      borderRadius: "4px",
-      boxShadow: "0 1px 3px hsla(230, 80%, 4%, 0.6), inset 0 1px 0 hsla(218, 40%, 40%, 0.06)",
-      transition: "transform 0.3s ease, box-shadow 0.3s ease",
+      background: "linear-gradient(160deg, hsla(225, 30%, 9%, 0.98) 0%, hsla(228, 35%, 7%, 1) 100%)",
+      border: "1px solid hsla(215, 25%, 18%, 0.7)",
+      borderRadius: "6px",
+      boxShadow: "0 0 0 0 transparent, 0 2px 16px hsla(228, 60%, 3%, 0.7)",
+      transition: "box-shadow 0.35s ease, border-color 0.35s ease, transform 0.35s ease",
     }}
     onMouseEnter={e => {
-      (e.currentTarget as HTMLDivElement).style.boxShadow =
-        "0 8px 28px hsla(230, 80%, 4%, 0.8), inset 0 1px 0 hsla(218, 40%, 50%, 0.1), 0 0 0 1px hsla(218, 45%, 40%, 0.2)";
+      const el = e.currentTarget as HTMLDivElement;
+      el.style.boxShadow = "0 0 0 1px hsla(215, 40%, 35%, 0.35), 0 12px 40px hsla(228, 60%, 3%, 0.85)";
+      el.style.borderColor = "hsla(215, 35%, 28%, 0.9)";
+      el.style.transform = "translateY(-2px)";
     }}
     onMouseLeave={e => {
-      (e.currentTarget as HTMLDivElement).style.boxShadow =
-        "0 1px 3px hsla(230, 80%, 4%, 0.6), inset 0 1px 0 hsla(218, 40%, 40%, 0.06)";
+      const el = e.currentTarget as HTMLDivElement;
+      el.style.boxShadow = "0 0 0 0 transparent, 0 2px 16px hsla(228, 60%, 3%, 0.7)";
+      el.style.borderColor = "hsla(215, 25%, 18%, 0.7)";
+      el.style.transform = "translateY(0)";
     }}
   >
+    {/* Top-edge shimmer line — Linear/Vercel signature touch */}
+    <div
+      className="absolute top-0 left-0 right-0 h-px"
+      style={{
+        background: "linear-gradient(90deg, transparent 0%, hsla(215, 50%, 55%, 0.18) 40%, hsla(215, 50%, 65%, 0.28) 60%, transparent 100%)",
+      }}
+    />
+
+    {/* Subtle inner corner glow */}
+    <div
+      className="absolute top-0 left-0 w-24 h-24 pointer-events-none"
+      style={{
+        background: "radial-gradient(circle at 0% 0%, hsla(215, 60%, 55%, 0.05) 0%, transparent 70%)",
+      }}
+    />
+
     {/* Icon */}
     <div
-      className="mb-7"
-      style={{ color: "hsla(210, 20%, 78%, 0.85)" }}
+      className="mb-auto pb-10"
+      style={{ color: "hsla(215, 25%, 62%, 0.9)" }}
     >
       {course.icon}
     </div>
 
     {/* Code label */}
     <span
-      className="text-xs font-medium mb-2 block tracking-widest uppercase"
-      style={{ color: "hsla(210, 30%, 70%, 0.5)" }}
+      className="text-[10px] font-semibold mb-2.5 block tracking-[0.16em] uppercase"
+      style={{ color: "hsla(215, 20%, 48%, 0.65)" }}
     >
       {course.code}
     </span>
 
     {/* Title */}
     <h3
-      className="text-xl font-semibold leading-snug mb-4"
+      className="text-[15px] font-semibold leading-snug mb-3"
       style={{
-        color: "hsla(210, 20%, 95%, 1)",
-        letterSpacing: "-0.01em",
+        color: "hsla(210, 15%, 94%, 0.97)",
+        letterSpacing: "-0.015em",
       }}
     >
       {course.name}
@@ -183,13 +203,14 @@ const CourseCard = ({ course }: { course: Course }) => (
 
     {/* Description */}
     <p
-      className="text-sm leading-relaxed"
-      style={{ color: "hsla(215, 20%, 75%, 0.8)" }}
+      className="text-[13px] leading-[1.65]"
+      style={{ color: "hsla(215, 12%, 58%, 0.72)" }}
     >
       {course.description}
     </p>
   </div>
 );
+
 
 const SyllabusPage = ({ university, program, onBack }: Props) => {
   const quarters = QUARTERS_BY_PROGRAM[program] || [];
