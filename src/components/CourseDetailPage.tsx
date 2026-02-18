@@ -922,9 +922,9 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
             </div>
 
 
-            {/* CELL 5 — Overview (wide) */}
+            {/* CELL 5 — Overview (full width) */}
             <div
-              className="col-span-8 rounded-2xl p-6"
+              className="col-span-12 rounded-2xl p-6"
               style={{
                 background: "hsla(228, 45%, 7%, 0.85)",
                 border: "1px solid hsla(218, 35%, 30%, 0.15)",
@@ -944,31 +944,6 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
                 style={{ color: "hsla(215, 18%, 72%, 0.85)" }}
               >
                 {detail.summary.overview}
-              </p>
-            </div>
-
-            {/* CELL 6 — Outcome (narrow) */}
-            <div
-              className="col-span-4 rounded-2xl p-6 flex flex-col"
-              style={{
-                background: "hsla(220, 55%, 10%, 0.6)",
-                border: "1px solid hsla(220, 50%, 40%, 0.18)",
-              }}
-            >
-              <div className="flex items-center gap-2 mb-3">
-                <Target className="h-4 w-4" style={{ color: "hsla(220, 60%, 68%, 0.7)" }} />
-                <span
-                  className="text-xs font-semibold tracking-widest uppercase"
-                  style={{ color: "hsla(220, 40%, 65%, 0.55)" }}
-                >
-                  Learning Outcome
-                </span>
-              </div>
-              <p
-                className="text-xs leading-relaxed flex-1"
-                style={{ color: "hsla(215, 18%, 70%, 0.8)" }}
-              >
-                {detail.summary.outcome}
               </p>
             </div>
 
