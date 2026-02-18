@@ -145,25 +145,25 @@ const AIChatPanel = ({ open, onClose, context }: { open: boolean; onClose: () =>
           <div className="flex items-center gap-3">
             <div className="shrink-0 rounded-full" style={{ padding: "1.5px", background: "conic-gradient(from var(--ai-angle), #4285f4, #ea4335, #fbbc05, #34a853, #4285f4)", animation: "ai-spin 3s linear infinite" }}>
               <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: "hsl(230, 25%, 4%)" }}>
-                <Bot className="h-4 w-4" style={{ color: "hsla(0, 0%, 90%, 0.9)" }} />
+                <Bot className="h-4 w-4" style={{ color: "hsla(210, 40%, 88%, 0.95)" }} />
               </div>
             </div>
             <div>
-              <p className="text-sm font-semibold" style={{ color: "hsla(0, 0%, 95%, 1)" }}>AI Study Assistant</p>
-              <p className="text-xs" style={{ color: "hsla(0, 0%, 50%, 0.7)" }}>{context}</p>
+              <p className="text-sm font-semibold" style={{ color: "hsla(210, 25%, 93%, 0.97)" }}>AI Study Assistant</p>
+              <p className="text-xs" style={{ color: "hsla(220, 15%, 52%, 0.8)" }}>{context}</p>
             </div>
           </div>
-          <button onClick={onClose} className="flex items-center justify-center w-8 h-8 rounded-full transition-colors" style={{ color: "hsla(0, 0%, 55%, 0.6)" }} onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "hsla(0, 0%, 90%, 0.9)")} onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "hsla(0, 0%, 55%, 0.6)")}>
+          <button onClick={onClose} className="flex items-center justify-center w-8 h-8 rounded-full transition-colors" style={{ color: "hsla(220, 15%, 50%, 0.7)" }} onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "hsla(210, 30%, 88%, 0.95)")} onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "hsla(220, 15%, 50%, 0.7)")}>
             <X className="h-4 w-4" />
           </button>
         </div>
         <div className="flex-1 overflow-y-auto px-5 py-5 flex flex-col gap-4">
           {messages.map((msg, i) => (
             <div key={i} className={`flex gap-3 ${msg.role === "user" ? "flex-row-reverse" : ""}`}>
-              <div className="shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs mt-0.5" style={{ background: msg.role === "ai" ? "hsla(230, 22%, 10%, 1)" : "hsla(230, 20%, 14%, 1)", border: "1px solid hsla(0, 0%, 100%, 0.08)", color: "hsla(0, 0%, 80%, 0.9)" }}>
+              <div className="shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs mt-0.5" style={{ background: msg.role === "ai" ? "hsla(230, 22%, 10%, 1)" : "hsla(230, 20%, 14%, 1)", border: "1px solid hsla(0, 0%, 100%, 0.08)", color: "hsla(210, 30%, 82%, 0.92)" }}>
                 {msg.role === "ai" ? <Bot className="h-3.5 w-3.5" /> : <User className="h-3.5 w-3.5" />}
               </div>
-              <div className="max-w-[78%] px-4 py-3 rounded-2xl text-sm leading-relaxed" style={msg.role === "ai" ? { background: "hsla(230, 22%, 7%, 0.9)", border: "1px solid hsla(0, 0%, 100%, 0.07)", color: "hsla(0, 0%, 78%, 0.9)", borderBottomLeftRadius: "4px" } : { background: "hsla(230, 18%, 13%, 0.8)", border: "1px solid hsla(0, 0%, 100%, 0.1)", color: "hsla(0, 0%, 92%, 0.95)", borderBottomRightRadius: "4px" }}>
+              <div className="max-w-[78%] px-4 py-3 rounded-2xl text-sm leading-relaxed" style={msg.role === "ai" ? { background: "hsla(230, 22%, 7%, 0.9)", border: "1px solid hsla(0, 0%, 100%, 0.07)", color: "hsla(220, 18%, 72%, 0.92)", borderBottomLeftRadius: "4px" } : { background: "hsla(230, 18%, 13%, 0.8)", border: "1px solid hsla(0, 0%, 100%, 0.1)", color: "hsla(210, 25%, 93%, 0.97)", borderBottomRightRadius: "4px" }}>
                 {msg.text}
               </div>
             </div>
@@ -172,7 +172,7 @@ const AIChatPanel = ({ open, onClose, context }: { open: boolean; onClose: () =>
         </div>
         <div className="px-5 pb-3 flex flex-wrap gap-2">
           {["Explain the key concepts", "Give me a study tip", "Real-world example?"].map((s) => (
-            <button key={s} onClick={() => setInput(s)} className="text-xs px-3 py-1.5 rounded-full transition-colors" style={{ background: "hsla(230, 22%, 9%, 0.9)", border: "1px solid hsla(0, 0%, 100%, 0.08)", color: "hsla(0, 0%, 60%, 0.8)" }}>{s}</button>
+            <button key={s} onClick={() => setInput(s)} className="text-xs px-3 py-1.5 rounded-full transition-colors" style={{ background: "hsla(230, 22%, 9%, 0.9)", border: "1px solid hsla(0, 0%, 100%, 0.08)", color: "hsla(220, 15%, 62%, 0.85)" }}>{s}</button>
           ))}
         </div>
         <div className="px-5 pb-5 pt-2 shrink-0" style={{ borderTop: "1px solid hsla(0, 0%, 100%, 0.06)" }}>
@@ -183,7 +183,7 @@ const AIChatPanel = ({ open, onClose, context }: { open: boolean; onClose: () =>
             </div>
             <div className="relative shrink-0 rounded-full" style={{ padding: "1px", background: sendHovered ? `radial-gradient(circle 40px at ${gradientPos.x}% ${gradientPos.y}%, #4285f4, #ea4335, #fbbc05, #34a853, transparent 70%)` : "hsla(0, 0%, 20%, 0.5)", transition: "background 0.2s" }}>
               <button onMouseMove={handleSendMouseMove} onMouseEnter={() => setSendHovered(true)} onMouseLeave={() => setSendHovered(false)} onClick={handleSend} className="relative w-8 h-8 rounded-full flex items-center justify-center" style={{ background: "hsl(0 0% 8%)" }}>
-                <Send className="h-3.5 w-3.5" style={{ color: "hsla(0, 0%, 75%, 0.9)" }} />
+                <Send className="h-3.5 w-3.5" style={{ color: "hsla(210, 30%, 78%, 0.92)" }} />
               </button>
             </div>
           </div>
@@ -230,10 +230,11 @@ const ModuleRow = ({ mod, showChatBtn, onChatClick }: { mod: Module; showChatBtn
 
   return (
     <div
-      className="rounded-xl overflow-hidden transition-all duration-150"
+      className="overflow-hidden transition-all duration-150"
       style={{
+        borderRadius: "6px",
         background: expanded ? "hsla(230, 22%, 9%, 1)" : "hsla(230, 25%, 6%, 1)",
-        border: expanded ? "1px solid hsla(0, 0%, 100%, 0.1)" : "1px solid hsla(0, 0%, 100%, 0.06)",
+        border: expanded ? "1px solid hsla(220, 20%, 100%, 0.1)" : "1px solid hsla(220, 20%, 100%, 0.06)",
       }}
     >
       <button
@@ -244,7 +245,7 @@ const ModuleRow = ({ mod, showChatBtn, onChatClick }: { mod: Module; showChatBtn
         {/* Number */}
         <span
           className="shrink-0 text-xs font-bold tabular-nums w-6 text-right"
-          style={{ color: "hsla(0, 0%, 35%, 0.8)", letterSpacing: "0.02em" }}
+          style={{ color: "hsla(220, 15%, 45%, 0.85)", letterSpacing: "0.02em" }}
         >
           {String(mod.number).padStart(2, "0")}
         </span>
@@ -256,10 +257,10 @@ const ModuleRow = ({ mod, showChatBtn, onChatClick }: { mod: Module; showChatBtn
         </div>
 
         <div className="flex items-center gap-3 shrink-0">
-          <span className="hidden sm:block text-[11px]" style={{ color: "hsla(0, 0%, 38%, 0.7)" }}>
+          <span className="hidden sm:block text-[11px]" style={{ color: "hsla(220, 15%, 50%, 0.8)" }}>
             {mod.topics.length} topics
           </span>
-          <span style={{ color: "hsla(0, 0%, 40%, 0.6)", transition: "color 0.15s" }}>
+          <span style={{ color: "hsla(220, 15%, 52%, 0.7)", transition: "color 0.15s" }}>
             {expanded ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
           </span>
         </div>
@@ -269,8 +270,8 @@ const ModuleRow = ({ mod, showChatBtn, onChatClick }: { mod: Module; showChatBtn
         <div className="px-5 pb-5" style={{ borderTop: "1px solid hsla(0, 0%, 100%, 0.05)" }}>
           <ul className="flex flex-col gap-2.5 mt-4 ml-10">
             {mod.topics.map((topic, ti) => (
-              <li key={ti} className="flex items-start gap-2.5 text-xs leading-relaxed" style={{ color: "hsla(0, 0%, 60%, 0.8)" }}>
-                <span className="mt-[5px] shrink-0 w-[5px] h-[5px] rounded-full" style={{ background: "hsla(0, 0%, 30%, 0.6)" }} />
+              <li key={ti} className="flex items-start gap-2.5 text-xs leading-relaxed" style={{ color: "hsla(220, 18%, 64%, 0.88)" }}>
+                <span className="mt-[5px] shrink-0 w-[5px] h-[5px] rounded-full" style={{ background: "hsla(220, 20%, 45%, 0.7)" }} />
                 {topic}
               </li>
             ))}
@@ -338,15 +339,15 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
         <button
           onClick={onBack}
           className="flex items-center gap-1.5 text-sm transition-colors"
-          style={{ color: "hsla(0, 0%, 45%, 0.7)" }}
-          onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "hsla(0, 0%, 85%, 0.9)")}
-          onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "hsla(0, 0%, 45%, 0.7)")}
+          style={{ color: "hsla(220, 15%, 52%, 0.8)" }}
+          onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "hsla(210, 30%, 88%, 0.95)")}
+          onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "hsla(220, 15%, 52%, 0.8)")}
         >
           <ChevronLeft className="h-4 w-4" />
           Syllabus
         </button>
-        <span style={{ color: "hsla(0, 0%, 22%, 1)" }}>/</span>
-        <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: "hsla(0, 0%, 40%, 0.7)" }}>
+        <span style={{ color: "hsla(220, 15%, 30%, 1)" }}>/</span>
+        <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: "hsla(220, 15%, 52%, 0.8)" }}>
           {detail.code}
         </span>
         <div className="flex-1" />
@@ -359,7 +360,7 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
 
           {/* ══ HEADER ══ */}
           <div className="mb-10">
-            <p className="text-xs font-semibold tracking-[0.18em] uppercase mb-4" style={{ color: "hsla(0, 0%, 35%, 0.8)" }}>
+            <p className="text-xs font-semibold tracking-[0.18em] uppercase mb-4" style={{ color: "hsla(220, 15%, 48%, 0.85)" }}>
               Graduate Course · {detail.code}
             </p>
             <h1
@@ -381,24 +382,24 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
             {/* Credits */}
             <div className="flex-1 px-8 py-6 flex flex-col gap-1" style={{ borderRight: "1px solid hsla(0, 0%, 100%, 0.06)" }}>
               <div className="flex items-center gap-2 mb-2">
-                <GraduationCap className="h-4 w-4" style={{ color: "hsla(0, 0%, 38%, 0.8)" }} />
-                <span className="text-[11px] font-semibold tracking-widest uppercase" style={{ color: "hsla(0, 0%, 38%, 0.7)" }}>Credit Units</span>
+                <GraduationCap className="h-4 w-4" style={{ color: "hsla(220, 25%, 68%, 0.85)" }} />
+                <span className="text-[11px] font-semibold tracking-widest uppercase" style={{ color: "hsla(220, 15%, 52%, 0.8)" }}>Credit Units</span>
               </div>
               <span className="text-5xl font-black" style={{ color: "hsla(0, 0%, 98%, 1)", letterSpacing: "-0.06em" }}>{detail.credits}</span>
             </div>
             {/* Duration */}
             <div className="flex-1 px-8 py-6 flex flex-col gap-1" style={{ borderRight: "1px solid hsla(0, 0%, 100%, 0.06)" }}>
               <div className="flex items-center gap-2 mb-2">
-                <Clock className="h-4 w-4" style={{ color: "hsla(0, 0%, 38%, 0.8)" }} />
-                <span className="text-[11px] font-semibold tracking-widest uppercase" style={{ color: "hsla(0, 0%, 38%, 0.7)" }}>Duration</span>
+                <Clock className="h-4 w-4" style={{ color: "hsla(220, 25%, 68%, 0.85)" }} />
+                <span className="text-[11px] font-semibold tracking-widest uppercase" style={{ color: "hsla(220, 15%, 52%, 0.8)" }}>Duration</span>
               </div>
-              <span className="text-5xl font-black" style={{ color: "hsla(0, 0%, 98%, 1)", letterSpacing: "-0.06em" }}>10<span className="text-2xl font-semibold ml-1" style={{ color: "hsla(0, 0%, 45%, 0.7)", letterSpacing: "-0.02em" }}>wks</span></span>
+              <span className="text-5xl font-black" style={{ color: "hsla(0, 0%, 98%, 1)", letterSpacing: "-0.06em" }}>10<span className="text-2xl font-semibold ml-1" style={{ color: "hsla(220, 15%, 55%, 0.75)", letterSpacing: "-0.02em" }}>wks</span></span>
             </div>
             {/* Modules */}
             <div className="flex-1 px-8 py-6 flex flex-col gap-1">
               <div className="flex items-center gap-2 mb-2">
-                <Layers className="h-4 w-4" style={{ color: "hsla(0, 0%, 38%, 0.8)" }} />
-                <span className="text-[11px] font-semibold tracking-widest uppercase" style={{ color: "hsla(0, 0%, 38%, 0.7)" }}>Modules</span>
+                <Layers className="h-4 w-4" style={{ color: "hsla(220, 25%, 68%, 0.85)" }} />
+                <span className="text-[11px] font-semibold tracking-widest uppercase" style={{ color: "hsla(220, 15%, 52%, 0.8)" }}>Modules</span>
               </div>
               <span className="text-5xl font-black" style={{ color: "hsla(0, 0%, 98%, 1)", letterSpacing: "-0.06em" }}>{detail.modules.length}</span>
             </div>
