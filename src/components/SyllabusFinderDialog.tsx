@@ -93,7 +93,7 @@ const SyllabusFinderDialog = ({ open, onOpenChange, onProgramSelected }: Props) 
       <DialogContent
         className="sm:max-w-[600px] p-0 border-0 overflow-hidden"
         style={{
-          background: "hsl(0, 0%, 4%)",
+          background: "hsl(230, 25%, 4%)",
           boxShadow: "0 0 0 1px hsla(0,0%,100%,0.08), 0 32px 80px hsla(0,0%,0%,0.8)",
           borderRadius: "20px",
         }}
@@ -168,7 +168,7 @@ const SyllabusFinderDialog = ({ open, onOpenChange, onProgramSelected }: Props) 
                 onClick={() => setDropdownOpen(!dropdownOpen)}
                 className="w-full flex items-center justify-between px-4 py-3.5 rounded-xl text-sm transition-all duration-150"
                 style={{
-                  background: dropdownOpen ? "hsla(0,0%,10%,1)" : "hsla(0,0%,7%,1)",
+                  background: dropdownOpen ? "hsla(230, 22%, 9%, 1)" : "hsla(230, 25%, 6%, 1)",
                   border: dropdownOpen ? "1px solid hsla(0,0%,100%,0.12)" : "1px solid hsla(0,0%,100%,0.07)",
                   color: currentValue ? "hsla(0,0%,90%,0.95)" : "hsla(0,0%,32%,0.8)",
                 }}
@@ -185,7 +185,7 @@ const SyllabusFinderDialog = ({ open, onOpenChange, onProgramSelected }: Props) 
                   className="absolute left-0 right-0 top-full mt-1.5 z-50 rounded-xl py-1.5 overflow-y-auto"
                   style={{
                     maxHeight: "240px",
-                    background: "hsl(0, 0%, 6%)",
+                    background: "hsl(230, 25%, 5%)",
                     border: "1px solid hsla(0,0%,100%,0.09)",
                     boxShadow: "0 16px 48px hsla(0,0%,0%,0.6)",
                   }}
@@ -229,7 +229,7 @@ const SyllabusFinderDialog = ({ open, onOpenChange, onProgramSelected }: Props) 
             {step === 1 && university && (
               <div
                 className="mt-3 w-full px-3 py-2.5 rounded-lg flex items-center gap-2"
-                style={{ background: "hsla(0,0%,7%,0.8)", border: "1px solid hsla(0,0%,100%,0.05)" }}
+                style={{ background: "hsla(230, 25%, 6%, 0.8)", border: "1px solid hsla(0,0%,100%,0.05)" }}
               >
                 <Check className="h-3 w-3 shrink-0" style={{ color: "hsla(0,0%,45%,0.7)" }} />
                 <span className="text-xs truncate" style={{ color: "hsla(0,0%,40%,0.8)" }}>
