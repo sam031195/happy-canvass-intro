@@ -1023,7 +1023,6 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
             )}
 
           </div>
-          </div>
 
           {/* ── Course Modules section ── */}
           <div>
