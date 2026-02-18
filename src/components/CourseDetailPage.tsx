@@ -1,4 +1,4 @@
-import { ChevronLeft, BookOpen, Clock, GraduationCap, BarChart3, CheckCircle2, ListChecks, Sparkles } from "lucide-react";
+import { ChevronLeft, BookOpen, Clock, GraduationCap, BarChart3, CheckCircle2, ListChecks, Sparkles, Bot } from "lucide-react";
 import { useState, useRef, useCallback } from "react";
 
 interface Module {
@@ -333,7 +333,7 @@ const ModuleChatButton = ({ moduleName }: { moduleName: string }) => {
           }}
         />
         <span className="pointer-events-none absolute inset-0 rounded-full -z-[5]" style={{ background: 'hsl(0 0% 8%)' }} />
-        <Sparkles className="h-4 w-4 relative z-10" />
+        <Bot className="h-4 w-4 relative z-10" />
         <span className="relative z-10">Chat with AI about this Module</span>
       </button>
     </div>
