@@ -1,4 +1,4 @@
-import { ChevronLeft, BookOpen, FileText, Layers, Settings, Database, Shield, FolderKanban, BrainCircuit, TrendingUp, Bot, Lock } from "lucide-react";
+import { ChevronLeft, Layers, Settings, Database, Shield, FolderKanban, BrainCircuit, TrendingUp, Bot, Lock, BarChart2, GitBranch } from "lucide-react";
 
 interface Course {
   code: string;
@@ -15,6 +15,43 @@ interface Quarter {
 
 const QUARTERS_BY_PROGRAM: Record<string, Quarter[]> = {
   "Masters in Information System / MSIS": [
+    {
+      label: "Summer Quarter",
+      courses: [
+        {
+          code: "MSIS 502",
+          name: "Business Data Analysis",
+          description:
+            "Develops analytical skills for interpreting and communicating insights from business data using statistical tools, visualization techniques, and data-driven decision frameworks.",
+          type: "Core",
+          icon: <BarChart2 className="h-7 w-7" />,
+        },
+        {
+          code: "MSIS 504",
+          name: "Business Decision Models",
+          description:
+            "Introduces quantitative modeling and optimization methods to support strategic and operational decision-making, including linear programming, simulation, and risk analysis.",
+          type: "Core",
+          icon: <GitBranch className="h-7 w-7" />,
+        },
+        {
+          code: "MSIS 503",
+          name: "Operations and Business Process Management",
+          description:
+            "Examines principles of operations management, process design, quality control, and efficiency optimization across service and manufacturing business environments.",
+          type: "Core",
+          icon: <Settings className="h-7 w-7" />,
+        },
+        {
+          code: "MSIS 501",
+          name: "Information Technology and Organizational Strategy",
+          description:
+            "Analyzes how information systems enable competitive advantage, drive digital transformation, and align with organizational goals in dynamic business landscapes.",
+          type: "Core",
+          icon: <Layers className="h-7 w-7" />,
+        },
+      ],
+    },
     {
       label: "Winter Quarter",
       courses: [
