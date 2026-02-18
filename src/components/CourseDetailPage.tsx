@@ -216,7 +216,7 @@ const ModuleChatButton = ({ onClick }: { onClick: () => void }) => {
       <span className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-1/3 h-[2px] rounded-full" style={{ background: "linear-gradient(90deg, transparent, hsl(220 80% 55%), transparent)" }} />
       <button onMouseMove={handleMouseMove} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} onClick={onClick} className="relative flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium" style={{ color: "hsla(0, 0%, 92%, 0.95)" }}>
         <span className="pointer-events-none absolute -inset-[1.5px] rounded-full -z-10 transition-opacity duration-300" style={{ opacity: hovered ? 1 : 0, background: `radial-gradient(circle 70px at ${gradientPos.x}% ${gradientPos.y}%, #4285f4, #ea4335, #fbbc05, #34a853, transparent 70%)` }} />
-        <span className="pointer-events-none absolute inset-0 rounded-full -z-[5]" style={{ background: "hsl(0 0% 8%)" }} />
+        <span className="pointer-events-none absolute inset-0 rounded-full -z-[5]" style={{ background: "hsl(230, 25%, 6%)" }} />
         <Sparkles className="h-4 w-4 relative z-10" />
         <span className="relative z-10">Chat with AI about this Module</span>
       </button>
@@ -376,7 +376,7 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
           {/* ══ STAT ROW ══ */}
           <div
             className="flex items-center gap-0 mb-10 rounded-2xl overflow-hidden"
-            style={{ border: "1px solid hsla(0, 0%, 100%, 0.07)", background: "hsla(0, 0%, 6%, 1)" }}
+            style={{ border: "1px solid hsla(0, 0%, 100%, 0.07)", background: "hsla(230, 25%, 6%, 1)" }}
           >
             {/* Credits */}
             <div className="flex-1 px-8 py-6 flex flex-col gap-1" style={{ borderRight: "1px solid hsla(0, 0%, 100%, 0.06)" }}>
