@@ -3,7 +3,6 @@ import {
   Send,
   Bot,
   User,
-  Sparkles,
   Plus,
   Search,
   Globe,
@@ -16,13 +15,18 @@ import {
   CreditCard,
   HelpCircle,
   Image,
-  Table,
-  ChevronLeft,
+  Table2,
   Upload,
   Link,
   HardDrive,
   Clipboard,
   ChevronDown,
+  MoreVertical,
+  PanelLeftClose,
+  PanelRightClose,
+  PenLine,
+  ArrowRight,
+  ChevronLeft,
 } from "lucide-react";
 import { useState, useRef, useEffect, useCallback } from "react";
 
@@ -45,28 +49,24 @@ const STUDIO_TOOLS: StudioTool[] = [
   { label: "Quiz", icon: <HelpCircle className="h-4 w-4" /> },
   { label: "Infographic", icon: <Image className="h-4 w-4" /> },
   { label: "Slide Deck", icon: <FileText className="h-4 w-4" /> },
-  { label: "Data Table", icon: <Table className="h-4 w-4" /> },
+  { label: "Data Table", icon: <Table2 className="h-4 w-4" /> },
 ];
 
 interface Props {
-  context: string; // course or module name
+  context: string;
   onClose: () => void;
 }
 
 const AINotebookPage = ({ context, onClose }: Props) => {
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    {
-      role: "ai",
-      text: `Hi! I'm your AI study assistant for **${context}**. Ask me anything — I can explain concepts, quiz you, or help you dive deeper into any topic.`,
-    },
-  ]);
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
   const [sourceSearch, setSourceSearch] = useState("");
-  const [researchMode, setResearchMode] = useState<"Web" | "Fast Research">("Web");
   const [gradientPos, setGradientPos] = useState({ x: 50, y: 50 });
   const [sendHovered, setSendHovered] = useState(false);
   const [leftCollapsed, setLeftCollapsed] = useState(false);
   const [rightCollapsed, setRightCollapsed] = useState(false);
+  // The center modal is shown initially (like NotebookLM's onboarding card)
+  const [modalDismissed, setModalDismissed] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -76,12 +76,13 @@ const AINotebookPage = ({ context, onClose }: Props) => {
   const handleSend = () => {
     const trimmed = input.trim();
     if (!trimmed) return;
+    setModalDismissed(true);
     setMessages((prev) => [
       ...prev,
       { role: "user", text: trimmed },
       {
         role: "ai",
-        text: `That's a great question about "${trimmed}"! In the context of **${context}**, this relates to core concepts around applied AI, decision-making frameworks, and real-world deployment patterns. Would you like me to go deeper on any specific aspect?`,
+        text: `Great question about "${trimmed}"! In the context of **${context}**, this relates to core concepts around applied AI, decision-making frameworks, and real-world deployment patterns. Would you like me to go deeper on any specific aspect?`,
       },
     ]);
     setInput("");
@@ -95,156 +96,186 @@ const AINotebookPage = ({ context, onClose }: Props) => {
     });
   }, []);
 
+  // Panel surface color
+  const surface = "hsl(230, 18%, 7%)";
+  const surfaceHover = "hsla(230, 18%, 10%, 1)";
+  const border = "hsla(0, 0%, 100%, 0.07)";
+  const subtext = "hsla(220, 15%, 48%, 0.75)";
+  const labelColor = "hsla(220, 15%, 62%, 0.88)";
+  const headingColor = "hsla(210, 25%, 88%, 0.95)";
+
   return (
     <div
       className="fixed inset-0 z-[90] flex flex-col"
-      style={{ background: "hsl(230, 18%, 6%)" }}
+      style={{ background: "hsl(230, 18%, 8%)" }}
     >
       {/* ── Dot grid ── */}
       <div
         className="pointer-events-none absolute inset-0 z-0"
         style={{
-          backgroundImage: "radial-gradient(hsla(0,0%,100%,0.03) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(hsla(0,0%,100%,0.025) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
         }}
       />
 
-      {/* ── Top nav bar ── */}
+      {/* ════ TOP NAVBAR ════ */}
       <div
-        className="relative z-10 flex items-center justify-between px-5 py-3 shrink-0"
-        style={{ borderBottom: "1px solid hsla(0, 0%, 100%, 0.07)" }}
+        className="relative z-10 flex items-center gap-3 px-4 py-2.5 shrink-0"
+        style={{ borderBottom: `1px solid ${border}`, background: "hsl(230, 18%, 6%)" }}
       >
-        {/* Left: back + title */}
-        <div className="flex items-center gap-3">
+        {/* Logo + title */}
+        <button
+          onClick={onClose}
+          className="flex items-center gap-2 group"
+        >
+          {/* Circular logo (rainbow spin) */}
+          <div
+            className="w-7 h-7 rounded-full flex items-center justify-center shrink-0"
+            style={{
+              padding: "1.5px",
+              background: "conic-gradient(from var(--ai-angle), #4285f4, #ea4335, #fbbc05, #34a853, #4285f4)",
+              animation: "ai-spin 3s linear infinite",
+            }}
+          >
+            <div
+              className="w-full h-full rounded-full flex items-center justify-center"
+              style={{ background: "hsl(230, 18%, 6%)" }}
+            >
+              <Bot className="h-3.5 w-3.5" style={{ color: "hsla(210, 40%, 88%, 0.95)" }} />
+            </div>
+          </div>
+          <span
+            className="text-sm font-semibold transition-colors"
+            style={{ color: headingColor }}
+          >
+            {context}
+          </span>
+        </button>
+
+        <div className="flex-1" />
+
+        {/* Right nav actions */}
+        <div className="flex items-center gap-2">
+          {/* Back button */}
           <button
             onClick={onClose}
-            className="flex items-center gap-1.5 text-sm font-medium transition-colors"
-            style={{ color: "hsla(220, 15%, 52%, 0.8)" }}
-            onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "hsla(210, 30%, 88%, 0.95)")}
-            onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "hsla(220, 15%, 52%, 0.8)")}
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors"
+            style={{
+              background: "hsla(230, 22%, 11%, 1)",
+              border: `1px solid ${border}`,
+              borderRadius: "6px",
+              color: labelColor,
+            }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = surfaceHover; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "hsla(230, 22%, 11%, 1)"; }}
           >
-            <ChevronLeft className="h-4 w-4" />
-            Back
+            <ChevronLeft className="h-3.5 w-3.5" />
+            Back to Course
           </button>
-          <div className="w-px h-4" style={{ background: "hsla(0,0%,100%,0.08)" }} />
-          <div className="flex items-center gap-2">
-            <div
-              className="w-6 h-6 rounded-full flex items-center justify-center shrink-0"
-              style={{
-                padding: "1.5px",
-                background: "conic-gradient(from var(--ai-angle), #4285f4, #ea4335, #fbbc05, #34a853, #4285f4)",
-                animation: "ai-spin 3s linear infinite",
-              }}
-            >
-              <div
-                className="w-full h-full rounded-full flex items-center justify-center"
-                style={{ background: "hsl(230, 18%, 6%)" }}
-              >
-                <Bot className="h-3 w-3" style={{ color: "hsla(210, 40%, 88%, 0.95)" }} />
-              </div>
-            </div>
-            <span className="text-sm font-semibold" style={{ color: "hsla(210, 25%, 90%, 0.95)" }}>
-              AI Study Notebook
-            </span>
-          </div>
-        </div>
 
-        {/* Right: context label */}
-        <span
-          className="text-xs font-medium truncate max-w-xs hidden sm:block"
-          style={{ color: "hsla(220, 15%, 48%, 0.8)" }}
-        >
-          {context}
-        </span>
+          {/* Divider */}
+          <div className="w-px h-4 mx-1" style={{ background: border }} />
+
+          {/* Create notebook pill */}
+          <button
+            className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold rounded-full transition-all"
+            style={{
+              background: "hsla(0, 0%, 95%, 1)",
+              color: "hsl(230, 18%, 6%)",
+            }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "hsla(0,0%,100%,1)"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "hsla(0, 0%, 95%, 1)"; }}
+          >
+            <Plus className="h-3.5 w-3.5" />
+            Create notebook
+          </button>
+        </div>
       </div>
 
-      {/* ── Three-column body ── */}
+      {/* ════ THREE-COLUMN BODY ════ */}
       <div className="relative z-10 flex flex-1 min-h-0">
 
-        {/* ══ LEFT: Sources ══ */}
+        {/* ══════ LEFT: Sources ══════ */}
         <div
           className="flex flex-col shrink-0 transition-all duration-200"
           style={{
-            width: leftCollapsed ? "48px" : "280px",
-            borderRight: "1px solid hsla(0, 0%, 100%, 0.07)",
+            width: leftCollapsed ? "44px" : "300px",
+            borderRight: `1px solid ${border}`,
+            background: "hsl(230, 18%, 6%)",
           }}
         >
           {/* Sources header */}
           <div
-            className="flex items-center justify-between px-4 py-3 shrink-0"
-            style={{ borderBottom: "1px solid hsla(0, 0%, 100%, 0.06)" }}
+            className="flex items-center justify-between px-3 py-3 shrink-0"
+            style={{ borderBottom: `1px solid ${border}` }}
           >
             {!leftCollapsed && (
-              <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: "hsla(220, 15%, 52%, 0.8)" }}>
+              <span className="text-[13px] font-semibold" style={{ color: headingColor }}>
                 Sources
               </span>
             )}
             <button
               onClick={() => setLeftCollapsed((v) => !v)}
-              className="ml-auto flex items-center justify-center w-6 h-6 rounded transition-colors"
-              style={{ color: "hsla(220, 15%, 48%, 0.7)" }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "hsla(210, 30%, 82%, 0.9)")}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "hsla(220, 15%, 48%, 0.7)")}
+              className={`flex items-center justify-center w-7 h-7 rounded transition-colors ${leftCollapsed ? "mx-auto" : "ml-auto"}`}
+              style={{ color: subtext }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.color = headingColor; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.color = subtext; }}
             >
-              <ChevronLeft
-                className="h-4 w-4 transition-transform duration-200"
-                style={{ transform: leftCollapsed ? "rotate(180deg)" : "rotate(0deg)" }}
-              />
+              <PanelLeftClose className="h-4 w-4" />
             </button>
           </div>
 
           {!leftCollapsed && (
-            <div className="flex flex-col flex-1 overflow-y-auto p-3 gap-3">
-              {/* Add sources button */}
+            <div className="flex flex-col flex-1 overflow-y-auto px-3 pt-3 pb-4 gap-2.5">
+
+              {/* + Add sources button — full width, outlined */}
               <button
-                className="w-full flex items-center justify-center gap-2 py-2.5 text-xs font-medium transition-colors"
+                className="w-full flex items-center justify-center gap-2 py-2 text-[13px] font-medium transition-colors rounded"
                 style={{
-                  background: "hsla(230, 22%, 9%, 1)",
-                  border: "1px solid hsla(0, 0%, 100%, 0.09)",
+                  background: "transparent",
+                  border: `1px solid hsla(0,0%,100%,0.14)`,
                   borderRadius: "6px",
-                  color: "hsla(210, 25%, 82%, 0.9)",
+                  color: labelColor,
                 }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "hsla(230, 22%, 12%, 1)"; }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "hsla(230, 22%, 9%, 1)"; }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "hsla(230,22%,11%,1)"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "transparent"; }}
               >
                 <Plus className="h-3.5 w-3.5" />
                 Add sources
               </button>
 
-              {/* Source search box */}
+              {/* Search box: search row + pills row as one card */}
               <div
-                className="flex flex-col gap-0"
                 style={{
-                  background: "hsla(230, 22%, 8%, 1)",
-                  border: "1px solid hsla(220, 20%, 100%, 0.1)",
+                  background: "hsla(230, 22%, 10%, 1)",
+                  border: `1px solid hsla(0,0%,100%,0.12)`,
                   borderRadius: "6px",
                   overflow: "hidden",
                 }}
               >
-                {/* Search row */}
+                {/* Search input row */}
                 <div className="flex items-center gap-2 px-3 py-2.5">
-                  <Search className="h-3.5 w-3.5 shrink-0" style={{ color: "hsla(220, 15%, 50%, 0.7)" }} />
+                  <Search className="h-3.5 w-3.5 shrink-0" style={{ color: subtext }} />
                   <input
                     type="text"
                     value={sourceSearch}
                     onChange={(e) => setSourceSearch(e.target.value)}
                     placeholder="Search the web for new sources"
-                    className="flex-1 bg-transparent border-none outline-none text-xs"
-                    style={{ color: "hsla(220, 15%, 78%, 0.9)", caretColor: "hsla(220, 80%, 65%, 0.9)" }}
+                    className="flex-1 bg-transparent border-none outline-none text-[12px]"
+                    style={{ color: labelColor, caretColor: "hsla(220, 80%, 65%, 0.9)" }}
                   />
                 </div>
-                {/* Filters row */}
+                {/* Filter pills row */}
                 <div
-                  className="flex items-center gap-2 px-3 py-2 flex-wrap"
-                  style={{ borderTop: "1px solid hsla(0,0%,100%,0.05)" }}
+                  className="flex items-center gap-2 px-3 py-2"
+                  style={{ borderTop: "1px solid hsla(0,0%,100%,0.06)" }}
                 >
                   <button
-                    onClick={() => setResearchMode("Web")}
-                    className="flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-medium rounded-full transition-colors"
+                    className="flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-medium rounded-full"
                     style={{
-                      background: researchMode === "Web" ? "hsla(230, 22%, 14%, 1)" : "transparent",
-                      border: "1px solid hsla(0,0%,100%,0.08)",
-                      color: "hsla(220, 15%, 68%, 0.85)",
+                      border: `1px solid hsla(0,0%,100%,0.11)`,
+                      color: labelColor,
+                      background: "hsla(230, 22%, 14%, 1)",
                     }}
                   >
                     <Globe className="h-3 w-3" />
@@ -252,12 +283,11 @@ const AINotebookPage = ({ context, onClose }: Props) => {
                     <ChevronDown className="h-2.5 w-2.5" />
                   </button>
                   <button
-                    onClick={() => setResearchMode("Fast Research")}
-                    className="flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-medium rounded-full transition-colors"
+                    className="flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-medium rounded-full"
                     style={{
-                      background: researchMode === "Fast Research" ? "hsla(230, 22%, 14%, 1)" : "transparent",
-                      border: "1px solid hsla(0,0%,100%,0.08)",
-                      color: "hsla(220, 15%, 68%, 0.85)",
+                      border: `1px solid hsla(0,0%,100%,0.11)`,
+                      color: labelColor,
+                      background: "hsla(230, 22%, 14%, 1)",
                     }}
                   >
                     <Zap className="h-3 w-3" />
@@ -265,119 +295,83 @@ const AINotebookPage = ({ context, onClose }: Props) => {
                     <ChevronDown className="h-2.5 w-2.5" />
                   </button>
                   <button
-                    className="ml-auto flex items-center justify-center w-6 h-6 rounded-full"
+                    className="ml-auto flex items-center justify-center w-6 h-6 rounded-full transition-colors"
                     style={{
-                      background: "hsla(0, 0%, 88%, 0.95)",
-                      color: "hsl(230, 18%, 6%)",
+                      background: "hsla(0,0%,85%,0.9)",
+                      color: "hsl(230,18%,6%)",
                     }}
-                    onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "hsla(0,0%,100%,1)")}
-                    onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "hsla(0, 0%, 88%, 0.95)")}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "hsla(0,0%,100%,1)"; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "hsla(0,0%,85%,0.9)"; }}
                   >
-                    <Send className="h-2.5 w-2.5" style={{ transform: "rotate(-35deg)" }} />
+                    <ArrowRight className="h-3 w-3" />
                   </button>
                 </div>
               </div>
 
-              {/* Drop zone */}
-              <div
-                className="flex-1 flex flex-col items-center justify-center gap-5 rounded-md p-5 text-center min-h-[220px]"
-                style={{
-                  border: "1px dashed hsla(0, 0%, 100%, 0.09)",
-                  background: "hsla(230, 22%, 7%, 0.6)",
-                  borderRadius: "6px",
-                }}
-              >
-                <div className="flex flex-col items-center gap-2">
-                  <FileText className="h-8 w-8" style={{ color: "hsla(220, 15%, 35%, 0.7)" }} />
-                  <p className="text-xs font-medium" style={{ color: "hsla(220, 15%, 52%, 0.8)" }}>
-                    or drop your files
-                  </p>
-                  <p className="text-[10px]" style={{ color: "hsla(220, 15%, 38%, 0.65)" }}>
-                    pdf, images, docs, audio, and more
-                  </p>
-                </div>
-
-                {/* Upload options */}
-                <div className="flex flex-col gap-2 w-full">
-                  {[
-                    { label: "Upload files", icon: <Upload className="h-3 w-3" /> },
-                    { label: "Websites", icon: <Link className="h-3 w-3" /> },
-                    { label: "Drive", icon: <HardDrive className="h-3 w-3" /> },
-                    { label: "Copied text", icon: <Clipboard className="h-3 w-3" /> },
-                  ].map(({ label, icon }) => (
-                    <button
-                      key={label}
-                      className="flex items-center justify-center gap-2 py-2 text-[11px] font-medium rounded transition-colors w-full"
-                      style={{
-                        background: "hsla(230, 22%, 10%, 1)",
-                        border: "1px solid hsla(0, 0%, 100%, 0.07)",
-                        color: "hsla(220, 15%, 62%, 0.85)",
-                        borderRadius: "5px",
-                      }}
-                      onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "hsla(230, 22%, 13%, 1)"; }}
-                      onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "hsla(230, 22%, 10%, 1)"; }}
-                    >
-                      {icon}
-                      {label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Saved sources placeholder */}
-              <div className="flex flex-col items-center gap-2 pt-2 pb-4 text-center">
-                <FileText className="h-6 w-6" style={{ color: "hsla(220, 15%, 28%, 0.6)" }} />
-                <p className="text-[11px]" style={{ color: "hsla(220, 15%, 40%, 0.7)" }}>
+              {/* Saved sources empty state */}
+              <div className="flex flex-col items-center gap-2 pt-6 pb-2 text-center">
+                <FileText className="h-8 w-8" style={{ color: "hsla(220, 15%, 28%, 0.6)" }} />
+                <p className="text-[12px] font-medium" style={{ color: "hsla(220, 15%, 45%, 0.75)" }}>
                   Saved sources will appear here
                 </p>
-                <p className="text-[10px] leading-relaxed" style={{ color: "hsla(220, 15%, 32%, 0.6)" }}>
-                  Click Add source above to add PDFs, websites, text, videos, or audio files.
+                <p
+                  className="text-[11px] leading-relaxed max-w-[200px]"
+                  style={{ color: "hsla(220, 15%, 35%, 0.65)" }}
+                >
+                  Click Add source above to add PDFs, websites, text, videos, or audio files. Or import a file directly from Google Drive.
                 </p>
               </div>
             </div>
           )}
         </div>
 
-        {/* ══ CENTER: Chat ══ */}
-        <div className="flex flex-col flex-1 min-w-0">
+        {/* ══════ CENTER: Chat ══════ */}
+        <div className="flex flex-col flex-1 min-w-0 relative" style={{ background: "hsl(230, 18%, 7%)" }}>
+
           {/* Chat header */}
           <div
-            className="flex items-center justify-between px-6 py-3 shrink-0"
-            style={{ borderBottom: "1px solid hsla(0, 0%, 100%, 0.06)" }}
+            className="flex items-center justify-between px-5 py-3 shrink-0"
+            style={{ borderBottom: `1px solid ${border}`, background: "hsl(230, 18%, 6%)" }}
           >
-            <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: "hsla(220, 15%, 52%, 0.8)" }}>
-              Chat
-            </span>
+            <span className="text-[13px] font-semibold" style={{ color: headingColor }}>Chat</span>
+            <button
+              className="flex items-center justify-center w-7 h-7 rounded transition-colors"
+              style={{ color: subtext }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.color = headingColor; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.color = subtext; }}
+            >
+              <MoreVertical className="h-4 w-4" />
+            </button>
           </div>
 
-          {/* Messages */}
-          <div className="flex-1 overflow-y-auto px-6 py-6 flex flex-col gap-5">
+          {/* Chat messages area */}
+          <div className="flex-1 overflow-y-auto px-6 py-6 flex flex-col gap-4">
             {messages.map((msg, i) => (
               <div key={i} className={`flex gap-3 ${msg.role === "user" ? "flex-row-reverse" : ""}`}>
                 <div
                   className="shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs mt-0.5"
                   style={{
-                    background: msg.role === "ai" ? "hsla(230, 22%, 10%, 1)" : "hsla(230, 20%, 14%, 1)",
-                    border: "1px solid hsla(0, 0%, 100%, 0.08)",
-                    color: "hsla(210, 30%, 82%, 0.92)",
+                    background: msg.role === "ai" ? "hsla(230, 22%, 11%, 1)" : "hsla(230, 20%, 15%, 1)",
+                    border: `1px solid hsla(0, 0%, 100%, 0.08)`,
+                    color: "hsla(210, 30%, 78%, 0.9)",
                   }}
                 >
                   {msg.role === "ai" ? <Bot className="h-3.5 w-3.5" /> : <User className="h-3.5 w-3.5" />}
                 </div>
                 <div
-                  className="max-w-[75%] px-4 py-3 text-sm leading-relaxed"
+                  className="max-w-[72%] px-4 py-3 text-sm leading-relaxed"
                   style={
                     msg.role === "ai"
                       ? {
-                          background: "hsla(230, 22%, 7%, 0.9)",
-                          border: "1px solid hsla(0, 0%, 100%, 0.07)",
+                          background: "hsla(230, 22%, 9%, 1)",
+                          border: `1px solid hsla(0,0%,100%,0.07)`,
                           color: "hsla(220, 18%, 72%, 0.92)",
                           borderRadius: "6px",
                           borderBottomLeftRadius: "2px",
                         }
                       : {
-                          background: "hsla(230, 18%, 13%, 0.8)",
-                          border: "1px solid hsla(0, 0%, 100%, 0.1)",
+                          background: "hsla(230, 18%, 14%, 1)",
+                          border: `1px solid hsla(0,0%,100%,0.1)`,
                           color: "hsla(210, 25%, 93%, 0.97)",
                           borderRadius: "6px",
                           borderBottomRightRadius: "2px",
@@ -391,51 +385,181 @@ const AINotebookPage = ({ context, onClose }: Props) => {
             <div ref={bottomRef} />
           </div>
 
-          {/* Suggestion chips */}
-          <div className="px-6 pb-2 flex flex-wrap gap-2">
-            {["Explain the key concepts", "Give me a study tip", "Quiz me on this", "Real-world example?"].map((s) => (
-              <button
-                key={s}
-                onClick={() => setInput(s)}
-                className="text-xs px-3 py-1.5 rounded-full transition-colors"
+          {/* ── Center Onboarding Modal (shown until dismissed) ── */}
+          {!modalDismissed && (
+            <div
+              className="absolute inset-0 flex items-center justify-center z-20"
+              style={{ background: "hsla(230, 18%, 7%, 0.55)", backdropFilter: "blur(2px)" }}
+            >
+              <div
+                className="relative w-full max-w-[520px] mx-4 flex flex-col gap-0 overflow-hidden"
                 style={{
-                  background: "hsla(230, 22%, 9%, 0.9)",
-                  border: "1px solid hsla(0, 0%, 100%, 0.08)",
-                  color: "hsla(220, 15%, 60%, 0.85)",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLButtonElement).style.color = "hsla(210, 25%, 85%, 0.95)";
-                  (e.currentTarget as HTMLButtonElement).style.borderColor = "hsla(0,0%,100%,0.13)";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLButtonElement).style.color = "hsla(220, 15%, 60%, 0.85)";
-                  (e.currentTarget as HTMLButtonElement).style.borderColor = "hsla(0, 0%, 100%, 0.08)";
+                  background: "hsl(230, 20%, 10%)",
+                  border: `1px solid hsla(0,0%,100%,0.12)`,
+                  borderRadius: "12px",
+                  boxShadow: "0 24px 80px hsla(0,0%,0%,0.6), 0 4px 16px hsla(0,0%,0%,0.4)",
                 }}
               >
-                {s}
-              </button>
-            ))}
-          </div>
+                {/* Top gradient accent (green-teal like NotebookLM) */}
+                <div
+                  className="absolute top-0 left-0 right-0 h-24 pointer-events-none"
+                  style={{
+                    background: "radial-gradient(ellipse at 50% -10%, hsla(160, 70%, 40%, 0.25) 0%, transparent 70%)",
+                  }}
+                />
 
-          {/* Input bar */}
+                {/* Close button */}
+                <button
+                  onClick={() => setModalDismissed(true)}
+                  className="absolute top-4 right-4 flex items-center justify-center w-7 h-7 rounded-full transition-colors z-10"
+                  style={{ color: subtext, background: "hsla(230, 22%, 14%, 1)" }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.color = headingColor; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.color = subtext; }}
+                >
+                  <X className="h-3.5 w-3.5" />
+                </button>
+
+                <div className="px-8 pt-8 pb-6 flex flex-col gap-5 relative z-10">
+                  {/* Title */}
+                  <div className="text-center">
+                    <h2 className="text-lg font-semibold leading-snug" style={{ color: headingColor }}>
+                      Create Audio and Video Overviews from
+                    </h2>
+                    <span
+                      className="text-lg font-semibold"
+                      style={{
+                        color: "transparent",
+                        backgroundImage: "linear-gradient(90deg, hsla(160, 70%, 55%, 1), hsla(180, 65%, 50%, 1))",
+                        WebkitBackgroundClip: "text",
+                        backgroundClip: "text",
+                      }}
+                    >
+                      your notes
+                    </span>
+                  </div>
+
+                  {/* Search box with blue border */}
+                  <div
+                    className="flex flex-col overflow-hidden"
+                    style={{
+                      border: "1.5px solid hsla(220, 80%, 58%, 0.7)",
+                      borderRadius: "8px",
+                      background: "hsla(230, 22%, 9%, 1)",
+                    }}
+                  >
+                    <div className="flex items-center gap-2.5 px-4 py-3">
+                      <Search className="h-4 w-4 shrink-0" style={{ color: subtext }} />
+                      <input
+                        type="text"
+                        placeholder="Search the web for new sources"
+                        className="flex-1 bg-transparent border-none outline-none text-sm"
+                        style={{ color: labelColor, caretColor: "hsla(220,80%,65%,0.9)" }}
+                      />
+                    </div>
+                    <div
+                      className="flex items-center gap-2 px-4 py-2.5"
+                      style={{ borderTop: "1px solid hsla(0,0%,100%,0.07)" }}
+                    >
+                      <button
+                        className="flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-medium rounded-full"
+                        style={{
+                          border: `1px solid hsla(0,0%,100%,0.13)`,
+                          color: labelColor,
+                          background: "hsla(230, 22%, 14%, 1)",
+                        }}
+                      >
+                        <Globe className="h-3 w-3" />
+                        Web
+                        <ChevronDown className="h-2.5 w-2.5" />
+                      </button>
+                      <button
+                        className="flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-medium rounded-full"
+                        style={{
+                          border: `1px solid hsla(0,0%,100%,0.13)`,
+                          color: labelColor,
+                          background: "hsla(230, 22%, 14%, 1)",
+                        }}
+                      >
+                        <Zap className="h-3 w-3" />
+                        Fast Research
+                        <ChevronDown className="h-2.5 w-2.5" />
+                      </button>
+                      <button
+                        className="ml-auto flex items-center justify-center w-6 h-6 rounded-full"
+                        style={{ background: "hsla(0,0%,85%,0.95)", color: "hsl(230,18%,6%)" }}
+                        onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "hsla(0,0%,100%,1)"; }}
+                        onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "hsla(0,0%,85%,0.95)"; }}
+                      >
+                        <ArrowRight className="h-3 w-3" />
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Drop zone */}
+                  <div
+                    className="flex flex-col items-center gap-4 py-8 px-6"
+                    style={{
+                      border: "1.5px dashed hsla(0,0%,100%,0.1)",
+                      borderRadius: "8px",
+                      background: "hsla(230, 22%, 8%, 0.5)",
+                    }}
+                  >
+                    <div className="text-center">
+                      <p className="text-sm font-medium" style={{ color: headingColor }}>
+                        or drop your files
+                      </p>
+                      <p className="text-xs mt-1" style={{ color: subtext }}>
+                        pdf, images, docs, audio,{" "}
+                        <span className="underline cursor-pointer" style={{ color: "hsla(220, 70%, 65%, 0.9)" }}>
+                          and more
+                        </span>
+                      </p>
+                    </div>
+
+                    {/* Upload option buttons — single row */}
+                    <div className="flex items-center gap-2.5 flex-wrap justify-center">
+                      {[
+                        { label: "Upload files", icon: <Upload className="h-3.5 w-3.5" /> },
+                        { label: "Websites", icon: <Link className="h-3.5 w-3.5" /> },
+                        { label: "Drive", icon: <HardDrive className="h-3.5 w-3.5" /> },
+                        { label: "Copied text", icon: <Clipboard className="h-3.5 w-3.5" /> },
+                      ].map(({ label, icon }) => (
+                        <button
+                          key={label}
+                          className="flex items-center gap-2 px-3.5 py-2 text-[12px] font-medium transition-colors"
+                          style={{
+                            background: "hsla(230, 22%, 12%, 1)",
+                            border: `1px solid hsla(0,0%,100%,0.1)`,
+                            borderRadius: "6px",
+                            color: labelColor,
+                          }}
+                          onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "hsla(230, 22%, 16%, 1)"; }}
+                          onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "hsla(230, 22%, 12%, 1)"; }}
+                        >
+                          {icon}
+                          {label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Bottom input bar */}
           <div
-            className="px-6 pb-5 pt-2 shrink-0"
-            style={{ borderTop: "1px solid hsla(0, 0%, 100%, 0.06)" }}
+            className="px-5 py-3 shrink-0"
+            style={{ borderTop: `1px solid ${border}`, background: "hsl(230, 18%, 6%)" }}
           >
             <div
-              className="flex items-center gap-3 px-4 py-3"
+              className="flex items-center gap-3 px-4 py-2.5"
               style={{
-                background: "hsla(230, 25%, 5%, 0.95)",
-                border: "1px solid hsla(0, 0%, 100%, 0.09)",
+                background: "hsla(230, 22%, 10%, 1)",
+                border: `1px solid hsla(0,0%,100%,0.1)`,
                 borderRadius: "6px",
-                boxShadow: "0 0 0 1px hsla(0,0%,0%,0.4), 0 2px 8px 0 hsla(220,80%,55%,0.12) inset",
               }}
             >
-              {/* Blue bottom glow */}
-              <span
-                className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-2/5 h-[1px] rounded-full"
-                style={{ background: "linear-gradient(90deg, transparent, hsl(220 80% 55%), transparent)" }}
-              />
               <input
                 type="text"
                 value={input}
@@ -443,12 +567,9 @@ const AINotebookPage = ({ context, onClose }: Props) => {
                 onKeyDown={(e) => e.key === "Enter" && handleSend()}
                 placeholder="Start typing..."
                 className="flex-1 bg-transparent border-none outline-none text-sm"
-                style={{ color: "hsla(220, 15%, 90%, 0.95)", caretColor: "hsla(220, 80%, 65%, 0.9)" }}
+                style={{ color: "hsla(220, 15%, 88%, 0.95)", caretColor: "hsla(220,80%,65%,0.9)" }}
               />
-              <span
-                className="text-xs shrink-0"
-                style={{ color: "hsla(220, 15%, 38%, 0.7)" }}
-              >
+              <span className="text-xs shrink-0" style={{ color: subtext }}>
                 0 sources
               </span>
               <div
@@ -457,7 +578,7 @@ const AINotebookPage = ({ context, onClose }: Props) => {
                   padding: "1px",
                   background: sendHovered
                     ? `radial-gradient(circle 40px at ${gradientPos.x}% ${gradientPos.y}%, #4285f4, #ea4335, #fbbc05, #34a853, transparent 70%)`
-                    : "hsla(0, 0%, 22%, 0.6)",
+                    : "hsla(0, 0%, 20%, 0.6)",
                   transition: "background 0.2s",
                 }}
               >
@@ -466,101 +587,112 @@ const AINotebookPage = ({ context, onClose }: Props) => {
                   onMouseEnter={() => setSendHovered(true)}
                   onMouseLeave={() => setSendHovered(false)}
                   onClick={handleSend}
-                  className="relative w-7 h-7 rounded-full flex items-center justify-center"
-                  style={{ background: "hsl(230, 18%, 6%)" }}
+                  className="w-7 h-7 rounded-full flex items-center justify-center"
+                  style={{ background: "hsl(230, 18%, 8%)" }}
                 >
-                  <Send className="h-3 w-3" style={{ color: "hsla(210, 30%, 78%, 0.92)", transform: "rotate(-35deg)" }} />
+                  <ArrowRight className="h-3.5 w-3.5" style={{ color: "hsla(210, 30%, 75%, 0.9)" }} />
                 </button>
               </div>
             </div>
           </div>
         </div>
 
-        {/* ══ RIGHT: Studio ══ */}
+        {/* ══════ RIGHT: Studio ══════ */}
         <div
           className="flex flex-col shrink-0 transition-all duration-200"
           style={{
-            width: rightCollapsed ? "48px" : "260px",
-            borderLeft: "1px solid hsla(0, 0%, 100%, 0.07)",
+            width: rightCollapsed ? "44px" : "300px",
+            borderLeft: `1px solid ${border}`,
+            background: "hsl(230, 18%, 6%)",
           }}
         >
           {/* Studio header */}
           <div
-            className="flex items-center justify-between px-4 py-3 shrink-0"
-            style={{ borderBottom: "1px solid hsla(0, 0%, 100%, 0.06)" }}
+            className="flex items-center justify-between px-3 py-3 shrink-0"
+            style={{ borderBottom: `1px solid ${border}` }}
           >
+            {/* Collapse icon LEFT */}
             <button
               onClick={() => setRightCollapsed((v) => !v)}
-              className="flex items-center justify-center w-6 h-6 rounded transition-colors"
-              style={{ color: "hsla(220, 15%, 48%, 0.7)" }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "hsla(210, 30%, 82%, 0.9)")}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "hsla(220, 15%, 48%, 0.7)")}
+              className={`flex items-center justify-center w-7 h-7 rounded transition-colors ${rightCollapsed ? "mx-auto" : ""}`}
+              style={{ color: subtext }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.color = headingColor; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.color = subtext; }}
             >
-              <ChevronLeft
-                className="h-4 w-4 transition-transform duration-200"
-                style={{ transform: rightCollapsed ? "rotate(180deg)" : "rotate(0deg)" }}
-              />
+              <PanelRightClose className="h-4 w-4" />
             </button>
+            {/* Studio label RIGHT */}
             {!rightCollapsed && (
-              <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: "hsla(220, 15%, 52%, 0.8)" }}>
+              <span className="text-[13px] font-semibold" style={{ color: headingColor }}>
                 Studio
               </span>
             )}
           </div>
 
           {!rightCollapsed && (
-            <div className="flex flex-col flex-1 overflow-y-auto p-3 gap-2">
-              {/* Tool grid */}
+            <div className="flex flex-col flex-1 overflow-y-auto px-3 pt-3 pb-4 gap-2">
+              {/* 2-column tool grid */}
               <div className="grid grid-cols-2 gap-2">
                 {STUDIO_TOOLS.map(({ label, icon }) => (
                   <button
                     key={label}
-                    className="flex flex-col items-start gap-2 p-3 text-left transition-colors"
+                    className="flex flex-col items-start gap-3 p-3 text-left transition-colors"
                     style={{
-                      background: "hsla(230, 22%, 8%, 1)",
-                      border: "1px solid hsla(0, 0%, 100%, 0.07)",
+                      background: "hsla(230, 22%, 10%, 1)",
+                      border: `1px solid hsla(0,0%,100%,0.08)`,
                       borderRadius: "6px",
+                      minHeight: "72px",
                     }}
                     onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLButtonElement).style.background = "hsla(230, 22%, 12%, 1)";
-                      (e.currentTarget as HTMLButtonElement).style.borderColor = "hsla(0,0%,100%,0.12)";
+                      (e.currentTarget as HTMLButtonElement).style.background = "hsla(230, 22%, 13%, 1)";
+                      (e.currentTarget as HTMLButtonElement).style.borderColor = "hsla(0,0%,100%,0.14)";
                     }}
                     onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLButtonElement).style.background = "hsla(230, 22%, 8%, 1)";
-                      (e.currentTarget as HTMLButtonElement).style.borderColor = "hsla(0,0%,100%,0.07)";
+                      (e.currentTarget as HTMLButtonElement).style.background = "hsla(230, 22%, 10%, 1)";
+                      (e.currentTarget as HTMLButtonElement).style.borderColor = "hsla(0,0%,100%,0.08)";
                     }}
                   >
-                    <span style={{ color: "hsla(220, 25%, 62%, 0.85)" }}>{icon}</span>
-                    <span className="text-[10px] font-medium leading-tight" style={{ color: "hsla(220, 15%, 58%, 0.82)" }}>
+                    {/* Icon top-left */}
+                    <span style={{ color: "hsla(220, 20%, 55%, 0.85)" }}>{icon}</span>
+                    {/* Label bottom */}
+                    <span className="text-[11px] font-medium leading-tight" style={{ color: "hsla(220, 15%, 55%, 0.82)" }}>
                       {label}
                     </span>
                   </button>
                 ))}
               </div>
 
-              {/* Studio output placeholder */}
+              {/* Studio output empty state */}
               <div className="flex flex-col items-center gap-2 pt-6 pb-4 text-center">
-                <Sparkles className="h-6 w-6" style={{ color: "hsla(220, 15%, 28%, 0.6)" }} />
-                <p className="text-[11px] font-medium" style={{ color: "hsla(220, 15%, 42%, 0.7)" }}>
+                <PenLine className="h-6 w-6" style={{ color: "hsla(220, 15%, 30%, 0.65)" }} />
+                <p className="text-[12px] font-medium" style={{ color: "hsla(220, 15%, 44%, 0.75)" }}>
                   Studio output will be saved here.
                 </p>
-                <p className="text-[10px] leading-relaxed" style={{ color: "hsla(220, 15%, 32%, 0.6)" }}>
+                <p
+                  className="text-[11px] leading-relaxed max-w-[200px]"
+                  style={{ color: "hsla(220, 15%, 34%, 0.65)" }}
+                >
                   After adding sources, click to add Audio Overview, Study Guide, Mind Map, and more!
                 </p>
               </div>
 
-              {/* Add note button */}
-              <div className="mt-auto pt-4">
+              {/* Add note button — pinned bottom, full width, dark pill */}
+              <div className="mt-auto pt-3">
                 <button
-                  className="w-full flex items-center justify-center gap-2 py-2.5 text-xs font-semibold rounded-full transition-colors"
+                  className="w-full flex items-center justify-center gap-2 py-2.5 text-[12px] font-semibold rounded-full transition-all"
                   style={{
-                    background: "hsla(0, 0%, 92%, 1)",
-                    color: "hsl(230, 18%, 6%)",
+                    background: "hsla(0, 0%, 14%, 1)",
+                    border: `1px solid hsla(0,0%,100%,0.12)`,
+                    color: headingColor,
                   }}
-                  onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "hsla(0,0%,100%,1)")}
-                  onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "hsla(0, 0%, 92%, 1)")}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLButtonElement).style.background = "hsla(0,0%,20%,1)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLButtonElement).style.background = "hsla(0,0%,14%,1)";
+                  }}
                 >
-                  <Plus className="h-3.5 w-3.5" />
+                  <PenLine className="h-3.5 w-3.5" />
                   Add note
                 </button>
               </div>
