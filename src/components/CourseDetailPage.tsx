@@ -3,20 +3,17 @@ import {
   Clock,
   GraduationCap,
   ListChecks,
-  Sparkles,
-  X,
-  Send,
-  Bot,
-  User,
   Layers,
   ChevronDown,
   ChevronRight,
   Zap,
-  BookOpen,
   TrendingUp,
   CheckCircle2,
+  Sparkles,
 } from "lucide-react";
-import { useState, useRef, useCallback, useEffect } from "react";
+import { useState, useCallback } from "react";
+import AINotebookPage from "@/components/AINotebookPage";
+
 
 interface Module {
   number: number;
@@ -115,83 +112,6 @@ const COURSE_DETAILS: Record<string, CourseDetail> = {
 
 interface ChatMessage { role: "user" | "ai"; text: string; }
 
-/* ── AI Chat Panel ── */
-const AIChatPanel = ({ open, onClose, context }: { open: boolean; onClose: () => void; context: string }) => {
-  const [messages, setMessages] = useState<ChatMessage[]>([{ role: "ai", text: `Hi! I'm your AI study assistant. Ask me anything about **${context}**.` }]);
-  const [input, setInput] = useState("");
-  const [gradientPos, setGradientPos] = useState({ x: 50, y: 50 });
-  const [sendHovered, setSendHovered] = useState(false);
-  const bottomRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => { bottomRef.current?.scrollIntoView({ behavior: "smooth" }); }, [messages]);
-
-  const handleSend = () => {
-    const trimmed = input.trim();
-    if (!trimmed) return;
-    setMessages((prev) => [...prev, { role: "user", text: trimmed }, { role: "ai", text: `Great question about "${trimmed}"! This is a simulated AI response for ${context}.` }]);
-    setInput("");
-  };
-
-  const handleSendMouseMove = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    setGradientPos({ x: ((e.clientX - rect.left) / rect.width) * 100, y: ((e.clientY - rect.top) / rect.height) * 100 });
-  }, []);
-
-  return (
-    <>
-      <div className="fixed inset-0 z-[70] transition-opacity duration-300" style={{ background: "hsla(230, 18%, 3%, 0.7)", opacity: open ? 1 : 0, pointerEvents: open ? "auto" : "none", backdropFilter: "blur(6px)" }} onClick={onClose} />
-      <div className="fixed right-0 top-0 bottom-0 z-[80] flex flex-col transition-transform duration-300 ease-out" style={{ width: "min(480px, 100vw)", transform: open ? "translateX(0)" : "translateX(100%)", background: "hsl(230, 25%, 4%)", borderLeft: "1px solid hsla(0, 0%, 100%, 0.07)" }}>
-        <div className="flex items-center justify-between px-6 py-5 shrink-0" style={{ borderBottom: "1px solid hsla(0, 0%, 100%, 0.06)" }}>
-          <div className="flex items-center gap-3">
-            <div className="shrink-0 rounded-full" style={{ padding: "1.5px", background: "conic-gradient(from var(--ai-angle), #4285f4, #ea4335, #fbbc05, #34a853, #4285f4)", animation: "ai-spin 3s linear infinite" }}>
-              <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: "hsl(230, 25%, 4%)" }}>
-                <Bot className="h-4 w-4" style={{ color: "hsla(210, 40%, 88%, 0.95)" }} />
-              </div>
-            </div>
-            <div>
-              <p className="text-sm font-semibold" style={{ color: "hsla(210, 25%, 93%, 0.97)" }}>AI Study Assistant</p>
-              <p className="text-xs" style={{ color: "hsla(220, 15%, 52%, 0.8)" }}>{context}</p>
-            </div>
-          </div>
-          <button onClick={onClose} className="flex items-center justify-center w-8 h-8 rounded-full transition-colors" style={{ color: "hsla(220, 15%, 50%, 0.7)" }} onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "hsla(210, 30%, 88%, 0.95)")} onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "hsla(220, 15%, 50%, 0.7)")}>
-            <X className="h-4 w-4" />
-          </button>
-        </div>
-        <div className="flex-1 overflow-y-auto px-5 py-5 flex flex-col gap-4">
-          {messages.map((msg, i) => (
-            <div key={i} className={`flex gap-3 ${msg.role === "user" ? "flex-row-reverse" : ""}`}>
-              <div className="shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs mt-0.5" style={{ background: msg.role === "ai" ? "hsla(230, 22%, 10%, 1)" : "hsla(230, 20%, 14%, 1)", border: "1px solid hsla(0, 0%, 100%, 0.08)", color: "hsla(210, 30%, 82%, 0.92)" }}>
-                {msg.role === "ai" ? <Bot className="h-3.5 w-3.5" /> : <User className="h-3.5 w-3.5" />}
-              </div>
-              <div className="max-w-[78%] px-4 py-3 rounded-2xl text-sm leading-relaxed" style={msg.role === "ai" ? { background: "hsla(230, 22%, 7%, 0.9)", border: "1px solid hsla(0, 0%, 100%, 0.07)", color: "hsla(220, 18%, 72%, 0.92)", borderBottomLeftRadius: "4px" } : { background: "hsla(230, 18%, 13%, 0.8)", border: "1px solid hsla(0, 0%, 100%, 0.1)", color: "hsla(210, 25%, 93%, 0.97)", borderBottomRightRadius: "4px" }}>
-                {msg.text}
-              </div>
-            </div>
-          ))}
-          <div ref={bottomRef} />
-        </div>
-        <div className="px-5 pb-3 flex flex-wrap gap-2">
-          {["Explain the key concepts", "Give me a study tip", "Real-world example?"].map((s) => (
-            <button key={s} onClick={() => setInput(s)} className="text-xs px-3 py-1.5 rounded-full transition-colors" style={{ background: "hsla(230, 22%, 9%, 0.9)", border: "1px solid hsla(0, 0%, 100%, 0.08)", color: "hsla(220, 15%, 62%, 0.85)" }}>{s}</button>
-          ))}
-        </div>
-        <div className="px-5 pb-5 pt-2 shrink-0" style={{ borderTop: "1px solid hsla(0, 0%, 100%, 0.06)" }}>
-          <div className="flex items-center gap-3 rounded-2xl px-4 py-3" style={{ background: "hsl(0 0% 8% / 0.9)", boxShadow: "0 0 0 1px hsla(0,0%,100%,0.08), 0 2px 8px 0 hsla(220,80%,55%,0.15) inset" }}>
-            <div className="relative flex-1">
-              <span className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-[1px] rounded-full" style={{ background: "linear-gradient(90deg, transparent, hsl(220 80% 55%), transparent)" }} />
-              <input type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && handleSend()} placeholder="Ask anything about this module..." className="w-full bg-transparent border-none outline-none text-sm" style={{ color: "hsla(0, 0%, 92%, 0.95)" }} />
-            </div>
-            <div className="relative shrink-0 rounded-full" style={{ padding: "1px", background: sendHovered ? `radial-gradient(circle 40px at ${gradientPos.x}% ${gradientPos.y}%, #4285f4, #ea4335, #fbbc05, #34a853, transparent 70%)` : "hsla(0, 0%, 20%, 0.5)", transition: "background 0.2s" }}>
-              <button onMouseMove={handleSendMouseMove} onMouseEnter={() => setSendHovered(true)} onMouseLeave={() => setSendHovered(false)} onClick={handleSend} className="relative w-8 h-8 rounded-full flex items-center justify-center" style={{ background: "hsl(0 0% 8%)" }}>
-                <Send className="h-3.5 w-3.5" style={{ color: "hsla(210, 30%, 78%, 0.92)" }} />
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-};
 
 /* ── Ask AI button ── */
 const AskAIButton = ({ onClick }: { onClick: () => void }) => (
@@ -288,11 +208,15 @@ interface Props { courseCode: string; onBack: () => void; }
 
 const CourseDetailPage = ({ courseCode, onBack }: Props) => {
   const detail = COURSE_DETAILS[courseCode];
-  const [chatOpen, setChatOpen] = useState(false);
-  const [chatContext, setChatContext] = useState("");
-  const openChat = useCallback((context: string) => { setChatContext(context); setChatOpen(true); }, []);
+  const [notebookContext, setNotebookContext] = useState<string | null>(null);
+  const openChat = useCallback((context: string) => { setNotebookContext(context); }, []);
 
   if (!detail) return null;
+
+  if (notebookContext !== null) {
+    return <AINotebookPage context={notebookContext} onClose={() => setNotebookContext(null)} />;
+  }
+
 
   const isGenAI = courseCode === "MSIS 549 B";
   const completionPct = Math.round((detail.modules.length / 10) * 100);
@@ -515,8 +439,6 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
         </div>
       </div>
 
-      {/* ── AI Chat Panel ── */}
-      <AIChatPanel open={chatOpen} onClose={() => setChatOpen(false)} context={chatContext} />
     </div>
   );
 };
