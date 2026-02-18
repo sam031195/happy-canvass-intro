@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { Search, ChevronDown, Bot, Sparkles } from "lucide-react";
+import { Search, ChevronDown, Bot, Sparkles, ArrowUpRight } from "lucide-react";
 import { useState, useRef, useEffect, useCallback } from "react";
 import SyllabusFinderDialog from "@/components/SyllabusFinderDialog";
 import SyllabusPage from "@/components/SyllabusPage";
@@ -39,9 +39,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setModelOpen(false);
-      }
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) setModelOpen(false);
     };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
@@ -51,7 +49,6 @@ const Dashboard = () => {
     setSyllabusSelection({ university, program });
   };
 
-  // Show full-screen syllabus page if a program was selected
   if (syllabusSelection) {
     return (
       <SyllabusPage
@@ -63,146 +60,356 @@ const Dashboard = () => {
   }
 
   return (
-    <section className="relative h-screen w-full overflow-hidden flex flex-col">
-      {/* Navbar */}
-      <nav className="relative z-10 flex items-center justify-between px-8 lg:px-12 py-5 bg-background">
+    <div className="relative min-h-screen w-full overflow-hidden flex flex-col" style={{ background: "hsl(0, 0%, 3%)" }}>
+
+      {/* ── Dot grid texture ── */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{
+          backgroundImage: "radial-gradient(hsla(0,0%,100%,0.035) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+        }}
+      />
+
+      {/* ── Central glow orb ── */}
+      <div
+        className="pointer-events-none absolute z-0"
+        style={{
+          top: "8%",
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: "900px",
+          height: "600px",
+          background: "radial-gradient(ellipse at center top, hsla(220, 70%, 40%, 0.18) 0%, hsla(260, 60%, 30%, 0.08) 40%, transparent 70%)",
+          filter: "blur(1px)",
+        }}
+      />
+
+      {/* ── Bottom left warm glow ── */}
+      <div
+        className="pointer-events-none absolute z-0 bottom-0 left-0"
+        style={{
+          width: "500px",
+          height: "400px",
+          background: "radial-gradient(ellipse at bottom left, hsla(20, 70%, 35%, 0.1) 0%, transparent 65%)",
+        }}
+      />
+
+      {/* ── Bottom right cool glow ── */}
+      <div
+        className="pointer-events-none absolute z-0 bottom-0 right-0"
+        style={{
+          width: "500px",
+          height: "400px",
+          background: "radial-gradient(ellipse at bottom right, hsla(260, 65%, 35%, 0.1) 0%, transparent 65%)",
+        }}
+      />
+
+      {/* ── Navbar ── */}
+      <nav
+        className="relative z-20 flex items-center justify-between px-8 lg:px-14 py-5"
+        style={{ borderBottom: "1px solid hsla(0, 0%, 100%, 0.06)" }}
+      >
         <button
           onClick={() => navigate("/")}
-          className="text-2xl font-bold text-foreground tracking-tight"
+          className="text-lg font-black tracking-tight"
+          style={{ color: "hsla(0, 0%, 95%, 1)", letterSpacing: "-0.04em" }}
         >
           Decagon
         </button>
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-foreground/80">
-          <a href="#" className="hover:text-foreground transition-colors">Product</a>
-          <a href="#" className="hover:text-foreground transition-colors">Industries</a>
-          <a href="#" className="hover:text-foreground transition-colors">Customers</a>
-          <a href="#" className="hover:text-foreground transition-colors">Resources</a>
-          <a href="#" className="hover:text-foreground transition-colors">Company</a>
+
+        <div className="hidden md:flex items-center gap-1">
+          {["Product", "Industries", "Customers", "Resources", "Company"].map((item) => (
+            <a
+              key={item}
+              href="#"
+              className="px-3.5 py-2 rounded-lg text-sm font-medium transition-colors duration-150"
+              style={{ color: "hsla(0, 0%, 42%, 0.85)" }}
+              onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "hsla(0, 0%, 82%, 0.95)")}
+              onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "hsla(0, 0%, 42%, 0.85)")}
+            >
+              {item}
+            </a>
+          ))}
         </div>
-        <div className="flex items-center gap-3">
-          <Button variant="hero-outline" size="default" onClick={() => navigate("/")}>
+
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => navigate("/")}
+            className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-150"
+            style={{
+              background: "transparent",
+              border: "1px solid hsla(0, 0%, 100%, 0.1)",
+              color: "hsla(0, 0%, 55%, 0.85)",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.borderColor = "hsla(0, 0%, 100%, 0.18)";
+              (e.currentTarget as HTMLButtonElement).style.color = "hsla(0, 0%, 80%, 0.95)";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.borderColor = "hsla(0, 0%, 100%, 0.1)";
+              (e.currentTarget as HTMLButtonElement).style.color = "hsla(0, 0%, 55%, 0.85)";
+            }}
+          >
             Sign out
-          </Button>
-          <Button variant="hero" size="default">Get a demo</Button>
+          </button>
+          <button
+            className="px-4 py-2 rounded-full text-sm font-semibold transition-all duration-150 flex items-center gap-1.5"
+            style={{
+              background: "hsla(0, 0%, 95%, 1)",
+              color: "hsla(0, 0%, 5%, 1)",
+            }}
+            onMouseEnter={(e) => (e.currentTarget as HTMLButtonElement).style.background = "hsla(0, 0%, 88%, 1)"}
+            onMouseLeave={(e) => (e.currentTarget as HTMLButtonElement).style.background = "hsla(0, 0%, 95%, 1)"}
+          >
+            Get a demo
+            <ArrowUpRight className="h-3.5 w-3.5" />
+          </button>
         </div>
       </nav>
 
-      {/* Video section */}
-      <div className="relative flex-1">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-          src="/videos/banner-post-signup.mp4"
-        />
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
-          <h1 className="text-5xl lg:text-7xl font-semibold text-primary-foreground leading-tight tracking-tight max-w-3xl">
-            Shape the next era of intelligence.
-          </h1>
-          <Button
-            variant="hero-outline"
-            size="lg"
-            className="mt-8 border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10"
-            onClick={() => setSyllabusOpen(true)}
-          >
-            Browse Syllabus
-          </Button>
-          <SyllabusFinderDialog
-            open={syllabusOpen}
-            onOpenChange={setSyllabusOpen}
-            onProgramSelected={handleProgramSelected}
+      {/* ── Hero content ── */}
+      <div className="relative z-10 flex flex-col items-center justify-center flex-1 text-center px-6 pt-20 pb-32">
+
+        {/* Eyebrow badge */}
+        <div
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-8 text-[11px] font-semibold tracking-widest uppercase"
+          style={{
+            background: "hsla(0, 0%, 100%, 0.04)",
+            border: "1px solid hsla(0, 0%, 100%, 0.09)",
+            color: "hsla(0, 0%, 45%, 0.9)",
+          }}
+        >
+          <span
+            className="w-1.5 h-1.5 rounded-full"
+            style={{ background: "hsla(142, 70%, 50%, 0.9)", boxShadow: "0 0 6px hsla(142, 70%, 50%, 0.6)" }}
           />
+          Graduate AI Program · 2025
+        </div>
 
-          {/* Search bar */}
-          <div className="mt-6 w-full max-w-3xl">
-            <div className="relative flex items-center rounded-full px-5 py-3.5 gap-3" style={{ background: 'hsl(0 0% 8% / 0.85)', boxShadow: '0 0 0 1px hsla(0,0%,100%,0.12), 0 4px 30px hsla(0,0%,0%,0.4), 0 2px 8px 0 hsla(220,80%,55%,0.25) inset' }}>
-              {/* Blue bottom glow */}
-              <span className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-1/3 h-[2px] rounded-full" style={{ background: 'linear-gradient(90deg, transparent, hsl(220 80% 55%), transparent)' }} />
-              {/* Model selector */}
-              <div className="relative shrink-0" ref={dropdownRef}>
-                <button
-                  onClick={() => setModelOpen((v) => !v)}
-                  className="flex items-center gap-2 border border-primary-foreground/20 rounded-full px-3 py-2 text-sm text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
-                >
-                  <Bot className="h-4 w-4 text-primary-foreground/70" />
-                  {selectedModel.label}
-                  <ChevronDown className="h-3.5 w-3.5 text-primary-foreground/50" />
-                </button>
-                {modelOpen && (
-                  <div className="absolute left-0 top-full mt-1 z-50 bg-popover border border-border rounded-lg shadow-lg py-1 min-w-[160px]">
-                    {MODELS.map((m) => (
-                      <button
-                        key={m.value}
-                        onClick={() => {
-                          setSelectedModel(m);
-                          setModelOpen(false);
-                        }}
-                        className={`w-full text-left px-4 py-2 text-sm hover:bg-accent transition-colors ${
-                          m.value === selectedModel.value
-                            ? "text-primary font-medium"
-                            : "text-foreground"
-                        }`}
-                      >
-                        {m.label}
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
+        {/* Headline */}
+        <h1
+          className="text-5xl sm:text-6xl lg:text-8xl font-black max-w-4xl mx-auto"
+          style={{
+            color: "hsla(0, 0%, 97%, 1)",
+            letterSpacing: "-0.05em",
+            lineHeight: 0.92,
+          }}
+        >
+          Shape the
+          <br />
+          <span
+            style={{
+              color: "transparent",
+              backgroundImage: "linear-gradient(135deg, hsla(0,0%,65%,0.95) 0%, hsla(0,0%,40%,0.7) 100%)",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+            }}
+          >
+            next era
+          </span>
+          <br />
+          of intelligence.
+        </h1>
 
-              {/* Input */}
-              <input
-                type="text"
-                placeholder="Find open source repos..."
-                className="flex-1 bg-transparent border-none outline-none text-primary-foreground placeholder:text-primary-foreground/40 text-base min-w-0"
-              />
+        <p
+          className="mt-6 text-sm max-w-md mx-auto leading-relaxed"
+          style={{ color: "hsla(0, 0%, 38%, 0.9)" }}
+        >
+          Access graduate-level AI curriculum, explore course modules, and get answers from your AI study assistant.
+        </p>
 
-              {/* AI Mode */}
+        {/* Browse Syllabus CTA */}
+        <button
+          className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-200"
+          style={{
+            background: "hsla(0, 0%, 92%, 1)",
+            color: "hsla(0, 0%, 6%, 1)",
+            boxShadow: "0 0 30px hsla(0,0%,100%,0.08)",
+          }}
+          onClick={() => setSyllabusOpen(true)}
+          onMouseEnter={(e) => {
+            (e.currentTarget as HTMLButtonElement).style.background = "hsla(0, 0%, 100%, 1)";
+            (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 0 40px hsla(0,0%,100%,0.15)";
+          }}
+          onMouseLeave={(e) => {
+            (e.currentTarget as HTMLButtonElement).style.background = "hsla(0, 0%, 92%, 1)";
+            (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 0 30px hsla(0,0%,100%,0.08)";
+          }}
+        >
+          Browse Syllabus
+          <ArrowUpRight className="h-4 w-4" />
+        </button>
+
+        <SyllabusFinderDialog
+          open={syllabusOpen}
+          onOpenChange={setSyllabusOpen}
+          onProgramSelected={handleProgramSelected}
+        />
+
+        {/* ── Search bar ── */}
+        <div className="mt-10 w-full max-w-2xl mx-auto">
+          <div
+            className="relative flex items-center rounded-2xl px-4 py-3 gap-3"
+            style={{
+              background: "hsla(0, 0%, 6%, 0.95)",
+              border: "1px solid hsla(0, 0%, 100%, 0.09)",
+              boxShadow: "0 0 0 1px hsla(0,0%,0%,0.5), 0 8px 32px hsla(0,0%,0%,0.5), 0 2px 8px 0 hsla(220,80%,55%,0.15) inset",
+            }}
+          >
+            {/* Blue bottom glow */}
+            <span
+              className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-2/5 h-[1px] rounded-full"
+              style={{ background: "linear-gradient(90deg, transparent, hsl(220 80% 55%), transparent)" }}
+            />
+
+            {/* Model selector */}
+            <div className="relative shrink-0" ref={dropdownRef}>
               <button
-                ref={aiBtnRef}
-                onMouseMove={handleAiMouseMove}
-                onMouseEnter={() => setAiHovered(true)}
-                onMouseLeave={() => setAiHovered(false)}
-                className="relative shrink-0 rounded-full px-4 py-2 text-sm font-medium text-primary-foreground flex items-center gap-1.5 border border-primary-foreground/20"
+                onClick={() => setModelOpen((v) => !v)}
+                className="flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-medium transition-colors"
+                style={{
+                  background: "hsla(0, 0%, 10%, 1)",
+                  border: "1px solid hsla(0, 0%, 100%, 0.07)",
+                  color: "hsla(0, 0%, 65%, 0.9)",
+                }}
               >
-                <span
-                  className="pointer-events-none absolute -inset-[2.5px] rounded-full -z-10 transition-opacity duration-300"
+                <Bot className="h-3.5 w-3.5" style={{ color: "hsla(0, 0%, 45%, 0.8)" }} />
+                {selectedModel.label}
+                <ChevronDown className="h-3 w-3" style={{ color: "hsla(0, 0%, 38%, 0.7)" }} />
+              </button>
+              {modelOpen && (
+                <div
+                  className="absolute left-0 top-full mt-1.5 z-50 py-1 rounded-xl min-w-[160px]"
                   style={{
-                    opacity: aiHovered ? 1 : 0,
-                    background: `radial-gradient(circle 60px at ${aiGradientPos.x}% ${aiGradientPos.y}%, #4285f4, #ea4335, #fbbc05, #34a853, transparent 70%)`,
+                    background: "hsl(0, 0%, 7%)",
+                    border: "1px solid hsla(0, 0%, 100%, 0.08)",
+                    boxShadow: "0 12px 40px hsla(0,0%,0%,0.6)",
                   }}
-                />
-                <span className="pointer-events-none absolute inset-0 rounded-full -z-[5]" style={{ background: 'hsl(0 0% 8%)' }} />
-                <Sparkles className="h-4 w-4" />
-                AI Mode
-              </button>
-
-              {/* Search icon */}
-              <button className="h-10 w-10 rounded-full flex items-center justify-center hover:bg-primary-foreground/10 transition-colors shrink-0">
-                <Search className="h-5 w-5 text-primary-foreground/60" />
-              </button>
+                >
+                  {MODELS.map((m) => (
+                    <button
+                      key={m.value}
+                      onClick={() => { setSelectedModel(m); setModelOpen(false); }}
+                      className="w-full text-left px-3.5 py-2.5 text-xs transition-colors"
+                      style={{
+                        color: m.value === selectedModel.value ? "hsla(0,0%,90%,0.95)" : "hsla(0,0%,55%,0.8)",
+                        background: m.value === selectedModel.value ? "hsla(0,0%,100%,0.06)" : "transparent",
+                        fontWeight: m.value === selectedModel.value ? 600 : 400,
+                      }}
+                      onMouseEnter={(e) => { if (m.value !== selectedModel.value) (e.currentTarget as HTMLButtonElement).style.background = "hsla(0,0%,100%,0.04)"; }}
+                      onMouseLeave={(e) => { if (m.value !== selectedModel.value) (e.currentTarget as HTMLButtonElement).style.background = "transparent"; }}
+                    >
+                      {m.label}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
-            {/* Suggestions */}
-            <div className="mt-4 flex flex-col items-center gap-2">
-              <span className="text-sm font-medium text-primary-foreground/80">Suggestions:</span>
-              <div className="flex flex-wrap justify-center gap-2">
-                {SUGGESTIONS.map((s) => (
-                  <button
-                    key={s}
-                    className="px-4 py-2 rounded-full border border-primary-foreground/30 text-sm text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
-                  >
-                    {s}
-                  </button>
-                ))}
-              </div>
-            </div>
+            {/* Divider */}
+            <div className="w-px h-5 shrink-0" style={{ background: "hsla(0,0%,100%,0.07)" }} />
+
+            {/* Input */}
+            <input
+              type="text"
+              placeholder="Ask about any course, module, or concept..."
+              className="flex-1 bg-transparent border-none outline-none text-sm min-w-0"
+              style={{ color: "hsla(0, 0%, 88%, 0.95)", caretColor: "hsla(220, 80%, 65%, 0.9)" }}
+            />
+
+            {/* AI Mode */}
+            <button
+              ref={aiBtnRef}
+              onMouseMove={handleAiMouseMove}
+              onMouseEnter={() => setAiHovered(true)}
+              onMouseLeave={() => setAiHovered(false)}
+              className="relative shrink-0 rounded-xl px-3.5 py-2 text-xs font-semibold flex items-center gap-1.5"
+              style={{
+                background: "hsla(0, 0%, 10%, 1)",
+                border: "1px solid hsla(0, 0%, 100%, 0.07)",
+                color: "hsla(0, 0%, 70%, 0.9)",
+              }}
+            >
+              <span
+                className="pointer-events-none absolute -inset-[1.5px] rounded-xl -z-10 transition-opacity duration-300"
+                style={{
+                  opacity: aiHovered ? 1 : 0,
+                  background: `radial-gradient(circle 55px at ${aiGradientPos.x}% ${aiGradientPos.y}%, #4285f4, #ea4335, #fbbc05, #34a853, transparent 70%)`,
+                }}
+              />
+              <span className="pointer-events-none absolute inset-0 rounded-xl -z-[5]" style={{ background: "hsl(0 0% 8%)" }} />
+              <Sparkles className="h-3.5 w-3.5 relative z-10" style={{ color: "hsla(0, 0%, 65%, 0.9)" }} />
+              <span className="relative z-10">AI Mode</span>
+            </button>
+
+            {/* Search */}
+            <button
+              className="h-9 w-9 rounded-xl flex items-center justify-center shrink-0 transition-colors"
+              style={{ background: "hsla(0,0%,100%,0.95)", color: "hsla(0,0%,5%,1)" }}
+              onMouseEnter={(e) => (e.currentTarget as HTMLButtonElement).style.background = "hsla(0,0%,100%,1)"}
+              onMouseLeave={(e) => (e.currentTarget as HTMLButtonElement).style.background = "hsla(0,0%,100%,0.95)"}
+            >
+              <Search className="h-4 w-4" />
+            </button>
+          </div>
+
+          {/* Suggestions */}
+          <div className="mt-4 flex flex-wrap justify-center gap-2">
+            {SUGGESTIONS.map((s) => (
+              <button
+                key={s}
+                className="px-4 py-2 rounded-full text-xs font-medium transition-all duration-150"
+                style={{
+                  background: "hsla(0, 0%, 7%, 0.8)",
+                  border: "1px solid hsla(0, 0%, 100%, 0.07)",
+                  color: "hsla(0, 0%, 42%, 0.85)",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLButtonElement).style.borderColor = "hsla(0, 0%, 100%, 0.13)";
+                  (e.currentTarget as HTMLButtonElement).style.color = "hsla(0, 0%, 70%, 0.95)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLButtonElement).style.borderColor = "hsla(0, 0%, 100%, 0.07)";
+                  (e.currentTarget as HTMLButtonElement).style.color = "hsla(0, 0%, 42%, 0.85)";
+                }}
+              >
+                {s}
+              </button>
+            ))}
           </div>
         </div>
       </div>
-    </section>
+
+      {/* ── Bottom stat bar ── */}
+      <div
+        className="relative z-10 border-t"
+        style={{ borderColor: "hsla(0, 0%, 100%, 0.06)" }}
+      >
+        <div className="flex items-center justify-center px-8 py-5 max-w-2xl mx-auto">
+          {[
+            { value: "12", label: "Core Courses" },
+            { value: "3", label: "Quarters" },
+            { value: "4", label: "AI Models" },
+          ].map((stat, i) => (
+            <div key={i} className="flex-1 text-center px-6" style={{ borderRight: i < 2 ? "1px solid hsla(0,0%,100%,0.06)" : "none" }}>
+              <div
+                className="text-2xl font-black"
+                style={{ color: "hsla(0, 0%, 85%, 0.95)", letterSpacing: "-0.04em" }}
+              >
+                {stat.value}
+              </div>
+              <div
+                className="text-[10px] font-semibold tracking-widest uppercase mt-0.5"
+                style={{ color: "hsla(0, 0%, 28%, 0.8)" }}
+              >
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 };
 
