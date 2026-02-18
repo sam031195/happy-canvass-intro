@@ -66,42 +66,18 @@ const Dashboard = () => {
       <div
         className="pointer-events-none absolute inset-0 z-0"
         style={{
-          backgroundImage: "radial-gradient(hsla(0,0%,100%,0.035) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(hsla(0,0%,100%,0.04) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
         }}
       />
 
-      {/* ── Central glow orb ── */}
+      {/* ── Ambient glow top ── */}
       <div
-        className="pointer-events-none absolute z-0"
+        className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 z-0"
         style={{
-          top: "8%",
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: "900px",
-          height: "600px",
-          background: "radial-gradient(ellipse at center top, hsla(220, 70%, 40%, 0.18) 0%, hsla(260, 60%, 30%, 0.08) 40%, transparent 70%)",
-          filter: "blur(1px)",
-        }}
-      />
-
-      {/* ── Bottom left warm glow ── */}
-      <div
-        className="pointer-events-none absolute z-0 bottom-0 left-0"
-        style={{
-          width: "500px",
+          width: "800px",
           height: "400px",
-          background: "radial-gradient(ellipse at bottom left, hsla(20, 70%, 35%, 0.1) 0%, transparent 65%)",
-        }}
-      />
-
-      {/* ── Bottom right cool glow ── */}
-      <div
-        className="pointer-events-none absolute z-0 bottom-0 right-0"
-        style={{
-          width: "500px",
-          height: "400px",
-          background: "radial-gradient(ellipse at bottom right, hsla(260, 65%, 35%, 0.1) 0%, transparent 65%)",
+          background: "radial-gradient(ellipse at center top, hsla(220, 70%, 40%, 0.12) 0%, transparent 70%)",
         }}
       />
 
