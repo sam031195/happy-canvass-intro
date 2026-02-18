@@ -146,7 +146,7 @@ const IT_MARKETING_DETAIL: CourseDetail = {
 
 const ML_AI_BUSINESS_DETAIL: CourseDetail = {
   code: "MSIS 549 B",
-  name: "AI and GenAI for Business Applications",
+  name: "Machine Learning & AI for Business Applications",
   description:
     "Equips students with the skills to design, deploy, and evaluate generative AI systems — from LLMs and RAG pipelines to agentic workflows and multimodal solutions.",
   credits: 4,
