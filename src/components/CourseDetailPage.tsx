@@ -349,16 +349,40 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
 
       {/* Course header */}
       <div className="px-8 lg:px-14 pb-8 shrink-0">
-        <h1
-          className="text-3xl sm:text-4xl lg:text-5xl font-semibold max-w-3xl"
-          style={{
-            color: "hsla(210, 20%, 97%, 1)",
-            letterSpacing: "-0.03em",
-            lineHeight: 1.1,
-          }}
-        >
-          {detail.name}
-        </h1>
+        <div className="flex flex-wrap items-start gap-4">
+          <h1
+            className="text-3xl sm:text-4xl lg:text-5xl font-semibold max-w-3xl"
+            style={{
+              color: "hsla(210, 20%, 97%, 1)",
+              letterSpacing: "-0.03em",
+              lineHeight: 1.1,
+            }}
+          >
+            {detail.name}
+          </h1>
+
+          {/* Running-gradient AI button — shown only for the GenAI course */}
+          {courseCode === "MSIS 549 B" && (
+            <div
+              className="shrink-0 mt-1 rounded-full p-[1.5px]"
+              style={{
+                background: "conic-gradient(from var(--ai-angle), #4285f4, #ea4335, #fbbc05, #34a853, #4285f4)",
+                animation: "ai-spin 3s linear infinite",
+              }}
+            >
+              <button
+                className="relative flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-opacity hover:opacity-90"
+                style={{
+                  background: "hsl(230, 18%, 8%)",
+                  color: "hsla(210, 20%, 92%, 0.95)",
+                }}
+              >
+                <Sparkles className="h-4 w-4" style={{ color: "#fbbc05" }} />
+                Ask AI
+              </button>
+            </div>
+          )}
+        </div>
 
         {/* Meta pills */}
         <div className="flex items-center gap-3 mt-5">
