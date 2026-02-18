@@ -159,22 +159,34 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
   return (
     <div
       className="fixed inset-0 z-50 flex flex-col overflow-y-auto animate-in fade-in duration-300"
-      style={{ background: "hsl(0, 0%, 3%)" }}
+      style={{ background: "hsl(230, 18%, 6%)" }}
     >
       {/* Dot grid texture overlay */}
       <div
         className="pointer-events-none fixed inset-0 z-0"
         style={{
-          backgroundImage: "radial-gradient(hsla(0,0%,100%,0.04) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(hsla(0,0%,100%,0.03) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
         }}
       />
 
-      {/* Ambient glow top */}
+      {/* Orange-red bloom — bottom left */}
       <div
-        className="pointer-events-none fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] z-0"
+        className="pointer-events-none fixed bottom-0 left-0 z-0"
         style={{
-          background: "radial-gradient(ellipse at center top, hsla(220, 70%, 40%, 0.12) 0%, transparent 70%)",
+          width: "700px",
+          height: "600px",
+          background: "radial-gradient(ellipse at bottom left, hsla(18, 72%, 44%, 0.28) 0%, transparent 65%)",
+        }}
+      />
+
+      {/* Purple bloom — bottom right */}
+      <div
+        className="pointer-events-none fixed bottom-0 right-0 z-0"
+        style={{
+          width: "600px",
+          height: "500px",
+          background: "radial-gradient(ellipse at bottom right, hsla(270, 60%, 48%, 0.22) 0%, transparent 65%)",
         }}
       />
 
