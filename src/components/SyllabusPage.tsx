@@ -139,19 +139,19 @@ const CourseCard = ({ course }: { course: Course }) => (
   <div
     className="group flex flex-col p-8 min-h-[300px] transition-all duration-300 ease-out hover:-translate-y-1"
     style={{
-      background: "hsla(228, 38%, 17%, 0.88)",
-      border: "1px solid hsla(218, 45%, 48%, 0.2)",
+      background: "hsla(228, 45%, 8%, 0.92)",
+      border: "1px solid hsla(218, 35%, 30%, 0.18)",
       borderRadius: "4px",
-      boxShadow: "0 2px 12px hsla(230, 60%, 8%, 0.4)",
+      boxShadow: "0 1px 3px hsla(230, 80%, 4%, 0.6), inset 0 1px 0 hsla(218, 40%, 40%, 0.06)",
       transition: "transform 0.3s ease, box-shadow 0.3s ease",
     }}
     onMouseEnter={e => {
       (e.currentTarget as HTMLDivElement).style.boxShadow =
-        "0 8px 32px hsla(230, 60%, 8%, 0.6), 0 0 0 1px hsla(218, 55%, 55%, 0.25)";
+        "0 8px 28px hsla(230, 80%, 4%, 0.8), inset 0 1px 0 hsla(218, 40%, 50%, 0.1), 0 0 0 1px hsla(218, 45%, 40%, 0.2)";
     }}
     onMouseLeave={e => {
       (e.currentTarget as HTMLDivElement).style.boxShadow =
-        "0 2px 12px hsla(230, 60%, 8%, 0.4)";
+        "0 1px 3px hsla(230, 80%, 4%, 0.6), inset 0 1px 0 hsla(218, 40%, 40%, 0.06)";
     }}
   >
     {/* Icon */}
