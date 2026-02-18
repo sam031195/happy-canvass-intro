@@ -390,9 +390,11 @@ const AINotebookPage = ({ context, onClose }: Props) => {
             <div
               className="absolute inset-0 flex items-center justify-center z-20"
               style={{ background: "hsla(230, 18%, 7%, 0.55)", backdropFilter: "blur(2px)" }}
+              onClick={() => setModalDismissed(true)}
             >
               <div
                 className="relative w-full max-w-[520px] mx-4 flex flex-col gap-0 overflow-hidden"
+                onClick={(e) => e.stopPropagation()}
                 style={{
                   background: "hsl(230, 20%, 10%)",
                   border: `1px solid hsla(0,0%,100%,0.12)`,
