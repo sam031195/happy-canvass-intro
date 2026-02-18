@@ -2,8 +2,6 @@ import {
   ChevronLeft,
   Clock,
   GraduationCap,
-  BarChart3,
-  CheckCircle2,
   ListChecks,
   Sparkles,
   X,
@@ -976,91 +974,124 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
             </div>
           </div>
 
-          {/* ── Skills + Prerequisites grid ── */}
-          <div className="grid grid-cols-12 gap-3 mb-6">
-
-            {/* Skills */}
+          {/* ── Skills You'll Gain ── */}
+          <div
+            className="relative overflow-hidden rounded-2xl p-6 mb-3"
+            style={{
+              background: "hsla(228, 42%, 6%, 1)",
+              border: "1px solid hsla(220, 50%, 25%, 0.18)",
+            }}
+          >
+            {/* Subtle radial glow top-left */}
             <div
-              className="col-span-4 rounded-2xl p-6"
+              className="pointer-events-none absolute -top-10 -left-10 w-56 h-56 rounded-full"
               style={{
-                background: "hsla(228, 45%, 7%, 0.85)",
-                border: "1px solid hsla(218, 35%, 30%, 0.15)",
+                background: "radial-gradient(circle, hsla(230, 70%, 60%, 0.07) 0%, transparent 70%)",
+              }}
+            />
+
+            {/* Header row */}
+            <div className="flex items-center gap-2 mb-5">
+              <div
+                className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0"
+                style={{
+                  background: "hsla(230, 55%, 18%, 0.8)",
+                  border: "1px solid hsla(230, 60%, 45%, 0.18)",
+                }}
+              >
+                <Sparkles className="h-3.5 w-3.5" style={{ color: "hsla(230, 75%, 72%, 0.9)" }} />
+              </div>
+              <span
+                className="text-[11px] font-semibold tracking-widest uppercase"
+                style={{ color: "hsla(220, 35%, 58%, 0.65)" }}
+              >
+                Skills You'll Gain
+              </span>
+            </div>
+
+            {/* Pill cloud */}
+            <div className="flex flex-wrap gap-2">
+              {detail.summary.skills.map((skill, i) => {
+                // Cycle through 3 subtle accent tints
+                const tints = [
+                  { bg: "hsla(228, 55%, 14%, 0.9)", border: "hsla(228, 60%, 45%, 0.18)", dot: "hsla(228, 70%, 65%, 0.85)" },
+                  { bg: "hsla(255, 45%, 13%, 0.9)", border: "hsla(255, 60%, 48%, 0.18)", dot: "hsla(255, 65%, 68%, 0.85)" },
+                  { bg: "hsla(200, 55%, 12%, 0.9)", border: "hsla(200, 60%, 42%, 0.18)", dot: "hsla(200, 70%, 62%, 0.85)" },
+                ];
+                const t = tints[i % tints.length];
+                return (
+                  <span
+                    key={i}
+                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-medium"
+                    style={{
+                      background: t.bg,
+                      border: `1px solid ${t.border}`,
+                      color: "hsla(220, 20%, 80%, 0.9)",
+                      letterSpacing: "-0.01em",
+                    }}
+                  >
+                    <span
+                      className="shrink-0 w-1.5 h-1.5 rounded-full"
+                      style={{ background: t.dot }}
+                    />
+                    {skill}
+                  </span>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* ── Prerequisites (when available) ── */}
+          {detail.summary.prerequisites && detail.summary.prerequisites.length > 0 && (
+            <div
+              className="rounded-2xl p-6 mb-3"
+              style={{
+                background: "hsla(228, 42%, 6%, 1)",
+                border: "1px solid hsla(220, 50%, 25%, 0.18)",
               }}
             >
               <div className="flex items-center gap-2 mb-4">
-                <BarChart3 className="h-4 w-4" style={{ color: "hsla(215, 30%, 60%, 0.6)" }} />
-                <span
-                  className="text-xs font-semibold tracking-widest uppercase"
-                  style={{ color: "hsla(215, 25%, 60%, 0.55)" }}
+                <div
+                  className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0"
+                  style={{
+                    background: "hsla(255, 45%, 16%, 0.8)",
+                    border: "1px solid hsla(255, 55%, 45%, 0.18)",
+                  }}
                 >
-                  Skills You'll Gain
+                  <ListChecks className="h-3.5 w-3.5" style={{ color: "hsla(255, 70%, 72%, 0.9)" }} />
+                </div>
+                <span
+                  className="text-[11px] font-semibold tracking-widest uppercase"
+                  style={{ color: "hsla(220, 35%, 58%, 0.65)" }}
+                >
+                  Prerequisites
                 </span>
               </div>
-              <ul className="flex flex-col gap-3">
-                {detail.summary.skills.map((skill, i) => (
-                  <li key={i} className="flex items-start gap-2.5">
-                    <CheckCircle2
-                      className="h-3.5 w-3.5 shrink-0 mt-0.5"
-                      style={{ color: "hsla(210, 40%, 55%, 0.65)" }}
+              <div className="grid grid-cols-2 gap-2">
+                {detail.summary.prerequisites.map((req, i) => (
+                  <div
+                    key={i}
+                    className="flex items-start gap-2.5 px-3 py-2.5 rounded-xl"
+                    style={{
+                      background: "hsla(228, 45%, 10%, 0.7)",
+                      border: "1px solid hsla(218, 35%, 32%, 0.12)",
+                    }}
+                  >
+                    <span
+                      className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full"
+                      style={{ background: "hsla(255, 55%, 62%, 0.5)" }}
                     />
                     <span
                       className="text-xs leading-relaxed"
-                      style={{ color: "hsla(215, 18%, 72%, 0.8)" }}
+                      style={{ color: "hsla(215, 18%, 68%, 0.75)" }}
                     >
-                      {skill}
+                      {req}
                     </span>
-                  </li>
+                  </div>
                 ))}
-              </ul>
-            </div>
-
-            {/* Prerequisites (shown when available) */}
-            {detail.summary.prerequisites && detail.summary.prerequisites.length > 0 ? (
-              <div
-                className="col-span-8 rounded-2xl p-6"
-                style={{
-                  background: "hsla(228, 45%, 7%, 0.85)",
-                  border: "1px solid hsla(218, 35%, 30%, 0.15)",
-                }}
-              >
-                <div className="flex items-center gap-2 mb-4">
-                  <ListChecks className="h-4 w-4" style={{ color: "hsla(215, 30%, 60%, 0.6)" }} />
-                  <span
-                    className="text-xs font-semibold tracking-widest uppercase"
-                    style={{ color: "hsla(215, 25%, 60%, 0.55)" }}
-                  >
-                    Prerequisites
-                  </span>
-                </div>
-                <div className="grid grid-cols-2 gap-2">
-                  {detail.summary.prerequisites.map((req, i) => (
-                    <div
-                      key={i}
-                      className="flex items-start gap-2.5 px-3 py-2.5 rounded-xl"
-                      style={{
-                        background: "hsla(228, 45%, 10%, 0.7)",
-                        border: "1px solid hsla(218, 35%, 32%, 0.12)",
-                      }}
-                    >
-                      <span
-                        className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full"
-                        style={{ background: "hsla(215, 30%, 55%, 0.45)" }}
-                      />
-                      <span
-                        className="text-xs leading-relaxed"
-                        style={{ color: "hsla(215, 18%, 68%, 0.75)" }}
-                      >
-                        {req}
-                      </span>
-                    </div>
-                  ))}
-                </div>
               </div>
-            ) : (
-              <div className="col-span-8" />
-            )}
-
-          </div>
+            </div>
+          )}
 
           <div className="pb-10" />
         </div>
