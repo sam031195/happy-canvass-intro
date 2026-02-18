@@ -1,4 +1,4 @@
-import { ChevronLeft, BookOpen, FileText, Layers, Settings, Database, Shield, FolderKanban, BrainCircuit } from "lucide-react";
+import { ChevronLeft, BookOpen, FileText, Layers, Settings, Database, Shield, FolderKanban, BrainCircuit, TrendingUp, Bot, Lock } from "lucide-react";
 
 interface Course {
   code: string;
@@ -19,36 +19,36 @@ const QUARTERS_BY_PROGRAM: Record<string, Quarter[]> = {
       label: "Winter Quarter",
       courses: [
         {
-          code: "MSIS 502",
-          name: "Business Data Analysis",
+          code: "MSIS 521 B",
+          name: "Information Technology & Marketing in the New Economy",
           description:
-            "Focuses on quantitative methods and analytical tools for data-driven business decision making, including statistical modeling and data visualization techniques.",
+            "Explores how digital technologies reshape marketing strategy, customer engagement, and brand building in an increasingly connected and data-driven global economy.",
           type: "Core",
-          icon: <BookOpen className="h-7 w-7" />,
+          icon: <TrendingUp className="h-7 w-7" />,
         },
         {
-          code: "MSIS 504",
-          name: "Business Decision Models",
+          code: "MSIS 522 B",
+          name: "Advanced Machine Learning",
           description:
-            "Explores optimization, simulation, and decision analysis frameworks used to solve complex business problems and improve organizational performance.",
+            "Deep dives into supervised and unsupervised learning, neural networks, and ensemble methods with a focus on practical implementation and model optimization.",
           type: "Core",
-          icon: <Layers className="h-7 w-7" />,
+          icon: <BrainCircuit className="h-7 w-7" />,
         },
         {
-          code: "MSIS 503",
-          name: "Operations & Business Process Management",
+          code: "MSIS 549 B",
+          name: "Machine Learning & AI for Business Applications",
           description:
-            "Covers principles of operations management, process design, quality control, and supply chain strategies for efficient business operations.",
+            "Bridges ML theory and enterprise practice — covering use-case identification, model deployment, and ROI evaluation for AI-driven business transformation.",
           type: "Core",
-          icon: <Settings className="h-7 w-7" />,
+          icon: <Bot className="h-7 w-7" />,
         },
         {
-          code: "MSIS 501",
-          name: "IT and Organizational Strategy",
+          code: "MSIS 523 B",
+          name: "Cyber Security Policy, Management, and Compliance",
           description:
-            "Examines how information technology drives competitive advantage, digital transformation, and strategic alignment within modern organizations.",
+            "Covers governance frameworks, regulatory compliance, risk management, and organizational policies for building resilient cybersecurity programs.",
           type: "Core",
-          icon: <FileText className="h-7 w-7" />,
+          icon: <Lock className="h-7 w-7" />,
         },
       ],
     },
