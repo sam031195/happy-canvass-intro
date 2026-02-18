@@ -1,4 +1,5 @@
 import { ChevronLeft, BookOpen, Clock, GraduationCap, BarChart3, CheckCircle2, ListChecks, Sparkles } from "lucide-react";
+import { useState, useRef, useCallback } from "react";
 
 interface Module {
   number: number;
@@ -295,6 +296,48 @@ const COURSE_DETAILS: Record<string, CourseDetail> = {
   "MSIS 521 B": IT_MARKETING_DETAIL,
   "MSIS 522 B": MSIS_522_DETAIL,
   "MSIS 549 B": ML_AI_BUSINESS_DETAIL,
+};
+
+/* ── Reusable search-bar-styled chat button ── */
+const ModuleChatButton = ({ moduleName }: { moduleName: string }) => {
+  const btnRef = useRef<HTMLButtonElement>(null);
+  const [gradientPos, setGradientPos] = useState({ x: 50, y: 50 });
+  const [hovered, setHovered] = useState(false);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setGradientPos({
+      x: ((e.clientX - rect.left) / rect.width) * 100,
+      y: ((e.clientY - rect.top) / rect.height) * 100,
+    });
+  }, []);
+
+  return (
+    <div className="relative mt-4 inline-flex rounded-full" style={{ background: 'hsl(0 0% 8% / 0.85)', boxShadow: '0 0 0 1px hsla(0,0%,100%,0.12), 0 4px 30px hsla(0,0%,0%,0.4), 0 2px 8px 0 hsla(220,80%,55%,0.18) inset' }}>
+      {/* Blue bottom glow */}
+      <span className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-1/3 h-[2px] rounded-full" style={{ background: 'linear-gradient(90deg, transparent, hsl(220 80% 55%), transparent)' }} />
+      <button
+        ref={btnRef}
+        onMouseMove={handleMouseMove}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        className="relative flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium"
+        style={{ color: 'hsla(210, 20%, 92%, 0.95)' }}
+      >
+        {/* Rainbow radial on hover */}
+        <span
+          className="pointer-events-none absolute -inset-[1.5px] rounded-full -z-10 transition-opacity duration-300"
+          style={{
+            opacity: hovered ? 1 : 0,
+            background: `radial-gradient(circle 70px at ${gradientPos.x}% ${gradientPos.y}%, #4285f4, #ea4335, #fbbc05, #34a853, transparent 70%)`,
+          }}
+        />
+        <span className="pointer-events-none absolute inset-0 rounded-full -z-[5]" style={{ background: 'hsl(0 0% 8%)' }} />
+        <Sparkles className="h-4 w-4 relative z-10" />
+        <span className="relative z-10">Chat with AI about this Module</span>
+      </button>
+    </div>
+  );
 };
 
 interface Props {
@@ -641,16 +684,7 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
 
                   {/* Chat with AI — only for the GenAI course */}
                   {courseCode === "MSIS 549 B" && (
-                    <button
-                      className="mt-4 flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-opacity hover:opacity-85"
-                      style={{
-                        background: "hsla(265, 60%, 55%, 1)",
-                        color: "hsla(0, 0%, 100%, 0.95)",
-                      }}
-                    >
-                      <Sparkles className="h-4 w-4" style={{ color: "hsla(48, 100%, 78%, 1)" }} />
-                      Chat with AI about this Module
-                    </button>
+                    <ModuleChatButton moduleName={mod.title} />
                   )}
                 </div>
               </div>
