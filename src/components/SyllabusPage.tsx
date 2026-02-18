@@ -141,7 +141,7 @@ const CourseCard = ({ course }: { course: Course }) => (
     style={{
       background: "hsla(228, 38%, 17%, 0.88)",
       border: "1px solid hsla(218, 45%, 48%, 0.2)",
-      borderRadius: "13px",
+      borderRadius: "4px",
       boxShadow: "0 2px 12px hsla(230, 60%, 8%, 0.4)",
       transition: "transform 0.3s ease, box-shadow 0.3s ease",
     }}
@@ -156,12 +156,8 @@ const CourseCard = ({ course }: { course: Course }) => (
   >
     {/* Icon */}
     <div
-      className="mb-7 w-10 h-10 flex items-center justify-center rounded-lg"
-      style={{
-        background: "hsla(218, 40%, 30%, 0.5)",
-        border: "1px solid hsla(218, 45%, 55%, 0.2)",
-        color: "hsla(210, 20%, 82%, 0.9)",
-      }}
+      className="mb-7"
+      style={{ color: "hsla(210, 20%, 78%, 0.85)" }}
     >
       {course.icon}
     </div>
