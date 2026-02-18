@@ -825,12 +825,6 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
             >
               {detail.description}
             </p>
-            <p
-              className="mt-4 text-sm leading-relaxed max-w-3xl"
-              style={{ color: "hsla(215, 18%, 72%, 0.85)" }}
-            >
-              {detail.summary.overview}
-            </p>
           </div>
 
           {/* ── BENTO GRID ── */}
