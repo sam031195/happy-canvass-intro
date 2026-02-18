@@ -364,7 +364,7 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
           {/* Running-gradient AI button — shown only for the GenAI course */}
           {courseCode === "MSIS 549 B" && (
             <div
-              className="shrink-0 mt-1 rounded-full p-[1.5px]"
+              className="shrink-0 mt-1 rounded-full p-[0.75px]"
               style={{
                 background: "conic-gradient(from var(--ai-angle), #4285f4, #ea4335, #fbbc05, #34a853, #4285f4)",
                 animation: "ai-spin 3s linear infinite",
