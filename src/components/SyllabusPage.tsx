@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { ChevronLeft, Layers, Settings, Database, Shield, FolderKanban, BrainCircuit, TrendingUp, Bot, Lock, BarChart2, GitBranch } from "lucide-react";
+import CourseDetailPage from "./CourseDetailPage";
 
 interface Course {
   code: string;
@@ -135,7 +137,7 @@ interface Props {
   onBack: () => void;
 }
 
-const CourseCard = ({ course }: { course: Course }) => (
+const CourseCard = ({ course, onClick }: { course: Course; onClick?: () => void }) => (
   <div
     className="group flex flex-col p-8 min-h-[300px] transition-all duration-300 ease-out hover:-translate-y-1"
     style={{
@@ -144,7 +146,9 @@ const CourseCard = ({ course }: { course: Course }) => (
       borderRadius: "4px",
       boxShadow: "0 1px 3px hsla(230, 80%, 4%, 0.6), inset 0 1px 0 hsla(218, 40%, 40%, 0.06)",
       transition: "transform 0.3s ease, box-shadow 0.3s ease",
+      cursor: onClick ? "pointer" : "default",
     }}
+    onClick={onClick}
     onMouseEnter={e => {
       (e.currentTarget as HTMLDivElement).style.boxShadow =
         "0 8px 28px hsla(230, 80%, 4%, 0.8), inset 0 1px 0 hsla(218, 40%, 50%, 0.1), 0 0 0 1px hsla(218, 45%, 40%, 0.2)";
@@ -188,11 +192,35 @@ const CourseCard = ({ course }: { course: Course }) => (
     >
       {course.description}
     </p>
+
+    {/* View modules hint — only for clickable cards */}
+    {onClick && (
+      <div
+        className="mt-auto pt-6 flex items-center gap-1.5 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+        style={{ color: "hsla(215, 35%, 68%, 0.8)" }}
+      >
+        View course modules
+        <span className="text-[10px]">→</span>
+      </div>
+    )}
   </div>
 );
 
+// Codes that have a detail page
+const CLICKABLE_CODES = new Set(["MSIS 521 B"]);
+
 const SyllabusPage = ({ university, program, onBack }: Props) => {
   const quarters = QUARTERS_BY_PROGRAM[program] || [];
+  const [selectedCourseCode, setSelectedCourseCode] = useState<string | null>(null);
+
+  if (selectedCourseCode) {
+    return (
+      <CourseDetailPage
+        courseCode={selectedCourseCode}
+        onBack={() => setSelectedCourseCode(null)}
+      />
+    );
+  }
 
   return (
     <div
@@ -282,7 +310,11 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
             {/* Cards grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {quarter.courses.map((course) => (
-                <CourseCard key={course.code} course={course} />
+                <CourseCard
+                  key={course.code}
+                  course={course}
+                  onClick={CLICKABLE_CODES.has(course.code) ? () => setSelectedCourseCode(course.code) : undefined}
+                />
               ))}
             </div>
           </section>
