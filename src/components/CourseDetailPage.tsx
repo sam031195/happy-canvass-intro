@@ -828,115 +828,125 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
           </div>
 
           {/* ── METRIC CARDS ── */}
-          <div className="grid grid-cols-3 gap-3 mb-6">
+          <div className="grid grid-cols-3 gap-4 mb-7">
 
             {/* Credits */}
             <div
-              className="relative overflow-hidden rounded-2xl p-6 flex flex-col gap-5"
+              className="relative overflow-hidden rounded-2xl px-6 py-5 flex items-center gap-5"
               style={{
                 background: "hsla(228, 42%, 7%, 1)",
-                border: "1px solid hsla(218, 35%, 22%, 0.5)",
-                boxShadow: "0 1px 2px hsla(230, 80%, 3%, 0.5)",
+                border: "1px solid hsla(220, 50%, 25%, 0.3)",
+                boxShadow: "inset 0 0 30px hsla(220, 70%, 50%, 0.04)",
               }}
             >
-              {/* top accent line */}
+              {/* left accent bar */}
               <div
-                className="absolute top-0 left-6 right-6 h-[1px]"
-                style={{ background: "linear-gradient(90deg, transparent, hsla(220, 70%, 60%, 0.35), transparent)" }}
+                className="absolute left-0 top-4 bottom-4 w-[3px] rounded-full"
+                style={{ background: "linear-gradient(180deg, hsla(220, 75%, 65%, 0.9), hsla(220, 75%, 65%, 0.2))" }}
               />
               <div
-                className="w-9 h-9 rounded-xl flex items-center justify-center"
+                className="shrink-0 w-10 h-10 rounded-xl flex items-center justify-center"
                 style={{
-                  background: "hsla(220, 60%, 22%, 0.55)",
-                  border: "1px solid hsla(220, 65%, 45%, 0.18)",
+                  background: "hsla(220, 60%, 18%, 0.7)",
+                  border: "1px solid hsla(220, 65%, 45%, 0.15)",
                 }}
               >
-                <GraduationCap className="h-[17px] w-[17px]" style={{ color: "hsla(220, 75%, 72%, 0.95)" }} />
+                <GraduationCap className="h-[18px] w-[18px]" style={{ color: "hsla(220, 75%, 70%, 1)" }} />
               </div>
-              <div>
-                <p
-                  className="text-5xl font-bold leading-none"
-                  style={{ color: "hsla(0, 0%, 98%, 1)", letterSpacing: "-0.05em" }}
+              <div className="flex flex-col">
+                <span
+                  className="text-[11px] font-medium tracking-widest uppercase mb-1"
+                  style={{ color: "hsla(220, 40%, 58%, 0.7)" }}
+                >
+                  Credit Units
+                </span>
+                <span
+                  className="text-4xl font-bold leading-none"
+                  style={{ color: "hsla(0, 0%, 99%, 1)", letterSpacing: "-0.05em" }}
                 >
                   {detail.credits}
-                </p>
-                <p className="text-[11px] mt-2 font-medium tracking-wide" style={{ color: "hsla(215, 20%, 50%, 0.75)" }}>
-                  Credit Units
-                </p>
+                </span>
               </div>
             </div>
 
             {/* Duration */}
             <div
-              className="relative overflow-hidden rounded-2xl p-6 flex flex-col gap-5"
+              className="relative overflow-hidden rounded-2xl px-6 py-5 flex items-center gap-5"
               style={{
                 background: "hsla(228, 42%, 7%, 1)",
-                border: "1px solid hsla(218, 35%, 22%, 0.5)",
-                boxShadow: "0 1px 2px hsla(230, 80%, 3%, 0.5)",
+                border: "1px solid hsla(280, 40%, 25%, 0.3)",
+                boxShadow: "inset 0 0 30px hsla(280, 65%, 50%, 0.04)",
               }}
             >
               <div
-                className="absolute top-0 left-6 right-6 h-[1px]"
-                style={{ background: "linear-gradient(90deg, transparent, hsla(280, 60%, 60%, 0.3), transparent)" }}
+                className="absolute left-0 top-4 bottom-4 w-[3px] rounded-full"
+                style={{ background: "linear-gradient(180deg, hsla(280, 65%, 68%, 0.9), hsla(280, 65%, 68%, 0.2))" }}
               />
               <div
-                className="w-9 h-9 rounded-xl flex items-center justify-center"
+                className="shrink-0 w-10 h-10 rounded-xl flex items-center justify-center"
                 style={{
-                  background: "hsla(280, 50%, 22%, 0.55)",
-                  border: "1px solid hsla(280, 55%, 45%, 0.18)",
+                  background: "hsla(280, 50%, 18%, 0.7)",
+                  border: "1px solid hsla(280, 55%, 45%, 0.15)",
                 }}
               >
-                <Clock className="h-[17px] w-[17px]" style={{ color: "hsla(280, 65%, 75%, 0.95)" }} />
+                <Clock className="h-[18px] w-[18px]" style={{ color: "hsla(280, 65%, 72%, 1)" }} />
               </div>
-              <div>
-                <p
-                  className="text-5xl font-bold leading-none"
-                  style={{ color: "hsla(0, 0%, 98%, 1)", letterSpacing: "-0.05em" }}
+              <div className="flex flex-col">
+                <span
+                  className="text-[11px] font-medium tracking-widest uppercase mb-1"
+                  style={{ color: "hsla(280, 35%, 60%, 0.7)" }}
+                >
+                  Weeks Duration
+                </span>
+                <span
+                  className="text-4xl font-bold leading-none"
+                  style={{ color: "hsla(0, 0%, 99%, 1)", letterSpacing: "-0.05em" }}
                 >
                   10
-                </p>
-                <p className="text-[11px] mt-2 font-medium tracking-wide" style={{ color: "hsla(215, 20%, 50%, 0.75)" }}>
-                  Weeks Duration
-                </p>
+                </span>
               </div>
             </div>
 
             {/* Modules */}
             <div
-              className="relative overflow-hidden rounded-2xl p-6 flex flex-col gap-5"
+              className="relative overflow-hidden rounded-2xl px-6 py-5 flex items-center gap-5"
               style={{
                 background: "hsla(228, 42%, 7%, 1)",
-                border: "1px solid hsla(218, 35%, 22%, 0.5)",
-                boxShadow: "0 1px 2px hsla(230, 80%, 3%, 0.5)",
+                border: "1px solid hsla(160, 40%, 20%, 0.35)",
+                boxShadow: "inset 0 0 30px hsla(160, 60%, 40%, 0.04)",
               }}
             >
               <div
-                className="absolute top-0 left-6 right-6 h-[1px]"
-                style={{ background: "linear-gradient(90deg, transparent, hsla(160, 55%, 45%, 0.3), transparent)" }}
+                className="absolute left-0 top-4 bottom-4 w-[3px] rounded-full"
+                style={{ background: "linear-gradient(180deg, hsla(160, 60%, 55%, 0.9), hsla(160, 60%, 55%, 0.2))" }}
               />
               <div
-                className="w-9 h-9 rounded-xl flex items-center justify-center"
+                className="shrink-0 w-10 h-10 rounded-xl flex items-center justify-center"
                 style={{
-                  background: "hsla(160, 45%, 16%, 0.65)",
-                  border: "1px solid hsla(160, 50%, 38%, 0.18)",
+                  background: "hsla(160, 45%, 14%, 0.75)",
+                  border: "1px solid hsla(160, 50%, 38%, 0.15)",
                 }}
               >
-                <Layers className="h-[17px] w-[17px]" style={{ color: "hsla(160, 60%, 62%, 0.95)" }} />
+                <Layers className="h-[18px] w-[18px]" style={{ color: "hsla(160, 60%, 60%, 1)" }} />
               </div>
-              <div>
-                <p
-                  className="text-5xl font-bold leading-none"
-                  style={{ color: "hsla(0, 0%, 98%, 1)", letterSpacing: "-0.05em" }}
+              <div className="flex flex-col">
+                <span
+                  className="text-[11px] font-medium tracking-widest uppercase mb-1"
+                  style={{ color: "hsla(160, 30%, 55%, 0.7)" }}
+                >
+                  Course Modules
+                </span>
+                <span
+                  className="text-4xl font-bold leading-none"
+                  style={{ color: "hsla(0, 0%, 99%, 1)", letterSpacing: "-0.05em" }}
                 >
                   {detail.modules.length}
-                </p>
-                <p className="text-[11px] mt-2 font-medium tracking-wide" style={{ color: "hsla(215, 20%, 50%, 0.75)" }}>
-                  Course Modules
-                </p>
+                </span>
               </div>
             </div>
 
           </div>
+
           {/* ── Course Modules section ── */}
           <div className="mb-6">
             <div className="flex items-center justify-between mb-4">
