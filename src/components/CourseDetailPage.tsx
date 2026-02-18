@@ -1,4 +1,4 @@
-import { ChevronLeft, BookOpen, Clock, GraduationCap, BarChart3, CheckCircle2, ListChecks } from "lucide-react";
+import { ChevronLeft, BookOpen, Clock, GraduationCap, BarChart3, CheckCircle2, ListChecks, Sparkles } from "lucide-react";
 
 interface Module {
   number: number;
