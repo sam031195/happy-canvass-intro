@@ -53,6 +53,43 @@ const QUARTERS_BY_PROGRAM: Record<string, Quarter[]> = {
       ],
     },
     {
+      label: "Fall Quarter",
+      courses: [
+        {
+          code: "MSIS 510",
+          name: "Business Data Mining / Fundamentals of ML",
+          description:
+            "Introduces machine learning algorithms, predictive modeling, and data mining techniques applied to real-world business intelligence and decision-making challenges.",
+          type: "Core",
+          icon: <BrainCircuit className="h-7 w-7" />,
+        },
+        {
+          code: "MSIS 543",
+          name: "Advanced Data Warehouse",
+          description:
+            "Covers advanced data warehousing architectures, ETL processes, dimensional modeling, and enterprise-scale analytics infrastructure design and management.",
+          type: "Core",
+          icon: <Database className="h-7 w-7" />,
+        },
+        {
+          code: "MSIS 524",
+          name: "Managing IT Projects",
+          description:
+            "Provides frameworks and methodologies for planning, executing, and delivering complex IT initiatives on time and within budget using agile and waterfall approaches.",
+          type: "Core",
+          icon: <FolderKanban className="h-7 w-7" />,
+        },
+        {
+          code: "MSIS 512",
+          name: "Information Security & Assurance in a Networked World",
+          description:
+            "Addresses cybersecurity principles, risk assessment, compliance frameworks, and strategies for protecting organizational assets in interconnected digital environments.",
+          type: "Core",
+          icon: <Shield className="h-7 w-7" />,
+        },
+      ],
+    },
+    {
       label: "Winter Quarter",
       courses: [
         {
@@ -86,43 +123,6 @@ const QUARTERS_BY_PROGRAM: Record<string, Quarter[]> = {
             "Covers governance frameworks, regulatory compliance, risk management, and organizational policies for building resilient cybersecurity programs.",
           type: "Core",
           icon: <Lock className="h-7 w-7" />,
-        },
-      ],
-    },
-    {
-      label: "Spring Quarter",
-      courses: [
-        {
-          code: "MSIS 510",
-          name: "Business Data Mining / Fundamentals of ML",
-          description:
-            "Introduces machine learning algorithms, predictive modeling, and data mining techniques applied to real-world business intelligence and decision-making challenges.",
-          type: "Core",
-          icon: <BrainCircuit className="h-7 w-7" />,
-        },
-        {
-          code: "MSIS 543",
-          name: "Advanced Data Warehouse",
-          description:
-            "Covers advanced data warehousing architectures, ETL processes, dimensional modeling, and enterprise-scale analytics infrastructure design and management.",
-          type: "Core",
-          icon: <Database className="h-7 w-7" />,
-        },
-        {
-          code: "MSIS 524",
-          name: "Managing IT Projects",
-          description:
-            "Provides frameworks and methodologies for planning, executing, and delivering complex IT initiatives on time and within budget using agile and waterfall approaches.",
-          type: "Core",
-          icon: <FolderKanban className="h-7 w-7" />,
-        },
-        {
-          code: "MSIS 512",
-          name: "Information Security & Assurance in a Networked World",
-          description:
-            "Addresses cybersecurity principles, risk assessment, compliance frameworks, and strategies for protecting organizational assets in interconnected digital environments.",
-          type: "Core",
-          icon: <Shield className="h-7 w-7" />,
         },
       ],
     },
