@@ -827,101 +827,120 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
             </p>
           </div>
 
-          {/* ── BENTO GRID ── */}
-          <div className="grid grid-cols-12 gap-3 mb-6">
+          {/* ── METRIC CARDS ── */}
+          <div className="grid grid-cols-3 gap-3 mb-6">
 
-            {/* CELL 1 — Credits metric */}
+            {/* Credits */}
             <div
-              className="col-span-4 rounded-2xl p-5 flex flex-col justify-between"
+              className="relative overflow-hidden rounded-2xl p-6 flex flex-col gap-5"
               style={{
-                background: "hsla(228, 45%, 8%, 0.9)",
-                border: "1px solid hsla(218, 35%, 30%, 0.18)",
+                background: "hsla(228, 42%, 7%, 1)",
+                border: "1px solid hsla(218, 35%, 22%, 0.5)",
+                boxShadow: "0 1px 2px hsla(230, 80%, 3%, 0.5)",
               }}
             >
+              {/* top accent line */}
               <div
-                className="w-9 h-9 rounded-xl flex items-center justify-center mb-4"
+                className="absolute top-0 left-6 right-6 h-[1px]"
+                style={{ background: "linear-gradient(90deg, transparent, hsla(220, 70%, 60%, 0.35), transparent)" }}
+              />
+              <div
+                className="w-9 h-9 rounded-xl flex items-center justify-center"
                 style={{
-                  background: "hsla(220, 60%, 30%, 0.4)",
-                  border: "1px solid hsla(220, 60%, 50%, 0.2)",
+                  background: "hsla(220, 60%, 22%, 0.55)",
+                  border: "1px solid hsla(220, 65%, 45%, 0.18)",
                 }}
               >
-                <GraduationCap className="h-4.5 w-4.5 h-[18px] w-[18px]" style={{ color: "hsla(220, 70%, 72%, 0.9)" }} />
+                <GraduationCap className="h-[17px] w-[17px]" style={{ color: "hsla(220, 75%, 72%, 0.95)" }} />
               </div>
               <div>
                 <p
-                  className="text-4xl font-bold"
-                  style={{ color: "hsla(210, 20%, 97%, 1)", letterSpacing: "-0.04em" }}
+                  className="text-5xl font-bold leading-none"
+                  style={{ color: "hsla(0, 0%, 98%, 1)", letterSpacing: "-0.05em" }}
                 >
                   {detail.credits}
                 </p>
-                <p className="text-xs mt-1" style={{ color: "hsla(215, 20%, 55%, 0.7)" }}>
+                <p className="text-[11px] mt-2 font-medium tracking-wide" style={{ color: "hsla(215, 20%, 50%, 0.75)" }}>
                   Credit Units
                 </p>
               </div>
             </div>
 
-            {/* CELL 2 — Duration metric */}
+            {/* Duration */}
             <div
-              className="col-span-4 rounded-2xl p-5 flex flex-col justify-between"
+              className="relative overflow-hidden rounded-2xl p-6 flex flex-col gap-5"
               style={{
-                background: "hsla(228, 45%, 8%, 0.9)",
-                border: "1px solid hsla(218, 35%, 30%, 0.18)",
+                background: "hsla(228, 42%, 7%, 1)",
+                border: "1px solid hsla(218, 35%, 22%, 0.5)",
+                boxShadow: "0 1px 2px hsla(230, 80%, 3%, 0.5)",
               }}
             >
               <div
-                className="w-9 h-9 rounded-xl flex items-center justify-center mb-4"
+                className="absolute top-0 left-6 right-6 h-[1px]"
+                style={{ background: "linear-gradient(90deg, transparent, hsla(280, 60%, 60%, 0.3), transparent)" }}
+              />
+              <div
+                className="w-9 h-9 rounded-xl flex items-center justify-center"
                 style={{
-                  background: "hsla(280, 50%, 28%, 0.4)",
-                  border: "1px solid hsla(280, 50%, 50%, 0.2)",
+                  background: "hsla(280, 50%, 22%, 0.55)",
+                  border: "1px solid hsla(280, 55%, 45%, 0.18)",
                 }}
               >
-                <Clock className="h-[18px] w-[18px]" style={{ color: "hsla(280, 60%, 75%, 0.9)" }} />
+                <Clock className="h-[17px] w-[17px]" style={{ color: "hsla(280, 65%, 75%, 0.95)" }} />
               </div>
               <div>
                 <p
-                  className="text-4xl font-bold"
-                  style={{ color: "hsla(210, 20%, 97%, 1)", letterSpacing: "-0.04em" }}
+                  className="text-5xl font-bold leading-none"
+                  style={{ color: "hsla(0, 0%, 98%, 1)", letterSpacing: "-0.05em" }}
                 >
                   10
                 </p>
-                <p className="text-xs mt-1" style={{ color: "hsla(215, 20%, 55%, 0.7)" }}>
+                <p className="text-[11px] mt-2 font-medium tracking-wide" style={{ color: "hsla(215, 20%, 50%, 0.75)" }}>
                   Weeks Duration
                 </p>
               </div>
             </div>
 
-            {/* CELL 3 — Modules metric */}
+            {/* Modules */}
             <div
-              className="col-span-4 rounded-2xl p-5 flex flex-col justify-between"
+              className="relative overflow-hidden rounded-2xl p-6 flex flex-col gap-5"
               style={{
-                background: "hsla(228, 45%, 8%, 0.9)",
-                border: "1px solid hsla(218, 35%, 30%, 0.18)",
+                background: "hsla(228, 42%, 7%, 1)",
+                border: "1px solid hsla(218, 35%, 22%, 0.5)",
+                boxShadow: "0 1px 2px hsla(230, 80%, 3%, 0.5)",
               }}
             >
               <div
-                className="w-9 h-9 rounded-xl flex items-center justify-center mb-4"
+                className="absolute top-0 left-6 right-6 h-[1px]"
+                style={{ background: "linear-gradient(90deg, transparent, hsla(160, 55%, 45%, 0.3), transparent)" }}
+              />
+              <div
+                className="w-9 h-9 rounded-xl flex items-center justify-center"
                 style={{
-                  background: "hsla(160, 50%, 22%, 0.5)",
-                  border: "1px solid hsla(160, 50%, 42%, 0.2)",
+                  background: "hsla(160, 45%, 16%, 0.65)",
+                  border: "1px solid hsla(160, 50%, 38%, 0.18)",
                 }}
               >
-                <Layers className="h-[18px] w-[18px]" style={{ color: "hsla(160, 60%, 65%, 0.9)" }} />
+                <Layers className="h-[17px] w-[17px]" style={{ color: "hsla(160, 60%, 62%, 0.95)" }} />
               </div>
               <div>
                 <p
-                  className="text-4xl font-bold"
-                  style={{ color: "hsla(210, 20%, 97%, 1)", letterSpacing: "-0.04em" }}
+                  className="text-5xl font-bold leading-none"
+                  style={{ color: "hsla(0, 0%, 98%, 1)", letterSpacing: "-0.05em" }}
                 >
                   {detail.modules.length}
                 </p>
-                <p className="text-xs mt-1" style={{ color: "hsla(215, 20%, 55%, 0.7)" }}>
+                <p className="text-[11px] mt-2 font-medium tracking-wide" style={{ color: "hsla(215, 20%, 50%, 0.75)" }}>
                   Course Modules
                 </p>
               </div>
             </div>
 
+          </div>
+          {/* ── Skills + Prerequisites grid ── */}
+          <div className="grid grid-cols-12 gap-3 mb-6">
 
-            {/* CELL 7 — Skills (tall, left) */}
+            {/* Skills */}
             <div
               className="col-span-4 rounded-2xl p-6"
               style={{
@@ -956,7 +975,7 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
               </ul>
             </div>
 
-            {/* CELL 8 — Prerequisites (shown when available) OR Course Modules header */}
+            {/* Prerequisites (shown when available) */}
             {detail.summary.prerequisites && detail.summary.prerequisites.length > 0 ? (
               <div
                 className="col-span-8 rounded-2xl p-6"
@@ -999,19 +1018,11 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
                 </div>
               </div>
             ) : (
-              /* Placeholder wide cell when no prerequisites */
-              <div
-                className="col-span-8 rounded-2xl p-6 flex items-center justify-center"
-                style={{
-                  background: "hsla(220, 50%, 9%, 0.5)",
-                  border: "1px dashed hsla(218, 35%, 30%, 0.15)",
-                }}
-              >
-                <p className="text-xs" style={{ color: "hsla(215, 20%, 45%, 0.5)" }}>
-                  No prerequisites required for this course
-                </p>
-              </div>
+              /* Full-width skills when no prerequisites */
+              <div className="col-span-8" />
             )}
+
+          </div>
           </div>
 
           {/* ── Course Modules section ── */}
