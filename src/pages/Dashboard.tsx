@@ -110,10 +110,10 @@ const Dashboard = () => {
             <a
               key={item}
               href="#"
-              className="px-3.5 py-2 rounded-lg text-sm font-medium transition-colors duration-150"
-              style={{ color: "hsla(0, 0%, 42%, 0.85)" }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "hsla(0, 0%, 82%, 0.95)")}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "hsla(0, 0%, 42%, 0.85)")}
+              className="px-3.5 py-2 text-sm font-medium transition-colors duration-150"
+              style={{ color: "hsla(220, 15%, 62%, 0.9)" }}
+              onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "hsla(220, 15%, 90%, 0.95)")}
+              onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "hsla(220, 15%, 62%, 0.9)")}
             >
               {item}
             </a>
@@ -127,15 +127,15 @@ const Dashboard = () => {
             style={{
               background: "transparent",
               border: "1px solid hsla(0, 0%, 100%, 0.1)",
-              color: "hsla(0, 0%, 55%, 0.85)",
+              color: "hsla(220, 15%, 68%, 0.9)",
             }}
             onMouseEnter={(e) => {
               (e.currentTarget as HTMLButtonElement).style.borderColor = "hsla(0, 0%, 100%, 0.18)";
-              (e.currentTarget as HTMLButtonElement).style.color = "hsla(0, 0%, 80%, 0.95)";
+              (e.currentTarget as HTMLButtonElement).style.color = "hsla(220, 15%, 88%, 0.95)";
             }}
             onMouseLeave={(e) => {
               (e.currentTarget as HTMLButtonElement).style.borderColor = "hsla(0, 0%, 100%, 0.1)";
-              (e.currentTarget as HTMLButtonElement).style.color = "hsla(0, 0%, 55%, 0.85)";
+              (e.currentTarget as HTMLButtonElement).style.color = "hsla(220, 15%, 68%, 0.9)";
             }}
           >
             Sign out
@@ -164,7 +164,7 @@ const Dashboard = () => {
           style={{
             background: "hsla(0, 0%, 100%, 0.04)",
             border: "1px solid hsla(0, 0%, 100%, 0.09)",
-            color: "hsla(0, 0%, 45%, 0.9)",
+            color: "hsla(220, 15%, 65%, 0.95)",
           }}
         >
           <span
@@ -188,7 +188,7 @@ const Dashboard = () => {
           <span
             style={{
               color: "transparent",
-              backgroundImage: "linear-gradient(135deg, hsla(0,0%,65%,0.95) 0%, hsla(0,0%,40%,0.7) 100%)",
+              backgroundImage: "linear-gradient(135deg, hsla(220,30%,75%,0.95) 0%, hsla(220,20%,50%,0.8) 100%)",
               WebkitBackgroundClip: "text",
               backgroundClip: "text",
             }}
@@ -201,7 +201,7 @@ const Dashboard = () => {
 
         <p
           className="mt-6 text-sm max-w-md mx-auto leading-relaxed"
-          style={{ color: "hsla(0, 0%, 38%, 0.9)" }}
+          style={{ color: "hsla(220, 15%, 62%, 0.9)" }}
         >
           Access graduate-level AI curriculum, explore course modules, and get answers from your AI study assistant.
         </p>
@@ -237,7 +237,7 @@ const Dashboard = () => {
         {/* ── Search bar ── */}
         <div className="mt-10 w-full max-w-2xl mx-auto">
           <div
-            className="relative flex items-center rounded-2xl px-4 py-3 gap-3"
+            className="relative flex items-center rounded-md px-4 py-3 gap-3"
             style={{
               background: "hsla(230, 25%, 5%, 0.95)",
               border: "1px solid hsla(0, 0%, 100%, 0.09)",
@@ -254,23 +254,25 @@ const Dashboard = () => {
             <div className="relative shrink-0" ref={dropdownRef}>
               <button
                 onClick={() => setModelOpen((v) => !v)}
-                className="flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-medium transition-colors"
+                className="flex items-center gap-2 px-3 py-2 text-xs font-medium transition-colors"
                 style={{
                   background: "hsla(230, 22%, 9%, 1)",
                   border: "1px solid hsla(0, 0%, 100%, 0.07)",
-                  color: "hsla(0, 0%, 65%, 0.9)",
+                  borderRadius: "4px",
+                  color: "hsla(220, 15%, 78%, 0.95)",
                 }}
               >
-                <Bot className="h-3.5 w-3.5" style={{ color: "hsla(0, 0%, 45%, 0.8)" }} />
+                <Bot className="h-3.5 w-3.5" style={{ color: "hsla(220, 20%, 72%, 0.9)" }} />
                 {selectedModel.label}
-                <ChevronDown className="h-3 w-3" style={{ color: "hsla(0, 0%, 38%, 0.7)" }} />
+                <ChevronDown className="h-3 w-3" style={{ color: "hsla(220, 15%, 60%, 0.85)" }} />
               </button>
               {modelOpen && (
                 <div
-                  className="absolute left-0 top-full mt-1.5 z-50 py-1 rounded-xl min-w-[160px]"
+                  className="absolute left-0 top-full mt-1.5 z-50 py-1 min-w-[160px]"
                   style={{
                     background: "hsl(230, 25%, 6%)",
                     border: "1px solid hsla(0, 0%, 100%, 0.08)",
+                    borderRadius: "4px",
                     boxShadow: "0 12px 40px hsla(0,0%,0%,0.6)",
                   }}
                 >
@@ -280,7 +282,7 @@ const Dashboard = () => {
                       onClick={() => { setSelectedModel(m); setModelOpen(false); }}
                       className="w-full text-left px-3.5 py-2.5 text-xs transition-colors"
                       style={{
-                        color: m.value === selectedModel.value ? "hsla(0,0%,90%,0.95)" : "hsla(0,0%,55%,0.8)",
+                        color: m.value === selectedModel.value ? "hsla(220,20%,92%,0.95)" : "hsla(220,15%,65%,0.85)",
                         background: m.value === selectedModel.value ? "hsla(0,0%,100%,0.06)" : "transparent",
                         fontWeight: m.value === selectedModel.value ? 600 : 400,
                       }}
@@ -302,7 +304,7 @@ const Dashboard = () => {
               type="text"
               placeholder="Ask about any course, module, or concept..."
               className="flex-1 bg-transparent border-none outline-none text-sm min-w-0"
-              style={{ color: "hsla(0, 0%, 88%, 0.95)", caretColor: "hsla(220, 80%, 65%, 0.9)" }}
+              style={{ color: "hsla(220, 15%, 90%, 0.95)", caretColor: "hsla(220, 80%, 65%, 0.9)" }}
             />
 
             {/* AI Mode */}
@@ -311,29 +313,31 @@ const Dashboard = () => {
               onMouseMove={handleAiMouseMove}
               onMouseEnter={() => setAiHovered(true)}
               onMouseLeave={() => setAiHovered(false)}
-              className="relative shrink-0 rounded-xl px-3.5 py-2 text-xs font-semibold flex items-center gap-1.5"
+              className="relative shrink-0 px-3.5 py-2 text-xs font-semibold flex items-center gap-1.5"
               style={{
                 background: "hsla(230, 22%, 9%, 1)",
                 border: "1px solid hsla(0, 0%, 100%, 0.07)",
-                color: "hsla(0, 0%, 70%, 0.9)",
+                borderRadius: "4px",
+                color: "hsla(220, 15%, 78%, 0.95)",
               }}
             >
               <span
-                className="pointer-events-none absolute -inset-[1.5px] rounded-xl -z-10 transition-opacity duration-300"
+                className="pointer-events-none absolute -inset-[1.5px] -z-10 transition-opacity duration-300"
                 style={{
+                  borderRadius: "5px",
                   opacity: aiHovered ? 1 : 0,
                   background: `radial-gradient(circle 55px at ${aiGradientPos.x}% ${aiGradientPos.y}%, #4285f4, #ea4335, #fbbc05, #34a853, transparent 70%)`,
                 }}
               />
-              <span className="pointer-events-none absolute inset-0 rounded-xl -z-[5]" style={{ background: "hsl(230, 25%, 6%)" }} />
-              <Sparkles className="h-3.5 w-3.5 relative z-10" style={{ color: "hsla(0, 0%, 65%, 0.9)" }} />
+              <span className="pointer-events-none absolute inset-0 -z-[5]" style={{ borderRadius: "4px", background: "hsl(230, 25%, 6%)" }} />
+              <Sparkles className="h-3.5 w-3.5 relative z-10" style={{ color: "hsla(220, 20%, 80%, 0.95)" }} />
               <span className="relative z-10">AI Mode</span>
             </button>
 
             {/* Search */}
             <button
-              className="h-9 w-9 rounded-xl flex items-center justify-center shrink-0 transition-colors"
-              style={{ background: "hsla(0,0%,100%,0.95)", color: "hsla(0,0%,5%,1)" }}
+              className="h-9 w-9 flex items-center justify-center shrink-0 transition-colors"
+              style={{ background: "hsla(0,0%,100%,0.95)", color: "hsla(0,0%,5%,1)", borderRadius: "4px" }}
               onMouseEnter={(e) => (e.currentTarget as HTMLButtonElement).style.background = "hsla(0,0%,100%,1)"}
               onMouseLeave={(e) => (e.currentTarget as HTMLButtonElement).style.background = "hsla(0,0%,100%,0.95)"}
             >
@@ -350,15 +354,15 @@ const Dashboard = () => {
                 style={{
                   background: "hsla(230, 25%, 6%, 0.8)",
                   border: "1px solid hsla(0, 0%, 100%, 0.07)",
-                  color: "hsla(0, 0%, 42%, 0.85)",
+                  color: "hsla(220, 15%, 58%, 0.9)",
                 }}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLButtonElement).style.borderColor = "hsla(0, 0%, 100%, 0.13)";
-                  (e.currentTarget as HTMLButtonElement).style.color = "hsla(0, 0%, 70%, 0.95)";
+                  (e.currentTarget as HTMLButtonElement).style.color = "hsla(220, 15%, 82%, 0.95)";
                 }}
                 onMouseLeave={(e) => {
                   (e.currentTarget as HTMLButtonElement).style.borderColor = "hsla(0, 0%, 100%, 0.07)";
-                  (e.currentTarget as HTMLButtonElement).style.color = "hsla(0, 0%, 42%, 0.85)";
+                  (e.currentTarget as HTMLButtonElement).style.color = "hsla(220, 15%, 58%, 0.9)";
                 }}
               >
                 {s}
@@ -382,13 +386,13 @@ const Dashboard = () => {
             <div key={i} className="flex-1 text-center px-6" style={{ borderRight: i < 2 ? "1px solid hsla(0,0%,100%,0.06)" : "none" }}>
               <div
                 className="text-2xl font-black"
-                style={{ color: "hsla(0, 0%, 85%, 0.95)", letterSpacing: "-0.04em" }}
+                style={{ color: "hsla(220, 15%, 90%, 0.95)", letterSpacing: "-0.04em" }}
               >
                 {stat.value}
               </div>
               <div
                 className="text-[10px] font-semibold tracking-widest uppercase mt-0.5"
-                style={{ color: "hsla(0, 0%, 28%, 0.8)" }}
+                style={{ color: "hsla(220, 15%, 48%, 0.85)" }}
               >
                 {stat.label}
               </div>
