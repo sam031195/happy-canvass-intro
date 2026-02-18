@@ -1,4 +1,4 @@
-import { ChevronLeft, BookOpen, FileText, Layers, Settings } from "lucide-react";
+import { ChevronLeft, BookOpen, FileText, Layers, Settings, Database, Shield, FolderKanban, BrainCircuit } from "lucide-react";
 
 interface Course {
   code: string;
@@ -8,39 +8,86 @@ interface Course {
   icon: React.ReactNode;
 }
 
-const COURSES_BY_PROGRAM: Record<string, Course[]> = {
+interface Quarter {
+  label: string;
+  courses: Course[];
+}
+
+const QUARTERS_BY_PROGRAM: Record<string, Quarter[]> = {
   "Masters in Information System / MSIS": [
     {
-      code: "MSIS 502",
-      name: "Business Data Analysis",
-      description:
-        "Focuses on quantitative methods and analytical tools for data-driven business decision making, including statistical modeling and data visualization techniques.",
-      type: "Core",
-      icon: <BookOpen className="h-7 w-7" />,
+      label: "Winter Quarter",
+      courses: [
+        {
+          code: "MSIS 502",
+          name: "Business Data Analysis",
+          description:
+            "Focuses on quantitative methods and analytical tools for data-driven business decision making, including statistical modeling and data visualization techniques.",
+          type: "Core",
+          icon: <BookOpen className="h-7 w-7" />,
+        },
+        {
+          code: "MSIS 504",
+          name: "Business Decision Models",
+          description:
+            "Explores optimization, simulation, and decision analysis frameworks used to solve complex business problems and improve organizational performance.",
+          type: "Core",
+          icon: <Layers className="h-7 w-7" />,
+        },
+        {
+          code: "MSIS 503",
+          name: "Operations & Business Process Management",
+          description:
+            "Covers principles of operations management, process design, quality control, and supply chain strategies for efficient business operations.",
+          type: "Core",
+          icon: <Settings className="h-7 w-7" />,
+        },
+        {
+          code: "MSIS 501",
+          name: "IT and Organizational Strategy",
+          description:
+            "Examines how information technology drives competitive advantage, digital transformation, and strategic alignment within modern organizations.",
+          type: "Core",
+          icon: <FileText className="h-7 w-7" />,
+        },
+      ],
     },
     {
-      code: "MSIS 504",
-      name: "Business Decision Models",
-      description:
-        "Explores optimization, simulation, and decision analysis frameworks used to solve complex business problems and improve organizational performance.",
-      type: "Core",
-      icon: <Layers className="h-7 w-7" />,
-    },
-    {
-      code: "MSIS 503",
-      name: "Operations & Business Process Management",
-      description:
-        "Covers principles of operations management, process design, quality control, and supply chain strategies for efficient business operations.",
-      type: "Core",
-      icon: <Settings className="h-7 w-7" />,
-    },
-    {
-      code: "MSIS 501",
-      name: "IT and Organizational Strategy",
-      description:
-        "Examines how information technology drives competitive advantage, digital transformation, and strategic alignment within modern organizations.",
-      type: "Core",
-      icon: <FileText className="h-7 w-7" />,
+      label: "Spring Quarter",
+      courses: [
+        {
+          code: "MSIS 510",
+          name: "Business Data Mining / Fundamentals of ML",
+          description:
+            "Introduces machine learning algorithms, predictive modeling, and data mining techniques applied to real-world business intelligence and decision-making challenges.",
+          type: "Core",
+          icon: <BrainCircuit className="h-7 w-7" />,
+        },
+        {
+          code: "MSIS 543",
+          name: "Advanced Data Warehouse",
+          description:
+            "Covers advanced data warehousing architectures, ETL processes, dimensional modeling, and enterprise-scale analytics infrastructure design and management.",
+          type: "Core",
+          icon: <Database className="h-7 w-7" />,
+        },
+        {
+          code: "MSIS 524",
+          name: "Managing IT Projects",
+          description:
+            "Provides frameworks and methodologies for planning, executing, and delivering complex IT initiatives on time and within budget using agile and waterfall approaches.",
+          type: "Core",
+          icon: <FolderKanban className="h-7 w-7" />,
+        },
+        {
+          code: "MSIS 512",
+          name: "Information Security & Assurance in a Networked World",
+          description:
+            "Addresses cybersecurity principles, risk assessment, compliance frameworks, and strategies for protecting organizational assets in interconnected digital environments.",
+          type: "Core",
+          icon: <Shield className="h-7 w-7" />,
+        },
+      ],
     },
   ],
 };
@@ -51,8 +98,39 @@ interface Props {
   onBack: () => void;
 }
 
+const CourseCard = ({ course }: { course: Course }) => (
+  <div
+    className="group relative flex flex-col justify-between p-7 min-h-[280px] transition-all duration-300 hover:translate-y-[-2px]"
+    style={{
+      background:
+        "linear-gradient(160deg, hsla(225,25%,25%,0.5) 0%, hsla(230,20%,18%,0.45) 100%)",
+      backdropFilter: "blur(24px)",
+      WebkitBackdropFilter: "blur(24px)",
+      border: "1px solid hsla(220,30%,50%,0.12)",
+      borderRadius: "4px",
+    }}
+  >
+    <div>
+      <div className="text-white/60 mb-8">{course.icon}</div>
+      <h3
+        className="text-xl font-semibold text-white leading-tight mb-4"
+        style={{ letterSpacing: "-0.02em" }}
+      >
+        {course.name}
+      </h3>
+      <p className="text-white/45 text-sm leading-relaxed">{course.description}</p>
+    </div>
+    <div className="mt-6 flex items-center justify-between">
+      <span className="text-xs text-white/30 font-medium tracking-wider uppercase">
+        {course.code}
+      </span>
+      <span className="text-xs text-white/25 font-medium">{course.type}</span>
+    </div>
+  </div>
+);
+
 const SyllabusPage = ({ university, program, onBack }: Props) => {
-  const courses = COURSES_BY_PROGRAM[program] || [];
+  const quarters = QUARTERS_BY_PROGRAM[program] || [];
 
   return (
     <div
@@ -74,7 +152,7 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
         </button>
       </div>
 
-      {/* Centered heading */}
+      {/* Page header */}
       <div className="px-8 lg:px-16 pt-16 pb-4 text-center">
         <p className="text-white/40 text-sm tracking-widest uppercase mb-4">
           {university}
@@ -83,59 +161,42 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
           className="text-4xl sm:text-5xl lg:text-6xl font-light text-white tracking-tight"
           style={{ letterSpacing: "-0.03em" }}
         >
-          Winter Quarter — Core Subjects
+          Core Subjects
         </h1>
         <p className="text-white/35 text-base mt-4 max-w-xl mx-auto">
           {program}
         </p>
       </div>
 
-      {/* Cards grid */}
-      <div className="px-8 lg:px-16 pt-12 pb-20 flex-1">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-[1400px] mx-auto">
-          {courses.map((course) => (
-            <div
-              key={course.code}
-              className="group relative flex flex-col justify-between p-7 min-h-[280px] transition-all duration-300 hover:translate-y-[-2px]"
-              style={{
-                background:
-                  "linear-gradient(160deg, hsla(225,25%,25%,0.5) 0%, hsla(230,20%,18%,0.45) 100%)",
-                backdropFilter: "blur(24px)",
-                WebkitBackdropFilter: "blur(24px)",
-                border: "1px solid hsla(220,30%,50%,0.12)",
-                borderRadius: "4px",
-              }}
-            >
-              {/* Icon */}
-              <div>
-                <div className="text-white/60 mb-8">{course.icon}</div>
-
-                {/* Title */}
-                <h3
-                  className="text-xl font-semibold text-white leading-tight mb-4"
-                  style={{ letterSpacing: "-0.02em" }}
-                >
-                  {course.name}
-                </h3>
-
-                {/* Description */}
-                <p className="text-white/45 text-sm leading-relaxed">
-                  {course.description}
-                </p>
-              </div>
-
-              {/* Code badge at bottom */}
-              <div className="mt-6 flex items-center justify-between">
-                <span className="text-xs text-white/30 font-medium tracking-wider uppercase">
-                  {course.code}
-                </span>
-                <span className="text-xs text-white/25 font-medium">
-                  {course.type}
-                </span>
-              </div>
+      {/* Quarters */}
+      <div className="px-8 lg:px-16 pt-14 pb-24 flex-1 flex flex-col gap-20 max-w-[1400px] mx-auto w-full">
+        {quarters.map((quarter) => (
+          <section key={quarter.label}>
+            {/* Quarter label */}
+            <div className="flex items-center gap-5 mb-8">
+              <h2
+                className="text-2xl font-light text-white"
+                style={{ letterSpacing: "-0.02em" }}
+              >
+                {quarter.label}
+              </h2>
+              <div
+                className="flex-1 h-px"
+                style={{ background: "hsla(220,30%,50%,0.12)" }}
+              />
+              <span className="text-xs text-white/25 tracking-widest uppercase">
+                Core
+              </span>
             </div>
-          ))}
-        </div>
+
+            {/* Cards grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {quarter.courses.map((course) => (
+                <CourseCard key={course.code} course={course} />
+              ))}
+            </div>
+          </section>
+        ))}
       </div>
     </div>
   );
