@@ -50,8 +50,9 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
       </div>
 
       {/* Title */}
+      {/* Title */}
       <div className="px-8 lg:px-12 pt-6 pb-2">
-        <h1 className="text-4xl lg:text-5xl font-bold tracking-tight" style={{ color: "hsl(265 70% 65%)" }}>
+        <h1 className="text-4xl lg:text-5xl font-bold tracking-tight text-white">
           Semester 1 Subjects
         </h1>
         <p className="text-white/40 text-base mt-2">
@@ -65,30 +66,31 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
           {courses.map((course) => (
             <div
               key={course.code}
-              className="rounded-xl p-6 flex flex-col justify-between min-h-[200px] transition-colors"
+              className="rounded-xl p-6 flex flex-col justify-between min-h-[220px] transition-all"
               style={{
-                background: "hsla(0,0%,100%,0.04)",
-                border: "1px solid hsla(0,0%,100%,0.10)",
+                background: "hsla(220,20%,20%,0.45)",
+                backdropFilter: "blur(16px)",
+                border: "1px solid hsla(220,20%,60%,0.12)",
               }}
             >
               <div>
-                <div className="flex items-start justify-between gap-3 mb-4">
-                  <h3 className="text-lg font-bold text-white leading-snug">
-                    {course.name}
-                  </h3>
+                <div className="flex items-center gap-2 mb-3">
+                  <FileText className="h-5 w-5 text-white/60" />
                   <span
-                    className="shrink-0 flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-medium text-white/80"
-                    style={{ background: "hsla(0,0%,100%,0.08)", border: "1px solid hsla(0,0%,100%,0.10)" }}
+                    className="text-xs font-medium text-white/50 uppercase tracking-wider"
                   >
-                    <FileText className="h-3 w-3" />
                     {course.type}
                   </span>
                 </div>
-                <p className="text-white/40 text-sm">{course.slug}</p>
+                <h3 className="text-xl font-bold text-white leading-snug mb-3">
+                  {course.name}
+                </h3>
+                <p className="text-white/40 text-sm leading-relaxed">
+                  {course.code}
+                </p>
               </div>
               <button
-                className="mt-5 flex items-center gap-1.5 text-sm font-medium transition-colors"
-                style={{ color: "hsl(265 70% 65%)" }}
+                className="mt-5 flex items-center gap-1.5 text-sm font-medium text-white/70 hover:text-white transition-colors"
               >
                 View Syllabus
                 <ChevronRight className="h-4 w-4" />
