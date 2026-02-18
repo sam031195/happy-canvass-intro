@@ -638,6 +638,20 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
                       </li>
                     ))}
                   </ul>
+
+                  {/* Chat with AI — only for the GenAI course */}
+                  {courseCode === "MSIS 549 B" && (
+                    <button
+                      className="mt-4 flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-opacity hover:opacity-85"
+                      style={{
+                        background: "hsla(265, 60%, 55%, 1)",
+                        color: "hsla(0, 0%, 100%, 0.95)",
+                      }}
+                    >
+                      <Sparkles className="h-4 w-4" style={{ color: "hsla(48, 100%, 78%, 1)" }} />
+                      Chat with AI about this Module
+                    </button>
+                  )}
                 </div>
               </div>
             ))}
