@@ -366,7 +366,7 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
             <div
               className="shrink-0 mt-1 rounded-full"
               style={{
-                padding: "0.4px",
+                padding: "0.3px",
                 background: "conic-gradient(from var(--ai-angle), #4285f4, #ea4335, #fbbc05, #34a853, #4285f4)",
                 animation: "ai-spin 3s linear infinite",
               }}
@@ -378,7 +378,7 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
                   color: "hsla(210, 20%, 92%, 0.95)",
                 }}
               >
-                <Sparkles className="h-4 w-4" style={{ color: "#fbbc05" }} />
+                <Sparkles className="h-4 w-4" style={{ color: "hsla(210, 20%, 97%, 0.9)" }} />
                 Ask AI
               </button>
             </div>
