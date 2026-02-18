@@ -147,7 +147,7 @@ const ML_AI_BUSINESS_DETAIL: CourseDetail = {
   code: "MSIS 549 B",
   name: "Machine Learning & AI for Business Applications",
   description:
-    "Equips students with the skills to design, deploy, and evaluate generative AI systems — from LLMs and RAG pipelines to agentic workflows and multimodal solutions.",
+    "This course equips students to master core GenAI concepts, leverage advanced AI systems, and deliver end-to-end AI solutions. Students learn to design copilot and agentic systems, work with LLMs and diffusion models, and build robust evaluation pipelines — all grounded in ethical, team-based practice.",
   credits: 4,
   duration: "10 Weeks",
   modules: [
