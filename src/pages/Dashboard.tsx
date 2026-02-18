@@ -60,7 +60,7 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden flex flex-col" style={{ background: "hsl(0, 0%, 3%)" }}>
+    <div className="relative min-h-screen w-full overflow-hidden flex flex-col" style={{ background: "hsl(230, 25%, 4%)" }}>
 
       {/* ── Dot grid texture ── */}
       <div
@@ -228,7 +228,7 @@ const Dashboard = () => {
           <div
             className="relative flex items-center rounded-2xl px-4 py-3 gap-3"
             style={{
-              background: "hsla(0, 0%, 6%, 0.95)",
+              background: "hsla(230, 25%, 5%, 0.95)",
               border: "1px solid hsla(0, 0%, 100%, 0.09)",
               boxShadow: "0 0 0 1px hsla(0,0%,0%,0.5), 0 8px 32px hsla(0,0%,0%,0.5), 0 2px 8px 0 hsla(220,80%,55%,0.15) inset",
             }}
@@ -245,7 +245,7 @@ const Dashboard = () => {
                 onClick={() => setModelOpen((v) => !v)}
                 className="flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-medium transition-colors"
                 style={{
-                  background: "hsla(0, 0%, 10%, 1)",
+                  background: "hsla(230, 22%, 9%, 1)",
                   border: "1px solid hsla(0, 0%, 100%, 0.07)",
                   color: "hsla(0, 0%, 65%, 0.9)",
                 }}
@@ -258,7 +258,7 @@ const Dashboard = () => {
                 <div
                   className="absolute left-0 top-full mt-1.5 z-50 py-1 rounded-xl min-w-[160px]"
                   style={{
-                    background: "hsl(0, 0%, 7%)",
+                    background: "hsl(230, 25%, 6%)",
                     border: "1px solid hsla(0, 0%, 100%, 0.08)",
                     boxShadow: "0 12px 40px hsla(0,0%,0%,0.6)",
                   }}
@@ -302,7 +302,7 @@ const Dashboard = () => {
               onMouseLeave={() => setAiHovered(false)}
               className="relative shrink-0 rounded-xl px-3.5 py-2 text-xs font-semibold flex items-center gap-1.5"
               style={{
-                background: "hsla(0, 0%, 10%, 1)",
+                background: "hsla(230, 22%, 9%, 1)",
                 border: "1px solid hsla(0, 0%, 100%, 0.07)",
                 color: "hsla(0, 0%, 70%, 0.9)",
               }}
@@ -314,7 +314,7 @@ const Dashboard = () => {
                   background: `radial-gradient(circle 55px at ${aiGradientPos.x}% ${aiGradientPos.y}%, #4285f4, #ea4335, #fbbc05, #34a853, transparent 70%)`,
                 }}
               />
-              <span className="pointer-events-none absolute inset-0 rounded-xl -z-[5]" style={{ background: "hsl(0 0% 8%)" }} />
+              <span className="pointer-events-none absolute inset-0 rounded-xl -z-[5]" style={{ background: "hsl(230, 25%, 6%)" }} />
               <Sparkles className="h-3.5 w-3.5 relative z-10" style={{ color: "hsla(0, 0%, 65%, 0.9)" }} />
               <span className="relative z-10">AI Mode</span>
             </button>
@@ -337,7 +337,7 @@ const Dashboard = () => {
                 key={s}
                 className="px-4 py-2 rounded-full text-xs font-medium transition-all duration-150"
                 style={{
-                  background: "hsla(0, 0%, 7%, 0.8)",
+                  background: "hsla(230, 25%, 6%, 0.8)",
                   border: "1px solid hsla(0, 0%, 100%, 0.07)",
                   color: "hsla(0, 0%, 42%, 0.85)",
                 }}
