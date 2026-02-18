@@ -207,7 +207,7 @@ const CourseCard = ({ course, onClick }: { course: Course; onClick?: () => void 
 );
 
 // Codes that have a detail page
-const CLICKABLE_CODES = new Set(["MSIS 521 B", "MSIS 549 B"]);
+const CLICKABLE_CODES = new Set(["MSIS 521 B", "MSIS 522 B", "MSIS 549 B"]);
 
 const SyllabusPage = ({ university, program, onBack }: Props) => {
   const quarters = QUARTERS_BY_PROGRAM[program] || [];

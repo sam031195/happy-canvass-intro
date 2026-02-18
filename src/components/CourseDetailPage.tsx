@@ -1,4 +1,4 @@
-import { ChevronLeft, BookOpen, Clock, GraduationCap, BarChart3, CheckCircle2 } from "lucide-react";
+import { ChevronLeft, BookOpen, Clock, GraduationCap, BarChart3, CheckCircle2, ListChecks } from "lucide-react";
 
 interface Module {
   number: number;
@@ -17,6 +17,7 @@ interface CourseDetail {
     overview: string;
     skills: string[];
     outcome: string;
+    prerequisites?: string[];
   };
 }
 
@@ -202,8 +203,89 @@ const ML_AI_BUSINESS_DETAIL: CourseDetail = {
   },
 };
 
+const MSIS_522_DETAIL: CourseDetail = {
+  code: "MSIS 522 B",
+  name: "Advanced Machine Learning",
+  description:
+    "A graduate-level deep dive into advanced ML techniques — from neural architectures and transformer-based LLMs to multimodal AI — combining rigorous theory with real-world implementation.",
+  credits: 4,
+  duration: "10 Weeks",
+  modules: [
+    {
+      number: 1,
+      title: "Advanced Business Analytics",
+      topics: [
+        "Decision trees, linear & logistic regression, and classification review",
+        "Boosted trees and ensemble methods",
+        "Cross-validation, regularization, and overfitting prevention",
+        "Model interpretability with SHAP (SHapley Additive exPlanations)",
+        "Time series forecasting and handling imbalanced datasets",
+      ],
+    },
+    {
+      number: 2,
+      title: "Neural Networks Fundamentals",
+      topics: [
+        "Feedforward architectures and core neural network concepts",
+        "Backpropagation and gradient descent optimization",
+        "Mathematical foundations for modern deep learning systems",
+      ],
+    },
+    {
+      number: 3,
+      title: "Large Language Models and Transformers",
+      topics: [
+        "Transformer architectures powering ChatGPT and Claude",
+        "Attention mechanisms, pre-training, and fine-tuning",
+        "Hands-on with LLM APIs for business and research applications",
+      ],
+    },
+    {
+      number: 4,
+      title: "Multimodal AI and Diffusion Models",
+      topics: [
+        "Convolutional Neural Networks (CNNs) and Vision Transformers",
+        "Diffusion models for text-to-image and cross-modal generation",
+        "Integrating text, images, and audio for complex real-world problems",
+      ],
+    },
+    {
+      number: 5,
+      title: "Demo Day",
+      topics: [
+        "Team presentations to a panel of industry judges (5–6 min + Q&A)",
+        "Live demonstrations of ML solutions addressing business or societal challenges",
+        "Awards: Best Technical Implementation, Best Business Application, Tech for a Better World",
+      ],
+    },
+  ],
+  summary: {
+    overview:
+      "This graduate-level course covers advanced ML from foundational analytics to cutting-edge neural architectures and multimodal AI. Each session combines theory with practical implementation, real-world case studies, and hands-on exercises — culminating in a live industry Demo Day.",
+    skills: [
+      "Neural network design, backpropagation & gradient descent",
+      "Advanced model interpretability with SHAP",
+      "CNN & Vision Transformer implementation",
+      "Transformer-based LLMs and fine-tuning strategies",
+      "Multimodal AI and diffusion model applications",
+      "Transfer learning with pre-trained models",
+      "End-to-end AI project development & ethical deployment",
+    ],
+    outcome:
+      "Graduates will be able to design and deploy state-of-the-art ML systems, communicate technical results to diverse audiences, and build production-ready AI solutions that integrate multiple modalities.",
+    prerequisites: [
+      "Statistics & probability (distributions, hypothesis testing, p-values)",
+      "Linear algebra & calculus (matrices, derivatives, integrals)",
+      "Python programming (data structures, loops, functions)",
+      "Business data analytics (regression, tree models, clustering)",
+      "Data pipeline design (visualization, train-validation-test splits)",
+    ],
+  },
+};
+
 const COURSE_DETAILS: Record<string, CourseDetail> = {
   "MSIS 521 B": IT_MARKETING_DETAIL,
+  "MSIS 522 B": MSIS_522_DETAIL,
   "MSIS 549 B": ML_AI_BUSINESS_DETAIL,
 };
 
@@ -490,6 +572,43 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
               {detail.summary.outcome}
             </p>
           </div>
+
+          {/* Prerequisites card — only shown when present */}
+          {detail.summary.prerequisites && detail.summary.prerequisites.length > 0 && (
+            <div
+              className="p-5 rounded-sm mt-4"
+              style={{
+                background: "hsla(228, 45%, 7%, 0.85)",
+                border: "1px solid hsla(218, 35%, 30%, 0.15)",
+              }}
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <ListChecks className="h-4 w-4" style={{ color: "hsla(215, 30%, 65%, 0.6)" }} />
+                <span
+                  className="text-xs font-semibold tracking-wide uppercase"
+                  style={{ color: "hsla(215, 25%, 65%, 0.6)" }}
+                >
+                  Prerequisites
+                </span>
+              </div>
+              <ul className="flex flex-col gap-2.5">
+                {detail.summary.prerequisites.map((req, i) => (
+                  <li key={i} className="flex items-start gap-2.5">
+                    <span
+                      className="mt-1.5 shrink-0 w-1 h-1 rounded-full"
+                      style={{ background: "hsla(215, 30%, 55%, 0.45)" }}
+                    />
+                    <span
+                      className="text-xs leading-relaxed"
+                      style={{ color: "hsla(215, 18%, 68%, 0.75)" }}
+                    >
+                      {req}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </div>
