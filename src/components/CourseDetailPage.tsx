@@ -366,7 +366,7 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
             <div
               className="shrink-0 self-center rounded-full"
               style={{
-                padding: "0.3px",
+                padding: "1px",
                 background: "conic-gradient(from var(--ai-angle), #4285f4, #ea4335, #fbbc05, #34a853, #4285f4)",
                 animation: "ai-spin 3s linear infinite",
               }}
