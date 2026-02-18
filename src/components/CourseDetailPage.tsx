@@ -160,10 +160,10 @@ const AIChatPanel = ({ open, onClose, context }: { open: boolean; onClose: () =>
         <div className="flex-1 overflow-y-auto px-5 py-5 flex flex-col gap-4">
           {messages.map((msg, i) => (
             <div key={i} className={`flex gap-3 ${msg.role === "user" ? "flex-row-reverse" : ""}`}>
-              <div className="shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs mt-0.5" style={{ background: msg.role === "ai" ? "hsla(0, 0%, 12%, 1)" : "hsla(0, 0%, 18%, 1)", border: "1px solid hsla(0, 0%, 100%, 0.08)", color: "hsla(0, 0%, 80%, 0.9)" }}>
+              <div className="shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs mt-0.5" style={{ background: msg.role === "ai" ? "hsla(230, 22%, 10%, 1)" : "hsla(230, 20%, 14%, 1)", border: "1px solid hsla(0, 0%, 100%, 0.08)", color: "hsla(0, 0%, 80%, 0.9)" }}>
                 {msg.role === "ai" ? <Bot className="h-3.5 w-3.5" /> : <User className="h-3.5 w-3.5" />}
               </div>
-              <div className="max-w-[78%] px-4 py-3 rounded-2xl text-sm leading-relaxed" style={msg.role === "ai" ? { background: "hsla(0, 0%, 8%, 0.9)", border: "1px solid hsla(0, 0%, 100%, 0.07)", color: "hsla(0, 0%, 78%, 0.9)", borderBottomLeftRadius: "4px" } : { background: "hsla(0, 0%, 16%, 0.8)", border: "1px solid hsla(0, 0%, 100%, 0.1)", color: "hsla(0, 0%, 92%, 0.95)", borderBottomRightRadius: "4px" }}>
+              <div className="max-w-[78%] px-4 py-3 rounded-2xl text-sm leading-relaxed" style={msg.role === "ai" ? { background: "hsla(230, 22%, 7%, 0.9)", border: "1px solid hsla(0, 0%, 100%, 0.07)", color: "hsla(0, 0%, 78%, 0.9)", borderBottomLeftRadius: "4px" } : { background: "hsla(230, 18%, 13%, 0.8)", border: "1px solid hsla(0, 0%, 100%, 0.1)", color: "hsla(0, 0%, 92%, 0.95)", borderBottomRightRadius: "4px" }}>
                 {msg.text}
               </div>
             </div>
@@ -172,7 +172,7 @@ const AIChatPanel = ({ open, onClose, context }: { open: boolean; onClose: () =>
         </div>
         <div className="px-5 pb-3 flex flex-wrap gap-2">
           {["Explain the key concepts", "Give me a study tip", "Real-world example?"].map((s) => (
-            <button key={s} onClick={() => setInput(s)} className="text-xs px-3 py-1.5 rounded-full transition-colors" style={{ background: "hsla(0, 0%, 10%, 0.9)", border: "1px solid hsla(0, 0%, 100%, 0.08)", color: "hsla(0, 0%, 60%, 0.8)" }}>{s}</button>
+            <button key={s} onClick={() => setInput(s)} className="text-xs px-3 py-1.5 rounded-full transition-colors" style={{ background: "hsla(230, 22%, 9%, 0.9)", border: "1px solid hsla(0, 0%, 100%, 0.08)", color: "hsla(0, 0%, 60%, 0.8)" }}>{s}</button>
           ))}
         </div>
         <div className="px-5 pb-5 pt-2 shrink-0" style={{ borderTop: "1px solid hsla(0, 0%, 100%, 0.06)" }}>
@@ -232,7 +232,7 @@ const ModuleRow = ({ mod, showChatBtn, onChatClick }: { mod: Module; showChatBtn
     <div
       className="rounded-xl overflow-hidden transition-all duration-150"
       style={{
-        background: expanded ? "hsla(0, 0%, 8%, 1)" : "hsla(0, 0%, 6%, 1)",
+        background: expanded ? "hsla(230, 22%, 9%, 1)" : "hsla(230, 25%, 6%, 1)",
         border: expanded ? "1px solid hsla(0, 0%, 100%, 0.1)" : "1px solid hsla(0, 0%, 100%, 0.06)",
       }}
     >

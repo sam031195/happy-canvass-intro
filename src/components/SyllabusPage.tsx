@@ -64,8 +64,8 @@ const CourseCard = ({ course, onClick, index }: { course: Course; onClick?: () =
       className="group relative flex flex-col p-6 cursor-default transition-all duration-300"
       style={{
         background: hovered
-          ? "hsla(0, 0%, 8%, 1)"
-          : "hsla(0, 0%, 5%, 1)",
+          ? "hsla(230, 22%, 9%, 1)"
+          : "hsla(230, 25%, 6%, 1)",
         border: hovered
           ? "1px solid hsla(0, 0%, 100%, 0.12)"
           : "1px solid hsla(0, 0%, 100%, 0.06)",
