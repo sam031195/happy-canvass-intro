@@ -65,7 +65,7 @@ const AINotebookPage = ({ context, courseName, modules = [], onClose }: Props) =
         style={{ borderBottom: `1px solid ${border}`, background: "hsl(230, 18%, 4%)" }}
       >
         {/* Logo */}
-        <button onClick={onClose} className="flex items-center gap-2 group shrink-0">
+        <div className="flex items-center gap-2 group shrink-0">
           <div
             className="w-7 h-7 rounded-full flex items-center justify-center shrink-0"
             style={{
@@ -79,7 +79,7 @@ const AINotebookPage = ({ context, courseName, modules = [], onClose }: Props) =
             </div>
           </div>
           <span className="text-sm font-bold" style={{ color: headingColor }}>AI Study</span>
-        </button>
+        </div>
 
         {/* Center: repo-style search pill */}
         <div className="flex-1 flex justify-center">
