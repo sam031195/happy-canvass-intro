@@ -208,24 +208,27 @@ interface Props { courseCode: string; onBack: () => void; }
 
 const CourseDetailPage = ({ courseCode, onBack }: Props) => {
   const detail = COURSE_DETAILS[courseCode];
-  const [notebookContext, setNotebookContext] = useState<string | null>(null);
-  const openChat = useCallback((context: string) => { setNotebookContext(context); }, []);
+  const [notebookOpen, setNotebookOpen] = useState(false);
+  const [initialModuleIndex, setInitialModuleIndex] = useState<number | null>(null);
+  const openChat = useCallback((modIndex: number | null = null) => {
+    setInitialModuleIndex(modIndex);
+    setNotebookOpen(true);
+  }, []);
 
   if (!detail) return null;
 
-  if (notebookContext !== null) {
+  if (notebookOpen) {
     return (
       <AINotebookPage
-        context={notebookContext}
+        context={detail.name}
         courseName={detail.name}
         modules={detail.modules}
-        onClose={() => setNotebookContext(null)}
+        initialModuleIndex={initialModuleIndex}
+        onClose={() => { setNotebookOpen(false); setInitialModuleIndex(null); }}
       />
     );
   }
 
-
-  const isGenAI = courseCode === "MSIS 549 B";
   const completionPct = Math.round((detail.modules.length / 10) * 100);
 
   return (
@@ -282,7 +285,7 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
           {detail.code}
         </span>
         <div className="flex-1" />
-        {isGenAI && <AskAIButton onClick={() => openChat(detail.name)} />}
+        <AskAIButton onClick={() => openChat(null)} />
       </div>
 
       {/* ── Scrollable body ── */}
@@ -349,7 +352,7 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
               </div>
               <div className="flex flex-col gap-1.5">
                 {detail.modules.map((mod, i) => (
-                  <ModuleRow key={mod.number} mod={mod} showChatBtn={isGenAI} onChatClick={() => openChat(`Module ${mod.number}: ${mod.title}`)} />
+                  <ModuleRow key={mod.number} mod={mod} showChatBtn={true} onChatClick={() => openChat(i)} />
                 ))}
               </div>
             </div>
