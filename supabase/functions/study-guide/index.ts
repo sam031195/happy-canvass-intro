@@ -17,23 +17,13 @@ serve(async (req) => {
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
 
-    const systemPrompt = `You are an expert academic research assistant, curriculum designer, and self-study coach. Your task is to create the most comprehensive, actionable, and high-quality self-study resource guide for a SINGLE MODULE of a university-level course.
+    const systemPrompt = `You are an expert academic research assistant and self-study coach. For the given university module, produce a comprehensive self-study resource guide in clean GitHub-flavored Markdown.
 
-This guide must enable a motivated self-learner — with NO access to the university, NO professor, and NO classmates — to fully master every topic in this module from home.
-
-FORMAT REQUIREMENTS:
-- Use clean GitHub-flavored Markdown with tables for every resource category
-- Every resource MUST include a clickable URL wherever possible
-- Add a difficulty tag to every resource: [Beginner], [Intermediate], or [Advanced]
-- Write in a professional, academic tone with full descriptive sentences
-- Every single resource must be high-signal and directly relevant — no filler
-- Do NOT include a core book list — focus only on module-specific resources
-
-OUTPUT STRUCTURE (follow this EXACTLY for the single module):
+OUTPUT STRUCTURE (follow exactly):
 
 ## Module [NUMBER]: [TITLE]
 
-Brief 2-3 sentence overview of what this module covers and why it matters.
+2-3 sentence overview of what this module covers and why it matters.
 
 ---
 
@@ -41,11 +31,11 @@ Brief 2-3 sentence overview of what this module covers and why it matters.
 
 | Repository | Stars | Description | Difficulty |
 | :--- | :--- | :--- | :--- |
-[3-5 repos — real, actively maintained, 50+ stars]
+[3-5 real, actively maintained repos with 50+ stars, clickable URLs]
 
 ---
 
-### 2. Practice Questions & Interview Prep Repos
+### 2. Practice Questions & Interview Prep
 
 | Repository | Stars | Description | Difficulty |
 | :--- | :--- | :--- | :--- |
@@ -55,9 +45,9 @@ Brief 2-3 sentence overview of what this module covers and why it matters.
 
 ### 3. Best Video Lectures / YouTube Playlists
 
-| Title | URL | Creator / University | Description | Difficulty |
+| Title | URL | Creator | Description | Difficulty |
 | :--- | :--- | :--- | :--- | :--- |
-[2-3 videos — prefer Stanford, MIT, CMU, 3Blue1Brown, StatQuest, Karpathy, Andrew Ng]
+[2-3 videos — prefer Stanford, MIT, CMU, 3Blue1Brown, StatQuest, Andrew Ng]
 
 ---
 
@@ -73,7 +63,7 @@ Brief 2-3 sentence overview of what this module covers and why it matters.
 
 | Title | Authors | Year | Link | Description |
 | :--- | :--- | :--- | :--- | :--- |
-[2-3 seminal/foundational papers with clickable arXiv or DOI links]
+[2-3 seminal papers with clickable arXiv or DOI links]
 
 ---
 
@@ -81,16 +71,24 @@ Brief 2-3 sentence overview of what this module covers and why it matters.
 
 **What to build:** [description]
 **Tools/Libraries:** [list]
-**Dataset:** [name + free link if available]
+**Dataset:** [name + free link]
 **Expected Learning Outcome:** [2-3 sentences]
 
 ---
 
 ### 7. Recommended Study Order
 
-[3-5 sentence paragraph: Start with X, then Y, then practice with Z, finally build the project]`;
+[3-5 sentence paragraph guiding the learner through the resources]
 
-    const userMessage = `Generate the complete self-study resource guide for the following module:
+---
+
+Rules:
+- Every resource must have a clickable URL
+- Add [Beginner], [Intermediate], or [Advanced] tag to every resource
+- All resources must be real and directly relevant — no filler
+- Write in professional, academic tone`;
+
+    const userMessage = `Generate the complete self-study resource guide for:
 
 **University:** ${university || "University of Washington"}
 **Program:** ${program || "Master of Science in Information Systems (MSIS)"}
@@ -99,7 +97,7 @@ Brief 2-3 sentence overview of what this module covers and why it matters.
 **Module Title:** ${moduleTitle}
 **Module Topics:** ${Array.isArray(moduleTopics) ? moduleTopics.join(", ") : moduleTopics}
 
-Produce the full guide now. Every resource must be real, clickable, and directly relevant to the module topic. Quality over speed.`;
+Produce the full guide now. Every resource must be real, clickable, and directly relevant.`;
 
     const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
       method: "POST",
@@ -108,7 +106,7 @@ Produce the full guide now. Every resource must be real, clickable, and directly
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "google/gemini-3-flash-preview",
+        model: "openai/gpt-5-mini",
         messages: [
           { role: "system", content: systemPrompt },
           { role: "user", content: userMessage },
@@ -133,7 +131,7 @@ Produce the full guide now. Every resource must be real, clickable, and directly
       const errText = await response.text();
       console.error("AI gateway error:", response.status, errText);
       return new Response(
-        JSON.stringify({ error: "AI gateway error" }),
+        JSON.stringify({ error: "AI service temporarily unavailable. Please try again." }),
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
