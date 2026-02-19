@@ -228,13 +228,41 @@ const AINotebookPage = ({ context, courseName, modules = [], onClose }: Props) =
                 <span className="text-[13px] font-semibold" style={{ color: headingColor }}>Past Chats</span>
               </div>
               <ChevronDown
-                className="h-4 w-4 transition-transform"
+                className="h-4 w-4 transition-transform duration-200"
                 style={{
                   color: "hsla(220, 15%, 45%, 0.7)",
                   transform: pastChatsOpen ? "rotate(180deg)" : "rotate(0deg)",
                 }}
               />
             </button>
+
+            {/* Expanded past chat items */}
+            {pastChatsOpen && (
+              <div className="flex flex-col pb-3" style={{ borderTop: `1px solid ${border}` }}>
+                {[
+                  { label: "What is agentic AI?", time: "2h ago" },
+                  { label: "Explain vibe coding concept", time: "Yesterday" },
+                  { label: "GenAI use cases in business", time: "3d ago" },
+                  { label: "Human-AI decision frameworks", time: "5d ago" },
+                  { label: "Difference: AI vs ML vs GenAI", time: "1w ago" },
+                ].map((chat, i) => (
+                  <button
+                    key={i}
+                    className="flex flex-col items-start px-5 py-2.5 text-left transition-colors"
+                    style={{ background: "transparent" }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = surfaceHover; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "transparent"; }}
+                  >
+                    <span className="text-[12.5px] leading-snug truncate w-full" style={{ color: "hsla(220, 15%, 62%, 0.88)" }}>
+                      {chat.label}
+                    </span>
+                    <span className="text-[11px] mt-0.5" style={{ color: "hsla(220, 15%, 38%, 0.65)" }}>
+                      {chat.time}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
         </div>
 
