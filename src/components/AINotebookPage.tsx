@@ -17,6 +17,8 @@ import {
   ArrowRight,
   ChevronLeft,
   BookOpen,
+  MessageSquare,
+  Clock,
 } from "lucide-react";
 import { useState, useRef, useEffect, useCallback } from "react";
 
@@ -47,9 +49,17 @@ const AINotebookPage = ({ context, courseName, modules = [], onClose }: Props) =
   const [leftCollapsed, setLeftCollapsed] = useState(false);
   const [rightCollapsed, setRightCollapsed] = useState(false);
   const [activeModule, setActiveModule] = useState<number | null>(null);
+  const [pastChatsOpen, setPastChatsOpen] = useState(false);
   // Start with modal dismissed — sources UI is now inline in the center bottom
   const [modalDismissed, setModalDismissed] = useState(true);
   const bottomRef = useRef<HTMLDivElement>(null);
+
+  const pastChats = [
+    { id: 1, title: "What is reinforcement learning?", time: "2h ago" },
+    { id: 2, title: "Explain supervised vs unsupervised", time: "Yesterday" },
+    { id: 3, title: "How do neural networks work?", time: "2 days ago" },
+    { id: 4, title: "Overview of transformer models", time: "3 days ago" },
+  ];
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -278,6 +288,62 @@ const AINotebookPage = ({ context, courseName, modules = [], onClose }: Props) =
                     </div>
                   )}
                 </div>
+              </div>
+
+              {/* ── Divider ── */}
+              <div className="mx-4 my-2 h-px" style={{ background: "hsla(0,0%,100%,0.06)" }} />
+
+              {/* ── Past Chats toggle ── */}
+              <div className="px-4 pb-3">
+                <button
+                  onClick={() => setPastChatsOpen((v) => !v)}
+                  className="flex items-center gap-2 w-full py-1.5 group"
+                >
+                  <Clock className="h-3.5 w-3.5 shrink-0" style={{ color: "hsla(220, 15%, 48%, 0.75)" }} />
+                  <span className="text-[12px] font-semibold flex-1 text-left" style={{ color: "hsla(220, 15%, 62%, 0.88)" }}>
+                    Past Chats
+                  </span>
+                  <ChevronDown
+                    className="h-3.5 w-3.5 transition-transform duration-200 shrink-0"
+                    style={{
+                      color: "hsla(220, 15%, 48%, 0.6)",
+                      transform: pastChatsOpen ? "rotate(180deg)" : "rotate(0deg)",
+                    }}
+                  />
+                </button>
+
+                {pastChatsOpen && (
+                  <div className="flex flex-col gap-0.5 mt-1.5">
+                    {pastChats.map((chat) => (
+                      <button
+                        key={chat.id}
+                        className="flex items-start gap-2 w-full text-left px-2 py-2 rounded-md transition-colors"
+                        style={{ borderRadius: "6px" }}
+                        onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "hsla(230, 22%, 10%, 1)"; }}
+                        onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "transparent"; }}
+                      >
+                        <MessageSquare
+                          className="h-3.5 w-3.5 shrink-0 mt-0.5"
+                          style={{ color: "hsla(220, 15%, 42%, 0.7)" }}
+                        />
+                        <div className="flex flex-col min-w-0 flex-1">
+                          <span
+                            className="text-[12px] leading-snug truncate"
+                            style={{ color: "hsla(220, 15%, 62%, 0.88)" }}
+                          >
+                            {chat.title}
+                          </span>
+                          <span
+                            className="text-[10px] mt-0.5"
+                            style={{ color: "hsla(220, 15%, 38%, 0.6)" }}
+                          >
+                            {chat.time}
+                          </span>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           )}
