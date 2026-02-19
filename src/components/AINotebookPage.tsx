@@ -1,4 +1,4 @@
-import { Bot, Plus, ArrowRight, ChevronLeft, ExternalLink } from "lucide-react";
+import { Bot, Plus, ArrowRight, ChevronLeft, ExternalLink, BookOpen, Clock, ChevronDown } from "lucide-react";
 import { useState, useRef, useEffect, useCallback } from "react";
 
 interface Module {
@@ -19,6 +19,7 @@ const AINotebookPage = ({ context, courseName, modules = [], onClose }: Props) =
   const [studioInput, setStudioInput] = useState("");
   const [gradientPos, setGradientPos] = useState({ x: 50, y: 50 });
   const [sendHovered, setSendHovered] = useState(false);
+  const [pastChatsOpen, setPastChatsOpen] = useState(false);
 
   const handleSendMouseMove = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -36,19 +37,6 @@ const AINotebookPage = ({ context, courseName, modules = [], onClose }: Props) =
   const surfaceHover = "hsla(230, 18%, 10%, 1)";
   const accentBlue = "hsla(220, 80%, 68%, 0.9)";
 
-  // Build TOC from modules (like "On this page" in Code Wiki)
-  const tocItems = modules.length > 0
-    ? modules.map((m) => m.title)
-    : [
-        "Introduction",
-        "Core Concepts",
-        "Key Features",
-        "Architecture",
-        "Getting Started",
-        "Advanced Topics",
-        "Best Practices",
-        "Summary",
-      ];
 
   // Mock article paragraphs for center content
   const articleContent = modules.length > 0 ? modules : [
@@ -162,48 +150,91 @@ const AINotebookPage = ({ context, courseName, modules = [], onClose }: Props) =
       {/* ════ THREE-COLUMN BODY ════ */}
       <div className="relative z-10 flex flex-1 min-h-0">
 
-        {/* ══════ LEFT: "On this page" TOC ══════ */}
+        {/* ══════ LEFT: Sources panel ══════ */}
         <div
-          className="flex flex-col shrink-0 overflow-y-auto"
+          className="flex flex-col shrink-0"
           style={{
-            width: "240px",
+            width: "260px",
             background: "hsl(230, 18%, 4%)",
+            borderRight: `1px solid ${border}`,
           }}
         >
-          <div className="px-5 pt-6 pb-2">
-            <p className="text-[11px] font-semibold tracking-widest uppercase mb-4" style={{ color: subtext }}>
-              On this page
-            </p>
-            <div className="flex flex-col gap-0.5">
-              {tocItems.map((item, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActiveSection(i)}
-                  className="text-left px-2 py-1.5 text-[13px] leading-snug transition-colors rounded"
-                  style={{
-                    color: activeSection === i ? accentBlue : labelColor,
-                    borderLeft: activeSection === i
-                      ? `2px solid ${accentBlue}`
-                      : "2px solid transparent",
-                    borderRadius: "0",
-                    paddingLeft: activeSection === i ? "10px" : "12px",
-                    fontWeight: activeSection === i ? "500" : "400",
-                  }}
-                  onMouseEnter={(e) => {
-                    if (activeSection !== i) {
-                      (e.currentTarget as HTMLButtonElement).style.color = headingColor;
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (activeSection !== i) {
-                      (e.currentTarget as HTMLButtonElement).style.color = labelColor;
-                    }
-                  }}
-                >
-                  {item}
-                </button>
-              ))}
-            </div>
+          {/* Course header */}
+          <div className="px-5 pt-6 pb-4 flex items-start gap-3">
+            <BookOpen
+              className="h-[18px] w-[18px] shrink-0 mt-0.5"
+              style={{ color: "hsla(220, 15%, 55%, 0.85)" }}
+            />
+            <span
+              className="text-[13.5px] font-semibold leading-snug"
+              style={{ color: headingColor }}
+            >
+              {courseName || context}
+            </span>
+          </div>
+
+          {/* Module list with left vertical border */}
+          <div
+            className="flex flex-col flex-1 overflow-y-auto mx-5"
+            style={{
+              borderLeft: `1.5px solid hsla(220, 15%, 35%, 0.4)`,
+            }}
+          >
+            {(modules.length > 0 ? modules : [
+              { number: 1, title: "GenAI & the Future of Work", topics: [] },
+              { number: 2, title: "Creative Problem Solving + Vibe Coding", topics: [] },
+              { number: 3, title: "Agentic AI Systems", topics: [] },
+              { number: 4, title: "Implementation + Human-AI Decision-Making", topics: [] },
+              { number: 5, title: "GenAI & Agentic Fair", topics: [] },
+            ]).map((mod, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveSection(i)}
+                className="text-left pl-4 pr-2 py-3 text-[13px] leading-snug transition-colors"
+                style={{
+                  color: activeSection === i ? headingColor : "hsla(220, 15%, 52%, 0.82)",
+                  fontWeight: activeSection === i ? "500" : "400",
+                  background: "transparent",
+                  border: "none",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLButtonElement).style.color = headingColor;
+                }}
+                onMouseLeave={(e) => {
+                  if (activeSection !== i) {
+                    (e.currentTarget as HTMLButtonElement).style.color = "hsla(220, 15%, 52%, 0.82)";
+                  }
+                }}
+              >
+                {mod.title}
+              </button>
+            ))}
+          </div>
+
+          {/* Past Chats footer */}
+          <div
+            className="shrink-0"
+            style={{ borderTop: `1px solid ${border}` }}
+          >
+            <button
+              onClick={() => setPastChatsOpen(!pastChatsOpen)}
+              className="w-full flex items-center justify-between px-5 py-4 transition-colors"
+              style={{ color: headingColor }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = surfaceHover; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "transparent"; }}
+            >
+              <div className="flex items-center gap-2.5">
+                <Clock className="h-[15px] w-[15px]" style={{ color: "hsla(220, 15%, 55%, 0.8)" }} />
+                <span className="text-[13px] font-semibold" style={{ color: headingColor }}>Past Chats</span>
+              </div>
+              <ChevronDown
+                className="h-4 w-4 transition-transform"
+                style={{
+                  color: "hsla(220, 15%, 45%, 0.7)",
+                  transform: pastChatsOpen ? "rotate(180deg)" : "rotate(0deg)",
+                }}
+              />
+            </button>
           </div>
         </div>
 
