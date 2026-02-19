@@ -277,74 +277,42 @@ const AINotebookPage = ({ context, courseName, modules = [], onClose }: Props) =
           </div>
         </div>
 
-        {/* ══════ CENTER: Article content ══════ */}
+        {/* ══════ CENTER: Fetching placeholder ══════ */}
         <div
-          className="flex flex-col flex-1 min-w-0 overflow-y-auto"
+          className="flex flex-col flex-1 min-w-0 overflow-y-auto items-center justify-center"
           style={{ background: "hsl(230, 18%, 6%)" }}
         >
-          <div className="max-w-[780px] mx-auto w-full px-10 py-8">
-
-            {/* Repo/course title row */}
-            <div className="flex items-center gap-3 mb-2">
-              <h1 className="text-[22px] font-bold leading-tight" style={{ color: headingColor }}>
-                {courseName || context}
-              </h1>
-              <span
-                className="flex items-center gap-1.5 px-3 py-1 text-[11px] font-semibold shrink-0"
+          <div className="flex flex-col items-center gap-5 text-center px-10">
+            {/* Animated spinner ring */}
+            <div className="relative w-12 h-12">
+              <div
+                className="absolute inset-0 rounded-full"
                 style={{
-                  background: "hsla(220, 80%, 60%, 0.15)",
-                  border: `1px solid hsla(220, 80%, 60%, 0.3)`,
-                  borderRadius: "999px",
-                  color: accentBlue,
+                  border: "1.5px solid hsla(0,0%,100%,0.06)",
                 }}
-              >
-                {/* sparkle */}
-                <svg width="10" height="10" viewBox="0 0 60 60" fill="none">
-                  <path d="M30 2 C30 14, 46 30, 58 30 C46 30, 30 46, 30 58 C30 46, 14 30, 2 30 C14 30, 30 14, 30 2 Z" fill="currentColor" />
-                </svg>
-                Powered by Gemini
-              </span>
+              />
+              <div
+                className="absolute inset-0 rounded-full animate-spin"
+                style={{
+                  border: "1.5px solid transparent",
+                  borderTopColor: "hsla(220, 80%, 65%, 0.7)",
+                }}
+              />
             </div>
 
-            {/* View source link */}
-            <a
-              href="#"
-              className="inline-flex items-center gap-1.5 text-[12px] mb-8 transition-opacity hover:opacity-80"
-              style={{ color: subtext }}
-            >
-              <ExternalLink className="h-3 w-3" />
-              View source material
-            </a>
-
-            {/* Divider */}
-            <div className="h-px mb-8" style={{ background: border }} />
-
-            {/* Article sections */}
-            <div className="flex flex-col gap-10">
-              {articleContent.map((section, i) => (
-                <div key={i} id={`section-${i}`}>
-                  <h2
-                    className="text-[18px] font-semibold mb-4 flex items-center gap-2 cursor-pointer group"
-                    style={{ color: headingColor }}
-                    onClick={() => setActiveSection(i)}
-                  >
-                    {section.title}
-                    <span className="opacity-0 group-hover:opacity-40 transition-opacity text-[14px]">#</span>
-                  </h2>
-                  <div className="flex flex-col gap-4">
-                    {section.topics.map((para, j) => (
-                      <p key={j} className="text-[14px] leading-[1.75]" style={{ color: "hsla(220, 15%, 68%, 0.92)" }}>
-                        {para}
-                      </p>
-                    ))}
-                  </div>
-
-                  {/* Sub-section divider */}
-                  {i < articleContent.length - 1 && (
-                    <div className="mt-10 h-px" style={{ background: "hsla(0,0%,100%,0.05)" }} />
-                  )}
-                </div>
-              ))}
+            <div>
+              <p
+                className="text-sm font-semibold mb-1"
+                style={{ color: "hsla(220, 15%, 78%, 0.9)" }}
+              >
+                Fetching content…
+              </p>
+              <p
+                className="text-xs"
+                style={{ color: "hsla(220, 15%, 45%, 0.75)" }}
+              >
+                Course material will appear here once loaded.
+              </p>
             </div>
           </div>
         </div>
