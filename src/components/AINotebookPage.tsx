@@ -695,8 +695,9 @@ const AINotebookPage = ({ context, courseName, modules = [], onClose }: Props) =
                       <stop offset="100%" stopColor="#93c5fd" />
                     </linearGradient>
                   </defs>
+                  {/* Each segment: CP1 on vertical axis, CP2 on horizontal axis — gives symmetric sharp concave arms */}
                   <path
-                    d="M30 2 C30 20, 58 20, 58 30 C58 40, 30 40, 30 58 C30 40, 2 40, 2 30 C2 20, 30 20, 30 2 Z"
+                    d="M30 2 C30 14, 46 30, 58 30 C46 30, 30 46, 30 58 C30 46, 14 30, 2 30 C14 30, 30 14, 30 2 Z"
                     fill="url(#starGrad)"
                   />
                 </svg>
