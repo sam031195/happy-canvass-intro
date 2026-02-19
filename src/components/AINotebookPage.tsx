@@ -6,15 +6,6 @@ import {
   Search,
   Globe,
   Zap,
-  FileText,
-  Mic,
-  Video,
-  Map,
-  BarChart2,
-  CreditCard,
-  HelpCircle,
-  Image,
-  Table2,
   Upload,
   Link,
   HardDrive,
@@ -23,7 +14,6 @@ import {
   MoreVertical,
   PanelLeftClose,
   PanelRightClose,
-  PenLine,
   ArrowRight,
   ChevronLeft,
   BookOpen,
@@ -34,23 +24,6 @@ interface ChatMessage {
   role: "user" | "ai";
   text: string;
 }
-
-interface StudioTool {
-  label: string;
-  icon: React.ReactNode;
-}
-
-const STUDIO_TOOLS: StudioTool[] = [
-  { label: "Audio Overview", icon: <Mic className="h-4 w-4" /> },
-  { label: "Video Overview", icon: <Video className="h-4 w-4" /> },
-  { label: "Mind Map", icon: <Map className="h-4 w-4" /> },
-  { label: "Reports", icon: <BarChart2 className="h-4 w-4" /> },
-  { label: "Flashcards", icon: <CreditCard className="h-4 w-4" /> },
-  { label: "Quiz", icon: <HelpCircle className="h-4 w-4" /> },
-  { label: "Infographic", icon: <Image className="h-4 w-4" /> },
-  { label: "Slide Deck", icon: <FileText className="h-4 w-4" /> },
-  { label: "Data Table", icon: <Table2 className="h-4 w-4" /> },
-];
 
 interface Module {
   number: number;
@@ -710,71 +683,64 @@ const AINotebookPage = ({ context, courseName, modules = [], onClose }: Props) =
           </div>
 
           {!rightCollapsed && (
-            <div className="flex flex-col flex-1 overflow-y-auto px-3 pt-3 pb-4 gap-2">
-              {/* 2-column tool grid */}
-              <div className="grid grid-cols-2 gap-2">
-                {STUDIO_TOOLS.map(({ label, icon }) => (
-                  <button
-                    key={label}
-                    className="flex flex-col items-start gap-3 p-3 text-left transition-colors"
-                    style={{
-                      background: "hsla(230, 22%, 10%, 1)",
-                      border: `1px solid hsla(0,0%,100%,0.08)`,
-                      borderRadius: "6px",
-                      minHeight: "72px",
-                    }}
-                    onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLButtonElement).style.background = "hsla(230, 22%, 13%, 1)";
-                      (e.currentTarget as HTMLButtonElement).style.borderColor = "hsla(0,0%,100%,0.14)";
-                    }}
-                    onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLButtonElement).style.background = "hsla(230, 22%, 10%, 1)";
-                      (e.currentTarget as HTMLButtonElement).style.borderColor = "hsla(0,0%,100%,0.08)";
-                    }}
-                  >
-                    {/* Icon top-left */}
-                    <span style={{ color: "hsla(220, 20%, 55%, 0.85)" }}>{icon}</span>
-                    {/* Label bottom */}
-                    <span className="text-[11px] font-medium leading-tight" style={{ color: "hsla(220, 15%, 55%, 0.82)" }}>
-                      {label}
-                    </span>
-                  </button>
-                ))}
+            <div className="flex flex-col flex-1 min-h-0">
+              {/* ── Empty state: centered star + greeting ── */}
+              <div className="flex flex-col items-center justify-center flex-1 px-5 text-center gap-4">
+                {/* 4-pointed star SVG with blue-purple gradient */}
+                <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="starGrad" x1="0" y1="52" x2="52" y2="0" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stopColor="#6366f1" />
+                      <stop offset="50%" stopColor="#818cf8" />
+                      <stop offset="100%" stopColor="#a5b4fc" />
+                    </linearGradient>
+                  </defs>
+                  {/* 4-pointed star path */}
+                  <path
+                    d="M26 2 C26 2 28 18 38 26 C28 34 26 50 26 50 C26 50 24 34 14 26 C24 18 26 2 26 2Z"
+                    fill="url(#starGrad)"
+                  />
+                </svg>
+
+                <div className="flex flex-col gap-1">
+                  <p className="text-[15px] font-semibold" style={{ color: "hsla(220, 20%, 82%, 0.95)" }}>
+                    Hi there!
+                  </p>
+                  <p className="text-[12px] leading-relaxed" style={{ color: "hsla(220, 15%, 48%, 0.75)" }}>
+                    Ask me any questions about this course
+                  </p>
+                </div>
               </div>
 
-              {/* Studio output empty state */}
-              <div className="flex flex-col items-center gap-2 pt-6 pb-4 text-center">
-                <PenLine className="h-6 w-6" style={{ color: "hsla(220, 15%, 30%, 0.65)" }} />
-                <p className="text-[12px] font-medium" style={{ color: "hsla(220, 15%, 44%, 0.75)" }}>
-                  Studio output will be saved here.
-                </p>
-                <p
-                  className="text-[11px] leading-relaxed max-w-[200px]"
-                  style={{ color: "hsla(220, 15%, 34%, 0.65)" }}
-                >
-                  After adding sources, click to add Audio Overview, Study Guide, Mind Map, and more!
-                </p>
-              </div>
-
-              {/* Add note button — pinned bottom, full width, dark pill */}
-              <div className="mt-auto pt-3">
-                <button
-                  className="w-full flex items-center justify-center gap-2 py-2.5 text-[12px] font-semibold rounded-full transition-all"
+              {/* ── Bottom search bar ── */}
+              <div className="px-3 pb-4 flex flex-col gap-1.5">
+                <div
+                  className="flex items-center gap-2 px-4 py-3"
                   style={{
-                    background: "hsla(0, 0%, 14%, 1)",
-                    border: `1px solid hsla(0,0%,100%,0.12)`,
-                    color: headingColor,
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLButtonElement).style.background = "hsla(0,0%,20%,1)";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLButtonElement).style.background = "hsla(0,0%,14%,1)";
+                    background: "hsla(230, 22%, 11%, 1)",
+                    border: `1px solid hsla(0,0%,100%,0.1)`,
+                    borderRadius: "999px",
                   }}
                 >
-                  <PenLine className="h-3.5 w-3.5" />
-                  Add note
-                </button>
+                  <input
+                    type="text"
+                    placeholder="Ask about this module…"
+                    className="flex-1 bg-transparent border-none outline-none text-[13px] min-w-0"
+                    style={{ color: "hsla(220, 15%, 82%, 0.95)", caretColor: "hsla(220,80%,65%,0.9)" }}
+                  />
+                  {/* Send icon */}
+                  <button
+                    className="shrink-0 flex items-center justify-center w-6 h-6 rounded-full transition-colors"
+                    style={{ color: "hsla(220, 15%, 52%, 0.8)" }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.color = "hsla(220, 20%, 80%, 0.95)"; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.color = "hsla(220, 15%, 52%, 0.8)"; }}
+                  >
+                    <ArrowRight className="h-4 w-4" />
+                  </button>
+                </div>
+                <p className="text-center text-[10px]" style={{ color: "hsla(220, 15%, 36%, 0.65)" }}>
+                  AI can make mistakes, so double-check it.
+                </p>
               </div>
             </div>
           )}
