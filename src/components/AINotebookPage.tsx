@@ -1,5 +1,5 @@
 import { Bot, Plus, ArrowRight, ChevronLeft, ExternalLink, Clock, ChevronDown } from "lucide-react";
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
@@ -13,6 +13,7 @@ interface Props {
   context: string;
   courseName?: string;
   modules?: Module[];
+  initialModuleIndex?: number | null;
   onClose: () => void;
 }
 
@@ -20,7 +21,7 @@ type FetchState = "idle" | "loading" | "done" | "error";
 
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
 
-const AINotebookPage = ({ context, courseName, modules = [], onClose }: Props) => {
+const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex = null, onClose }: Props) => {
   const [activeSection, setActiveSection] = useState<number | null>(null);
   const [studioInput, setStudioInput] = useState("");
   const [gradientPos, setGradientPos] = useState({ x: 50, y: 50 });
@@ -42,6 +43,8 @@ const AINotebookPage = ({ context, courseName, modules = [], onClose }: Props) =
   }, []);
 
   // Color tokens
+
+
   const border = "hsla(0, 0%, 100%, 0.07)";
   const subtext = "hsla(220, 15%, 48%, 0.75)";
   const labelColor = "hsla(220, 15%, 62%, 0.88)";
@@ -167,6 +170,14 @@ const AINotebookPage = ({ context, courseName, modules = [], onClose }: Props) =
       setFetchState("error");
     }
   }, [displayModules, contentMap, courseName, context]);
+
+  // Auto-fetch when opened with a pre-selected module
+  useEffect(() => {
+    if (initialModuleIndex !== null && initialModuleIndex !== undefined) {
+      fetchModuleContent(initialModuleIndex);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialModuleIndex]);
 
   const currentContent = activeSection !== null ? (contentMap[activeSection] ?? "") : "";
 
