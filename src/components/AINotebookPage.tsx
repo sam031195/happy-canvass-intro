@@ -1,4 +1,4 @@
-import { Bot, Plus, ArrowRight, ChevronLeft, ExternalLink, BookOpen, Clock, ChevronDown } from "lucide-react";
+import { Bot, Plus, ArrowRight, ChevronLeft, ExternalLink, Clock, ChevronDown } from "lucide-react";
 import { useState, useRef, useEffect, useCallback } from "react";
 
 interface Module {
@@ -159,63 +159,74 @@ const AINotebookPage = ({ context, courseName, modules = [], onClose }: Props) =
             borderRight: `1px solid ${border}`,
           }}
         >
-          {/* Course header */}
+          {/* Course header with gradient BookOpen icon */}
           <div className="px-5 pt-6 pb-4 flex items-start gap-3">
-            <BookOpen
-              className="h-[18px] w-[18px] shrink-0 mt-0.5"
-              style={{ color: "hsla(220, 15%, 55%, 0.85)" }}
-            />
-            <span
-              className="text-[13.5px] font-semibold leading-snug"
-              style={{ color: headingColor }}
+            <svg
+              width="18" height="18" viewBox="0 0 24 24" fill="none"
+              className="shrink-0 mt-0.5"
+              xmlns="http://www.w3.org/2000/svg"
             >
+              <defs>
+                <linearGradient id="bookGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stopColor="#60a5fa" />
+                  <stop offset="100%" stopColor="#818cf8" />
+                </linearGradient>
+              </defs>
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" stroke="url(#bookGrad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" stroke="url(#bookGrad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            <span className="text-[13.5px] font-semibold leading-snug" style={{ color: headingColor }}>
               {courseName || context}
             </span>
           </div>
 
-          {/* Module list with left vertical border */}
-          <div
-            className="flex flex-col flex-1 overflow-y-auto mx-5"
-            style={{
-              borderLeft: `1.5px solid hsla(220, 15%, 35%, 0.4)`,
-            }}
-          >
-            {(modules.length > 0 ? modules : [
-              { number: 1, title: "GenAI & the Future of Work", topics: [] },
-              { number: 2, title: "Creative Problem Solving + Vibe Coding", topics: [] },
-              { number: 3, title: "Agentic AI Systems", topics: [] },
-              { number: 4, title: "Implementation + Human-AI Decision-Making", topics: [] },
-              { number: 5, title: "GenAI & Agentic Fair", topics: [] },
-            ]).map((mod, i) => (
-              <button
-                key={i}
-                onClick={() => setActiveSection(i)}
-                className="text-left pl-4 pr-2 py-3 text-[13px] leading-snug transition-colors"
-                style={{
-                  color: activeSection === i ? headingColor : "hsla(220, 15%, 52%, 0.82)",
-                  fontWeight: activeSection === i ? "500" : "400",
-                  background: "transparent",
-                  border: "none",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLButtonElement).style.color = headingColor;
-                }}
-                onMouseLeave={(e) => {
-                  if (activeSection !== i) {
-                    (e.currentTarget as HTMLButtonElement).style.color = "hsla(220, 15%, 52%, 0.82)";
-                  }
-                }}
-              >
-                {mod.title}
-              </button>
-            ))}
+          {/* Module list with gradient left vertical border */}
+          <div className="flex flex-1 min-h-0 overflow-y-auto mx-5">
+            {/* Gradient vertical line */}
+            <div
+              className="shrink-0"
+              style={{
+                width: "1.5px",
+                background: "linear-gradient(to bottom, #60a5fa, #818cf8, hsla(240,60%,60%,0.1))",
+                borderRadius: "2px",
+              }}
+            />
+            {/* Module items */}
+            <div className="flex flex-col flex-1">
+              {(modules.length > 0 ? modules : [
+                { number: 1, title: "GenAI & the Future of Work", topics: [] },
+                { number: 2, title: "Creative Problem Solving + Vibe Coding", topics: [] },
+                { number: 3, title: "Agentic AI Systems", topics: [] },
+                { number: 4, title: "Implementation + Human-AI Decision-Making", topics: [] },
+                { number: 5, title: "GenAI & Agentic Fair", topics: [] },
+              ]).map((mod, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActiveSection(i)}
+                  className="text-left pl-4 pr-2 py-3 text-[13px] leading-snug transition-colors"
+                  style={{
+                    color: activeSection === i ? headingColor : "hsla(220, 15%, 52%, 0.82)",
+                    fontWeight: activeSection === i ? "500" : "400",
+                    background: "transparent",
+                    border: "none",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLButtonElement).style.color = headingColor;
+                  }}
+                  onMouseLeave={(e) => {
+                    if (activeSection !== i) {
+                      (e.currentTarget as HTMLButtonElement).style.color = "hsla(220, 15%, 52%, 0.82)";
+                    }
+                  }}
+                >
+                  {mod.title}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Past Chats footer */}
-          <div
-            className="shrink-0"
-            style={{ borderTop: `1px solid ${border}` }}
-          >
+          <div className="shrink-0" style={{ borderTop: `1px solid ${border}` }}>
             <button
               onClick={() => setPastChatsOpen(!pastChatsOpen)}
               className="w-full flex items-center justify-between px-5 py-4 transition-colors"
