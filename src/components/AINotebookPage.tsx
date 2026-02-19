@@ -687,17 +687,17 @@ const AINotebookPage = ({ context, courseName, modules = [], onClose }: Props) =
               {/* ── Empty state: centered star + greeting ── */}
               <div className="flex flex-col items-center justify-center flex-1 px-5 text-center gap-4">
                 {/* 4-pointed star SVG with blue-purple gradient */}
-                <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="56" height="56" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <defs>
-                    <linearGradient id="starGrad" x1="0" y1="52" x2="52" y2="0" gradientUnits="userSpaceOnUse">
+                    <linearGradient id="starGrad" x1="2" y1="50" x2="50" y2="2" gradientUnits="userSpaceOnUse">
                       <stop offset="0%" stopColor="#6366f1" />
-                      <stop offset="50%" stopColor="#818cf8" />
-                      <stop offset="100%" stopColor="#a5b4fc" />
+                      <stop offset="45%" stopColor="#818cf8" />
+                      <stop offset="100%" stopColor="#bfcfff" />
                     </linearGradient>
                   </defs>
-                  {/* 4-pointed star path */}
+                  {/* Symmetric 4-pointed star using cubic beziers */}
                   <path
-                    d="M26 2 C26 2 28 18 38 26 C28 34 26 50 26 50 C26 50 24 34 14 26 C24 18 26 2 26 2Z"
+                    d="M26 2 C26 14, 50 14, 50 26 C50 38, 26 38, 26 50 C26 38, 2 38, 2 26 C2 14, 26 14, 26 2 Z"
                     fill="url(#starGrad)"
                   />
                 </svg>
