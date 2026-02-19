@@ -14,6 +14,8 @@ interface Props {
   courseName?: string;
   modules?: Module[];
   initialModuleIndex?: number | null;
+  program?: string;
+  university?: string;
   onClose: () => void;
 }
 
@@ -21,7 +23,7 @@ type FetchState = "idle" | "loading" | "done" | "error";
 
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
 
-const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex = null, onClose }: Props) => {
+const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex = null, program = "Master of Science in Information Systems (MSIS)", university = "University of Washington", onClose }: Props) => {
   const [activeSection, setActiveSection] = useState<number | null>(null);
   const [studioInput, setStudioInput] = useState("");
   const [gradientPos, setGradientPos] = useState({ x: 50, y: 50 });
@@ -92,8 +94,8 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
           moduleNumber: mod.number,
           moduleTitle: mod.title,
           moduleTopics: mod.topics,
-          program: "Master of Science in Information Systems (MSIS)",
-          university: "University of Washington",
+          program,
+          university,
         }),
         signal: controller.signal,
       });
