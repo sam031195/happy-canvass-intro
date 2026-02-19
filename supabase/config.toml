@@ -1,0 +1,4 @@
+project_id = "lykmpihlvhyozjcwfxxl"
+
+[functions.study-guide]
+verify_jwt = false
