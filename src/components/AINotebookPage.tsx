@@ -487,9 +487,11 @@ const AINotebookPage = ({ context, courseName, modules = [], onClose }: Props) =
                     {
                       label: "Notion",
                       icon: (
-                        <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
-                          <rect width="32" height="32" rx="6" fill="white"/>
-                          <text x="6" y="24" fontFamily="serif" fontSize="18" fontWeight="bold" fill="black">N</text>
+                        <svg width="20" height="20" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect width="100" height="100" rx="18" fill="#F7F6F3"/>
+                          <path d="M29 22.5c-3.5 0-6 2.5-6 6v43c0 3.5 2.5 6 6 6h42c3.5 0 6-2.5 6-6v-43c0-3.5-2.5-6-6-6H29Z" fill="#F7F6F3" stroke="#37352F" strokeWidth="3"/>
+                          <path d="M36 35h28M36 50h20M36 65h14" stroke="#37352F" strokeWidth="4" strokeLinecap="round"/>
+                          <path d="M64 35L54 65" stroke="#37352F" strokeWidth="4" strokeLinecap="round"/>
                         </svg>
                       ),
                     },
