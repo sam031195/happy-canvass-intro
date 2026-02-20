@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { Search, ChevronDown, Bot, Sparkles, ArrowUpRight } from "lucide-react";
+import { Search, ChevronDown, Bot, Sparkles, ArrowUpRight, Settings } from "lucide-react";
 import { useState, useRef, useEffect, useCallback } from "react";
 import SyllabusFinderDialog from "@/components/SyllabusFinderDialog";
 import SyllabusPage from "@/components/SyllabusPage";
+import ConnectedAppsDialog from "@/components/ConnectedAppsDialog";
 
 const MODELS = [
   { label: "GPT 5", value: "openai/gpt-5" },
@@ -28,6 +29,7 @@ const Dashboard = () => {
   const [syllabusSelection, setSyllabusSelection] = useState<{ university: string; program: string } | null>(null);
   const aiBtnRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const [settingsOpen, setSettingsOpen] = useState(false);
 
   const handleAiMouseMove = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -121,6 +123,25 @@ const Dashboard = () => {
         </div>
 
         <div className="flex items-center gap-2">
+          <button
+            onClick={() => setSettingsOpen(true)}
+            className="p-2.5 rounded-full transition-all duration-150"
+            style={{
+              background: "transparent",
+              border: "1px solid hsla(0, 0%, 100%, 0.1)",
+              color: "hsla(220, 15%, 68%, 0.9)",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.borderColor = "hsla(0, 0%, 100%, 0.18)";
+              (e.currentTarget as HTMLButtonElement).style.color = "hsla(220, 15%, 88%, 0.95)";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.borderColor = "hsla(0, 0%, 100%, 0.1)";
+              (e.currentTarget as HTMLButtonElement).style.color = "hsla(220, 15%, 68%, 0.9)";
+            }}
+          >
+            <Settings className="h-4 w-4" />
+          </button>
           <button
             onClick={() => navigate("/")}
             className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-150"
@@ -400,6 +421,8 @@ const Dashboard = () => {
           ))}
         </div>
       </div>
+
+      <ConnectedAppsDialog open={settingsOpen} onClose={() => setSettingsOpen(false)} />
     </div>
   );
 };
