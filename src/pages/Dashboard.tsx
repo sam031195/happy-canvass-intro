@@ -4,14 +4,8 @@ import { Search, ChevronDown, Bot, Sparkles, ArrowUpRight } from "lucide-react";
 import { useState, useRef, useEffect, useCallback } from "react";
 import SyllabusFinderDialog from "@/components/SyllabusFinderDialog";
 import SyllabusPage from "@/components/SyllabusPage";
-
-
-const MODELS = [
-  { label: "GPT 5", value: "openai/gpt-5" },
-  { label: "GPT 5 Mini", value: "openai/gpt-5-mini" },
-  { label: "Gemini Pro", value: "google/gemini-2.5-pro" },
-  { label: "Gemini Flash", value: "google/gemini-2.5-flash" },
-];
+import ModelSelector from "@/components/ModelSelector";
+import { AIModel, getDefaultModel } from "@/config/aiModels";
 
 const SUGGESTIONS = [
   "Why do I need to study this?",
@@ -19,16 +13,16 @@ const SUGGESTIONS = [
   "How can I apply this in real life?",
 ];
 
+
 const Dashboard = () => {
   const navigate = useNavigate();
-  const [selectedModel, setSelectedModel] = useState(MODELS[0]);
-  const [modelOpen, setModelOpen] = useState(false);
+  const [selectedModel, setSelectedModel] = useState<AIModel>(getDefaultModel);
   const [aiGradientPos, setAiGradientPos] = useState({ x: 50, y: 50 });
   const [aiHovered, setAiHovered] = useState(false);
   const [syllabusOpen, setSyllabusOpen] = useState(false);
   const [syllabusSelection, setSyllabusSelection] = useState<{ university: string; program: string } | null>(null);
   const aiBtnRef = useRef<HTMLButtonElement>(null);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  
   
 
   const handleAiMouseMove = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
@@ -39,13 +33,6 @@ const Dashboard = () => {
     });
   }, []);
 
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) setModelOpen(false);
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, []);
 
   const handleProgramSelected = (university: string, program: string) => {
     setSyllabusSelection({ university, program });
@@ -253,50 +240,7 @@ const Dashboard = () => {
             />
 
             {/* Model selector */}
-            <div className="relative shrink-0" ref={dropdownRef}>
-              <button
-                onClick={() => setModelOpen((v) => !v)}
-                className="flex items-center gap-2 px-3 py-2 text-xs font-medium transition-colors"
-                style={{
-                  background: "hsla(230, 22%, 9%, 1)",
-                  border: "1px solid hsla(0, 0%, 100%, 0.07)",
-                  borderRadius: "4px",
-                  color: "hsla(220, 15%, 78%, 0.95)",
-                }}
-              >
-                <Bot className="h-3.5 w-3.5" style={{ color: "hsla(220, 20%, 72%, 0.9)" }} />
-                {selectedModel.label}
-                <ChevronDown className="h-3 w-3" style={{ color: "hsla(220, 15%, 60%, 0.85)" }} />
-              </button>
-              {modelOpen && (
-                <div
-                  className="absolute left-0 top-full mt-1.5 z-50 py-1 min-w-[160px]"
-                  style={{
-                    background: "hsl(230, 25%, 6%)",
-                    border: "1px solid hsla(0, 0%, 100%, 0.08)",
-                    borderRadius: "4px",
-                    boxShadow: "0 12px 40px hsla(0,0%,0%,0.6)",
-                  }}
-                >
-                  {MODELS.map((m) => (
-                    <button
-                      key={m.value}
-                      onClick={() => { setSelectedModel(m); setModelOpen(false); }}
-                      className="w-full text-left px-3.5 py-2.5 text-xs transition-colors"
-                      style={{
-                        color: m.value === selectedModel.value ? "hsla(220,20%,92%,0.95)" : "hsla(220,15%,65%,0.85)",
-                        background: m.value === selectedModel.value ? "hsla(0,0%,100%,0.06)" : "transparent",
-                        fontWeight: m.value === selectedModel.value ? 600 : 400,
-                      }}
-                      onMouseEnter={(e) => { if (m.value !== selectedModel.value) (e.currentTarget as HTMLButtonElement).style.background = "hsla(0,0%,100%,0.04)"; }}
-                      onMouseLeave={(e) => { if (m.value !== selectedModel.value) (e.currentTarget as HTMLButtonElement).style.background = "transparent"; }}
-                    >
-                      {m.label}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
+            <ModelSelector selected={selectedModel} onChange={setSelectedModel} />
 
             {/* Divider */}
             <div className="w-px h-5 shrink-0" style={{ background: "hsla(0,0%,100%,0.07)" }} />
