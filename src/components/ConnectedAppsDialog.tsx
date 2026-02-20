@@ -13,7 +13,12 @@ const APPS: AppItem[] = [
     name: "Zotero",
     description: "Connect your Zotero library to access and search your research papers",
     icon: (
-      <div className="w-10 h-10 rounded-lg flex items-center justify-center text-lg font-black" style={{ background: "hsla(0, 70%, 50%, 0.15)", color: "hsla(0, 70%, 60%, 0.95)" }}>Z</div>
+      <div className="w-10 h-10 rounded-lg flex items-center justify-center">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+          <rect width="32" height="32" rx="6" fill="#CC2936"/>
+          <path d="M7 9h18l-12 14h12" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+        </svg>
+      </div>
     ),
     status: "connect",
   },
@@ -21,7 +26,14 @@ const APPS: AppItem[] = [
     name: "Mendeley",
     description: "Connect your Mendeley library to access and search your research papers",
     icon: (
-      <div className="w-10 h-10 rounded-lg flex items-center justify-center text-lg font-black" style={{ background: "hsla(0, 70%, 50%, 0.15)", color: "hsla(0, 70%, 60%, 0.95)" }}>M</div>
+      <div className="w-10 h-10 rounded-lg flex items-center justify-center">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="16" r="16" fill="#9D1620"/>
+          <circle cx="10" cy="13" r="3.5" fill="white"/>
+          <circle cx="22" cy="13" r="3.5" fill="white"/>
+          <circle cx="16" cy="20" r="3.5" fill="white"/>
+        </svg>
+      </div>
     ),
     status: "connect",
   },
@@ -30,7 +42,10 @@ const APPS: AppItem[] = [
     description: "Connect your OneDrive to access and manage Microsoft files",
     icon: (
       <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: "hsla(210, 80%, 55%, 0.15)" }}>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 4C8.5 4 5.6 6.4 5.1 9.6C2.2 10.1 0 12.6 0 15.5C0 18.5 2.5 21 5.5 21H19C21.8 21 24 18.8 24 16C24 13.5 22.2 11.4 19.8 11C19.2 7.1 15.9 4 12 4Z" fill="hsla(210, 80%, 55%, 0.9)" /></svg>
+        <svg width="24" height="18" viewBox="0 0 28 18" fill="none">
+          <path d="M17.5 17H24a3.5 3.5 0 0 0 .86-6.89A7 7 0 0 0 11.1 8.1 4.5 4.5 0 1 0 4.5 17H17.5Z" fill="#0364B8"/>
+          <path d="M10.5 9.5A5.5 5.5 0 0 1 21.4 11H24a3 3 0 0 1 0 6H4.5a3.5 3.5 0 0 1 0-7 3.4 3.4 0 0 1 1.5.35A5.49 5.49 0 0 1 10.5 9.5Z" fill="#1490DF"/>
+        </svg>
       </div>
     ),
     status: "connect",
@@ -40,7 +55,9 @@ const APPS: AppItem[] = [
     description: "Access code repositories and documentation from your GitHub account",
     icon: (
       <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: "hsla(0, 0%, 100%, 0.08)" }}>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="hsla(0, 0%, 85%, 0.95)"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" /></svg>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10Z" fill="white"/>
+        </svg>
       </div>
     ),
     status: "connect",
@@ -50,7 +67,9 @@ const APPS: AppItem[] = [
     description: "Sync your research notes and organize findings directly in Notion",
     icon: (
       <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: "hsla(0, 0%, 100%, 0.08)" }}>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="hsla(0, 0%, 85%, 0.95)"><path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L18.29 2.094c-.42-.326-.98-.7-2.055-.607L3.01 2.721c-.467.046-.56.28-.374.466l1.823 1.021zm.793 3.358v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.934-.56.934-1.166V6.637c0-.606-.233-.933-.747-.886l-15.177.887c-.56.046-.747.327-.747.887v.04zm14.337.7c.093.42 0 .84-.42.887l-.7.14v10.264c-.607.327-1.167.514-1.634.514-.747 0-.934-.234-1.494-.934l-4.577-7.186v6.952l1.447.327s0 .84-1.167.84l-3.218.187c-.093-.187 0-.653.327-.726l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.452-.233 4.764 7.279v-6.439l-1.213-.14c-.094-.514.28-.887.747-.933l3.221-.187z" /></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466l1.823 1.447zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.14c-.093-.514.28-.887.747-.933l3.222-.187z" fill="hsla(0,0%,90%,0.9)"/>
+        </svg>
       </div>
     ),
     status: "connect",
