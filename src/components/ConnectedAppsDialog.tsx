@@ -301,7 +301,7 @@ const ConnectedAppsDialog = ({ open, onClose }: Props) => {
                   </div>
                   <button
                     className="flex items-center gap-1.5 px-4 py-2 rounded-md text-[13px] font-semibold transition-all"
-                    style={{ background: "hsla(25, 90%, 52%, 1)", color: "white" }}
+                    style={{ background: "hsla(220, 60%, 50%, 0.2)", border: `1px solid hsla(220, 60%, 50%, 0.3)`, color: activeText }}
                   >
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
                     Upgrade Plan
@@ -310,7 +310,7 @@ const ConnectedAppsDialog = ({ open, onClose }: Props) => {
                 <div style={{ borderTop: `1px solid ${border}`, paddingTop: "14px" }}>
                   <div className="flex items-center justify-between mb-2">
                     <p className="text-[13px] font-semibold" style={{ color: textHeading }}>Monthly Credits</p>
-                    <p className="text-[13px] font-semibold" style={{ color: textHeading }}>🪙 89 left</p>
+                    <p className="text-[13px] font-semibold" style={{ color: textHeading }}>89 left</p>
                   </div>
                   <div className="w-full h-1.5 rounded-full mb-2" style={{ background: "hsla(230, 18%, 14%, 1)" }}>
                     <div className="h-full rounded-full" style={{ width: "89%", background: "hsla(220, 70%, 55%, 1)" }} />
