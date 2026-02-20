@@ -1,5 +1,7 @@
 import { Bot, Plus, ArrowRight, ChevronLeft, ExternalLink, Clock, ChevronDown, Settings } from "lucide-react";
 import ConnectedAppsDialog from "@/components/ConnectedAppsDialog";
+import ModelSelector from "@/components/ModelSelector";
+import { AIModel, getDefaultModel } from "@/config/aiModels";
 import { useState, useRef, useCallback, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -47,7 +49,7 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
   }, []);
 
   // Color tokens
-
+  const [selectedModel, setSelectedModel] = useState<AIModel>(getDefaultModel);
 
   const border = "hsla(0, 0%, 100%, 0.07)";
   const subtext = "hsla(220, 15%, 48%, 0.75)";
@@ -715,8 +717,11 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
                 </div>
               </div>
 
-              {/* Input */}
+              {/* Model + Input */}
               <div className="px-4 pb-5 pt-3 shrink-0 flex flex-col gap-2">
+                <div className="flex items-center mb-1">
+                  <ModelSelector selected={selectedModel} onChange={setSelectedModel} />
+                </div>
                 <div
                   className="flex items-center gap-2.5 px-4 py-3"
                   style={{
