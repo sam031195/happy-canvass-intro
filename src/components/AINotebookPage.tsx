@@ -305,7 +305,7 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
         {/* ══════ LEFT: Sources panel ══════ */}
         <div
           className="flex flex-col shrink-0"
-          style={{ width: "507px", background: "hsl(230, 18%, 4%)", borderRight: `1px solid ${border}` }}
+          style={{ width: "456px", background: "hsl(230, 18%, 4%)", borderRight: `1px solid ${border}` }}
         >
           {/* Course header */}
           <div className="px-5 pt-6 pb-4 flex items-start gap-3">
@@ -667,7 +667,7 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
         {/* ══════ RIGHT: Floating chat card ══════ */}
         <div
           className="flex flex-col shrink-0"
-          style={{ width: "741px", background: "hsl(230, 18%, 5%)", borderLeft: `1px solid ${border}` }}
+          style={{ width: "667px", background: "hsl(230, 18%, 5%)", borderLeft: `1px solid ${border}` }}
         >
           <div className="flex flex-col flex-1 min-h-0 p-4">
             <div
