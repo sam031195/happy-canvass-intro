@@ -814,6 +814,7 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
                     </button>
                   ))}
                   <button
+                    onClick={() => setSettingsOpen(true)}
                     title="More integrations"
                     className="flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity"
                     style={{ background: "none", border: "none", padding: 0, cursor: "pointer" }}
