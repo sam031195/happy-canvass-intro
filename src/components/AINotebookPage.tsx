@@ -1,4 +1,5 @@
-import { Bot, Plus, ArrowRight, ChevronLeft, ExternalLink, Clock, ChevronDown } from "lucide-react";
+import { Bot, Plus, ArrowRight, ChevronLeft, ExternalLink, Clock, ChevronDown, Settings } from "lucide-react";
+import ConnectedAppsDialog from "@/components/ConnectedAppsDialog";
 import { useState, useRef, useCallback, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -29,6 +30,7 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
   const [gradientPos, setGradientPos] = useState({ x: 50, y: 50 });
   const [sendHovered, setSendHovered] = useState(false);
   const [pastChatsOpen, setPastChatsOpen] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
 
   // Content state per module index
   const [contentMap, setContentMap] = useState<Record<number, string>>({});
@@ -237,6 +239,19 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
 
         {/* Right nav */}
         <div className="flex items-center gap-2 shrink-0">
+          <button
+            onClick={() => setSettingsOpen(true)}
+            className="p-2 rounded-md transition-all duration-150"
+            style={{
+              background: "hsla(230, 22%, 11%, 1)",
+              border: `1px solid ${border}`,
+              color: labelColor,
+            }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = surfaceHover; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "hsla(230, 22%, 11%, 1)"; }}
+          >
+            <Settings className="h-3.5 w-3.5" />
+          </button>
           <button
             onClick={onClose}
             className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors"
@@ -818,6 +833,7 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
         </div>
 
       </div>
+      <ConnectedAppsDialog open={settingsOpen} onClose={() => setSettingsOpen(false)} />
     </div>
   );
 };
