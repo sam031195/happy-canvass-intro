@@ -288,8 +288,80 @@ const ConnectedAppsDialog = ({ open, onClose }: Props) => {
             </div>
           )}
           {activeTab === "usage" && (
-            <div className="flex-1 flex items-center justify-center px-8">
-              <p className="text-sm" style={{ color: textMuted }}>Agent usage analytics coming soon</p>
+            <div className="flex-1 overflow-y-auto px-8 py-7">
+              {/* Plan card */}
+              <div
+                className="rounded-md p-5 mb-6"
+                style={{ background: "hsla(230, 22%, 9%, 1)", border: `1px solid ${border}` }}
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <p className="text-[11px] font-medium mb-1" style={{ color: textMuted }}>Plan</p>
+                    <p className="text-lg font-bold" style={{ color: textHeading }}>Basic</p>
+                  </div>
+                  <button
+                    className="flex items-center gap-1.5 px-4 py-2 rounded-md text-[13px] font-semibold transition-all"
+                    style={{ background: "hsla(25, 90%, 52%, 1)", color: "white" }}
+                  >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+                    Upgrade Plan
+                  </button>
+                </div>
+                <div style={{ borderTop: `1px solid ${border}`, paddingTop: "14px" }}>
+                  <div className="flex items-center justify-between mb-2">
+                    <p className="text-[13px] font-semibold" style={{ color: textHeading }}>Monthly Credits</p>
+                    <p className="text-[13px] font-semibold" style={{ color: textHeading }}>🪙 89 left</p>
+                  </div>
+                  <div className="w-full h-1.5 rounded-full mb-2" style={{ background: "hsla(230, 18%, 14%, 1)" }}>
+                    <div className="h-full rounded-full" style={{ width: "89%", background: "hsla(220, 70%, 55%, 1)" }} />
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <p className="text-[11px]" style={{ color: textMuted }}>Resets March 18, 2026</p>
+                    <p className="text-[11px]" style={{ color: textMuted }}>89% left</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* History */}
+              <h4 className="text-[15px] font-bold mb-3" style={{ color: textHeading }}>History</h4>
+              <div className="flex gap-1 mb-4">
+                {["Usage", "Add-On Purchases"].map((tab, i) => (
+                  <button
+                    key={tab}
+                    className="px-3.5 py-1.5 rounded-md text-[12px] font-medium transition-colors"
+                    style={{
+                      background: i === 0 ? "hsla(230, 22%, 12%, 1)" : "transparent",
+                      border: `1px solid ${i === 0 ? "hsla(0,0%,100%,0.12)" : border}`,
+                      color: i === 0 ? textHeading : textMuted,
+                    }}
+                  >
+                    {tab}
+                  </button>
+                ))}
+              </div>
+
+              {/* Table */}
+              <div className="rounded-md overflow-hidden" style={{ border: `1px solid ${border}` }}>
+                <div className="grid grid-cols-[1fr_auto_auto] gap-4 px-4 py-2.5 text-[11px] font-semibold" style={{ color: textMuted, background: "hsla(230, 22%, 8%, 1)", borderBottom: `1px solid ${border}` }}>
+                  <span>Details</span>
+                  <span>Date</span>
+                  <span className="text-right">Credits</span>
+                </div>
+                {[
+                  { details: "High Resolution Scientific Poster", date: "Feb 18, 2026, 9:20 PM", credits: -10 },
+                  { details: "Generate Comprehension Questions", date: "Feb 18, 2026, 5:22 PM", credits: -1 },
+                ].map((row, i) => (
+                  <div
+                    key={i}
+                    className="grid grid-cols-[1fr_auto_auto] gap-4 px-4 py-3.5 text-[13px]"
+                    style={{ borderBottom: i < 1 ? `1px solid ${border}` : "none", color: textLabel }}
+                  >
+                    <span>{row.details}</span>
+                    <span style={{ color: textMuted }}>{row.date}</span>
+                    <span className="text-right font-medium">{row.credits}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
         </div>
