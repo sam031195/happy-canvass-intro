@@ -12,7 +12,9 @@ serve(async (req) => {
   }
 
   try {
-    const { courseName, moduleTitle, moduleNumber, moduleTopics, program, university } = await req.json();
+    const { courseName, moduleTitle, moduleNumber, moduleTopics, program, university, model } = await req.json();
+
+    const selectedModel = model || "openai/gpt-5";
 
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
@@ -99,21 +101,33 @@ Rules:
 
 Produce the full guide now. Every resource must be real, clickable, and directly relevant.`;
 
-    const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${LOVABLE_API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        model: "openai/gpt-5-mini",
-        messages: [
-          { role: "system", content: systemPrompt },
-          { role: "user", content: userMessage },
-        ],
-        stream: true,
-      }),
-    });
+    const callGateway = async (attempt: number): Promise<Response> => {
+      const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${LOVABLE_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          model: selectedModel,
+          messages: [
+            { role: "system", content: systemPrompt },
+            { role: "user", content: userMessage },
+          ],
+          stream: true,
+        }),
+      });
+
+      // Retry once on 5xx errors
+      if (response.status >= 500 && attempt < 1) {
+        console.warn(`Gateway returned ${response.status}, retrying (attempt ${attempt + 1})...`);
+        return callGateway(attempt + 1);
+      }
+
+      return response;
+    };
+
+    const response = await callGateway(0);
 
     if (!response.ok) {
       if (response.status === 429) {
