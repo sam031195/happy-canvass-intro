@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { Search, ChevronDown, Bot, Sparkles, ArrowUpRight, Settings } from "lucide-react";
+import { Search, ChevronDown, Bot, Sparkles, ArrowUpRight } from "lucide-react";
 import { useState, useRef, useEffect, useCallback } from "react";
 import SyllabusFinderDialog from "@/components/SyllabusFinderDialog";
 import SyllabusPage from "@/components/SyllabusPage";
@@ -125,22 +125,12 @@ const Dashboard = () => {
         <div className="flex items-center gap-2">
           <button
             onClick={() => setSettingsOpen(true)}
-            className="p-2.5 rounded-full transition-all duration-150"
-            style={{
-              background: "transparent",
-              border: "1px solid hsla(0, 0%, 100%, 0.1)",
-              color: "hsla(220, 15%, 68%, 0.9)",
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.borderColor = "hsla(0, 0%, 100%, 0.18)";
-              (e.currentTarget as HTMLButtonElement).style.color = "hsla(220, 15%, 88%, 0.95)";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.borderColor = "hsla(0, 0%, 100%, 0.1)";
-              (e.currentTarget as HTMLButtonElement).style.color = "hsla(220, 15%, 68%, 0.9)";
-            }}
+            className="rounded-full transition-all duration-150 cursor-pointer"
+            style={{ padding: "1.5px", background: "conic-gradient(from var(--ai-angle), #4285f4, #ea4335, #fbbc05, #34a853, #4285f4)", animation: "ai-spin 3s linear infinite", width: "30px", height: "30px" }}
           >
-            <Settings className="h-4 w-4" />
+            <div className="w-full h-full rounded-full flex items-center justify-center" style={{ background: "hsl(230, 18%, 4%)" }}>
+              <Bot className="h-3.5 w-3.5" style={{ color: "hsla(210, 40%, 88%, 0.95)" }} />
+            </div>
           </button>
           <button
             onClick={() => navigate("/")}
