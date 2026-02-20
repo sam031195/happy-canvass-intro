@@ -305,7 +305,7 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
         {/* ══════ LEFT: Sources panel ══════ */}
         <div
           className="flex flex-col shrink-0"
-          style={{ width: "390px", background: "hsl(230, 18%, 4%)", borderRight: `1px solid ${border}` }}
+          style={{ width: "507px", background: "hsl(230, 18%, 4%)", borderRight: `1px solid ${border}` }}
         >
           {/* Course header */}
           <div className="px-5 pt-6 pb-4 flex items-start gap-3">
@@ -667,7 +667,7 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
         {/* ══════ RIGHT: Floating chat card ══════ */}
         <div
           className="flex flex-col shrink-0"
-          style={{ width: "570px", background: "hsl(230, 18%, 5%)", borderLeft: `1px solid ${border}` }}
+          style={{ width: "741px", background: "hsl(230, 18%, 5%)", borderLeft: `1px solid ${border}` }}
         >
           <div className="flex flex-col flex-1 min-h-0 p-4">
             <div
@@ -719,9 +719,6 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
 
               {/* Model + Input */}
               <div className="px-4 pb-5 pt-3 shrink-0 flex flex-col gap-2">
-                <div className="flex items-center mb-1">
-                  <ModelSelector selected={selectedModel} onChange={setSelectedModel} />
-                </div>
                 <div
                   className="flex items-center gap-2.5 px-4 py-3"
                   style={{
@@ -730,6 +727,8 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
                     borderRadius: "999px",
                   }}
                 >
+                  <ModelSelector selected={selectedModel} onChange={setSelectedModel} />
+                  <div className="w-px h-5 shrink-0" style={{ background: "hsla(0,0%,100%,0.07)" }} />
                   <input
                     type="text"
                     value={studioInput}
