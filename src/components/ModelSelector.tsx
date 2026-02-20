@@ -54,7 +54,7 @@ const ModelSelector = ({ selected, onChange }: Props) => {
 
       {open && (
         <div
-          className="absolute left-0 top-full mt-1.5 z-50 py-1.5 min-w-[240px]"
+          className="absolute left-0 bottom-full mb-1.5 z-50 py-1.5 min-w-[240px]"
           style={{
             background: "hsl(230, 25%, 6%)",
             border: `1px solid hsla(0, 0%, 100%, 0.08)`,
