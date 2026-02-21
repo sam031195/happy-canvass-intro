@@ -173,7 +173,7 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
       {/* Dark overlay for readability */}
       <div
         className="pointer-events-none fixed inset-0 z-0"
-        style={{ background: "linear-gradient(180deg, hsla(230,25%,4%,0.7) 0%, hsla(230,25%,4%,0.85) 100%)" }}
+        style={{ background: "linear-gradient(180deg, hsla(230,25%,4%,0.4) 0%, hsla(230,25%,4%,0.6) 100%)" }}
       />
 
       {/* Dot grid texture overlay */}
