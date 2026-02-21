@@ -11,7 +11,7 @@ const EndToEndSection = () => {
         className="relative rounded overflow-hidden"
         style={{ background: "hsl(0, 0%, 92%)" }}
       >
-        <div className="px-10 lg:px-16 pt-16 lg:pt-20">
+        <div className="px-4 md:px-10 lg:px-16 pt-10 md:pt-16 lg:pt-20">
           <TimelineSection
             steps={[
               { stepNumber: 1, left: <Section3aLeft />, right: <Section3aRight /> },
