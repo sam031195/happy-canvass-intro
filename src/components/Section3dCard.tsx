@@ -1,9 +1,5 @@
-import { Sparkles } from "lucide-react";
+import { Sparkles, BookOpen, Search, Mail, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import womanImg from "@/assets/section3d-woman.jpg";
-import carImg from "@/assets/section3d-car.jpg";
-import marathonImg from "@/assets/section3d-marathon.jpg";
-import insuranceImg from "@/assets/section3d-insurance.jpg";
 import timelineCircleBg from "@/assets/timeline-circle-bg.avif";
 
 /** Spacer inside TimelineSection so the line extends down to the card */
@@ -30,7 +26,7 @@ const Section3dContent = () => {
         <div className="hidden lg:block flex-1 lg:pl-12" />
       </div>
 
-      {/* Dark card — pulled up so sparkle overlaps top edge */}
+      {/* Card */}
       <div
         className="relative overflow-visible"
         style={{
@@ -38,133 +34,62 @@ const Section3dContent = () => {
           border: "1px solid hsl(0,0%,85%)",
           borderRadius: "4px",
           marginTop: "-28px",
-      }}>
+        }}>
         <div className="flex flex-col lg:flex-row">
-          {/* Left — Image collage */}
+          {/* Left — Education mockup cards */}
           <div className="flex-1 p-8 lg:p-12">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 h-full" style={{ minHeight: "260px" }}>
-              {/* Column 1 — two stacked cards */}
-              <div className="flex flex-col gap-3">
-                {/* Playlist card */}
-                <div
-                  className="relative overflow-hidden flex-1"
-                  style={{ borderRadius: "4px" }}
-                >
-                  <img
-                    src={marathonImg}
-                    alt="Marathon playlist"
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                  <div className="relative z-10 p-4 flex flex-col h-full">
-                    <div
-                      className="px-3 py-2 text-xs font-semibold self-end text-right"
-                      style={{
-                        background: "hsl(265,30%,42%)",
-                        color: "hsl(0,0%,100%)",
-                        borderRadius: "8px",
-                        maxWidth: "160px",
-                      }}
-                    >
-                      I'm running a marathon on Saturday. Can you make me a playlist?
-                    </div>
-                    <div className="mt-auto flex items-start gap-2">
-                      <div
-                        className="w-6 h-6 rounded-full flex items-center justify-center shrink-0"
-                        style={{ background: "hsl(265,30%,42%)" }}
-                      >
-                        <Sparkles className="w-3 h-3 text-white" />
-                      </div>
-                      <div>
-                        <p
-                          className="text-xs font-medium mb-1.5"
-                          style={{ color: "hsl(0,0%,100%)" }}
-                        >
-                          Here's a playlist based on your top listens this month!
-                        </p>
-                        <div className="flex gap-1.5">
-                          {[1, 2, 3].map((i) => (
-                            <div
-                              key={i}
-                              className="w-8 h-8"
-                              style={{
-                                background: `hsl(${i * 90},40%,50%)`,
-                                borderRadius: "4px",
-                              }}
-                            />
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 h-full" style={{ minHeight: "260px" }}>
+              {/* Syllabus card */}
+              <div className="p-4 flex flex-col" style={{ background: "hsl(0,0%,96%)", border: "1px solid hsl(0,0%,88%)", borderRadius: "4px" }}>
+                <div className="flex items-center gap-2 mb-3">
+                  <BookOpen className="w-4 h-4" style={{ color: "hsl(265,30%,42%)" }} />
+                  <span className="text-xs font-bold" style={{ color: "hsl(0,0%,30%)" }}>Syllabus</span>
                 </div>
-
-                {/* Insurance card */}
-                <div
-                  className="relative overflow-hidden flex-1"
-                  style={{ borderRadius: "4px" }}
-                >
-                  <img
-                    src={insuranceImg}
-                    alt="Insurance plan"
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                  <div className="relative z-10 p-4 flex flex-col justify-end h-full">
-                    <p
-                      className="text-xs font-semibold italic leading-snug"
-                      style={{ color: "hsl(0,0%,100%)" }}
-                    >
-                      Welcome to your new insurance plan!
-                    </p>
-                    <p
-                      className="text-xs italic mt-1"
-                      style={{ color: "hsl(0,0%,85%)" }}
-                    >
-                      Here's a quick summary of your
-                    </p>
-                  </div>
+                <p className="text-xs leading-relaxed" style={{ color: "hsl(0,0%,45%)" }}>MSIS 549 B — Advanced Machine Learning</p>
+                <p className="text-xs mt-1" style={{ color: "hsl(0,0%,55%)" }}>Prof. Kumar · Spring 2026</p>
+                <div className="mt-auto pt-3 flex gap-1.5">
+                  {[1, 2, 3].map((i) => (
+                    <div key={i} className="h-1 flex-1 rounded-full" style={{ background: i <= 2 ? "hsl(265,30%,42%)" : "hsl(0,0%,82%)" }} />
+                  ))}
                 </div>
               </div>
 
-              {/* Column 2 — Woman photo */}
-              <div
-                className="relative overflow-hidden"
-                style={{ borderRadius: "4px" }}
-              >
-                <img
-                  src={womanImg}
-                  alt="Professional with phone"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
+              {/* Study Guide card */}
+              <div className="p-4 flex flex-col" style={{ background: "hsl(0,0%,96%)", border: "1px solid hsl(0,0%,88%)", borderRadius: "4px" }}>
+                <div className="flex items-center gap-2 mb-3">
+                  <Search className="w-4 h-4" style={{ color: "hsl(145,55%,42%)" }} />
+                  <span className="text-xs font-bold" style={{ color: "hsl(0,0%,30%)" }}>Study Guide</span>
+                </div>
+                <p className="text-xs leading-relaxed" style={{ color: "hsl(0,0%,45%)" }}>12 resources curated</p>
+                <p className="text-xs mt-1" style={{ color: "hsl(0,0%,55%)" }}>3 textbooks · 4 repos · 5 papers</p>
+                <div className="mt-auto pt-3">
+                  <span className="text-xs font-medium px-2 py-0.5 rounded-full" style={{ background: "hsl(145,40%,92%)", color: "hsl(145,55%,30%)" }}>Complete</span>
+                </div>
               </div>
 
-              {/* Column 3 — Car rental card */}
-              <div
-                className="relative overflow-hidden"
-                style={{ borderRadius: "4px" }}
-              >
-                <img
-                  src={carImg}
-                  alt="Car rental"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-                <div className="relative z-10 p-4 flex flex-col h-full">
-                  <div
-                    className="w-8 h-8 rounded-full flex items-center justify-center mb-3 self-end"
-                     style={{
-                       background: "hsla(265,30%,42%,0.7)",
-                      backdropFilter: "blur(4px)",
-                    }}
-                  >
-                    <span className="text-white text-xs font-bold">⟨|⟩</span>
-                  </div>
-                  <div className="mt-auto">
-                    <p
-                      className="text-sm italic font-medium leading-snug"
-                      style={{ color: "hsl(0,0%,95%)" }}
-                    >
-                      You're nearing the end of your rental. Would you like to extend?
-                    </p>
-                  </div>
+              {/* Notification card */}
+              <div className="p-4 flex flex-col" style={{ background: "hsl(0,0%,96%)", border: "1px solid hsl(0,0%,88%)", borderRadius: "4px" }}>
+                <div className="flex items-center gap-2 mb-3">
+                  <Mail className="w-4 h-4" style={{ color: "hsl(25,75%,50%)" }} />
+                  <span className="text-xs font-bold" style={{ color: "hsl(0,0%,30%)" }}>Notification</span>
+                </div>
+                <p className="text-xs leading-relaxed" style={{ color: "hsl(0,0%,45%)" }}>Email sent to prof.kumar@uw.edu</p>
+                <p className="text-xs mt-1" style={{ color: "hsl(0,0%,55%)" }}>Course completion confirmed</p>
+                <div className="mt-auto pt-3">
+                  <span className="text-xs font-medium px-2 py-0.5 rounded-full" style={{ background: "hsl(25,60%,93%)", color: "hsl(25,75%,40%)" }}>Sent</span>
+                </div>
+              </div>
+
+              {/* Job Rec card */}
+              <div className="p-4 flex flex-col" style={{ background: "hsl(0,0%,96%)", border: "1px solid hsl(0,0%,88%)", borderRadius: "4px" }}>
+                <div className="flex items-center gap-2 mb-3">
+                  <Briefcase className="w-4 h-4" style={{ color: "hsl(210,60%,45%)" }} />
+                  <span className="text-xs font-bold" style={{ color: "hsl(0,0%,30%)" }}>Jobs</span>
+                </div>
+                <p className="text-xs leading-relaxed" style={{ color: "hsl(0,0%,45%)" }}>ML Engineer — Amazon</p>
+                <p className="text-xs mt-1" style={{ color: "hsl(0,0%,55%)" }}>Seattle, WA · Full-time</p>
+                <div className="mt-auto pt-3">
+                  <span className="text-xs font-medium px-2 py-0.5 rounded-full" style={{ background: "hsl(210,60%,93%)", color: "hsl(210,60%,35%)" }}>New</span>
                 </div>
               </div>
             </div>
@@ -172,42 +97,24 @@ const Section3dContent = () => {
 
           {/* Right — Text content */}
           <div className="flex-1 p-8 lg:p-12 flex flex-col justify-center">
-            <h2
-              className="text-3xl lg:text-[2.6rem] font-bold leading-tight mb-6"
-            >
-              <span style={{ color: "hsl(0,0%,10%)" }}>
-                Your business evolves.
-              </span>
+            <h2 className="text-3xl lg:text-[2.6rem] font-bold leading-tight mb-6">
+              <span style={{ color: "hsl(0,0%,10%)" }}>Your learning evolves.</span>
               <br />
-              <span style={{ color: "hsl(0,0%,10%)" }}>
-                Your AI agent should too.
-              </span>
+              <span style={{ color: "hsl(0,0%,10%)" }}>Your AI should too.</span>
             </h2>
-            <p
-              className="text-base lg:text-lg leading-relaxed mb-4"
-              style={{ color: "hsl(0,0%,40%)" }}
-            >
-              Every update to your agent shouldn't require an engineering sprint
-              or vendor support ticket.
+            <p className="text-base lg:text-lg leading-relaxed mb-4" style={{ color: "hsl(0,0%,40%)" }}>
+              Every update to your curriculum shouldn't require manual searching or outdated PDFs.
             </p>
-            <p
-              className="text-base lg:text-lg leading-relaxed mb-8"
-              style={{ color: "hsl(0,0%,40%)" }}
-            >
-              Decagon enables rapid iteration across the entire agent lifecycle,
-              so teams can ship new workflows faster and continuously improve
-              performance over time.
+            <p className="text-base lg:text-lg leading-relaxed mb-8" style={{ color: "hsl(0,0%,40%)" }}>
+              UniQ enables continuous learning with real-time resource curation, so students always have access to the best materials.
             </p>
             <div>
               <Button
                 variant="hero-outline"
                 className="px-8 py-3 text-base rounded-full"
-                style={{
-                  borderColor: "hsl(0,0%,20%)",
-                  color: "hsl(0,0%,10%)",
-                }}
+                style={{ borderColor: "hsl(0,0%,20%)", color: "hsl(0,0%,10%)" }}
               >
-                Learn more
+                Explore Platform
               </Button>
             </div>
           </div>
