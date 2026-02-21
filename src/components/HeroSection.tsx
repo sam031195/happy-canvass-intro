@@ -131,7 +131,7 @@ const HeroSection = () => {
             >
               <input
                 type="email"
-                placeholder="Enter your work email"
+                placeholder="Enter your email"
                 className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none"
               />
               <Button variant="hero" size="default" className="gap-2" onClick={() => navigate("/study")}>
