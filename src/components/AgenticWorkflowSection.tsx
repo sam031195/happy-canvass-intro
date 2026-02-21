@@ -38,11 +38,11 @@ const Node = ({ icon, label, sublabel, accent = "hsl(0,0%,20%)", glow }: NodePro
     >
       {icon}
     </div>
-    <span className="text-xs font-semibold text-foreground text-center leading-tight max-w-[90px]">
+    <span className="text-sm font-semibold text-foreground text-center leading-tight max-w-[90px]">
       {label}
     </span>
     {sublabel && (
-      <span className="text-[10px] text-muted-foreground text-center leading-tight max-w-[100px]">
+      <span className="text-xs text-muted-foreground text-center leading-tight max-w-[100px]">
         {sublabel}
       </span>
     )}
@@ -109,7 +109,7 @@ const AgenticWorkflowSection = () => {
           }}
         >
           {/* Row 1 — Ingestion */}
-          <p className="text-xs font-semibold tracking-wide text-muted-foreground mb-1 uppercase text-center">
+          <p className="text-sm font-semibold tracking-wide text-muted-foreground mb-1 uppercase text-center">
             1 · Ingestion
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
@@ -139,7 +139,7 @@ const AgenticWorkflowSection = () => {
           </div>
 
           {/* Row 2 — Orchestration */}
-          <p className="text-xs font-semibold tracking-wide text-muted-foreground mb-1 uppercase text-center">
+          <p className="text-sm font-semibold tracking-wide text-muted-foreground mb-1 uppercase text-center">
             2 · Orchestration
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
@@ -169,7 +169,7 @@ const AgenticWorkflowSection = () => {
           </div>
 
           {/* Row 3 — Delivery */}
-          <p className="text-xs font-semibold tracking-wide text-muted-foreground mb-1 uppercase text-center">
+          <p className="text-sm font-semibold tracking-wide text-muted-foreground mb-1 uppercase text-center">
             3 · Multi-Modal Delivery
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
