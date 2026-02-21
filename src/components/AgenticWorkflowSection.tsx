@@ -104,8 +104,8 @@ const AgenticWorkflowSection = () => {
         <div
           className="relative rounded-none border-y border-border bg-background p-6 lg:p-10 shadow-sm"
           style={{
-            maskImage: "linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)",
-            WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)",
+            maskImage: "linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)",
           }}
         >
           {/* Row 1 — Ingestion */}
