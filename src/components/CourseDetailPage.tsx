@@ -495,7 +495,7 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
                   >
                     <Medal className="h-8 w-8 mb-2" style={{ color: "hsla(45, 80%, 60%, 0.85)" }} />
                     <span className="text-sm font-bold" style={{ color: "hsla(210, 25%, 93%, 0.97)", letterSpacing: "-0.01em" }}>
-                      Share Progress
+                      Share Progress →
                     </span>
                   </button>
                 </div>
