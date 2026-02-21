@@ -10,7 +10,7 @@ const slides = [
   {
     image: heroSlide1,
     popupIcon: <Sparkles className="w-5 h-5 text-primary" />,
-    popupText: "Your academic guide is ready for Module 3.",
+    popupText: "Here's a breakdown of rigorous engineering principles, some design requirements of Johns Hopkins University's Biomedical Engineering program.",
   },
   {
     image: heroSlide2,
