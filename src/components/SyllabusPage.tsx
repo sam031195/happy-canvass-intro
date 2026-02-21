@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ChevronLeft, Layers, Settings, Database, Shield, FolderKanban, BrainCircuit, TrendingUp, Bot, Lock, BarChart2, GitBranch, ArrowUpRight } from "lucide-react";
 import CourseDetailPage from "./CourseDetailPage";
-import syllabusBg from "@/assets/syllabus-bg.avif";
+import syllabusBg from "@/assets/syllabus-bg-purple.avif";
 
 interface Course {
   code: string;
