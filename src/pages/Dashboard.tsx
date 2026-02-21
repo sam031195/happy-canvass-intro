@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Search, ChevronDown, Bot, Sparkles, ArrowUpRight } from "lucide-react";
 import { useState, useRef, useEffect, useCallback } from "react";
 import SyllabusFinderDialog from "@/components/SyllabusFinderDialog";
@@ -16,10 +16,12 @@ const SUGGESTIONS = [
 
 const Dashboard = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [selectedModel, setSelectedModel] = useState<AIModel>(getDefaultModel);
   const [aiGradientPos, setAiGradientPos] = useState({ x: 50, y: 50 });
   const [aiHovered, setAiHovered] = useState(false);
-  const [syllabusOpen, setSyllabusOpen] = useState(false);
+  const autoOpen = (location.state as any)?.openSyllabus === true;
+  const [syllabusOpen, setSyllabusOpen] = useState(autoOpen);
   const [syllabusSelection, setSyllabusSelection] = useState<{ university: string; program: string } | null>(null);
   const aiBtnRef = useRef<HTMLButtonElement>(null);
   
