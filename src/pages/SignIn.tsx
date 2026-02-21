@@ -15,7 +15,7 @@ const SignIn = () => {
       {/* Left side - Image */}
       <div className="hidden lg:block lg:w-1/2 relative overflow-hidden">
         <img
-          src={heroSlide2}
+          src={signinLeft}
           alt="Campus at twilight"
           className="absolute inset-0 w-full h-full object-cover"
         />
