@@ -67,9 +67,9 @@ const cards2 = [
   {
     image: card5Img,
     icon: <Users className="w-4 h-4" />,
-    tag: "Community",
-    title: "Peer Networks\nCollaborate Globally",
-    description: "Study groups form across borders, connecting learners with shared interests.",
+    tag: "Joshua Williams, Florida",
+    title: "Youth FWD",
+    description: "If one supported child can feed hundreds of thousands, universal access to learning can empower millions to lead.",
   },
   {
     image: card6Img,
