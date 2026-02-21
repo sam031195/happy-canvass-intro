@@ -8,6 +8,7 @@ const SignIn = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
+  const [goToDashboard, setGoToDashboard] = useState(true);
 
   return (
     <div className="min-h-screen flex" style={{ background: "hsl(230, 25%, 4%)" }}>
@@ -154,7 +155,7 @@ const SignIn = () => {
           {/* Form */}
           <form
             className="space-y-4"
-            onSubmit={(e) => { e.preventDefault(); navigate("/dashboard"); }}
+            onSubmit={(e) => { e.preventDefault(); navigate(goToDashboard ? "/dashboard" : "/"); }}
           >
             {isSignUp && (
               <div>
@@ -235,6 +236,23 @@ const SignIn = () => {
                 </button>
               </div>
             )}
+
+            {/* Landing preference */}
+            <label className="flex items-center gap-2.5 cursor-pointer select-none py-1">
+              <input
+                type="checkbox"
+                checked={goToDashboard}
+                onChange={(e) => setGoToDashboard(e.target.checked)}
+                className="w-4 h-4 rounded accent-white/90 cursor-pointer"
+                style={{
+                  accentColor: "hsla(0, 0%, 85%, 1)",
+                }}
+              />
+              <span className="text-xs" style={{ color: "hsla(0, 0%, 50%, 0.9)" }}>
+                Go directly to AI Study Page after sign in
+              </span>
+            </label>
+
 
             <button
               type="submit"
