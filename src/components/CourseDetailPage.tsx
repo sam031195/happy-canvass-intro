@@ -12,6 +12,8 @@ import {
   Sparkles,
   Trophy,
   Bookmark,
+  Medal,
+  Mail,
 } from "lucide-react";
 import { useState, useCallback } from "react";
 import AINotebookPage from "@/components/AINotebookPage";
@@ -466,11 +468,37 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
               </div>
 
               {/* Job Ready card */}
-              <div className="flex flex-col items-center text-center py-6">
-                <Trophy className="h-8 w-8 mb-3" style={{ color: "hsla(45, 80%, 60%, 0.85)" }} />
-                <span className="text-sm font-bold mb-1.5" style={{ color: "hsla(210, 25%, 93%, 0.97)", letterSpacing: "-0.01em" }}>
-                  Be Job Ready!!
-                </span>
+              <div className="flex flex-col items-center text-center py-6 gap-4">
+                <div className="flex items-center gap-6">
+                  <div className="flex flex-col items-center">
+                    <Trophy className="h-8 w-8 mb-2" style={{ color: "hsla(45, 80%, 60%, 0.85)" }} />
+                    <span className="text-sm font-bold" style={{ color: "hsla(210, 25%, 93%, 0.97)", letterSpacing: "-0.01em" }}>
+                      Be Job Ready!!
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => {
+                      const professors = "surbhimeena002@gmail.com";
+                      const today = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+                      const subject = encodeURIComponent(`Course Progress: ${detail.name}`);
+                      const body = encodeURIComponent(
+                        `Dear Professor,\n\nI am writing to share my course progress.\n\n` +
+                        `Course: ${detail.name}\n` +
+                        `Code: ${detail.code}\n` +
+                        `Date: ${today}\n\n` +
+                        `Best regards,\nSent via AI Study Platform`
+                      );
+                      window.open(`https://mail.google.com/mail/?view=cm&to=${professors}&su=${subject}&body=${body}`, "_blank");
+                    }}
+                    className="flex flex-col items-center gap-1.5 transition-opacity hover:opacity-80 cursor-pointer"
+                    title="Share progress with your professor"
+                  >
+                    <Medal className="h-7 w-7" style={{ color: "hsla(220, 70%, 65%, 0.85)" }} />
+                    <span className="text-[10px] font-medium leading-tight max-w-[80px]" style={{ color: "hsla(220, 18%, 60%, 0.85)" }}>
+                      Share progress with professor
+                    </span>
+                  </button>
+                </div>
                 <p className="text-xs leading-relaxed" style={{ color: "hsla(220, 18%, 60%, 0.85)" }}>
                   Find job opportunities specific to coursework by completing modules
                 </p>
