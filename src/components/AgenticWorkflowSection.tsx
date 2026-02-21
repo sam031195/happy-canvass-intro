@@ -76,7 +76,7 @@ const AgenticWorkflowSection = () => {
       <img
         src={agenticBg}
         alt=""
-        className="absolute inset-0 w-full h-full object-contain object-center"
+        className="absolute inset-0 w-full h-full object-cover"
       />
 
       <div className="relative z-10 px-0">
