@@ -486,10 +486,8 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
                 borderRadius: "6px",
               }}
             >
-              <svg width="12" height="12" viewBox="0 0 60 60" fill="none">
-                <path d="M30 2 C30 14, 46 30, 58 30 C46 30, 30 46, 30 58 C30 46, 14 30, 2 30 C14 30, 30 14, 30 2 Z" fill="hsl(230, 18%, 6%)" />
-              </svg>
-              Chat
+              <Plus className="h-3.5 w-3.5" />
+              Create Notes
             </button>
             <button
               className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors"
