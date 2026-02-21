@@ -305,7 +305,7 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
                   const isComingSoon = COMING_SOON_CODES.has(course.code);
                   return isComingSoon ? (
                     <div key={course.code} className="relative">
-                      <div className="blur-[6px] pointer-events-none select-none">
+                      <div className="pointer-events-none select-none opacity-60">
                         <CourseCard course={course} index={ci} />
                       </div>
                       <div
