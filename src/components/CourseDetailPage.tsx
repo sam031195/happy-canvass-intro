@@ -141,7 +141,7 @@ const ModuleChatButton = ({ onClick }: { onClick: () => void }) => {
         <span className="pointer-events-none absolute -inset-[1.5px] rounded-full -z-10 transition-opacity duration-300" style={{ opacity: hovered ? 1 : 0, background: `radial-gradient(circle 70px at ${gradientPos.x}% ${gradientPos.y}%, #4285f4, #ea4335, #fbbc05, #34a853, transparent 70%)` }} />
         <span className="pointer-events-none absolute inset-0 rounded-full -z-[5]" style={{ background: "hsl(230, 25%, 6%)" }} />
         <Sparkles className="h-4 w-4 relative z-10" />
-        <span className="relative z-10">+ Create Notes</span>
+        <span className="relative z-10">Chat with AI about this Module</span>
       </button>
     </div>
   );
