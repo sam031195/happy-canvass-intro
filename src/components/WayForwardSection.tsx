@@ -371,7 +371,7 @@ const WayForwardSection = () => {
                   UniQ<sup className="text-sm md:text-xl font-semibold align-super ml-0.5 opacity-70">AI</sup>
                 </div>
                 <p className="text-sm md:text-xl leading-relaxed text-white/50">
-                  Bridging Ivy League rigor with global accessibility — AI-powered education for every learner, everywhere.
+                  Your AI-powered academic companion — world-class education for every learner, everywhere.
                 </p>
               </div>
 
