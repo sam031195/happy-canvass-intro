@@ -282,7 +282,7 @@ const WayForwardSection = () => {
                       src={card.image}
                       alt={card.tag}
                       className="w-full aspect-[5/4] object-cover"
-                      style={{ borderRadius: "2px" }}
+                      style={{ borderRadius: "6px" }}
                     />
                   ) : (
                     <video
@@ -291,7 +291,7 @@ const WayForwardSection = () => {
                       muted
                       playsInline
                       className="w-full aspect-[5/4] object-cover"
-                      style={{ borderRadius: "2px" }}
+                      style={{ borderRadius: "6px" }}
                       src={(card as any).video}
                     />
                   )}
