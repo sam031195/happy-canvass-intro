@@ -192,51 +192,36 @@ const WayForwardSection = () => {
           className="max-w-xs w-full block mb-10"
           src="/videos/future-text-animation.webm"
         />
-
-        {/* Footer text */}
-        <h3
-          className="text-3xl lg:text-4xl font-bold text-center mb-4 max-w-2xl px-6"
-          style={{ color: "hsl(0, 0%, 10%)" }}
-        >
-          Built for the next generation of learners
-        </h3>
-        <p
-          className="text-base lg:text-lg text-center max-w-xl px-6 mb-8 leading-relaxed"
-          style={{ color: "hsl(0, 0%, 40%)" }}
-        >
-          From Harvard syllabi to a student in Nairobi — UniQ<sup className="text-xs align-super opacity-70">AI</sup> makes world-class education accessible, adaptive, and free.
-        </p>
-
-        <div className="flex items-center gap-4">
-          <Button
-            variant="hero"
-            size="lg"
-            className="px-8"
-          >
-            Get started free
-          </Button>
-          <Button
-            variant="hero-outline"
-            size="lg"
-            className="px-8"
-            style={{
-              borderColor: "hsl(0, 0%, 20%)",
-              color: "hsl(0, 0%, 10%)",
-              borderRadius: "4px",
-            }}
-          >
-            Partner with us
-          </Button>
-        </div>
       </section>
 
-      {/* CTA Footer Image */}
-      <div className="w-full">
+      {/* CTA Footer Image with text overlay */}
+      <div className="relative w-full">
         <img
           src={ctaFooter}
           alt="CTA Footer"
           className="w-full block"
         />
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-6">
+          <h3 className="text-3xl lg:text-5xl font-bold text-center mb-4 max-w-2xl text-white drop-shadow-lg">
+            Built for the next generation of learners
+          </h3>
+          <p className="text-base lg:text-lg text-center max-w-xl mb-8 leading-relaxed text-white/80 drop-shadow-sm">
+            From Harvard syllabi to a student in Nairobi — UniQ<sup className="text-xs align-super opacity-70">AI</sup> makes world-class education accessible, adaptive, and free.
+          </p>
+          <div className="flex items-center gap-4">
+            <Button variant="hero" size="lg" className="px-8">
+              Get started free
+            </Button>
+            <Button
+              variant="hero-outline"
+              size="lg"
+              className="px-8 text-white border-white/40 hover:bg-white/10"
+              style={{ borderRadius: "4px" }}
+            >
+              Partner with us
+            </Button>
+          </div>
+        </div>
       </div>
     </>
   );
