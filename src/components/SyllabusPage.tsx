@@ -305,24 +305,21 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
                   const isComingSoon = COMING_SOON_CODES.has(course.code);
                   return isComingSoon ? (
                     <div key={course.code} className="relative">
-                      <div className="pointer-events-none select-none">
+                      <div className="pointer-events-none select-none opacity-60">
                         <CourseCard course={course} index={ci} />
                       </div>
                       <div
-                        className="absolute left-0 right-0 flex items-center justify-center"
-                        style={{
-                          top: "50%",
-                          transform: "translateY(-50%)",
-                          height: "40px",
-                          background: "hsla(230, 25%, 8%, 0.7)",
-                          backdropFilter: "blur(12px)",
-                          borderTop: "1px solid hsla(0,0%,100%,0.06)",
-                          borderBottom: "1px solid hsla(0,0%,100%,0.06)",
-                        }}
+                        className="absolute inset-0 flex items-center justify-center"
+                        style={{ background: "hsla(230, 25%, 4%, 0.4)" }}
                       >
                         <span
-                          className="text-[10px] font-bold tracking-[0.22em] uppercase"
-                          style={{ color: "hsla(0, 0%, 65%, 0.9)" }}
+                          className="text-xs font-bold tracking-[0.2em] uppercase px-5 py-2 rounded-full"
+                          style={{
+                            background: "hsla(0, 0%, 100%, 0.06)",
+                            border: "1px solid hsla(0, 0%, 100%, 0.1)",
+                            color: "hsla(0, 0%, 70%, 0.9)",
+                            backdropFilter: "blur(8px)",
+                          }}
                         >
                           Coming Soon
                         </span>
