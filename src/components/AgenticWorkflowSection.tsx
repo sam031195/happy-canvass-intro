@@ -1,4 +1,5 @@
 import { useState } from "react";
+import agenticBg from "@/assets/agentic-bg.avif";
 import {
   Brain,
   Bell,
@@ -70,16 +71,12 @@ const AgenticWorkflowSection = () => {
   return (
     <section
       className="relative py-20 lg:py-28 overflow-hidden"
-      style={{ background: "hsl(220,30%,95%)" }}
     >
-      {/* Subtle grid bg — visible on sides */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-50"
-        style={{
-          backgroundImage:
-            "linear-gradient(hsl(220,25%,82%) 1px, transparent 1px), linear-gradient(90deg, hsl(220,25%,82%) 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-        }}
+      {/* Background image */}
+      <img
+        src={agenticBg}
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover"
       />
 
       <div className="relative z-10 px-0">
