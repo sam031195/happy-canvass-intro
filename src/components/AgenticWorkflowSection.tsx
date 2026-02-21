@@ -38,11 +38,11 @@ const Node = ({ icon, label, sublabel, accent = "hsl(0,0%,20%)", glow }: NodePro
     >
       {icon}
     </div>
-    <span className="text-sm font-semibold text-foreground text-center leading-tight max-w-[90px]">
+    <span className="text-base font-semibold text-foreground text-center leading-tight max-w-[110px]">
       {label}
     </span>
     {sublabel && (
-      <span className="text-xs text-muted-foreground text-center leading-tight max-w-[100px]">
+      <span className="text-sm text-muted-foreground text-center leading-tight max-w-[120px]">
         {sublabel}
       </span>
     )}
@@ -109,7 +109,7 @@ const AgenticWorkflowSection = () => {
           }}
         >
           {/* Row 1 — Ingestion */}
-          <p className="text-sm font-semibold tracking-wide text-muted-foreground mb-1 uppercase text-center">
+          <p className="text-base font-semibold tracking-wide text-muted-foreground mb-1 uppercase text-center">
             1 · Ingestion
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
@@ -139,7 +139,7 @@ const AgenticWorkflowSection = () => {
           </div>
 
           {/* Row 2 — Orchestration */}
-          <p className="text-sm font-semibold tracking-wide text-muted-foreground mb-1 uppercase text-center">
+          <p className="text-base font-semibold tracking-wide text-muted-foreground mb-1 uppercase text-center">
             2 · Orchestration
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
@@ -169,7 +169,7 @@ const AgenticWorkflowSection = () => {
           </div>
 
           {/* Row 3 — Delivery */}
-          <p className="text-sm font-semibold tracking-wide text-muted-foreground mb-1 uppercase text-center">
+          <p className="text-base font-semibold tracking-wide text-muted-foreground mb-1 uppercase text-center">
             3 · Multi-Modal Delivery
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
@@ -237,8 +237,8 @@ const AgenticWorkflowSection = () => {
                 key={card.title}
                 className="rounded-xl border border-border bg-background p-5"
               >
-                <h4 className="text-sm font-bold text-foreground mb-2">{card.title}</h4>
-                <p className="text-xs text-muted-foreground leading-relaxed">{card.desc}</p>
+                <h4 className="text-lg font-bold text-foreground mb-2">{card.title}</h4>
+                <p className="text-base text-muted-foreground leading-relaxed">{card.desc}</p>
               </div>
             ))}
           </div>
