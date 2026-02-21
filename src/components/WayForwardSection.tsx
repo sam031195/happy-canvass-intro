@@ -180,7 +180,7 @@ const WayForwardSection = () => {
 
       {/* Footer section with video + text */}
       <section
-        className="w-full py-2 lg:py-3 flex flex-col items-center"
+        className="w-full py-2 lg:py-3 flex items-center justify-center"
         style={{ background: "hsl(0, 0%, 98%)" }}
       >
         {/* Video */}
@@ -189,7 +189,7 @@ const WayForwardSection = () => {
           loop
           muted
           playsInline
-          className="max-w-xs w-full block mb-10"
+          className="max-w-xs w-full block"
           src="/videos/future-text-animation.webm"
         />
       </section>
