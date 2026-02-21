@@ -6,6 +6,7 @@ import card2Img from "@/assets/card-2-img.png";
 import card3Img from "@/assets/card-3-img.png";
 import card4Img from "@/assets/card-4-img.png";
 import card5Img from "@/assets/card-5-img.png";
+import card6Img from "@/assets/card-6-img.png";
 
 const cards = [
   {
@@ -71,7 +72,7 @@ const cards2 = [
     description: "Study groups form across borders, connecting learners with shared interests.",
   },
   {
-    video: "/videos/product-hero-interfaces.webm",
+    image: card6Img,
     icon: <Globe className="w-4 h-4" />,
     tag: "Impact",
     title: "Institutions\nScale Access",
