@@ -309,15 +309,18 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
                         <CourseCard course={course} index={ci} />
                       </div>
                       <div
-                        className="absolute inset-x-0 bottom-0 flex items-center justify-center py-3"
-                        style={{
-                          background: "hsla(0, 0%, 100%, 0.06)",
-                          borderTop: "1px solid hsla(0, 0%, 100%, 0.1)",
-                          color: "hsla(0, 0%, 70%, 0.9)",
-                          backdropFilter: "blur(8px)",
-                        }}
+                        className="absolute inset-0 flex items-center justify-center"
+                        style={{ background: "hsla(230, 25%, 4%, 0.4)" }}
                       >
-                        <span className="text-xs font-bold tracking-[0.2em] uppercase">
+                        <span
+                          className="text-xs font-bold tracking-[0.2em] uppercase px-5 py-2 rounded-full"
+                          style={{
+                            background: "hsla(0, 0%, 100%, 0.06)",
+                            border: "1px solid hsla(0, 0%, 100%, 0.1)",
+                            color: "hsla(0, 0%, 70%, 0.9)",
+                            backdropFilter: "blur(8px)",
+                          }}
+                        >
                           Coming Soon
                         </span>
                       </div>
