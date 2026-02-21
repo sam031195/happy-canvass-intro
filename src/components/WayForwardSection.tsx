@@ -237,11 +237,11 @@ const WayForwardSection = () => {
             {/* Top row */}
             <div className="flex flex-col lg:flex-row justify-between gap-10 mb-10">
               {/* Brand */}
-              <div className="max-w-xs">
-                <div className="text-5xl font-bold text-white tracking-tight mb-4">
-                  UniQ<sup className="text-lg font-semibold align-super ml-0.5 opacity-70">AI</sup>
+              <div className="max-w-sm">
+                <div className="text-7xl font-bold text-white tracking-tight mb-4">
+                  UniQ<sup className="text-xl font-semibold align-super ml-0.5 opacity-70">AI</sup>
                 </div>
-                <p className="text-base leading-relaxed text-white/50">
+                <p className="text-xl leading-relaxed text-white/50">
                   Bridging Ivy League rigor with global accessibility — AI-powered education for every learner, everywhere.
                 </p>
               </div>
@@ -249,27 +249,27 @@ const WayForwardSection = () => {
               {/* Links */}
               <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
                 <div>
-                  <h4 className="text-sm font-bold uppercase tracking-widest text-white/40 mb-4">Product</h4>
+                  <h4 className="text-base font-bold uppercase tracking-widest text-white/40 mb-4">Product</h4>
                   <ul className="space-y-3">
-                    <li><a href="#" className="text-base text-white/60 hover:text-white transition-colors">AI Study Page</a></li>
-                    <li><a href="#" className="text-base text-white/60 hover:text-white transition-colors">Syllabus Finder</a></li>
-                    <li><a href="#" className="text-base text-white/60 hover:text-white transition-colors">Course Explorer</a></li>
+                    <li><a href="#" className="text-xl text-white/60 hover:text-white transition-colors">AI Study Page</a></li>
+                    <li><a href="#" className="text-xl text-white/60 hover:text-white transition-colors">Syllabus Finder</a></li>
+                    <li><a href="#" className="text-xl text-white/60 hover:text-white transition-colors">Course Explorer</a></li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold uppercase tracking-widest text-white/40 mb-4">Company</h4>
+                  <h4 className="text-base font-bold uppercase tracking-widest text-white/40 mb-4">Company</h4>
                   <ul className="space-y-3">
-                    <li><a href="#" className="text-base text-white/60 hover:text-white transition-colors">About</a></li>
-                    <li><a href="#" className="text-base text-white/60 hover:text-white transition-colors">Careers</a></li>
-                    <li><a href="#" className="text-base text-white/60 hover:text-white transition-colors">Partners</a></li>
+                    <li><a href="#" className="text-xl text-white/60 hover:text-white transition-colors">About</a></li>
+                    <li><a href="#" className="text-xl text-white/60 hover:text-white transition-colors">Careers</a></li>
+                    <li><a href="#" className="text-xl text-white/60 hover:text-white transition-colors">Partners</a></li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold uppercase tracking-widest text-white/40 mb-4">Legal</h4>
+                  <h4 className="text-base font-bold uppercase tracking-widest text-white/40 mb-4">Legal</h4>
                   <ul className="space-y-3">
-                    <li><a href="#" className="text-base text-white/60 hover:text-white transition-colors">Privacy</a></li>
-                    <li><a href="#" className="text-base text-white/60 hover:text-white transition-colors">Terms</a></li>
-                    <li><a href="#" className="text-base text-white/60 hover:text-white transition-colors">Security</a></li>
+                    <li><a href="#" className="text-xl text-white/60 hover:text-white transition-colors">Privacy</a></li>
+                    <li><a href="#" className="text-xl text-white/60 hover:text-white transition-colors">Terms</a></li>
+                    <li><a href="#" className="text-xl text-white/60 hover:text-white transition-colors">Security</a></li>
                   </ul>
                 </div>
               </div>
@@ -280,13 +280,13 @@ const WayForwardSection = () => {
 
             {/* Bottom row */}
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-              <p className="text-sm text-white/30">
+              <p className="text-base text-white/30">
                 © 2026 UniQ AI. All rights reserved.
               </p>
               <div className="flex items-center gap-6">
-                <a href="#" className="text-sm text-white/30 hover:text-white transition-colors">Twitter</a>
-                <a href="#" className="text-sm text-white/30 hover:text-white transition-colors">LinkedIn</a>
-                <a href="#" className="text-sm text-white/30 hover:text-white transition-colors">GitHub</a>
+                <a href="#" className="text-base text-white/30 hover:text-white transition-colors">Twitter</a>
+                <a href="#" className="text-base text-white/30 hover:text-white transition-colors">LinkedIn</a>
+                <a href="#" className="text-base text-white/30 hover:text-white transition-colors">GitHub</a>
               </div>
             </div>
           </div>
