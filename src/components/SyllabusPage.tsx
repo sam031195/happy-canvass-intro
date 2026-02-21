@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ChevronLeft, Layers, Settings, Database, Shield, FolderKanban, BrainCircuit, TrendingUp, Bot, Lock, BarChart2, GitBranch, ArrowUpRight } from "lucide-react";
 import CourseDetailPage from "./CourseDetailPage";
 import syllabusBg from "@/assets/syllabus-bg.avif";
+import uwLogo from "@/assets/uw-logo.png";
 
 interface Course {
   code: string;
@@ -244,12 +245,19 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
                 <span style={{ color: "hsla(0, 0%, 40%, 0.7)" }}>Curriculum</span>
               </h1>
             </div>
-            <p
-              className="hidden lg:block text-sm leading-relaxed max-w-xs pb-2"
-              style={{ color: "hsla(0, 0%, 38%, 0.85)" }}
-            >
-              {program} — Complete course catalog organized by academic quarter.
-            </p>
+            <div className="hidden lg:flex flex-col items-end gap-4 pb-2">
+              <img
+                src={uwLogo}
+                alt="University logo"
+                className="h-14 w-auto invert opacity-20"
+              />
+              <p
+                className="text-sm leading-relaxed max-w-xs text-right"
+                style={{ color: "hsla(0, 0%, 38%, 0.85)" }}
+              >
+                {program} — Complete course catalog organized by academic quarter.
+              </p>
+            </div>
           </div>
 
           {/* Divider */}
