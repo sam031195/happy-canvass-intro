@@ -10,8 +10,8 @@ const Index = () => {
       <HeroSection />
       <DecagonDifferenceSection />
       <EndToEndSection />
-      <WayForwardSection />
       <AgenticWorkflowSection />
+      <WayForwardSection />
     </main>
   );
 };
