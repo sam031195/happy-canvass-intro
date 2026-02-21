@@ -181,8 +181,8 @@ const Dashboard = () => {
             style={{
               color: "transparent",
               backgroundImage: `url(${nextEraTexture})`,
-              backgroundSize: "200%",
-              backgroundPosition: "left center",
+              backgroundSize: "300%",
+              backgroundPosition: "0% 50%",
               WebkitBackgroundClip: "text",
               backgroundClip: "text",
             }}
