@@ -310,13 +310,14 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
                       </div>
                       <div
                         className="absolute inset-0 flex items-center justify-center"
-                        style={{ background: "hsla(230, 25%, 4%, 0.4)" }}
+                        style={{ background: "hsla(230, 25%, 4%, 0.4)", borderRadius: "6px" }}
                       >
                         <span
-                          className="text-xs font-bold tracking-[0.2em] uppercase px-5 py-2 rounded-full"
+                          className="absolute left-0 right-0 text-center text-xs font-bold tracking-[0.2em] uppercase py-2.5"
                           style={{
                             background: "hsla(0, 0%, 100%, 0.06)",
-                            border: "1px solid hsla(0, 0%, 100%, 0.1)",
+                            borderTop: "1px solid hsla(0, 0%, 100%, 0.1)",
+                            borderBottom: "1px solid hsla(0, 0%, 100%, 0.1)",
                             color: "hsla(0, 0%, 70%, 0.9)",
                             backdropFilter: "blur(8px)",
                           }}
