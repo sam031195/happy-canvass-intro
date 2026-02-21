@@ -33,7 +33,7 @@ const UniversityMarquee = () => {
               src={uni.logo}
               alt={uni.name}
               title={uni.name}
-              className="h-10 w-auto object-contain"
+              className="h-[52px] w-auto object-contain"
             />
           </div>
         ))}
