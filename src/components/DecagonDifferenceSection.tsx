@@ -31,16 +31,16 @@ const DecagonDifferenceSection = () => {
   return (
     <section className="bg-background py-10 lg:py-16">
       <div className="ml-[5%] mr-[5%] px-8 lg:px-12">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 rounded-full bg-[hsl(0,0%,92%)] px-4 py-2 text-sm font-medium text-foreground mb-3">
-          <Globe className="w-4 h-4" />
-          The opportunity gap
-        </div>
 
         {/* Two-column: text + video */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-12">
           {/* Left text */}
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-start">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 rounded-full bg-[hsl(0,0%,92%)] px-4 py-2 text-sm font-medium text-foreground mb-3 w-fit">
+              <Globe className="w-4 h-4" />
+              The opportunity gap
+            </div>
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground leading-tight mb-5">
               World-class education<br />shouldn't have borders
             </h2>
