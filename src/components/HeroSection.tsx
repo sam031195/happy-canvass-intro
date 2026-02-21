@@ -103,7 +103,9 @@ const HeroSection = () => {
             </div>
             <div className="flex items-center gap-3">
               <Button variant="hero-outline" size="default" onClick={() => navigate("/signin")}>Sign in</Button>
-              <Button variant="hero" size="default">Get started</Button>
+              <Button variant="hero" size="default" onClick={() => navigate("/dashboard")}>
+                <Sparkles className="w-4 h-4 mr-1.5" /> AI Study Page
+              </Button>
             </div>
           </nav>
 
