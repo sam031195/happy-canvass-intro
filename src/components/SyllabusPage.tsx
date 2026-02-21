@@ -56,6 +56,7 @@ interface Props {
 }
 
 const CLICKABLE_CODES = new Set(["MSIS 521 B", "MSIS 522 B", "MSIS 549 B"]);
+const COMING_SOON_CODES = new Set(["MSIS 523 B"]);
 
 const CourseCard = ({ course, onClick, index }: { course: Course; onClick?: () => void; index: number }) => {
   const [hovered, setHovered] = useState(false);
@@ -300,14 +301,39 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
 
               {/* Course grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-                {quarter.courses.map((course, ci) => (
-                  <CourseCard
-                    key={course.code}
-                    course={course}
-                    index={ci}
-                    onClick={CLICKABLE_CODES.has(course.code) ? () => setSelectedCourseCode(course.code) : undefined}
-                  />
-                ))}
+                {quarter.courses.map((course, ci) => {
+                  const isComingSoon = COMING_SOON_CODES.has(course.code);
+                  return isComingSoon ? (
+                    <div key={course.code} className="relative">
+                      <div className="blur-[6px] pointer-events-none select-none">
+                        <CourseCard course={course} index={ci} />
+                      </div>
+                      <div
+                        className="absolute inset-0 flex items-center justify-center"
+                        style={{ background: "hsla(230, 25%, 4%, 0.4)" }}
+                      >
+                        <span
+                          className="text-xs font-bold tracking-[0.2em] uppercase px-5 py-2 rounded-full"
+                          style={{
+                            background: "hsla(0, 0%, 100%, 0.06)",
+                            border: "1px solid hsla(0, 0%, 100%, 0.1)",
+                            color: "hsla(0, 0%, 70%, 0.9)",
+                            backdropFilter: "blur(8px)",
+                          }}
+                        >
+                          Coming Soon
+                        </span>
+                      </div>
+                    </div>
+                  ) : (
+                    <CourseCard
+                      key={course.code}
+                      course={course}
+                      index={ci}
+                      onClick={CLICKABLE_CODES.has(course.code) ? () => setSelectedCourseCode(course.code) : undefined}
+                    />
+                  );
+                })}
               </div>
             </section>
           ))}
