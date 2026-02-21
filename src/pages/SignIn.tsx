@@ -36,11 +36,11 @@ const SignIn = () => {
           </button>
           <div className="max-w-md">
             <h2 className="text-3xl font-bold text-white leading-snug mb-4">
-              AI that treats every customer like the only one.
+              Ivy League rigor, for every learner.
             </h2>
             <p className="text-white/70 text-sm leading-relaxed">
-              Join thousands of enterprises delivering exceptional customer
-              experiences at scale.
+              Access world-class curricula from top 100 universities — powered
+              by AI that understands academia.
             </p>
           </div>
         </div>
@@ -96,7 +96,7 @@ const SignIn = () => {
           </h1>
           <p className="mt-2 text-sm" style={{ color: "hsla(0, 0%, 38%, 0.9)" }}>
             {isSignUp
-              ? "Start your free trial today."
+              ? "Start learning from the world's best universities."
               : "Sign in to your UniQ account."}
           </p>
 
