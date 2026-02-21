@@ -65,6 +65,7 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
   const [fetchState, setFetchState] = useState<FetchState>("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const abortRef = useRef<AbortController | null>(null);
+  const prefetchAbortRef = useRef<AbortController | null>(null);
 
   const handleSendMouseMove = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -200,8 +201,9 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
       return;
     }
 
-    // Abort any ongoing request
+    // Abort any ongoing request and pause prefetch
     if (abortRef.current) abortRef.current.abort();
+    if (prefetchAbortRef.current) prefetchAbortRef.current.abort();
     const controller = new AbortController();
     abortRef.current = controller;
 
@@ -315,14 +317,16 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
   useEffect(() => {
     if (displayModules.length === 0) return;
     let cancelled = false;
+    const controller = new AbortController();
+    prefetchAbortRef.current = controller;
 
     const prefetchAll = async () => {
       for (let i = 0; i < displayModules.length; i++) {
-        if (cancelled) break;
-        if (contentMapRef.current[i] !== undefined) continue; // already cached
-        // small delay to avoid hammering the server
-        await new Promise((r) => setTimeout(r, 800));
-        if (cancelled || contentMapRef.current[i] !== undefined) continue;
+        if (cancelled || controller.signal.aborted) break;
+        if (contentMapRef.current[i] !== undefined) continue;
+        // Wait between prefetches to avoid competing with user requests
+        await new Promise((r) => setTimeout(r, 2000));
+        if (cancelled || controller.signal.aborted || contentMapRef.current[i] !== undefined) continue;
 
         const mod = displayModules[i];
         try {
@@ -340,6 +344,7 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
               program,
               university,
             }),
+            signal: controller.signal,
           });
           if (!resp.ok || !resp.body) continue;
 
@@ -349,6 +354,7 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
           let accumulated = "";
 
           while (true) {
+            if (controller.signal.aborted) { reader.cancel(); break; }
             const { done, value } = await reader.read();
             if (done) break;
             textBuffer += decoder.decode(value, { stream: true });
@@ -368,7 +374,7 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
             }
           }
 
-          if (accumulated && !cancelled) {
+          if (accumulated && !cancelled && !controller.signal.aborted) {
             setContentMap((prev) => ({ ...prev, [i]: accumulated }));
           }
         } catch {
@@ -377,9 +383,9 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
       }
     };
 
-    // Start prefetch after a short initial delay
-    const timer = setTimeout(prefetchAll, 1500);
-    return () => { cancelled = true; clearTimeout(timer); };
+    // Start prefetch after initial delay
+    const timer = setTimeout(prefetchAll, 3000);
+    return () => { cancelled = true; controller.abort(); clearTimeout(timer); };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [displayModules.length]);
 
