@@ -92,9 +92,9 @@ const HeroSection = () => {
         {/* Fixed hero content overlay */}
         <div className="relative z-10 flex flex-col h-full">
           {/* Navbar */}
-          <nav className="flex items-center justify-between px-8 lg:px-12 py-5">
-            <div className="text-3xl font-bold text-foreground tracking-tight">Global Academia</div>
-            <div className="hidden md:flex items-center gap-8 text-base font-medium text-foreground/80">
+          <nav className="flex items-center justify-between px-8 lg:px-12 py-6">
+            <div className="text-4xl font-bold text-foreground tracking-tight">Global Academia</div>
+            <div className="hidden md:flex items-center gap-8 text-lg font-medium text-foreground/80">
               <a href="#" className="hover:text-foreground transition-colors">Product</a>
               <a href="#" className="hover:text-foreground transition-colors">Industries</a>
               <a href="#" className="hover:text-foreground transition-colors">Customers</a>
@@ -102,9 +102,9 @@ const HeroSection = () => {
               <a href="#" className="hover:text-foreground transition-colors">Company</a>
             </div>
             <div className="flex items-center gap-3">
-              <Button variant="hero-outline" size="default" onClick={() => navigate("/signin")}>Sign in</Button>
-              <Button variant="hero" size="default" onClick={() => navigate("/study")}>
-                <Sparkles className="w-4 h-4 mr-1.5" /> AI Study Page
+              <Button variant="hero-outline" size="lg" onClick={() => navigate("/signin")}>Sign in</Button>
+              <Button variant="hero" size="lg" onClick={() => navigate("/study")}>
+                <Sparkles className="w-5 h-5 mr-1.5" /> AI Study Page
               </Button>
             </div>
           </nav>
