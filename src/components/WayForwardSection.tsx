@@ -322,11 +322,11 @@ const WayForwardSection = () => {
       </section>
 
       {/* CTA Footer Image with all content overlay */}
-      <div className="relative w-full">
+      <div className="relative w-full" style={{ background: "hsl(230,25%,8%)" }}>
         <img
           src={ctaFooter}
           alt="CTA Footer"
-          className="w-full block min-h-[70vh] md:min-h-[90vh] object-cover" />
+          className="w-full block min-h-[110vh] md:min-h-[90vh] object-cover" />
 
         {/* Dark gradient overlay for readability */}
         <div
