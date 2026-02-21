@@ -139,9 +139,10 @@ const HeroSection = () => {
                 Start learning <ArrowRight className="w-4 h-4" />
               </Button>
             </div>
-
-            <UniversityMarquee />
           </div>
+
+          {/* University marquee — full width */}
+          <UniversityMarquee />
 
           {/* Spacer to push popup cards and arrow to bottom */}
           <div className="flex-1" />

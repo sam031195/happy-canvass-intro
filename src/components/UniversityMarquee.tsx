@@ -18,7 +18,7 @@ const UniversityMarquee = () => {
   const items = [...universities, ...universities];
 
   return (
-    <div className="mt-8 w-full max-w-2xl overflow-hidden relative">
+    <div className="mt-8 w-full overflow-hidden relative">
       {/* Fade edges */}
       <div
         className="absolute inset-y-0 left-0 w-16 z-10 pointer-events-none"
