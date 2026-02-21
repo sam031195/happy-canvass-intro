@@ -76,7 +76,7 @@ const cards2 = [
     icon: <Globe className="w-4 h-4" />,
     tag: "Who Inspire Us",
     title: "Support System For Upskilling",
-    description: "Whether you are starting out or starting again, knowing available paths and access to skills give you momentum. #allofus #thechangemakers #peoplewhoinspire",
+    description: "Whether you are starting out or starting again, knowing available paths and access to skills give you momentum. #thechangemakers #peoplewhoinspire",
   },
 ];
 
