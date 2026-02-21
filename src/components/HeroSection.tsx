@@ -110,8 +110,8 @@ const HeroSection = () => {
           </nav>
 
           {/* Hero text content */}
-          <div className="flex flex-col justify-center px-8 lg:px-12 pt-16 lg:pt-24 max-w-3xl">
-            <h1 className="text-5xl lg:text-7xl font-bold text-foreground leading-[1.05] tracking-tight">
+          <div className="flex flex-col items-center justify-center text-center flex-1 px-8 lg:px-12">
+            <h1 className="text-5xl lg:text-7xl font-bold text-foreground leading-[1.05] tracking-tight max-w-4xl">
               Your AI-powered academic companion
             </h1>
             <p className="mt-6 text-lg text-foreground/70 max-w-lg leading-relaxed">
@@ -119,7 +119,7 @@ const HeroSection = () => {
             </p>
 
             {/* Email input bar */}
-            <div className="mt-10 flex items-center bg-[hsl(var(--hero-input-bg))] rounded-full pl-6 pr-2 py-2 max-w-md shadow-sm">
+            <div className="mt-10 flex items-center bg-[hsl(var(--hero-input-bg))] rounded-full pl-6 pr-2 py-2 max-w-md w-full shadow-sm">
               <input
                 type="email"
                 placeholder="Enter your work email"
