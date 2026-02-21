@@ -251,7 +251,7 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
         style={{
           width: "700px",
           height: "600px",
-          background: "radial-gradient(ellipse at bottom left, hsla(18, 72%, 44%, 0.14) 0%, transparent 65%)",
+          background: "radial-gradient(ellipse at bottom left, hsla(18, 72%, 44%, 0.06) 0%, transparent 65%)",
         }}
       />
 
