@@ -92,19 +92,19 @@ const HeroSection = () => {
         {/* Fixed hero content overlay */}
         <div className="relative z-10 flex flex-col h-full">
           {/* Navbar */}
-          <nav className="flex items-center justify-between px-8 lg:px-12 py-6">
-            <div className="text-4xl font-bold text-foreground tracking-tight"><div className="text-4xl font-bold text-foreground tracking-tight">UQue<sup className="text-base font-semibold align-super ml-0.5 opacity-70">AI</sup></div></div>
-            <div className="hidden md:flex items-center gap-8 text-lg font-medium text-foreground/80">
+          <nav className="flex items-center justify-between px-10 lg:px-16 py-8">
+            <div className="text-5xl font-bold text-foreground tracking-tight">UQue<sup className="text-xl font-semibold align-super ml-0.5 opacity-70">AI</sup></div>
+            <div className="hidden md:flex items-center gap-10 text-xl font-medium text-foreground/80">
               <a href="#" className="hover:text-foreground transition-colors">Product</a>
               <a href="#" className="hover:text-foreground transition-colors">Industries</a>
               <a href="#" className="hover:text-foreground transition-colors">Customers</a>
               <a href="#" className="hover:text-foreground transition-colors">Resources</a>
               <a href="#" className="hover:text-foreground transition-colors">Company</a>
             </div>
-            <div className="flex items-center gap-3 text-lg">
-              <Button variant="hero-outline" size="lg" className="text-lg" onClick={() => navigate("/signin")}>Sign in</Button>
-              <Button variant="hero" size="lg" className="text-lg" onClick={() => navigate("/study")}>
-                <Sparkles className="w-5 h-5 mr-1.5" /> AI Study Page
+            <div className="flex items-center gap-4 text-xl">
+              <Button variant="hero-outline" size="lg" className="text-xl px-6 py-3" onClick={() => navigate("/signin")}>Sign in</Button>
+              <Button variant="hero" size="lg" className="text-xl px-6 py-3" onClick={() => navigate("/study")}>
+                <Sparkles className="w-6 h-6 mr-2" /> AI Study Page
               </Button>
             </div>
           </nav>
