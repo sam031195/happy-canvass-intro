@@ -10,7 +10,7 @@ const slides = [
   {
     image: heroSlide1,
     popupIcon: <Sparkles className="w-5 h-5 text-primary" />,
-    popupText: "Your study guide is ready for Module 3.",
+    popupText: "Your academic guide is ready for Module 3.",
   },
   {
     image: heroSlide2,
@@ -110,7 +110,7 @@ const HeroSection = () => {
           {/* Hero text content */}
           <div className="flex flex-col justify-center px-8 lg:px-12 pt-16 lg:pt-24 max-w-3xl">
             <h1 className="text-5xl lg:text-7xl font-bold text-foreground leading-[1.05] tracking-tight">
-              Your AI-powered study companion
+              Your AI-powered academic companion
             </h1>
             <p className="mt-6 text-lg text-foreground/70 max-w-lg leading-relaxed">
               Search smarter, learn faster. ChatGPT-level reasoning meets your coursework — all in one place.
