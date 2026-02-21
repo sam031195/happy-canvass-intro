@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowRight, ArrowDown, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 import heroSlide1 from "@/assets/hero-slide-1.png";
 import heroSlide2 from "@/assets/hero-slide-2.png";
@@ -33,6 +34,7 @@ const slides = [
 
 const HeroSection = () => {
   const navigate = useNavigate();
+  const isMobile = useIsMobile();
   const sectionRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
 
@@ -50,6 +52,7 @@ const HeroSection = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  
   const totalSlides = slides.length;
   const stripSlides = [...slides, slides[0]];
   const stripCount = stripSlides.length;
@@ -74,27 +77,37 @@ const HeroSection = () => {
     <section
       ref={sectionRef}
       className="relative"
-      style={{ height: `${(totalSlides + 1) * 100}vh` }}
+      style={{ height: isMobile ? "100vh" : `${(totalSlides + 1) * 100}vh` }}
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden">
-        {/* Background images strip */}
-        <div
-          className="absolute inset-0 flex"
-          style={{
-            width: `${stripCount * 100}%`,
-            transform: `translateX(-${(imageOffset / stripCount) * 100}%)`,
-          }}
-        >
-          {stripSlides.map((slide, i) => (
-            <div key={i} className="relative h-full" style={{ width: `${100 / stripCount}%` }}>
-              <img
-                src={slide.image}
-                alt={`Slide ${i + 1}`}
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-            </div>
-          ))}
-        </div>
+        {/* Background images - single static on mobile, strip on desktop */}
+        {isMobile ? (
+          <div className="absolute inset-0">
+            <img
+              src={heroSlide1}
+              alt="Hero background"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </div>
+        ) : (
+          <div
+            className="absolute inset-0 flex"
+            style={{
+              width: `${stripCount * 100}%`,
+              transform: `translateX(-${(imageOffset / stripCount) * 100}%)`,
+            }}
+          >
+            {stripSlides.map((slide, i) => (
+              <div key={i} className="relative h-full" style={{ width: `${100 / stripCount}%` }}>
+                <img
+                  src={slide.image}
+                  alt={`Slide ${i + 1}`}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* Fixed hero content overlay */}
         <div className="relative z-10 flex flex-col h-full">
@@ -108,10 +121,10 @@ const HeroSection = () => {
               <a href="#" className="hover:text-foreground transition-colors">Resources</a>
               <a href="#" className="hover:text-foreground transition-colors">Company</a>
             </div>
-            <div className="flex items-center gap-2 md:gap-4">
-              <Button variant="hero-outline" size="sm" className="text-sm md:text-xl md:px-6 md:py-3 md:size-auto" onClick={() => navigate("/signin")}>Sign in</Button>
-              <Button variant="hero" size="sm" className="text-sm md:text-xl md:px-6 md:py-3 md:size-auto" onClick={() => navigate("/study")}>
-                <Sparkles className="w-4 h-4 md:w-6 md:h-6 mr-1 md:mr-2" /> <span className="hidden sm:inline">AI Study Page</span><span className="sm:hidden">Study</span>
+            <div className="flex items-center gap-2 md:gap-4 flex-shrink-0">
+              <Button variant="hero-outline" size="sm" className="text-xs md:text-xl md:px-6 md:py-3 whitespace-nowrap" onClick={() => navigate("/signin")}>Sign in</Button>
+              <Button variant="hero" size="sm" className="text-xs md:text-xl md:px-6 md:py-3 whitespace-nowrap" onClick={() => navigate("/study")}>
+                <Sparkles className="w-3 h-3 md:w-6 md:h-6 mr-1 md:mr-2 flex-shrink-0" /> AI Study Page
               </Button>
             </div>
           </nav>
@@ -151,8 +164,8 @@ const HeroSection = () => {
           {/* Spacer to push popup cards and arrow to bottom */}
           <div className="flex-1" />
 
-          {/* Popup cards - slide right-to-left, stop at center arrow, then zoom out */}
-          {slides.map((slide, i) => {
+          {/* Popup cards - desktop only */}
+          {!isMobile && slides.map((slide, i) => {
             const slideStart = i / totalSlides;
             const slideEnd = (i + 1) / totalSlides;
             const slideRange = slideEnd - slideStart;
