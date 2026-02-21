@@ -178,6 +178,18 @@ const WayForwardSection = () => {
         </div>
       </section>
 
+      {/* Video above CTA Footer */}
+      <div className="w-full">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full block"
+          src="/videos/future-text-animation.webm"
+        />
+      </div>
+
       {/* CTA Footer Image */}
       <div className="w-full">
         <img
