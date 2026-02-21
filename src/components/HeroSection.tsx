@@ -20,7 +20,7 @@ const slides = [
   {
     image: heroSlide3,
     popupIcon: <Sparkles className="w-5 h-5 text-primary" />,
-    popupText: "Practice questions generated from your syllabus.",
+    popupText: "Explore Math 55 (Studies in Algebra and Real/Complex Analysis) offered at Harvard University Renowned as the most famous math class in the US. It covers four years of material in two semesters.",
   },
 ];
 
