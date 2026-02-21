@@ -1,4 +1,4 @@
-import { Bot, Plus, ArrowRight, ChevronLeft, ExternalLink, Clock, ChevronDown, Settings, User } from "lucide-react";
+import { Bot, Plus, ArrowRight, ChevronLeft, ExternalLink, Clock, ChevronDown, Settings, User, Mail } from "lucide-react";
 import ConnectedAppsDialog from "@/components/ConnectedAppsDialog";
 import ModelSelector from "@/components/ModelSelector";
 import { AIModel, getDefaultModel } from "@/config/aiModels";
@@ -418,6 +418,36 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
           >
             <Plus className="h-3.5 w-3.5" />
             Create notebook
+          </button>
+          <button
+            onClick={() => {
+              const professors = "surbhimeena002@gmail.com";
+              const today = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+              const moduleName = activeSection !== null ? displayModules[activeSection]?.title : "All Modules";
+              const subject = encodeURIComponent(`Course Completion: ${courseName || context}`);
+              const body = encodeURIComponent(
+                `Dear Professor,\n\nI am writing to inform you of a course completion achievement.\n\n` +
+                `Course: ${courseName || context}\n` +
+                `Program: ${program}\n` +
+                `University: ${university}\n` +
+                `Module Completed: ${moduleName}\n` +
+                `Date of Completion: ${today}\n\n` +
+                `Best regards,\nSent via AI Study Platform`
+              );
+              window.open(`mailto:${professors}?subject=${subject}&body=${body}`, "_blank");
+            }}
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors"
+            style={{
+              background: "hsla(230, 22%, 11%, 1)",
+              border: `1px solid ${border}`,
+              borderRadius: "6px",
+              color: labelColor,
+            }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = surfaceHover; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "hsla(230, 22%, 11%, 1)"; }}
+          >
+            <Mail className="h-3.5 w-3.5" />
+            Notify Professors
           </button>
         </div>
       </div>
