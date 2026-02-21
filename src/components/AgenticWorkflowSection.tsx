@@ -82,9 +82,9 @@ const AgenticWorkflowSection = () => {
         }}
       />
 
-      <div className="relative z-10 w-full px-6 lg:px-12">
+      <div className="relative z-10 px-0">
         {/* Badge */}
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center mb-8 px-6">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium text-foreground">
             <Workflow className="w-4 h-4" />
             Agentic System Architecture
@@ -92,16 +92,16 @@ const AgenticWorkflowSection = () => {
         </div>
 
         {/* Heading */}
-        <h2 className="text-3xl lg:text-5xl font-bold text-center text-foreground mb-4 max-w-5xl mx-auto">
+        <h2 className="text-3xl lg:text-5xl font-bold text-center text-foreground mb-4 px-6">
           How the AI agents work
         </h2>
-        <p className="text-center text-muted-foreground text-base lg:text-lg max-w-2xl mx-auto mb-14">
+        <p className="text-center text-muted-foreground text-base lg:text-lg max-w-2xl mx-auto mb-14 px-6">
           A multi-agent notification &amp; learning pipeline — from syllabus ingestion to
           personalised alerts across every channel.
         </p>
 
         {/* ── DIAGRAM ─────────────────────────────────── */}
-        <div className="rounded-2xl border border-border bg-background p-6 lg:p-10 shadow-sm max-w-5xl mx-auto">
+        <div className="rounded-none border-y border-border bg-background p-6 lg:p-10 shadow-sm">
           {/* Row 1 — Ingestion */}
           <p className="text-[11px] font-bold tracking-widest text-muted-foreground mb-4 uppercase">
             1 · Ingestion
