@@ -4,6 +4,7 @@ import womanImg from "@/assets/section3d-woman.jpg";
 import carImg from "@/assets/section3d-car.jpg";
 import marathonImg from "@/assets/section3d-marathon.jpg";
 import insuranceImg from "@/assets/section3d-insurance.jpg";
+import timelineCircleBg from "@/assets/timeline-circle-bg.avif";
 
 /** Spacer inside TimelineSection so the line extends down to the card */
 export const Section3dConnector = () => (
@@ -20,8 +21,8 @@ const Section3dContent = () => {
         <div className="hidden lg:block flex-1 max-w-xl lg:pr-12" />
         <div className="flex justify-center" style={{ width: "56px" }}>
           <div
-            className="w-14 h-14 rounded-full flex items-center justify-center shrink-0"
-            style={{ background: "linear-gradient(180deg, hsl(0,0%,35%) 0%, hsl(0,0%,8%) 100%)", boxShadow: "0 4px 20px hsla(0,0%,0%,0.25), inset 0 1px 0 hsla(0,0%,100%,0.1)" }}
+            className="w-14 h-14 rounded-full flex items-center justify-center shrink-0 overflow-hidden"
+            style={{ backgroundImage: `url(${timelineCircleBg})`, backgroundSize: "cover", backgroundPosition: "center", boxShadow: "0 4px 20px hsla(0,0%,0%,0.25), inset 0 1px 0 hsla(0,0%,100%,0.1)" }}
           >
             <Sparkles className="w-6 h-6 text-white" />
           </div>
