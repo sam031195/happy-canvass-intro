@@ -160,21 +160,6 @@ const WayForwardSection = () => {
               </div>
             ))}
           </div>
-
-          {/* Contact Us button */}
-          <div className="flex justify-center">
-            <Button
-              variant="hero-outline"
-              className="px-8 py-3 text-base"
-              style={{
-                borderColor: "hsl(0,0%,20%)",
-                color: "hsl(0,0%,10%)",
-                borderRadius: "4px",
-              }}
-            >
-              Partner with us
-            </Button>
-          </div>
         </div>
       </section>
 
