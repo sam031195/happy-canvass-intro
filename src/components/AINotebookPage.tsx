@@ -197,9 +197,10 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
     const mod = displayModules[modIndex];
     if (!mod) return;
 
-    // If already cached, just switch
-    if (contentMap[modIndex] !== undefined) {
+    // If already cached with actual content, just switch
+    if (contentMap[modIndex] !== undefined && contentMap[modIndex] !== "") {
       setActiveSection(modIndex);
+      if (isMobile) setMobileTab("content");
       setFetchState("done");
       return;
     }
