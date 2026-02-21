@@ -180,7 +180,7 @@ const WayForwardSection = () => {
 
       {/* Footer section with video + text */}
       <section
-        className="w-full py-5 lg:py-7 flex flex-col items-center"
+        className="w-full py-2 lg:py-3 flex flex-col items-center"
         style={{ background: "hsl(0, 0%, 98%)" }}
       >
         {/* Video */}
