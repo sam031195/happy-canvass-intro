@@ -314,13 +314,15 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
                 className="shrink-0 mt-14 p-2 rounded transition-all duration-300 hover:opacity-80"
                 title={bookmarked ? "Bookmarked" : "Add to list"}
                 onClick={() => setBookmarked(!bookmarked)}
-                style={{
-                  transform: bookmarked ? "scale(1.15)" : "scale(1)",
-                  filter: bookmarked ? "drop-shadow(0 0 8px hsla(45, 90%, 55%, 0.5))" : "none",
-                  opacity: bookmarked ? 1 : 0.6,
-                }}
               >
-                <img src={bookmarkIcon} alt="Bookmark" className="h-6 w-6" />
+                <Bookmark
+                  className="h-6 w-6 transition-all duration-300"
+                  style={{
+                    color: bookmarked ? "hsla(45, 90%, 55%, 1)" : "hsla(220, 25%, 65%, 0.7)",
+                    fill: bookmarked ? "hsla(45, 90%, 55%, 1)" : "none",
+                    filter: bookmarked ? "drop-shadow(0 0 6px hsla(45, 90%, 55%, 0.4))" : "none",
+                  }}
+                />
               </button>
             </div>
             <p className="text-sm leading-relaxed max-w-2xl" style={{ color: "hsla(0, 0%, 50%, 0.85)" }}>
