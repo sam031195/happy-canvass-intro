@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChevronLeft, Layers, Settings, Database, Shield, FolderKanban, BrainCircuit, TrendingUp, Bot, Lock, BarChart2, GitBranch, ArrowUpRight } from "lucide-react";
 import CourseDetailPage from "./CourseDetailPage";
+import syllabusBg from "@/assets/syllabus-bg.avif";
 
 interface Course {
   code: string;
@@ -161,32 +162,26 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
       className="fixed inset-0 z-50 flex flex-col overflow-y-auto animate-in fade-in duration-300"
       style={{ background: "hsl(230, 25%, 4%)" }}
     >
+      {/* Background image */}
+      <img
+        src={syllabusBg}
+        alt=""
+        className="pointer-events-none fixed inset-0 z-0 w-full h-full object-cover"
+        style={{ opacity: 0.45 }}
+      />
+
+      {/* Dark overlay for readability */}
+      <div
+        className="pointer-events-none fixed inset-0 z-0"
+        style={{ background: "linear-gradient(180deg, hsla(230,25%,4%,0.7) 0%, hsla(230,25%,4%,0.85) 100%)" }}
+      />
+
       {/* Dot grid texture overlay */}
       <div
         className="pointer-events-none fixed inset-0 z-0"
         style={{
           backgroundImage: "radial-gradient(hsla(0,0%,100%,0.03) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
-        }}
-      />
-
-      {/* Orange-red bloom — bottom left */}
-      <div
-        className="pointer-events-none fixed bottom-0 left-0 z-0"
-        style={{
-          width: "700px",
-          height: "600px",
-          background: "radial-gradient(ellipse at bottom left, hsla(18, 72%, 44%, 0.28) 0%, transparent 65%)",
-        }}
-      />
-
-      {/* Purple bloom — bottom right */}
-      <div
-        className="pointer-events-none fixed bottom-0 right-0 z-0"
-        style={{
-          width: "600px",
-          height: "500px",
-          background: "radial-gradient(ellipse at bottom right, hsla(270, 60%, 48%, 0.22) 0%, transparent 65%)",
         }}
       />
 
