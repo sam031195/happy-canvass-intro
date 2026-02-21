@@ -53,9 +53,9 @@ const cards2 = [
   {
     image: card3Img,
     icon: <Briefcase className="w-4 h-4" />,
-    tag: "Accelerators",
-    title: "Employers & NGOs\nDiscover Talent",
-    description: "Organizations identify exceptional, overlooked talent the pipeline misses.",
+    tag: "Payton Klein, Pittsburgh",
+    title: "Empathy through Platform",
+    description: "She saw exclusion, chose connection, and built a movement. Proved that inclusion begins with one open mind.",
   },
   {
     image: card4Img,
