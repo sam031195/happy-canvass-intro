@@ -149,14 +149,14 @@ const SyllabusFinderDialog = ({ open, onOpenChange, onProgramSelected }: Props) 
           {/* Title block */}
           <div className="text-center px-8 pt-6 pb-2">
             <h2
-              className="text-3xl font-black"
-              style={{ color: "hsla(0,0%,97%,1)", letterSpacing: "-0.04em", lineHeight: 1.1 }}
+              className="text-4xl sm:text-5xl font-black"
+              style={{ color: "hsla(0,0%,97%,1)", letterSpacing: "-0.035em", lineHeight: 1.05 }}
             >
               {step === 0 ? "Pick your" : "Choose your"}
               <br />
-              <span style={{ color: "hsla(0,0%,38%,0.8)" }}>{step === 0 ? "University" : "Program"}</span>
+              <span style={{ color: "hsla(220,15%,68%,0.95)" }}>{step === 0 ? "University" : "Program"}</span>
             </h2>
-            <p className="text-xs mt-3" style={{ color: "hsla(0,0%,35%,0.8)" }}>
+            <p className="text-sm mt-4 leading-relaxed" style={{ color: "hsla(220,15%,62%,0.9)" }}>
               {step === 0 ? "Select the institution you're enrolled in" : "Select your degree program to view the full syllabus"}
             </p>
           </div>
