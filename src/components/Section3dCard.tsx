@@ -14,7 +14,7 @@ export const Section3dConnector = () => (
 /** Dark card with sparkle on top edge */
 const Section3dContent = () => {
   return (
-    <div className="px-10 lg:px-16 pb-16 lg:pb-20">
+    <div className="px-4 md:px-10 lg:px-16 pb-10 md:pb-16 lg:pb-20">
 
       {/* Sparkle icon — aligned with timeline center column */}
       <div className="flex flex-col lg:flex-row lg:items-start relative z-10">
@@ -42,7 +42,7 @@ const Section3dContent = () => {
         <div className="flex flex-col lg:flex-row">
           {/* Left — Image collage */}
           <div className="flex-1 p-8 lg:p-12">
-            <div className="grid grid-cols-3 gap-3 h-full" style={{ minHeight: "360px" }}>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 h-full" style={{ minHeight: "260px" }}>
               {/* Column 1 — two stacked cards */}
               <div className="flex flex-col gap-3">
                 {/* Playlist card */}

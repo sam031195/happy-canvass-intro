@@ -101,10 +101,10 @@ const WayForwardSection = () => {
             WebkitMaskComposite: "destination-in",
           }}
         />
-        <div className="relative z-10 mx-auto px-8 lg:px-12" style={{ maxWidth: "96rem" }}>
+        <div className="relative z-10 mx-auto px-4 md:px-8 lg:px-12" style={{ maxWidth: "96rem" }}>
           {/* Heading */}
           <h2
-            className="text-4xl lg:text-5xl font-bold text-center mb-12"
+            className="text-2xl md:text-4xl lg:text-5xl font-bold text-center mb-8 md:mb-12"
             style={{ color: "hsl(0,0%,10%)" }}
           >
             The ecosystem that makes it work:
@@ -235,7 +235,7 @@ const WayForwardSection = () => {
         />
         <div className="relative z-10 mx-auto px-4 lg:px-6" style={{ maxWidth: "100vw" }}>
           <h2
-            className="text-4xl lg:text-5xl font-bold text-center mb-16"
+            className="text-2xl md:text-4xl lg:text-5xl font-bold text-center mb-8 md:mb-16"
             style={{ color: "hsl(0,0%,10%)" }}
           >
             The changemakers who inspire us
@@ -326,7 +326,7 @@ const WayForwardSection = () => {
         <img
           src={ctaFooter}
           alt="CTA Footer"
-          className="w-full block min-h-[90vh] object-cover"
+          className="w-full block min-h-[70vh] md:min-h-[90vh] object-cover"
         />
         {/* Dark gradient overlay for readability */}
         <div
@@ -335,23 +335,23 @@ const WayForwardSection = () => {
             background: "linear-gradient(to bottom, hsla(230,25%,4%,0.3) 0%, hsla(230,25%,4%,0.15) 40%, hsla(230,25%,4%,0.6) 65%, hsla(230,25%,4%,0.9) 100%)",
           }}
         />
-        <div className="absolute inset-0 flex flex-col px-8 lg:px-16">
+        <div className="absolute inset-0 flex flex-col px-4 md:px-8 lg:px-16">
           {/* CTA content — centered in upper portion */}
           <div className="flex-1 flex flex-col items-center justify-center">
-            <h3 className="text-6xl lg:text-8xl font-bold text-center mb-8 max-w-5xl text-white drop-shadow-lg leading-[1.05] tracking-tight">
+            <h3 className="text-3xl md:text-6xl lg:text-8xl font-bold text-center mb-4 md:mb-8 max-w-5xl text-white drop-shadow-lg leading-[1.05] tracking-tight">
               Built for the next generation of learners
             </h3>
-            <p className="text-xl lg:text-2xl text-center max-w-2xl mb-10 leading-relaxed text-white/70 drop-shadow-sm">
+            <p className="text-base md:text-xl lg:text-2xl text-center max-w-2xl mb-6 md:mb-10 leading-relaxed text-white/70 drop-shadow-sm">
               From Harvard syllabi to a student in Nairobi — UniQ<sup className="text-xs align-super opacity-70">AI</sup> makes world-class education accessible, adaptive, and free.
             </p>
-            <div className="flex items-center gap-4">
-              <Button variant="hero" size="lg" className="px-8">
+            <div className="flex flex-col sm:flex-row items-center gap-3 md:gap-4">
+              <Button variant="hero" size="default" className="px-6 md:px-8 text-sm md:text-base">
                 Get started free
               </Button>
               <Button
                 variant="hero-outline"
-                size="lg"
-                className="px-8 text-white border-white/40 hover:bg-white/10 rounded-full"
+                size="default"
+                className="px-6 md:px-8 text-sm md:text-base text-white border-white/40 hover:bg-white/10 rounded-full"
               >
                 Partner with us
               </Button>
@@ -359,43 +359,43 @@ const WayForwardSection = () => {
           </div>
 
           {/* Footer content — pinned to bottom */}
-          <div className="w-full px-8 lg:px-16 pb-8">
+          <div className="w-full px-2 md:px-8 lg:px-16 pb-8">
             {/* Top row */}
             <div className="flex flex-col lg:flex-row justify-between gap-10 mb-10">
               {/* Brand */}
               <div className="max-w-sm">
-                <div className="text-7xl font-bold text-white tracking-tight mb-4">
-                  UniQ<sup className="text-xl font-semibold align-super ml-0.5 opacity-70">AI</sup>
+                <div className="text-4xl md:text-7xl font-bold text-white tracking-tight mb-4">
+                  UniQ<sup className="text-sm md:text-xl font-semibold align-super ml-0.5 opacity-70">AI</sup>
                 </div>
-                <p className="text-xl leading-relaxed text-white/50">
+                <p className="text-sm md:text-xl leading-relaxed text-white/50">
                   Bridging Ivy League rigor with global accessibility — AI-powered education for every learner, everywhere.
                 </p>
               </div>
 
               {/* Links */}
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-10">
                 <div>
                   <h4 className="text-base font-bold uppercase tracking-widest text-white/40 mb-4">Product</h4>
                   <ul className="space-y-3">
-                    <li><a href="#" className="text-xl text-white/60 hover:text-white transition-colors">AI Study Page</a></li>
-                    <li><a href="#" className="text-xl text-white/60 hover:text-white transition-colors">Syllabus Finder</a></li>
-                    <li><a href="#" className="text-xl text-white/60 hover:text-white transition-colors">Course Explorer</a></li>
+                    <li><a href="#" className="text-sm md:text-xl text-white/60 hover:text-white transition-colors">AI Study Page</a></li>
+                    <li><a href="#" className="text-sm md:text-xl text-white/60 hover:text-white transition-colors">Syllabus Finder</a></li>
+                    <li><a href="#" className="text-sm md:text-xl text-white/60 hover:text-white transition-colors">Course Explorer</a></li>
                   </ul>
                 </div>
                 <div>
                   <h4 className="text-base font-bold uppercase tracking-widest text-white/40 mb-4">Company</h4>
                   <ul className="space-y-3">
-                    <li><a href="#" className="text-xl text-white/60 hover:text-white transition-colors">About</a></li>
-                    <li><a href="#" className="text-xl text-white/60 hover:text-white transition-colors">Careers</a></li>
-                    <li><a href="#" className="text-xl text-white/60 hover:text-white transition-colors">Partners</a></li>
+                    <li><a href="#" className="text-sm md:text-xl text-white/60 hover:text-white transition-colors">About</a></li>
+                    <li><a href="#" className="text-sm md:text-xl text-white/60 hover:text-white transition-colors">Careers</a></li>
+                    <li><a href="#" className="text-sm md:text-xl text-white/60 hover:text-white transition-colors">Partners</a></li>
                   </ul>
                 </div>
                 <div>
                   <h4 className="text-base font-bold uppercase tracking-widest text-white/40 mb-4">Legal</h4>
                   <ul className="space-y-3">
-                    <li><a href="#" className="text-xl text-white/60 hover:text-white transition-colors">Privacy</a></li>
-                    <li><a href="#" className="text-xl text-white/60 hover:text-white transition-colors">Terms</a></li>
-                    <li><a href="#" className="text-xl text-white/60 hover:text-white transition-colors">Security</a></li>
+                    <li><a href="#" className="text-sm md:text-xl text-white/60 hover:text-white transition-colors">Privacy</a></li>
+                    <li><a href="#" className="text-sm md:text-xl text-white/60 hover:text-white transition-colors">Terms</a></li>
+                    <li><a href="#" className="text-sm md:text-xl text-white/60 hover:text-white transition-colors">Security</a></li>
                   </ul>
                 </div>
               </div>

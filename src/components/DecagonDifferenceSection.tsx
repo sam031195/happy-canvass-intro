@@ -30,7 +30,7 @@ const stats = [
 const DecagonDifferenceSection = () => {
   return (
     <section className="bg-background py-10 lg:py-16">
-      <div className="ml-[5%] mr-[5%] px-8 lg:px-12">
+      <div className="mx-4 md:ml-[5%] md:mr-[5%] px-4 md:px-8 lg:px-12">
 
         {/* Two-column: text + video */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
@@ -81,7 +81,7 @@ const DecagonDifferenceSection = () => {
           </div>
 
           {/* Right video */}
-          <div className="w-[80%] min-h-[260px] ml-auto" style={{ borderRadius: "6px", overflow: "hidden" }}>
+          <div className="w-full md:w-[80%] min-h-[200px] md:min-h-[260px] md:ml-auto" style={{ borderRadius: "6px", overflow: "hidden" }}>
             <video
               autoPlay
               loop

@@ -99,8 +99,8 @@ const HeroSection = () => {
         {/* Fixed hero content overlay */}
         <div className="relative z-10 flex flex-col h-full">
           {/* Navbar */}
-          <nav className="flex items-center justify-between px-10 lg:px-16 py-8">
-            <div className="text-7xl font-bold text-foreground tracking-tight">UniQ<sup className="text-2xl font-semibold align-super ml-0.5 opacity-70">AI</sup></div>
+          <nav className="flex items-center justify-between px-4 md:px-10 lg:px-16 py-4 md:py-8">
+            <div className="text-3xl md:text-7xl font-bold text-foreground tracking-tight">UniQ<sup className="text-sm md:text-2xl font-semibold align-super ml-0.5 opacity-70">AI</sup></div>
             <div className="hidden md:flex items-center gap-10 text-xl font-medium text-foreground/80">
               <a href="#" className="hover:text-foreground transition-colors">Product</a>
               <a href="#" className="hover:text-foreground transition-colors">Industries</a>
@@ -108,26 +108,26 @@ const HeroSection = () => {
               <a href="#" className="hover:text-foreground transition-colors">Resources</a>
               <a href="#" className="hover:text-foreground transition-colors">Company</a>
             </div>
-            <div className="flex items-center gap-4 text-xl">
-              <Button variant="hero-outline" size="lg" className="text-xl px-6 py-3" onClick={() => navigate("/signin")}>Sign in</Button>
-              <Button variant="hero" size="lg" className="text-xl px-6 py-3" onClick={() => navigate("/study")}>
-                <Sparkles className="w-6 h-6 mr-2" /> AI Study Page
+            <div className="flex items-center gap-2 md:gap-4">
+              <Button variant="hero-outline" size="sm" className="text-sm md:text-xl md:px-6 md:py-3 md:size-auto" onClick={() => navigate("/signin")}>Sign in</Button>
+              <Button variant="hero" size="sm" className="text-sm md:text-xl md:px-6 md:py-3 md:size-auto" onClick={() => navigate("/study")}>
+                <Sparkles className="w-4 h-4 md:w-6 md:h-6 mr-1 md:mr-2" /> <span className="hidden sm:inline">AI Study Page</span><span className="sm:hidden">Study</span>
               </Button>
             </div>
           </nav>
 
           {/* Hero text content */}
-          <div className="flex flex-col items-center justify-center text-center flex-1 px-8 lg:px-12 pt-[10vh]">
-            <h1 className="text-6xl lg:text-8xl font-bold text-foreground leading-[1.05] tracking-tight max-w-5xl">
+          <div className="flex flex-col items-center justify-center text-center flex-1 px-4 md:px-8 lg:px-12 pt-[6vh] md:pt-[10vh]">
+            <h1 className="text-3xl sm:text-5xl lg:text-8xl font-bold text-foreground leading-[1.05] tracking-tight max-w-5xl">
               Ivy League rigor,<br />for every learner
             </h1>
-            <p className="mt-8 text-xl lg:text-2xl text-foreground/70 max-w-2xl leading-relaxed">
+            <p className="mt-4 md:mt-8 text-sm sm:text-lg lg:text-2xl text-foreground/70 max-w-2xl leading-relaxed">
               We bring world-class curricula from the top 100 universities to 264 million students worldwide — powered by AI that understands academia.
             </p>
 
             {/* Email input bar */}
             <div
-              className="mt-10 flex items-center rounded-full pl-6 pr-2 py-2 max-w-md w-full"
+              className="mt-6 md:mt-10 flex items-center rounded-full pl-4 md:pl-6 pr-2 py-2 max-w-md w-full"
               style={{
                 background: "hsla(0, 0%, 100%, 0.12)",
                 backdropFilter: "blur(24px)",
@@ -141,8 +141,8 @@ const HeroSection = () => {
                 placeholder="Enter your email"
                 className="flex-1 bg-transparent text-base text-foreground placeholder:text-muted-foreground outline-none"
               />
-              <Button variant="hero" size="default" className="gap-2" onClick={() => navigate("/study")}>
-                Join the mission <ArrowRight className="w-4 h-4" />
+              <Button variant="hero" size="sm" className="gap-1 md:gap-2 text-xs md:text-sm whitespace-nowrap" onClick={() => navigate("/study")}>
+                Join <span className="hidden sm:inline">the mission</span> <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
               </Button>
             </div>
           </div>
@@ -190,7 +190,7 @@ const HeroSection = () => {
                 }}
               >
                 <div
-                  className="flex items-center gap-4 rounded-2xl px-6 py-5 shadow-xl min-w-[300px] max-w-[380px]"
+                  className="flex items-center gap-3 md:gap-4 rounded-2xl px-4 md:px-6 py-3 md:py-5 shadow-xl min-w-[220px] max-w-[300px] md:min-w-[300px] md:max-w-[380px]"
                   style={{
                     background: "linear-gradient(135deg, hsla(260, 30%, 40%, 0.35) 0%, hsla(280, 35%, 50%, 0.25) 100%)",
                     backdropFilter: "blur(20px)",
