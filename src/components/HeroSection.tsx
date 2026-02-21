@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowRight, ArrowDown, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import UniversityMarquee from "@/components/UniversityMarquee";
+
 import heroSlide1 from "@/assets/hero-slide-1.png";
 import heroSlide2 from "@/assets/hero-slide-2.png";
 import heroSlide3 from "@/assets/hero-slide-3.jpg";
@@ -141,8 +141,6 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* University marquee — full width */}
-          <UniversityMarquee />
 
           {/* Spacer to push popup cards and arrow to bottom */}
           <div className="flex-1" />
