@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { GraduationCap, Shield, Briefcase, BookOpen } from "lucide-react";
+import { GraduationCap, Shield, Briefcase, BookOpen, Users, Globe } from "lucide-react";
 import ctaFooter from "@/assets/cta-footer-new.png";
 
 const cards = [
@@ -26,6 +26,51 @@ const cards = [
     title: "Employers & NGOs\nDiscover Hidden Talent",
     description:
       "Organizations like the World Bank and leading tech companies identify exceptional, overlooked talent — smart students the traditional pipeline misses.",
+  },
+];
+
+const cards2 = [
+  {
+    video: "/videos/product-hero-data.webm",
+    icon: <BookOpen className="w-4 h-4" />,
+    tag: "Data Donors",
+    title: "Elite Students\nSync Curricula",
+    description: "Ivy League students share course materials, faculty lists, and class notes.",
+  },
+  {
+    video: "/videos/product-hero-intelligence.webm",
+    icon: <GraduationCap className="w-4 h-4" />,
+    tag: "Scholars",
+    title: "Global Learners\nAccess Ivy-Level Paths",
+    description: "Students worldwide access curated learning paths and AI-guided modules.",
+  },
+  {
+    video: "/videos/product-hero-interfaces.webm",
+    icon: <Briefcase className="w-4 h-4" />,
+    tag: "Accelerators",
+    title: "Employers & NGOs\nDiscover Talent",
+    description: "Organizations identify exceptional, overlooked talent the pipeline misses.",
+  },
+  {
+    video: "/videos/product-hero-data.webm",
+    icon: <Shield className="w-4 h-4" />,
+    tag: "Validators",
+    title: "Faculty & Experts\nVerify Quality",
+    description: "Professors and experts review content, ensuring academic rigor at every level.",
+  },
+  {
+    video: "/videos/product-hero-intelligence.webm",
+    icon: <Users className="w-4 h-4" />,
+    tag: "Community",
+    title: "Peer Networks\nCollaborate Globally",
+    description: "Study groups form across borders, connecting learners with shared interests.",
+  },
+  {
+    video: "/videos/product-hero-interfaces.webm",
+    icon: <Globe className="w-4 h-4" />,
+    tag: "Impact",
+    title: "Institutions\nScale Access",
+    description: "Universities and NGOs extend their reach to democratize world-class education.",
   },
 ];
 
@@ -218,8 +263,8 @@ const WayForwardSection = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {cards.map((card, i) => (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-16">
+            {cards2.map((card, i) => (
               <div
                 key={i}
                 className="flex flex-col"
@@ -230,7 +275,7 @@ const WayForwardSection = () => {
                   borderRadius: "4px",
                 }}
               >
-                <div className="p-5 pb-3">
+                <div className="p-3 pb-2">
                   <video
                     autoPlay
                     loop
@@ -241,10 +286,10 @@ const WayForwardSection = () => {
                     src={card.video}
                   />
                 </div>
-                <div className="px-5 pb-5 flex flex-col flex-1">
-                  <div className="flex items-center gap-2 mb-3">
+                <div className="px-3 pb-3 flex flex-col flex-1">
+                  <div className="flex items-center gap-1.5 mb-2">
                     <div
-                      className="w-7 h-7 rounded-md flex items-center justify-center"
+                      className="w-5 h-5 rounded flex items-center justify-center"
                       style={{
                         background: "hsl(240,45%,35%)",
                         color: "white",
@@ -252,18 +297,18 @@ const WayForwardSection = () => {
                     >
                       {card.icon}
                     </div>
-                    <span className="text-xs font-bold uppercase tracking-wider" style={{ color: "hsl(240,45%,35%)" }}>
+                    <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: "hsl(240,45%,35%)" }}>
                       {card.tag}
                     </span>
                   </div>
                   <h3
-                    className="text-2xl lg:text-[1.7rem] font-bold leading-tight mb-3 whitespace-pre-line"
+                    className="text-sm lg:text-base font-bold leading-tight mb-2 whitespace-pre-line"
                     style={{ color: "hsl(0,0%,10%)" }}
                   >
                     {card.title}
                   </h3>
                   <p
-                    className="text-sm leading-relaxed mb-5 flex-1"
+                    className="text-xs leading-relaxed mb-3 flex-1"
                     style={{ color: "hsl(0,0%,40%)" }}
                   >
                     {card.description}
@@ -271,7 +316,7 @@ const WayForwardSection = () => {
                   <div>
                     <Button
                       variant="hero-outline"
-                      className="text-sm px-5 py-2"
+                      className="text-xs px-3 py-1.5"
                       style={{
                         borderColor: "hsl(0,0%,20%)",
                         color: "hsl(0,0%,10%)",
