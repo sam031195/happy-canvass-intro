@@ -39,9 +39,9 @@ const cards2 = [
   {
     image: card1Img,
     icon: <BookOpen className="w-4 h-4" />,
-    tag: "Data Donors",
-    title: "Elite Students\nSync Curricula",
-    description: "Ivy League students share course materials, faculty lists, and class notes.",
+    tag: "Syazwan, Indonesia",
+    title: "Trust them to Learn",
+    description: "Change began with one informed child. Scale that knowledge, and you scale the impact.",
   },
   {
     image: card2Img,
