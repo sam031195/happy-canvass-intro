@@ -110,7 +110,7 @@ const HeroSection = () => {
           </nav>
 
           {/* Hero text content */}
-          <div className="flex flex-col items-center justify-center text-center flex-1 px-8 lg:px-12">
+          <div className="flex flex-col items-center justify-center text-center flex-1 px-8 lg:px-12 pt-[15vh]">
             <h1 className="text-6xl lg:text-8xl font-bold text-foreground leading-[1.05] tracking-tight max-w-5xl">
               Your AI-powered academic companion
             </h1>
