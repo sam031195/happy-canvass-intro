@@ -470,12 +470,19 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
               {/* Job Ready card */}
               <div className="flex flex-col items-center text-center py-6 gap-4">
                 <div className="flex items-center gap-24">
-                  <div className="flex flex-col items-center">
+                  <button
+                    onClick={() => {
+                      const keywords = detail.name.split(/\s*[&,]\s*|\s+for\s+/i)[0].trim();
+                      window.open(`https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent(keywords)}`, "_blank");
+                    }}
+                    className="flex flex-col items-center transition-opacity hover:opacity-80 cursor-pointer"
+                    title="Find jobs on LinkedIn"
+                  >
                     <Trophy className="h-8 w-8 mb-2" style={{ color: "hsla(45, 80%, 60%, 0.85)" }} />
                     <span className="text-sm font-bold" style={{ color: "hsla(210, 25%, 93%, 0.97)", letterSpacing: "-0.01em" }}>
-                      Be Job Ready!!
+                      Be Job Ready!! →
                     </span>
-                  </div>
+                  </button>
                   <button
                     onClick={() => {
                       const professors = "surbhimeena002@gmail.com";
