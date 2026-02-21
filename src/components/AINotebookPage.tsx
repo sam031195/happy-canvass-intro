@@ -251,7 +251,6 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
 
       // Initialize entry so we can update in place
       setContentMap((prev) => ({ ...prev, [modIndex]: "" }));
-      setFetchState("done");
 
       while (!streamDone) {
         const { done, value } = await reader.read();
@@ -300,6 +299,7 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
           } catch { /* ignore */ }
         }
       }
+      setFetchState("done");
     } catch (e: unknown) {
       if ((e as Error).name === "AbortError") return;
       console.error("study-guide fetch error:", e);
