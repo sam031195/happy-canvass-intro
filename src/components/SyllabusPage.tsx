@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ChevronLeft, Layers, Settings, Database, Shield, FolderKanban, BrainCircuit, TrendingUp, Bot, Lock, BarChart2, GitBranch, ArrowUpRight } from "lucide-react";
 import CourseDetailPage from "./CourseDetailPage";
-import syllabusBg from "@/assets/syllabus-bg-purple.avif";
+import syllabusBg from "@/assets/syllabus-bg.avif";
 
 interface Course {
   code: string;
@@ -173,7 +173,7 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
       {/* Dark overlay for readability */}
       <div
         className="pointer-events-none fixed inset-0 z-0"
-        style={{ background: "linear-gradient(180deg, hsla(230,25%,4%,0.12) 0%, hsla(230,25%,4%,0.18) 100%)" }}
+        style={{ background: "linear-gradient(180deg, hsla(230,25%,4%,0.7) 0%, hsla(230,25%,4%,0.85) 100%)" }}
       />
 
       {/* Dot grid texture overlay */}
