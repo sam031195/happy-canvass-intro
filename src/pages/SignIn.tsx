@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ArrowRight, Eye, EyeOff } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import heroSlide2 from "@/assets/hero-slide-2.png";
+import signinLeft from "@/assets/signin-left.png";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const SignIn = () => {
       {/* Left side - Image */}
       <div className="hidden lg:block lg:w-1/2 relative overflow-hidden">
         <img
-          src={heroSlide2}
+          src={signinLeft}
           alt="Campus at twilight"
           className="absolute inset-0 w-full h-full object-cover"
         />
