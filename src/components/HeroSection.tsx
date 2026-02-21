@@ -15,7 +15,7 @@ const slides = [
   {
     image: heroSlide2,
     popupIcon: <Sparkles className="w-5 h-5 text-primary" />,
-    popupText: "Here's a breakdown of neural networks for you.",
+    popupText: "What would it be like to experience Columbia University's career-focused workload at School of Engineering and Applied Science's??",
   },
   {
     image: heroSlide3,
