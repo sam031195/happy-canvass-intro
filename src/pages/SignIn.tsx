@@ -32,7 +32,7 @@ const SignIn = () => {
             onClick={() => navigate("/")}
             className="text-2xl font-bold text-white tracking-tight w-fit"
           >
-            Decagon
+            QUarium
           </button>
           <div className="max-w-md">
             <h2 className="text-3xl font-bold text-white leading-snug mb-4">
@@ -85,7 +85,7 @@ const SignIn = () => {
             className="lg:hidden text-2xl font-black tracking-tight mb-10 block"
             style={{ color: "hsla(0, 0%, 95%, 1)", letterSpacing: "-0.04em" }}
           >
-            Decagon
+            QUarium
           </button>
 
           <h1
@@ -97,7 +97,7 @@ const SignIn = () => {
           <p className="mt-2 text-sm" style={{ color: "hsla(0, 0%, 38%, 0.9)" }}>
             {isSignUp
               ? "Start your free trial today."
-              : "Sign in to your Decagon account."}
+              : "Sign in to your QUarium account."}
           </p>
 
           {/* OAuth buttons */}
