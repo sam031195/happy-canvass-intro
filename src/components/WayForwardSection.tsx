@@ -179,13 +179,13 @@ const WayForwardSection = () => {
       </section>
 
       {/* Video above CTA Footer */}
-      <div className="w-full">
+      <div className="w-full flex justify-center py-12">
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="w-full block"
+          className="max-w-3xl w-full block rounded-xl"
           src="/videos/future-text-animation.webm"
         />
       </div>
