@@ -60,9 +60,9 @@ const cards2 = [
   {
     image: card4Img,
     icon: <Shield className="w-4 h-4" />,
-    tag: "Validators",
-    title: "Faculty & Experts\nVerify Quality",
-    description: "Professors and experts review content, ensuring academic rigor at every level.",
+    tag: "Interviewee",
+    title: "Lead for Literacy",
+    description: "Question: Why do you wanna learn Spanish? His answer: So that I can find a job.",
   },
   {
     image: card5Img,
