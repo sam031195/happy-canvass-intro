@@ -216,30 +216,30 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
 
         {/* ── Top nav ── */}
         <div
-          className="flex items-center justify-between px-8 lg:px-14 py-5"
+          className="flex items-center justify-between px-4 sm:px-8 lg:px-14 py-4 sm:py-5 gap-2"
           style={{ borderBottom: "1px solid hsla(0, 0%, 100%, 0.06)" }}
         >
           <button
             onClick={onBack}
-            className="flex items-center gap-2 text-sm transition-colors group"
+            className="flex items-center gap-2 text-sm transition-colors group shrink-0"
             style={{ color: "hsla(0, 0%, 40%, 0.8)" }}
             onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "hsla(0, 0%, 85%, 0.9)")}
             onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "hsla(0, 0%, 40%, 0.8)")}
           >
             <ChevronLeft className="h-4 w-4" />
-            Dashboard
+            <span className="hidden sm:inline">Dashboard</span>
           </button>
 
           {/* Right meta */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             <span
-              className="text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full"
+              className="text-[10px] sm:text-xs font-semibold tracking-widest uppercase px-2 sm:px-3 py-1 sm:py-1.5 rounded-full"
               style={{ background: "hsla(0,0%,100%,0.05)", border: "1px solid hsla(0,0%,100%,0.08)", color: "hsla(0,0%,45%,0.8)" }}
             >
               {totalCourses} Courses
             </span>
             <span
-              className="text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full"
+              className="text-[10px] sm:text-xs font-semibold tracking-widest uppercase px-2 sm:px-3 py-1 sm:py-1.5 rounded-full"
               style={{ background: "hsla(0,0%,100%,0.05)", border: "1px solid hsla(0,0%,100%,0.08)", color: "hsla(0,0%,45%,0.8)" }}
             >
               {quarters.length} Quarters
@@ -248,11 +248,11 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
         </div>
 
         {/* ── Hero header ── */}
-        <div className="px-8 lg:px-14 pt-14 pb-12 max-w-[1300px] mx-auto w-full">
+        <div className="px-4 sm:px-8 lg:px-14 pt-8 sm:pt-14 pb-8 sm:pb-12 max-w-[1300px] mx-auto w-full">
           <div className="flex items-end justify-between gap-8">
             <div>
               <h1
-                className="text-5xl sm:text-6xl lg:text-7xl font-black"
+                className="text-3xl sm:text-5xl lg:text-7xl font-black"
                 style={{
                   color: "hsla(0, 0%, 97%, 1)",
                   letterSpacing: "-0.045em",
@@ -293,7 +293,7 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
         </div>
 
         {/* ── Quarters ── */}
-        <div className="px-8 lg:px-14 pb-24 flex-1 flex flex-col gap-16 max-w-[1300px] mx-auto w-full">
+        <div className="px-4 sm:px-8 lg:px-14 pb-24 flex-1 flex flex-col gap-10 sm:gap-16 max-w-[1300px] mx-auto w-full">
           {quarters.map((quarter, qi) => (
             <section key={quarter.label}>
 
