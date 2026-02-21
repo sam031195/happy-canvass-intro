@@ -109,7 +109,7 @@ const AgenticWorkflowSection = () => {
           }}
         >
           {/* Row 1 — Ingestion */}
-          <p className="text-[11px] font-bold tracking-widest text-muted-foreground mb-1 uppercase text-center">
+          <p className="text-xs font-semibold tracking-wide text-muted-foreground mb-1 uppercase text-center">
             1 · Ingestion
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
@@ -139,7 +139,7 @@ const AgenticWorkflowSection = () => {
           </div>
 
           {/* Row 2 — Orchestration */}
-          <p className="text-[11px] font-bold tracking-widest text-muted-foreground mb-1 uppercase text-center">
+          <p className="text-xs font-semibold tracking-wide text-muted-foreground mb-1 uppercase text-center">
             2 · Orchestration
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
@@ -169,7 +169,7 @@ const AgenticWorkflowSection = () => {
           </div>
 
           {/* Row 3 — Delivery */}
-          <p className="text-[11px] font-bold tracking-widest text-muted-foreground mb-1 uppercase text-center">
+          <p className="text-xs font-semibold tracking-wide text-muted-foreground mb-1 uppercase text-center">
             3 · Multi-Modal Delivery
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
