@@ -490,18 +490,6 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
               Create Notes
             </button>
             <button
-              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors"
-              style={{
-                background: "hsla(230, 22%, 11%, 1)",
-                border: `1px solid ${border}`,
-                borderRadius: "6px",
-                color: labelColor,
-              }}
-            >
-              <Plus className="h-3.5 w-3.5" />
-              Create notebook
-            </button>
-            <button
               onClick={() => {
                 const professors = "surbhimeena002@gmail.com";
                 const today = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
