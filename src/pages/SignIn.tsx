@@ -78,7 +78,7 @@ const SignIn = () => {
           }}
         />
 
-        <div className="relative z-10 w-full max-w-sm">
+        <div className="relative z-10 w-full max-w-md">
           {/* Mobile logo */}
           <button
             onClick={() => navigate("/")}
@@ -89,12 +89,12 @@ const SignIn = () => {
           </button>
 
           <h1
-            className="text-3xl font-black tracking-tight"
+            className="text-4xl font-black tracking-tight"
             style={{ color: "hsla(0, 0%, 97%, 1)", letterSpacing: "-0.04em" }}
           >
             {isSignUp ? "Create your account" : "Welcome back"}
           </h1>
-          <p className="mt-2 text-sm" style={{ color: "hsla(0, 0%, 38%, 0.9)" }}>
+          <p className="mt-2 text-base" style={{ color: "hsla(0, 0%, 38%, 0.9)" }}>
             {isSignUp
               ? "Start learning from the world's best universities."
               : "Sign in to your UniQ account."}
@@ -103,7 +103,7 @@ const SignIn = () => {
           {/* OAuth buttons */}
           <div className="mt-8 flex gap-3">
             <button
-              className="flex-1 flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition-colors"
+              className="flex-1 flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-base font-medium transition-colors"
               style={{
                 background: "hsla(230, 22%, 9%, 1)",
                 border: "1px solid hsla(0, 0%, 100%, 0.08)",
@@ -121,7 +121,7 @@ const SignIn = () => {
               Google
             </button>
             <button
-              className="flex-1 flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition-colors"
+              className="flex-1 flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-base font-medium transition-colors"
               style={{
                 background: "hsla(230, 22%, 9%, 1)",
                 border: "1px solid hsla(0, 0%, 100%, 0.08)",
@@ -142,7 +142,7 @@ const SignIn = () => {
             <div className="absolute inset-0 flex items-center">
               <div className="w-full" style={{ borderTop: "1px solid hsla(0,0%,100%,0.07)" }} />
             </div>
-            <div className="relative flex justify-center text-xs">
+            <div className="relative flex justify-center text-sm">
               <span
                 className="px-3"
                 style={{ background: "hsl(230, 25%, 4%)", color: "hsla(0, 0%, 32%, 0.8)" }}
@@ -159,13 +159,13 @@ const SignIn = () => {
           >
             {isSignUp && (
               <div>
-                <label className="block text-sm font-medium mb-1.5" style={{ color: "hsla(0, 0%, 65%, 0.9)" }}>
+                <label className="block text-base font-medium mb-1.5" style={{ color: "hsla(0, 0%, 65%, 0.9)" }}>
                   Full name
                 </label>
                 <input
                   type="text"
                   placeholder="Jane Doe"
-                  className="w-full rounded-xl px-4 py-2.5 text-sm outline-none transition-all"
+                  className="w-full rounded-xl px-4 py-3 text-base outline-none transition-all"
                   style={{
                     background: "hsla(230, 22%, 9%, 1)",
                     border: "1px solid hsla(0, 0%, 100%, 0.08)",
@@ -177,13 +177,13 @@ const SignIn = () => {
               </div>
             )}
             <div>
-              <label className="block text-sm font-medium mb-1.5" style={{ color: "hsla(0, 0%, 65%, 0.9)" }}>
+              <label className="block text-base font-medium mb-1.5" style={{ color: "hsla(0, 0%, 65%, 0.9)" }}>
                 Work email
               </label>
               <input
                 type="email"
                 placeholder="you@company.com"
-                className="w-full rounded-xl px-4 py-2.5 text-sm outline-none transition-all"
+                className="w-full rounded-xl px-4 py-3 text-base outline-none transition-all"
                 style={{
                   background: "hsla(230, 22%, 9%, 1)",
                   border: "1px solid hsla(0, 0%, 100%, 0.08)",
@@ -194,14 +194,14 @@ const SignIn = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-1.5" style={{ color: "hsla(0, 0%, 65%, 0.9)" }}>
+              <label className="block text-base font-medium mb-1.5" style={{ color: "hsla(0, 0%, 65%, 0.9)" }}>
                 Password
               </label>
               <div className="relative">
                 <input
                   type={showPassword ? "text" : "password"}
                   placeholder="••••••••"
-                  className="w-full rounded-xl px-4 py-2.5 pr-10 text-sm outline-none transition-all"
+                  className="w-full rounded-xl px-4 py-3 pr-10 text-base outline-none transition-all"
                   style={{
                     background: "hsla(230, 22%, 9%, 1)",
                     border: "1px solid hsla(0, 0%, 100%, 0.08)",
@@ -227,7 +227,7 @@ const SignIn = () => {
               <div className="flex justify-end">
                 <button
                   type="button"
-                  className="text-xs transition-colors"
+                  className="text-sm transition-colors"
                   style={{ color: "hsla(0, 0%, 32%, 0.8)" }}
                   onMouseEnter={(e) => (e.currentTarget as HTMLButtonElement).style.color = "hsla(0, 0%, 65%, 0.9)"}
                   onMouseLeave={(e) => (e.currentTarget as HTMLButtonElement).style.color = "hsla(0, 0%, 32%, 0.8)"}
@@ -248,7 +248,7 @@ const SignIn = () => {
                   accentColor: "hsla(0, 0%, 85%, 1)",
                 }}
               />
-              <span className="text-xs" style={{ color: "hsla(0, 0%, 50%, 0.9)" }}>
+              <span className="text-sm" style={{ color: "hsla(0, 0%, 50%, 0.9)" }}>
                 Go directly to AI Study Page after sign in
               </span>
             </label>
@@ -256,7 +256,7 @@ const SignIn = () => {
 
             <button
               type="submit"
-              className="w-full flex items-center justify-center gap-2 rounded-xl py-3 text-sm font-semibold transition-all duration-150"
+              className="w-full flex items-center justify-center gap-2 rounded-xl py-3.5 text-base font-semibold transition-all duration-150"
               style={{
                 background: "hsla(0, 0%, 92%, 1)",
                 color: "hsla(0, 0%, 6%, 1)",
@@ -270,7 +270,7 @@ const SignIn = () => {
           </form>
 
           {/* Toggle */}
-          <p className="mt-8 text-center text-sm" style={{ color: "hsla(0, 0%, 32%, 0.8)" }}>
+          <p className="mt-8 text-center text-base" style={{ color: "hsla(0, 0%, 32%, 0.8)" }}>
             {isSignUp ? "Already have an account?" : "Don't have an account?"}{" "}
             <button
               onClick={() => setIsSignUp(!isSignUp)}
