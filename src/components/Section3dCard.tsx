@@ -1,4 +1,5 @@
 import { Sparkles, BookOpen, Search, Mail, Briefcase } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import timelineCircleBg from "@/assets/timeline-circle-bg.avif";
 
@@ -9,6 +10,7 @@ export const Section3dConnector = () => (
 
 /** Dark card with sparkle on top edge */
 const Section3dContent = () => {
+  const navigate = useNavigate();
   return (
     <div className="px-4 md:px-10 lg:px-16 pb-10 md:pb-16 lg:pb-20">
 
@@ -112,6 +114,7 @@ const Section3dContent = () => {
               <Button
                 variant="hero-outline"
                 className="px-8 py-3 text-base rounded-full"
+                onClick={() => navigate("/signin")}
                 style={{ borderColor: "hsl(0,0%,20%)", color: "hsl(0,0%,10%)" }}
               >
                 Explore Platform

@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 import { GraduationCap, Shield, Briefcase, BookOpen, Users, Globe, Lightbulb, Heart, HandHeart, Languages, Rocket, Sparkles } from "lucide-react";
 import ctaFooter from "@/assets/cta-footer-new.png";
 import card1Img from "@/assets/card-1-img.png";
@@ -81,6 +82,7 @@ const cards2 = [
 
 
 const WayForwardSection = () => {
+  const navigate = useNavigate();
   return (
     <>
       <section
@@ -198,6 +200,7 @@ const WayForwardSection = () => {
                     <Button
                     variant="hero-outline"
                     className="text-sm px-5 py-2"
+                    onClick={() => navigate("/signin")}
                     style={{
                       borderColor: "hsl(0,0%,20%)",
                       color: "hsl(0,0%,10%)",
@@ -345,14 +348,14 @@ const WayForwardSection = () => {
               From Harvard syllabi to a student in Nairobi — UniQ<sup className="text-xs align-super opacity-70">AI</sup> makes world-class education accessible, adaptive, and free.
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-3 md:gap-4">
-              <Button variant="hero" size="default" className="px-6 md:px-8 text-sm md:text-base">
+              <Button variant="hero" size="default" className="px-6 md:px-8 text-sm md:text-base" onClick={() => navigate("/signin")}>
                 Get started free
               </Button>
               <Button
                 variant="hero-outline"
                 size="default"
-                className="px-6 md:px-8 text-sm md:text-base text-white border-white/40 hover:bg-white/10 rounded-full">
-
+                className="px-6 md:px-8 text-sm md:text-base text-white border-white/40 hover:bg-white/10 rounded-full"
+                onClick={() => navigate("/signin")}>
                 Partner with us
               </Button>
             </div>
