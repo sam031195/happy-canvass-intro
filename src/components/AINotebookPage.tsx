@@ -711,40 +711,38 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
 
           {/* LOADING — skeleton placeholders with progressive reveal */}
           {activeSection !== null && fetchState === "loading" && !currentContent && (
-            <div className="flex-1 px-4 md:px-10 py-6 md:py-10 max-w-4xl mx-auto w-full animate-pulse">
-              {/* Header skeleton */}
-              <div className="flex items-center gap-2 mb-6">
-                <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "hsla(220, 80%, 65%, 0.8)" }} />
-                <span className="text-[11px]" style={{ color: "hsla(220, 15%, 45%, 0.7)" }}>
-                  Generating study guide for <span style={{ color: "hsla(220, 80%, 68%, 0.85)" }}>{displayModules[activeSection]?.title}</span>…
-                </span>
-              </div>
-              {/* Title skeleton */}
-              <div className="h-7 rounded-md mb-6" style={{ background: "hsla(220, 15%, 20%, 0.5)", width: "65%" }} />
-              {/* Paragraph skeletons */}
-              {[...Array(3)].map((_, blockIdx) => (
-                <div key={blockIdx} className="mb-8">
-                  <div className="h-5 rounded-md mb-4" style={{ background: "hsla(220, 15%, 18%, 0.5)", width: `${45 + blockIdx * 10}%` }} />
-                  {[...Array(4)].map((_, lineIdx) => (
-                    <div
-                      key={lineIdx}
-                      className="h-3.5 rounded mb-2.5"
-                      style={{
-                        background: "hsla(220, 15%, 15%, 0.4)",
-                        width: `${85 + Math.sin(blockIdx + lineIdx) * 12}%`,
-                        animationDelay: `${(blockIdx * 4 + lineIdx) * 100}ms`,
-                      }}
-                    />
-                  ))}
-                </div>
-              ))}
-              {/* List skeleton */}
+            <div className="flex-1 px-4 md:px-10 py-6 md:py-10 max-w-4xl mx-auto w-full">
+              {/* Instant module overview while AI generates */}
               <div className="mb-8">
-                <div className="h-5 rounded-md mb-4" style={{ background: "hsla(220, 15%, 18%, 0.5)", width: "40%" }} />
-                {[...Array(5)].map((_, i) => (
-                  <div key={i} className="flex items-start gap-2 mb-2.5">
-                    <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ background: "hsla(220, 15%, 20%, 0.5)" }} />
-                    <div className="h-3.5 rounded flex-1" style={{ background: "hsla(220, 15%, 15%, 0.4)", width: `${70 + i * 5}%` }} />
+                <h2 className="text-xl font-bold mb-3" style={{ color: headingColor }}>
+                  Module {displayModules[activeSection]?.number}: {displayModules[activeSection]?.title}
+                </h2>
+                <p className="text-xs mb-4" style={{ color: "hsla(220, 15%, 55%, 0.8)" }}>
+                  Topics covered in this module:
+                </p>
+                <ul className="flex flex-col gap-1.5 mb-6">
+                  {displayModules[activeSection]?.topics.map((topic, i) => (
+                    <li key={i} className="flex items-center gap-2 text-sm" style={{ color: "hsla(220, 15%, 68%, 0.85)" }}>
+                      <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "hsla(220, 60%, 65%, 0.6)" }} />
+                      {topic}
+                    </li>
+                  ))}
+                </ul>
+                <div className="flex items-center gap-2 pt-4" style={{ borderTop: `1px solid ${border}` }}>
+                  <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "hsla(220, 80%, 65%, 0.8)" }} />
+                  <span className="text-[11px]" style={{ color: "hsla(220, 15%, 45%, 0.7)" }}>
+                    Generating comprehensive study guide…
+                  </span>
+                </div>
+              </div>
+              {/* Skeleton hints */}
+              <div className="animate-pulse">
+                {[...Array(3)].map((_, blockIdx) => (
+                  <div key={blockIdx} className="mb-6">
+                    <div className="h-4 rounded-md mb-3" style={{ background: "hsla(220, 15%, 18%, 0.5)", width: `${40 + blockIdx * 12}%` }} />
+                    {[...Array(3)].map((_, lineIdx) => (
+                      <div key={lineIdx} className="h-3 rounded mb-2" style={{ background: "hsla(220, 15%, 15%, 0.3)", width: `${80 + Math.sin(blockIdx + lineIdx) * 15}%` }} />
+                    ))}
                   </div>
                 ))}
               </div>
