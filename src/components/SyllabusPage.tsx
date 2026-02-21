@@ -56,7 +56,11 @@ interface Props {
 }
 
 const CLICKABLE_CODES = new Set(["MSIS 521 B", "MSIS 522 B", "MSIS 549 B"]);
-const COMING_SOON_CODES = new Set(["MSIS 523 B"]);
+const COMING_SOON_CODES = new Set([
+  "MSIS 523 B",
+  "MSIS 502", "MSIS 504", "MSIS 503", "MSIS 501",
+  "MSIS 510", "MSIS 543", "MSIS 524", "MSIS 512",
+]);
 
 const CourseCard = ({ course, onClick, index }: { course: Course; onClick?: () => void; index: number }) => {
   const [hovered, setHovered] = useState(false);
