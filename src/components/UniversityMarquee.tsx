@@ -1,14 +1,16 @@
 const universities = [
-  { name: "University of Washington", logo: "/images/logos/uw.png" },
+  { name: "MIT", logo: "/images/logos/mit.svg" },
   { name: "Stanford University", logo: "/images/logos/stanford.png" },
-  { name: "Carnegie Mellon", logo: "/images/logos/cmu.png" },
-  { name: "Caltech", logo: "/images/logos/caltech.png" },
-  { name: "Princeton University", logo: "/images/logos/princeton.png" },
-  { name: "Cornell University", logo: "/images/logos/cornell.png" },
-  { name: "University of Pennsylvania", logo: "/images/logos/upenn.png" },
-  { name: "University of Michigan", logo: "/images/logos/umich.png" },
-  { name: "Yale University", logo: "/images/logos/yale.png" },
-  { name: "Harvard University", logo: "/images/logos/harvard.png" },
+  { name: "Harvard University", logo: "/images/logos/harvard.svg" },
+  { name: "Princeton University", logo: "/images/logos/princeton.svg" },
+  { name: "Yale University", logo: "/images/logos/yale.svg" },
+  { name: "Columbia University", logo: "/images/logos/columbia.svg" },
+  { name: "Brown University", logo: "/images/logos/brown.svg" },
+  { name: "Cornell University", logo: "/images/logos/cornell.svg" },
+  { name: "Caltech", logo: "/images/logos/caltech.svg" },
+  { name: "Carnegie Mellon", logo: "/images/logos/cmu.svg" },
+  { name: "University of Pennsylvania", logo: "/images/logos/upenn.svg" },
+  { name: "University of Michigan", logo: "/images/logos/umich.svg" },
 ];
 
 const UniversityMarquee = () => {
