@@ -17,18 +17,18 @@ const UniversityMarquee = () => {
   const items = [...universities, ...universities];
 
   return (
-    <div className="mt-8 w-full overflow-hidden relative">
+    <div className="w-full overflow-hidden relative py-12 bg-background/50 backdrop-blur-sm">
       {/* Fade edges */}
       <div
-        className="absolute inset-y-0 left-0 w-24 z-10 pointer-events-none"
-        style={{ background: "linear-gradient(to right, hsla(0,0%,0%,0.9), transparent)" }}
+        className="absolute inset-y-0 left-0 w-32 z-10 pointer-events-none"
+        style={{ background: "linear-gradient(to right, hsl(var(--background)), transparent)" }}
       />
       <div
-        className="absolute inset-y-0 right-0 w-24 z-10 pointer-events-none"
-        style={{ background: "linear-gradient(to left, hsla(0,0%,0%,0.9), transparent)" }}
+        className="absolute inset-y-0 right-0 w-32 z-10 pointer-events-none"
+        style={{ background: "linear-gradient(to left, hsl(var(--background)), transparent)" }}
       />
 
-      <div className="flex items-center gap-16 animate-marquee whitespace-nowrap py-6">
+      <div className="flex items-center gap-20 animate-marquee whitespace-nowrap">
         {items.map((uni, i) => (
           <div key={i} className="flex items-center shrink-0">
             <img
@@ -36,7 +36,7 @@ const UniversityMarquee = () => {
               alt={uni.name}
               title={uni.name}
               className="h-10 w-auto object-contain"
-              style={{ filter: "brightness(0) invert(1)", opacity: 0.9 }}
+              style={{ filter: "brightness(0) invert(1)", opacity: 0.85 }}
             />
           </div>
         ))}
