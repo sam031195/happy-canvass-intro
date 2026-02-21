@@ -60,7 +60,7 @@ const WayForwardSection = () => {
           </h2>
 
           {/* Body text */}
-          <div className="max-w-4xl mx-auto mb-16 space-y-5">
+          <div className="max-w-4xl mx-auto mb-16 space-y-5 text-center">
             <p
               className="text-base lg:text-lg leading-relaxed"
               style={{ color: "hsl(0,0%,25%)" }}
