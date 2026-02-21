@@ -191,6 +191,26 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
         }}
       />
 
+      {/* Orange-red bloom (subdued) */}
+      <div
+        className="pointer-events-none fixed z-0"
+        style={{
+          bottom: 0, left: 0,
+          width: "700px", height: "600px",
+          background: "radial-gradient(ellipse at bottom left, hsla(18, 72%, 44%, 0.12) 0%, transparent 65%)",
+        }}
+      />
+
+      {/* Purple bloom (subdued) */}
+      <div
+        className="pointer-events-none fixed z-0"
+        style={{
+          bottom: 0, right: 0,
+          width: "600px", height: "500px",
+          background: "radial-gradient(ellipse at bottom right, hsla(270, 60%, 48%, 0.14) 0%, transparent 65%)",
+        }}
+      />
+
       {/* Content wrapper */}
       <div className="relative z-10 flex flex-col min-h-full">
 
