@@ -111,7 +111,7 @@ const HeroSection = () => {
           </nav>
 
           {/* Hero text content */}
-          <div className="flex flex-col items-center justify-center text-center flex-1 px-8 lg:px-12 pt-[5vh]">
+          <div className="flex flex-col items-center justify-center text-center flex-1 px-8 lg:px-12 pt-[7vh]">
             <h1 className="text-6xl lg:text-8xl font-bold text-foreground leading-[1.05] tracking-tight max-w-5xl">
               Ivy League rigor,<br />for every learner
             </h1>
