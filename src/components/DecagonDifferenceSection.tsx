@@ -73,7 +73,7 @@ const DecagonDifferenceSection = () => {
           {stats.map((stat, i) => (
             <div
               key={i}
-              className="border border-border bg-background p-6 flex flex-col gap-3 hover:shadow-lg transition-shadow"
+              className="bg-background p-6 flex flex-col gap-3 hover:shadow-lg transition-shadow"
               style={{ borderRadius: "6px" }}
             >
               <div
