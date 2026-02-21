@@ -167,7 +167,7 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
         src={syllabusBg}
         alt=""
         className="pointer-events-none fixed z-0"
-        style={{ opacity: 0.7, top: "-10%", right: "-10%", width: "130%", height: "130%", objectFit: "cover" }}
+        style={{ opacity: 0.7, top: "-10%", right: "-30%", width: "130%", height: "130%", objectFit: "cover" }}
       />
 
       {/* Dark overlay for readability */}
