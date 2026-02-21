@@ -227,7 +227,7 @@ const WayForwardSection = () => {
             WebkitMaskComposite: "destination-in",
           }}
         />
-        <div className="relative z-10 mx-auto px-8 lg:px-12" style={{ maxWidth: "96rem" }}>
+        <div className="relative z-10 mx-auto px-8 lg:px-12" style={{ maxWidth: "125rem" }}>
           <h2
             className="text-4xl lg:text-5xl font-bold text-center mb-12"
             style={{ color: "hsl(0,0%,10%)" }}
