@@ -46,9 +46,9 @@ const cards2 = [
   {
     image: card2Img,
     icon: <GraduationCap className="w-4 h-4" />,
-    tag: "Scholars",
-    title: "Global Learners\nAccess Ivy-Level Paths",
-    description: "Students worldwide access curated learning paths and AI-guided modules.",
+    tag: "Luan Torres, São Bento, Brazil",
+    title: "Lead Young",
+    description: "If exposure to one subject can spark a movement, open access to knowledge can spark a generation.",
   },
   {
     image: card3Img,
