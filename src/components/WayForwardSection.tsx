@@ -201,6 +201,13 @@ const WayForwardSection = () => {
           alt="CTA Footer"
           className="w-full block min-h-[90vh] object-cover"
         />
+        {/* Dark gradient overlay for readability */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: "linear-gradient(to bottom, hsla(230,25%,4%,0.3) 0%, hsla(230,25%,4%,0.15) 40%, hsla(230,25%,4%,0.6) 65%, hsla(230,25%,4%,0.9) 100%)",
+          }}
+        />
         <div className="absolute inset-0 flex flex-col px-8 lg:px-16">
           {/* CTA content — centered in upper portion */}
           <div className="flex-1 flex flex-col items-center justify-center">
