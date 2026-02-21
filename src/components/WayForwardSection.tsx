@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { GraduationCap, Shield, Briefcase, BookOpen, Users, Globe } from "lucide-react";
 import ctaFooter from "@/assets/cta-footer-new.png";
+import card1Img from "@/assets/card-1-img.png";
 
 const cards = [
   {
@@ -31,7 +32,7 @@ const cards = [
 
 const cards2 = [
   {
-    video: "/videos/product-hero-data.webm",
+    image: card1Img,
     icon: <BookOpen className="w-4 h-4" />,
     tag: "Data Donors",
     title: "Elite Students\nSync Curricula",
@@ -276,15 +277,24 @@ const WayForwardSection = () => {
                 }}
               >
                 <div className="p-3 pb-2">
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full aspect-[5/4] object-cover"
-                    style={{ borderRadius: "2px" }}
-                    src={card.video}
-                  />
+                  {"image" in card && card.image ? (
+                    <img
+                      src={card.image}
+                      alt={card.tag}
+                      className="w-full aspect-[5/4] object-cover"
+                      style={{ borderRadius: "2px" }}
+                    />
+                  ) : (
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full aspect-[5/4] object-cover"
+                      style={{ borderRadius: "2px" }}
+                      src={(card as any).video}
+                    />
+                  )}
                 </div>
                 <div className="px-3 pb-3 flex flex-col flex-1">
                   <div className="flex items-center gap-1.5 mb-2">
