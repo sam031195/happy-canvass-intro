@@ -218,7 +218,7 @@ const AgenticWorkflowSection = () => {
         </div>
 
         {expanded && (
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-5 animate-in fade-in slide-in-from-top-2 duration-300">
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-5 animate-in fade-in slide-in-from-top-2 duration-300 px-6 lg:px-16">
             {[
               {
                 title: "Notify Agent",
