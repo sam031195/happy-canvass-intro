@@ -119,7 +119,16 @@ const HeroSection = () => {
             </p>
 
             {/* Email input bar */}
-            <div className="mt-10 flex items-center bg-[hsl(var(--hero-input-bg))] rounded-full pl-6 pr-2 py-2 max-w-md w-full shadow-sm">
+            <div
+              className="mt-10 flex items-center rounded-full pl-6 pr-2 py-2 max-w-md w-full"
+              style={{
+                background: "hsla(0, 0%, 100%, 0.12)",
+                backdropFilter: "blur(24px)",
+                WebkitBackdropFilter: "blur(24px)",
+                border: "1px solid hsla(0, 0%, 100%, 0.2)",
+                boxShadow: "0 8px 32px hsla(0, 0%, 0%, 0.12)",
+              }}
+            >
               <input
                 type="email"
                 placeholder="Enter your work email"
