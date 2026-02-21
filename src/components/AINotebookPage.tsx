@@ -434,7 +434,7 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
                 `Date of Completion: ${today}\n\n` +
                 `Best regards,\nSent via AI Study Platform`
               );
-              window.open(`mailto:${professors}?subject=${subject}&body=${body}`, "_blank");
+              window.open(`https://mail.google.com/mail/?view=cm&to=${professors}&su=${subject}&body=${body}`, "_blank");
             }}
             className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors"
             style={{
