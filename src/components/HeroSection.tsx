@@ -113,10 +113,10 @@ const HeroSection = () => {
           {/* Hero text content */}
           <div className="flex flex-col items-center justify-center text-center flex-1 px-8 lg:px-12 pt-[15vh]">
             <h1 className="text-6xl lg:text-8xl font-bold text-foreground leading-[1.05] tracking-tight max-w-5xl">
-              Your AI-powered academic companion
+              Ivy League rigor,<br />for every learner
             </h1>
             <p className="mt-8 text-xl lg:text-2xl text-foreground/70 max-w-2xl leading-relaxed">
-              Search smarter, learn faster. ChatGPT-level reasoning meets your coursework — all in one place.
+              We bring world-class curricula from the top 100 universities to 264 million students worldwide — powered by AI that understands academia.
             </p>
 
             {/* Email input bar */}
@@ -136,7 +136,7 @@ const HeroSection = () => {
                 className="flex-1 bg-transparent text-base text-foreground placeholder:text-muted-foreground outline-none"
               />
               <Button variant="hero" size="default" className="gap-2" onClick={() => navigate("/study")}>
-                Start learning <ArrowRight className="w-4 h-4" />
+                Join the mission <ArrowRight className="w-4 h-4" />
               </Button>
             </div>
           </div>
