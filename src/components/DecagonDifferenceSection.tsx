@@ -37,20 +37,35 @@ const DecagonDifferenceSection = () => {
           The opportunity gap
         </div>
 
-        {/* Content */}
-        <div className="max-w-3xl mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground leading-tight mb-5">
-            World-class education<br />shouldn't have borders
-          </h2>
-          <p className="text-lg text-foreground/80 leading-relaxed mb-5">
-            While Ivy League institutions produce groundbreaking research and curricula,{" "}
-            <span className="font-semibold" style={{ color: "hsl(45,60%,35%)" }}>
-              billions are locked out by geography, income, and access.
-            </span>
-          </p>
-          <p className="text-lg text-foreground/80 leading-relaxed">
-            UniQ<sup className="text-xs align-super opacity-70">AI</sup> bridges this divide — connecting elite academic resources with underserved talent through AI that adapts, personalizes, and scales.
-          </p>
+        {/* Content grid with video */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
+          {/* Left text */}
+          <div className="max-w-xl">
+            <h2 className="text-3xl lg:text-4xl font-bold text-foreground leading-tight mb-5">
+              World-class education<br />shouldn't have borders
+            </h2>
+            <p className="text-lg text-foreground/80 leading-relaxed mb-5">
+              While Ivy League institutions produce groundbreaking research and curricula,{" "}
+              <span className="font-semibold" style={{ color: "hsl(45,60%,35%)" }}>
+                billions are locked out by geography, income, and access.
+              </span>
+            </p>
+            <p className="text-lg text-foreground/80 leading-relaxed">
+              UniQ<sup className="text-xs align-super opacity-70">AI</sup> bridges this divide — connecting elite academic resources with underserved talent through AI that adapts, personalizes, and scales.
+            </p>
+          </div>
+
+          {/* Right video */}
+          <div className="w-full" style={{ borderRadius: "6px", overflow: "hidden" }}>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full aspect-video object-cover"
+              src="/videos/opportunity-gap.webm"
+            />
+          </div>
         </div>
 
         {/* Stats row — 4 in one line */}
