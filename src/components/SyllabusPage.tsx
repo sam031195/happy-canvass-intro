@@ -247,7 +247,7 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
               />
               <span
                 className="text-[10px] font-bold tracking-[0.2em] uppercase"
-                style={{ color: "hsla(0, 0%, 30%, 0.7)" }}
+                style={{ color: "hsla(0, 0%, 95%, 0.9)" }}
               >
                 University of Washington
               </span>
