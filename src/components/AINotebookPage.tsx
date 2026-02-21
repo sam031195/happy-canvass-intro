@@ -1,4 +1,4 @@
-import { Bot, Plus, ArrowRight, ChevronLeft, ExternalLink, Clock, ChevronDown, Settings, User, Mail, Briefcase, BookOpen, MessageSquare, List } from "lucide-react";
+import { Bot, Plus, ArrowRight, ChevronLeft, ExternalLink, Clock, ChevronDown, Settings, User, Mail, Briefcase, BookOpen, MessageSquare, List, GripVertical } from "lucide-react";
 import ConnectedAppsDialog from "@/components/ConnectedAppsDialog";
 import ModelSelector from "@/components/ModelSelector";
 import { AIModel, getDefaultModel } from "@/config/aiModels";
@@ -6,6 +6,7 @@ import { useState, useRef, useCallback, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "@/components/ui/resizable";
 
 type ChatMessage = { role: "user" | "assistant"; content: string };
 
@@ -567,7 +568,7 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
         {/* ══════ LEFT: Sources panel ══════ */}
         <div
           className={`flex flex-col shrink-0 ${isMobile ? (mobileTab === "modules" ? "w-full" : "hidden") : ""}`}
-          style={{ ...(!isMobile ? { width: "456px" } : {}), background: "hsl(230, 18%, 4%)", borderRight: isMobile ? "none" : `1px solid ${border}` }}
+          style={{ ...(!isMobile ? { width: "320px" } : {}), background: "hsl(230, 18%, 4%)", borderRight: isMobile ? "none" : `1px solid ${border}` }}
         >
           {/* Course header */}
           <div className="px-5 pt-6 pb-4 flex items-start gap-3">
@@ -945,7 +946,7 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
         {/* ══════ RIGHT: ChatGPT-style chat panel ══════ */}
         <div
           className={`flex flex-col shrink-0 ${isMobile ? (mobileTab === "chat" ? "w-full" : "hidden") : ""}`}
-          style={{ ...(!isMobile ? { width: "667px" } : {}), background: "hsl(230, 18%, 5%)", borderLeft: isMobile ? "none" : `1px solid ${border}` }}
+          style={{ ...(!isMobile ? { width: "420px" } : {}), background: "hsl(230, 18%, 5%)", borderLeft: isMobile ? "none" : `1px solid ${border}` }}
         >
           <div className="flex flex-col flex-1 min-h-0 p-4">
             <div
