@@ -41,7 +41,7 @@ const DecagonDifferenceSection = () => {
               <Globe className="w-4 h-4" />
               The opportunity gap
             </div>
-            <div className="mt-[10%]">
+            <div className="mt-[5%]">
               <h2 className="text-3xl lg:text-4xl font-bold text-foreground leading-tight mb-5">
                 World-class education<br />shouldn't have borders
               </h2>
