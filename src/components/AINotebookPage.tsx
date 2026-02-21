@@ -691,28 +691,44 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
             </div>
           )}
 
-          {/* LOADING — fetching/streaming */}
-          {activeSection !== null && fetchState === "loading" && (
-            <div className="flex flex-col flex-1 items-center justify-center px-10 text-center">
-              <div className="flex flex-col items-center gap-5">
-                <div className="relative w-12 h-12">
-                  <div
-                    className="absolute inset-0 rounded-full"
-                    style={{ border: "1.5px solid hsla(0,0%,100%,0.06)" }}
-                  />
-                  <div
-                    className="absolute inset-0 rounded-full animate-spin"
-                    style={{ border: "1.5px solid transparent", borderTopColor: "hsla(220, 80%, 65%, 0.7)" }}
-                  />
+          {/* LOADING — skeleton placeholders with progressive reveal */}
+          {activeSection !== null && fetchState === "loading" && !currentContent && (
+            <div className="flex-1 px-10 py-10 max-w-4xl mx-auto w-full animate-pulse">
+              {/* Header skeleton */}
+              <div className="flex items-center gap-2 mb-6">
+                <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "hsla(220, 80%, 65%, 0.8)" }} />
+                <span className="text-[11px]" style={{ color: "hsla(220, 15%, 45%, 0.7)" }}>
+                  Generating study guide for <span style={{ color: "hsla(220, 80%, 68%, 0.85)" }}>{displayModules[activeSection]?.title}</span>…
+                </span>
+              </div>
+              {/* Title skeleton */}
+              <div className="h-7 rounded-md mb-6" style={{ background: "hsla(220, 15%, 20%, 0.5)", width: "65%" }} />
+              {/* Paragraph skeletons */}
+              {[...Array(3)].map((_, blockIdx) => (
+                <div key={blockIdx} className="mb-8">
+                  <div className="h-5 rounded-md mb-4" style={{ background: "hsla(220, 15%, 18%, 0.5)", width: `${45 + blockIdx * 10}%` }} />
+                  {[...Array(4)].map((_, lineIdx) => (
+                    <div
+                      key={lineIdx}
+                      className="h-3.5 rounded mb-2.5"
+                      style={{
+                        background: "hsla(220, 15%, 15%, 0.4)",
+                        width: `${85 + Math.sin(blockIdx + lineIdx) * 12}%`,
+                        animationDelay: `${(blockIdx * 4 + lineIdx) * 100}ms`,
+                      }}
+                    />
+                  ))}
                 </div>
-                <div>
-                  <p className="text-sm font-semibold mb-1" style={{ color: "hsla(220, 15%, 78%, 0.9)" }}>
-                    Generating study guide…
-                  </p>
-                  <p className="text-xs" style={{ color: "hsla(220, 15%, 45%, 0.75)" }}>
-                    AI is researching resources for <span style={{ color: "hsla(220, 80%, 68%, 0.85)" }}>{displayModules[activeSection]?.title}</span>
-                  </p>
-                </div>
+              ))}
+              {/* List skeleton */}
+              <div className="mb-8">
+                <div className="h-5 rounded-md mb-4" style={{ background: "hsla(220, 15%, 18%, 0.5)", width: "40%" }} />
+                {[...Array(5)].map((_, i) => (
+                  <div key={i} className="flex items-start gap-2 mb-2.5">
+                    <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ background: "hsla(220, 15%, 20%, 0.5)" }} />
+                    <div className="h-3.5 rounded flex-1" style={{ background: "hsla(220, 15%, 15%, 0.4)", width: `${70 + i * 5}%` }} />
+                  </div>
+                ))}
               </div>
             </div>
           )}
