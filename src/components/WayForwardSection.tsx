@@ -50,7 +50,7 @@ const WayForwardSection = () => {
             WebkitMaskComposite: "destination-in",
           }}
         />
-        <div className="relative z-10 max-w-5xl mx-auto px-8 lg:px-12">
+        <div className="relative z-10 max-w-7xl mx-auto px-8 lg:px-12">
           {/* Heading */}
           <h2
             className="text-4xl lg:text-5xl font-bold text-center mb-12"
@@ -89,7 +89,7 @@ const WayForwardSection = () => {
           </div>
 
           {/* Three cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {cards.map((card, i) => (
               <div
                 key={i}
@@ -108,7 +108,7 @@ const WayForwardSection = () => {
                     loop
                     muted
                     playsInline
-                    className="w-full aspect-square object-cover"
+                    className="w-full aspect-[4/5] object-cover"
                     style={{ borderRadius: "2px" }}
                     src={card.video}
                   />
