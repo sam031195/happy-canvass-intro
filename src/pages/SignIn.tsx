@@ -30,9 +30,9 @@ const SignIn = () => {
         <div className="relative z-10 flex flex-col justify-between h-full p-12">
           <button
             onClick={() => navigate("/")}
-            className="text-3xl font-bold text-white tracking-tight w-fit"
+            className="text-4xl font-bold text-white tracking-tight w-fit"
           >
-            UniQ<sup className="text-sm font-semibold align-super ml-0.5 opacity-70">AI</sup>
+            UniQ<sup className="text-base font-semibold align-super ml-0.5 opacity-70">AI</sup>
           </button>
           <div className="max-w-lg">
             <h2 className="text-4xl font-bold text-white leading-snug mb-5">
