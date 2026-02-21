@@ -213,6 +213,7 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
   const detail = COURSE_DETAILS[courseCode];
   const [notebookOpen, setNotebookOpen] = useState(false);
   const [initialModuleIndex, setInitialModuleIndex] = useState<number | null>(null);
+  const [bookmarked, setBookmarked] = useState(false);
   const openChat = useCallback((modIndex: number | null = null) => {
     setInitialModuleIndex(modIndex);
     setNotebookOpen(true);
@@ -310,8 +311,14 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
                 </h1>
               </div>
               <button
-                className="shrink-0 mt-14 p-2 rounded transition-opacity hover:opacity-80"
-                title="Add to list"
+                className="shrink-0 mt-14 p-2 rounded transition-all duration-300 hover:opacity-80"
+                title={bookmarked ? "Bookmarked" : "Add to list"}
+                onClick={() => setBookmarked(!bookmarked)}
+                style={{
+                  transform: bookmarked ? "scale(1.15)" : "scale(1)",
+                  filter: bookmarked ? "drop-shadow(0 0 8px hsla(45, 90%, 55%, 0.5))" : "none",
+                  opacity: bookmarked ? 1 : 0.6,
+                }}
               >
                 <img src={bookmarkIcon} alt="Bookmark" className="h-6 w-6" />
               </button>
