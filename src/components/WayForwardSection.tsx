@@ -277,8 +277,6 @@ const WayForwardSection = () => {
                 style={{
                   background: "hsla(0,0%,100%,0.55)",
                   backdropFilter: "blur(2px)",
-                  border: "1px solid hsl(0,0%,82%)",
-                  borderRadius: "4px",
                 }}
               >
                 <div className="p-3 pb-2">
