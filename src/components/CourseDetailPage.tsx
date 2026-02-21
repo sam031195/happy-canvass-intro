@@ -296,7 +296,7 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
 
       {/* ── Scrollable body ── */}
       <div className="flex-1 overflow-y-auto">
-        <div className="px-8 lg:px-12 pt-10 pb-20 max-w-[1200px] mx-auto">
+        <div className="px-4 sm:px-8 lg:px-12 pt-8 sm:pt-10 pb-20 max-w-[1200px] mx-auto">
 
           {/* ══ HEADER ══ */}
           <div className="mb-10">
@@ -334,32 +334,32 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
 
           {/* ══ STAT ROW ══ */}
           <div
-            className="flex items-center gap-0 mb-10 rounded-2xl overflow-hidden"
+            className="grid grid-cols-3 mb-10 rounded-2xl overflow-hidden"
             style={{ border: "1px solid hsla(0, 0%, 100%, 0.07)", background: "hsla(230, 25%, 6%, 1)" }}
           >
             {/* Credits */}
-            <div className="flex-1 px-8 py-6 flex flex-col gap-1" style={{ borderRight: "1px solid hsla(0, 0%, 100%, 0.06)" }}>
-              <div className="flex items-center gap-2 mb-2">
-                <GraduationCap className="h-4 w-4" style={{ color: "hsla(220, 25%, 68%, 0.85)" }} />
-                <span className="text-[11px] font-semibold tracking-widest uppercase" style={{ color: "hsla(220, 15%, 52%, 0.8)" }}>Credit Units</span>
+            <div className="px-3 sm:px-8 py-4 sm:py-6 flex flex-col gap-1" style={{ borderRight: "1px solid hsla(0, 0%, 100%, 0.06)" }}>
+              <div className="flex items-center gap-1.5 sm:gap-2 mb-1 sm:mb-2">
+                <GraduationCap className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" style={{ color: "hsla(220, 25%, 68%, 0.85)" }} />
+                <span className="text-[9px] sm:text-[11px] font-semibold tracking-wider sm:tracking-widest uppercase" style={{ color: "hsla(220, 15%, 52%, 0.8)" }}>Credit Units</span>
               </div>
-              <span className="text-5xl font-black" style={{ color: "hsla(0, 0%, 98%, 1)", letterSpacing: "-0.06em" }}>{detail.credits}</span>
+              <span className="text-3xl sm:text-5xl font-black" style={{ color: "hsla(0, 0%, 98%, 1)", letterSpacing: "-0.06em" }}>{detail.credits}</span>
             </div>
             {/* Duration */}
-            <div className="flex-1 px-8 py-6 flex flex-col gap-1" style={{ borderRight: "1px solid hsla(0, 0%, 100%, 0.06)" }}>
-              <div className="flex items-center gap-2 mb-2">
-                <Clock className="h-4 w-4" style={{ color: "hsla(220, 25%, 68%, 0.85)" }} />
-                <span className="text-[11px] font-semibold tracking-widest uppercase" style={{ color: "hsla(220, 15%, 52%, 0.8)" }}>Duration</span>
+            <div className="px-3 sm:px-8 py-4 sm:py-6 flex flex-col gap-1" style={{ borderRight: "1px solid hsla(0, 0%, 100%, 0.06)" }}>
+              <div className="flex items-center gap-1.5 sm:gap-2 mb-1 sm:mb-2">
+                <Clock className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" style={{ color: "hsla(220, 25%, 68%, 0.85)" }} />
+                <span className="text-[9px] sm:text-[11px] font-semibold tracking-wider sm:tracking-widest uppercase" style={{ color: "hsla(220, 15%, 52%, 0.8)" }}>Duration</span>
               </div>
-              <span className="text-5xl font-black" style={{ color: "hsla(0, 0%, 98%, 1)", letterSpacing: "-0.06em" }}>10<span className="text-2xl font-semibold ml-1" style={{ color: "hsla(220, 15%, 55%, 0.75)", letterSpacing: "-0.02em" }}>wks</span></span>
+              <span className="text-3xl sm:text-5xl font-black" style={{ color: "hsla(0, 0%, 98%, 1)", letterSpacing: "-0.06em" }}>10<span className="text-lg sm:text-2xl font-semibold ml-0.5 sm:ml-1" style={{ color: "hsla(220, 15%, 55%, 0.75)", letterSpacing: "-0.02em" }}>wks</span></span>
             </div>
             {/* Modules */}
-            <div className="flex-1 px-8 py-6 flex flex-col gap-1">
-              <div className="flex items-center gap-2 mb-2">
-                <Layers className="h-4 w-4" style={{ color: "hsla(220, 25%, 68%, 0.85)" }} />
-                <span className="text-[11px] font-semibold tracking-widest uppercase" style={{ color: "hsla(220, 15%, 52%, 0.8)" }}>Modules</span>
+            <div className="px-3 sm:px-8 py-4 sm:py-6 flex flex-col gap-1">
+              <div className="flex items-center gap-1.5 sm:gap-2 mb-1 sm:mb-2">
+                <Layers className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" style={{ color: "hsla(220, 25%, 68%, 0.85)" }} />
+                <span className="text-[9px] sm:text-[11px] font-semibold tracking-wider sm:tracking-widest uppercase" style={{ color: "hsla(220, 15%, 52%, 0.8)" }}>Modules</span>
               </div>
-              <span className="text-5xl font-black" style={{ color: "hsla(0, 0%, 98%, 1)", letterSpacing: "-0.06em" }}>{detail.modules.length}</span>
+              <span className="text-3xl sm:text-5xl font-black" style={{ color: "hsla(0, 0%, 98%, 1)", letterSpacing: "-0.06em" }}>{detail.modules.length}</span>
             </div>
           </div>
 

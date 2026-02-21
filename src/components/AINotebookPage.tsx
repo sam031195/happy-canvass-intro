@@ -305,7 +305,7 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
       setErrorMsg("Something went wrong. Please try again.");
       setFetchState("error");
     }
-  }, [displayModules, contentMap, courseName, context]);
+  }, [displayModules, contentMap, courseName, context, isMobile]);
 
   // Auto-fetch when opened with a pre-selected module
   useEffect(() => {
