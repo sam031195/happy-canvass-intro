@@ -4,6 +4,7 @@ import ctaFooter from "@/assets/cta-footer-new.png";
 import card1Img from "@/assets/card-1-img.png";
 import card2Img from "@/assets/card-2-img.png";
 import card3Img from "@/assets/card-3-img.png";
+import card4Img from "@/assets/card-4-img.png";
 
 const cards = [
   {
@@ -55,7 +56,7 @@ const cards2 = [
     description: "Organizations identify exceptional, overlooked talent the pipeline misses.",
   },
   {
-    video: "/videos/product-hero-data.webm",
+    image: card4Img,
     icon: <Shield className="w-4 h-4" />,
     tag: "Validators",
     title: "Faculty & Experts\nVerify Quality",
