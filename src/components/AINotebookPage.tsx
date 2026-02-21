@@ -1,10 +1,11 @@
-import { Bot, Plus, ArrowRight, ChevronLeft, ExternalLink, Clock, ChevronDown, Settings, User, Mail, Briefcase } from "lucide-react";
+import { Bot, Plus, ArrowRight, ChevronLeft, ExternalLink, Clock, ChevronDown, Settings, User, Mail, Briefcase, BookOpen, MessageSquare, List } from "lucide-react";
 import ConnectedAppsDialog from "@/components/ConnectedAppsDialog";
 import ModelSelector from "@/components/ModelSelector";
 import { AIModel, getDefaultModel } from "@/config/aiModels";
 import { useState, useRef, useCallback, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 type ChatMessage = { role: "user" | "assistant"; content: string };
 
@@ -29,6 +30,8 @@ type FetchState = "idle" | "loading" | "done" | "error";
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
 
 const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex = null, program = "Master of Science in Information Systems (MSIS)", university = "University of Washington", onClose }: Props) => {
+  const isMobile = useIsMobile();
+  const [mobileTab, setMobileTab] = useState<"modules" | "content" | "chat">("modules");
   const [activeSection, setActiveSection] = useState<number | null>(null);
   const [studioInput, setStudioInput] = useState("");
   const [gradientPos, setGradientPos] = useState({ x: 50, y: 50 });
@@ -208,6 +211,7 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
     abortRef.current = controller;
 
     setActiveSection(modIndex);
+    if (isMobile) setMobileTab("content");
     setFetchState("loading");
     setErrorMsg("");
 
@@ -407,7 +411,7 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
 
       {/* ════ TOP NAVBAR ════ */}
       <div
-        className="relative z-10 flex items-center gap-4 px-5 py-2.5 shrink-0"
+        className="relative z-10 flex items-center gap-2 md:gap-4 px-3 md:px-5 py-2.5 shrink-0"
         style={{ borderBottom: `1px solid ${border}`, background: "hsl(230, 18%, 4%)" }}
       >
         {/* Logo */}
@@ -424,11 +428,11 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
               <Bot className="h-3.5 w-3.5" style={{ color: "hsla(210, 40%, 88%, 0.95)" }} />
             </div>
           </div>
-          <span className="text-sm font-bold" style={{ color: headingColor }}>AI Study</span>
+          <span className="text-sm font-bold hidden md:inline" style={{ color: headingColor }}>AI Study</span>
         </div>
 
-        {/* Center: course pill */}
-        <div className="flex-1 flex justify-center">
+        {/* Center: course pill — hidden on mobile */}
+        <div className="flex-1 hidden md:flex justify-center">
           <div
             className="flex items-center gap-2.5 px-5 py-2 max-w-[420px] w-full"
             style={{
@@ -443,8 +447,11 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
           </div>
         </div>
 
+        {/* Mobile: spacer */}
+        <div className="flex-1 md:hidden" />
+
         {/* Right nav */}
-        <div className="flex items-center gap-2 shrink-0">
+        <div className="flex items-center gap-1.5 md:gap-2 shrink-0">
           <button
             onClick={() => setSettingsOpen(true)}
             className="p-2 rounded-md transition-all duration-150"
@@ -453,8 +460,6 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
               border: `1px solid ${border}`,
               color: labelColor,
             }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = surfaceHover; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "hsla(230, 22%, 11%, 1)"; }}
           >
             <Settings className="h-3.5 w-3.5" />
           </button>
@@ -467,96 +472,115 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
               borderRadius: "6px",
               color: labelColor,
             }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = surfaceHover; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "hsla(230, 22%, 11%, 1)"; }}
           >
             <ChevronLeft className="h-3.5 w-3.5" />
-            Back
+            <span className="hidden md:inline">Back</span>
           </button>
-          <button
-            className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold transition-all"
-            style={{
-              background: accentBlue,
-              color: "hsl(230, 18%, 6%)",
-              borderRadius: "6px",
-            }}
-          >
-            <svg width="12" height="12" viewBox="0 0 60 60" fill="none">
-              <path d="M30 2 C30 14, 46 30, 58 30 C46 30, 30 46, 30 58 C30 46, 14 30, 2 30 C14 30, 30 14, 30 2 Z" fill="hsl(230, 18%, 6%)" />
-            </svg>
-            Chat
-          </button>
-          <button
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors"
-            style={{
-              background: "hsla(230, 22%, 11%, 1)",
-              border: `1px solid ${border}`,
-              borderRadius: "6px",
-              color: labelColor,
-            }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = surfaceHover; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "hsla(230, 22%, 11%, 1)"; }}
-          >
-            <Plus className="h-3.5 w-3.5" />
-            Create notebook
-          </button>
-          <button
-            onClick={() => {
-              const professors = "surbhimeena002@gmail.com";
-              const today = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
-              const moduleName = activeSection !== null ? displayModules[activeSection]?.title : "All Modules";
-              const subject = encodeURIComponent(`Course Completion: ${courseName || context}`);
-              const body = encodeURIComponent(
-                `Dear Professor,\n\nI am writing to inform you of a course completion achievement.\n\n` +
-                `Course: ${courseName || context}\n` +
-                `Program: ${program}\n` +
-                `University: ${university}\n` +
-                `Module Completed: ${moduleName}\n` +
-                `Date of Completion: ${today}\n\n` +
-                `Best regards,\nSent via AI Study Platform`
-              );
-              window.open(`https://mail.google.com/mail/?view=cm&to=${professors}&su=${subject}&body=${body}`, "_blank");
-            }}
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors"
-            style={{
-              background: "hsla(230, 22%, 11%, 1)",
-              border: `1px solid ${border}`,
-              borderRadius: "6px",
-              color: labelColor,
-            }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = surfaceHover; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "hsla(230, 22%, 11%, 1)"; }}
-          >
-            <Mail className="h-3.5 w-3.5" />
-            Notify Professors
-          </button>
-          <a
-            href={`https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent((courseName || context).split(/\s*[&,]\s*|\s+for\s+/i)[0].trim())}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors no-underline cursor-pointer"
-            style={{
-              background: "hsla(230, 22%, 11%, 1)",
-              border: `1px solid ${border}`,
-              borderRadius: "6px",
-              color: labelColor,
-            }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = surfaceHover; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "hsla(230, 22%, 11%, 1)"; }}
-          >
-            <Briefcase className="h-3.5 w-3.5" />
-            Job Recommendations
-          </a>
+          {/* Desktop-only buttons */}
+          <div className="hidden md:flex items-center gap-2">
+            <button
+              className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold transition-all"
+              style={{
+                background: accentBlue,
+                color: "hsl(230, 18%, 6%)",
+                borderRadius: "6px",
+              }}
+            >
+              <svg width="12" height="12" viewBox="0 0 60 60" fill="none">
+                <path d="M30 2 C30 14, 46 30, 58 30 C46 30, 30 46, 30 58 C30 46, 14 30, 2 30 C14 30, 30 14, 30 2 Z" fill="hsl(230, 18%, 6%)" />
+              </svg>
+              Chat
+            </button>
+            <button
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors"
+              style={{
+                background: "hsla(230, 22%, 11%, 1)",
+                border: `1px solid ${border}`,
+                borderRadius: "6px",
+                color: labelColor,
+              }}
+            >
+              <Plus className="h-3.5 w-3.5" />
+              Create notebook
+            </button>
+            <button
+              onClick={() => {
+                const professors = "surbhimeena002@gmail.com";
+                const today = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+                const moduleName = activeSection !== null ? displayModules[activeSection]?.title : "All Modules";
+                const subject = encodeURIComponent(`Course Completion: ${courseName || context}`);
+                const body = encodeURIComponent(
+                  `Dear Professor,\n\nI am writing to inform you of a course completion achievement.\n\n` +
+                  `Course: ${courseName || context}\n` +
+                  `Program: ${program}\n` +
+                  `University: ${university}\n` +
+                  `Module Completed: ${moduleName}\n` +
+                  `Date of Completion: ${today}\n\n` +
+                  `Best regards,\nSent via AI Study Platform`
+                );
+                window.open(`https://mail.google.com/mail/?view=cm&to=${professors}&su=${subject}&body=${body}`, "_blank");
+              }}
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors"
+              style={{
+                background: "hsla(230, 22%, 11%, 1)",
+                border: `1px solid ${border}`,
+                borderRadius: "6px",
+                color: labelColor,
+              }}
+            >
+              <Mail className="h-3.5 w-3.5" />
+              Notify Professors
+            </button>
+            <a
+              href={`https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent((courseName || context).split(/\s*[&,]\s*|\s+for\s+/i)[0].trim())}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors no-underline cursor-pointer"
+              style={{
+                background: "hsla(230, 22%, 11%, 1)",
+                border: `1px solid ${border}`,
+                borderRadius: "6px",
+                color: labelColor,
+              }}
+            >
+              <Briefcase className="h-3.5 w-3.5" />
+              Job Recommendations
+            </a>
+          </div>
         </div>
       </div>
 
-      {/* ════ THREE-COLUMN BODY ════ */}
+      {/* ════ MOBILE TAB BAR ════ */}
+      {isMobile && (
+        <div className="relative z-10 flex shrink-0" style={{ borderBottom: `1px solid ${border}`, background: "hsl(230, 18%, 4%)" }}>
+          {([
+            { key: "modules" as const, icon: List, label: "Modules" },
+            { key: "content" as const, icon: BookOpen, label: "Study Guide" },
+            { key: "chat" as const, icon: MessageSquare, label: "Chat" },
+          ]).map(({ key, icon: Icon, label }) => (
+            <button
+              key={key}
+              onClick={() => setMobileTab(key)}
+              className="flex-1 flex items-center justify-center gap-1.5 py-2.5 text-[11px] font-medium transition-colors"
+              style={{
+                color: mobileTab === key ? "hsla(220, 80%, 68%, 0.9)" : "hsla(220, 15%, 45%, 0.7)",
+                borderBottom: mobileTab === key ? "2px solid hsla(220, 80%, 68%, 0.9)" : "2px solid transparent",
+              }}
+            >
+              <Icon className="h-3.5 w-3.5" />
+              {label}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {/* ════ THREE-COLUMN BODY (desktop) / SINGLE PANEL (mobile) ════ */}
       <div className="relative z-10 flex flex-1 min-h-0">
 
         {/* ══════ LEFT: Sources panel ══════ */}
         <div
-          className="flex flex-col shrink-0"
-          style={{ width: "456px", background: "hsl(230, 18%, 4%)", borderRight: `1px solid ${border}` }}
+          className={`flex flex-col shrink-0 ${isMobile ? (mobileTab === "modules" ? "w-full" : "hidden") : ""}`}
+          style={{ ...(!isMobile ? { width: "456px" } : {}), background: "hsl(230, 18%, 4%)", borderRight: isMobile ? "none" : `1px solid ${border}` }}
         >
           {/* Course header */}
           <div className="px-5 pt-6 pb-4 flex items-start gap-3">
@@ -666,7 +690,7 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
 
         {/* ══════ CENTER: Content area ══════ */}
         <div
-          className="flex flex-col flex-1 min-w-0 overflow-y-auto"
+          className={`flex flex-col flex-1 min-w-0 overflow-y-auto ${isMobile ? (mobileTab === "content" ? "" : "hidden") : ""}`}
           style={{ background: "hsl(230, 18%, 6%)" }}
         >
           {/* IDLE — no module selected yet */}
@@ -699,7 +723,7 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
 
           {/* LOADING — skeleton placeholders with progressive reveal */}
           {activeSection !== null && fetchState === "loading" && !currentContent && (
-            <div className="flex-1 px-10 py-10 max-w-4xl mx-auto w-full animate-pulse">
+            <div className="flex-1 px-4 md:px-10 py-6 md:py-10 max-w-4xl mx-auto w-full animate-pulse">
               {/* Header skeleton */}
               <div className="flex items-center gap-2 mb-6">
                 <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "hsla(220, 80%, 65%, 0.8)" }} />
@@ -769,7 +793,7 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
 
           {/* CONTENT — streaming or complete */}
           {(fetchState === "done" || (fetchState === "loading" && currentContent)) && currentContent && (
-            <div className="flex-1 px-10 py-10 max-w-4xl mx-auto w-full">
+            <div className="flex-1 px-4 md:px-10 py-6 md:py-10 max-w-4xl mx-auto w-full">
               {/* Streaming indicator */}
               {fetchState === "loading" && (
                 <div className="flex items-center gap-2 mb-6 pb-4" style={{ borderBottom: `1px solid ${border}` }}>
@@ -933,8 +957,8 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
 
         {/* ══════ RIGHT: ChatGPT-style chat panel ══════ */}
         <div
-          className="flex flex-col shrink-0"
-          style={{ width: "667px", background: "hsl(230, 18%, 5%)", borderLeft: `1px solid ${border}` }}
+          className={`flex flex-col shrink-0 ${isMobile ? (mobileTab === "chat" ? "w-full" : "hidden") : ""}`}
+          style={{ ...(!isMobile ? { width: "667px" } : {}), background: "hsl(230, 18%, 5%)", borderLeft: isMobile ? "none" : `1px solid ${border}` }}
         >
           <div className="flex flex-col flex-1 min-h-0 p-4">
             <div
