@@ -500,7 +500,7 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
                   </button>
                 </div>
                 <p className="text-xs leading-relaxed" style={{ color: "hsla(220, 18%, 60%, 0.85)" }}>
-                  Find job opportunities specific to coursework by completing modules
+                  Find job opportunities specific to coursework by completing modules →
                 </p>
               </div>
 
