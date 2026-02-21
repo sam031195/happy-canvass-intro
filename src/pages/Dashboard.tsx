@@ -6,6 +6,7 @@ import SyllabusFinderDialog from "@/components/SyllabusFinderDialog";
 import SyllabusPage from "@/components/SyllabusPage";
 import ModelSelector from "@/components/ModelSelector";
 import { AIModel, getDefaultModel } from "@/config/aiModels";
+import nextEraTexture from "@/assets/next-era-texture.avif";
 
 const SUGGESTIONS = [
   "Why do I need to study this?",
@@ -179,7 +180,9 @@ const Dashboard = () => {
           <span
             style={{
               color: "transparent",
-              backgroundImage: "linear-gradient(180deg, hsla(210,80%,65%,1) 0%, hsla(220,90%,45%,0.9) 50%, hsla(230,70%,30%,0.85) 100%)",
+              backgroundImage: `url(${nextEraTexture})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
               WebkitBackgroundClip: "text",
               backgroundClip: "text",
             }}
