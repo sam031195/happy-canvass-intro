@@ -445,10 +445,7 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
               </div>
 
               {/* Job Ready card */}
-              <div
-                style={{ background: "hsla(230, 25%, 6%, 1)", border: "1px solid hsla(220, 20%, 100%, 0.06)", borderRadius: "6px", padding: "24px" }}
-                className="flex flex-col items-center text-center"
-              >
+              <div className="flex flex-col items-center text-center py-6">
                 <Trophy className="h-8 w-8 mb-3" style={{ color: "hsla(45, 80%, 60%, 0.85)" }} />
                 <span className="text-sm font-bold mb-1.5" style={{ color: "hsla(210, 25%, 93%, 0.97)", letterSpacing: "-0.01em" }}>
                   You are Job Ready!!
