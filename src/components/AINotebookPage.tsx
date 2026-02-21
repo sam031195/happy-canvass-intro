@@ -308,6 +308,81 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialModuleIndex]);
 
+  // Prefetch all modules in background for instant switching
+  const contentMapRef = useRef(contentMap);
+  contentMapRef.current = contentMap;
+
+  useEffect(() => {
+    if (displayModules.length === 0) return;
+    let cancelled = false;
+
+    const prefetchAll = async () => {
+      for (let i = 0; i < displayModules.length; i++) {
+        if (cancelled) break;
+        if (contentMapRef.current[i] !== undefined) continue; // already cached
+        // small delay to avoid hammering the server
+        await new Promise((r) => setTimeout(r, 800));
+        if (cancelled || contentMapRef.current[i] !== undefined) continue;
+
+        const mod = displayModules[i];
+        try {
+          const resp = await fetch(`${SUPABASE_URL}/functions/v1/study-guide`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+            },
+            body: JSON.stringify({
+              courseName: courseName || context,
+              moduleNumber: mod.number,
+              moduleTitle: mod.title,
+              moduleTopics: mod.topics,
+              program,
+              university,
+            }),
+          });
+          if (!resp.ok || !resp.body) continue;
+
+          const reader = resp.body.getReader();
+          const decoder = new TextDecoder();
+          let textBuffer = "";
+          let accumulated = "";
+
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            textBuffer += decoder.decode(value, { stream: true });
+            let nl: number;
+            while ((nl = textBuffer.indexOf("\n")) !== -1) {
+              let line = textBuffer.slice(0, nl);
+              textBuffer = textBuffer.slice(nl + 1);
+              if (line.endsWith("\r")) line = line.slice(0, -1);
+              if (!line.startsWith("data: ")) continue;
+              const jsonStr = line.slice(6).trim();
+              if (jsonStr === "[DONE]") break;
+              try {
+                const parsed = JSON.parse(jsonStr);
+                const chunk = parsed.choices?.[0]?.delta?.content as string | undefined;
+                if (chunk) accumulated += chunk;
+              } catch { break; }
+            }
+          }
+
+          if (accumulated && !cancelled) {
+            setContentMap((prev) => ({ ...prev, [i]: accumulated }));
+          }
+        } catch {
+          // silently skip failed prefetch
+        }
+      }
+    };
+
+    // Start prefetch after a short initial delay
+    const timer = setTimeout(prefetchAll, 1500);
+    return () => { cancelled = true; clearTimeout(timer); };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [displayModules.length]);
+
   const currentContent = activeSection !== null ? (contentMap[activeSection] ?? "") : "";
 
   return (
