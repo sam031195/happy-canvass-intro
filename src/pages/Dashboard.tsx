@@ -179,7 +179,7 @@ const Dashboard = () => {
           <span
             style={{
               color: "transparent",
-              backgroundImage: "linear-gradient(180deg, hsla(0,0%,25%,0.95) 0%, hsla(0,0%,8%,0.85) 100%)",
+              backgroundImage: "linear-gradient(180deg, hsla(210,80%,65%,1) 0%, hsla(220,90%,45%,0.9) 50%, hsla(230,70%,30%,0.85) 100%)",
               WebkitBackgroundClip: "text",
               backgroundClip: "text",
             }}
