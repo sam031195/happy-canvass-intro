@@ -450,7 +450,7 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
             Notify Professors
           </button>
           <a
-            href={`https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent(courseName || context)}`}
+            href={`https://www.linkedin.com/jobs/search/?keywords=${encodeURIComponent((courseName || context).split(/\s*[&,]\s*|\s+for\s+/i)[0].trim())}`}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors no-underline cursor-pointer"
