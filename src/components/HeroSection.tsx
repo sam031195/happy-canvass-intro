@@ -57,6 +57,9 @@ const HeroSection = () => {
   const stripSlides = [...slides, slides[0]];
   const stripCount = stripSlides.length;
 
+  // Smooth easing function (ease-in-out cubic)
+  const ease = (t: number) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
   const getImageProgress = () => {
     let imgProgress = 0;
     for (let i = 0; i < totalSlides; i++) {
@@ -65,7 +68,7 @@ const HeroSection = () => {
       const imgPhaseStart = slideStart + (slideEnd - slideStart) * 0.55;
       if (progress > imgPhaseStart) {
         const t = Math.min(1, (progress - imgPhaseStart) / ((slideEnd - slideStart) * 0.45));
-        imgProgress = i + t;
+        imgProgress = i + ease(t);
       }
     }
     return imgProgress;
@@ -169,23 +172,28 @@ const HeroSection = () => {
             const slideStart = i / totalSlides;
             const slideEnd = (i + 1) / totalSlides;
             const slideRange = slideEnd - slideStart;
-            const slideInEnd = slideStart + slideRange * 0.35;
+            const slideInEnd = slideStart + slideRange * 0.30;
+            const holdEnd = slideStart + slideRange * 0.45;
             const zoomOutEnd = slideStart + slideRange * 0.55;
 
             let opacity = 0;
             let scale = 1;
-            let translateXpx = 800;
+            let translateXpx = 400;
 
             if (progress >= slideStart && progress < zoomOutEnd) {
               if (progress < slideInEnd) {
-                const t = (progress - slideStart) / (slideInEnd - slideStart);
-                opacity = Math.min(1, t * 2);
+                const t = ease((progress - slideStart) / (slideInEnd - slideStart));
+                opacity = t;
                 scale = 1;
-                translateXpx = 800 * (1 - t);
+                translateXpx = 400 * (1 - t);
+              } else if (progress < holdEnd) {
+                opacity = 1;
+                scale = 1;
+                translateXpx = 0;
               } else {
-                const t = (progress - slideInEnd) / (zoomOutEnd - slideInEnd);
+                const t = ease((progress - holdEnd) / (zoomOutEnd - holdEnd));
                 opacity = 1 - t;
-                scale = 1 + 0.5 * t;
+                scale = 1 + 0.3 * t;
                 translateXpx = 0;
               }
             }
