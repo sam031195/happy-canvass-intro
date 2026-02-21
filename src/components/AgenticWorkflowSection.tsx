@@ -51,7 +51,7 @@ const Node = ({ icon, label, sublabel, accent = "hsl(0,0%,20%)", glow }: NodePro
 
 /* ── connector line (horizontal / vertical) ──────────── */
 const HLine = () => (
-  <div className="hidden md:flex items-center">
+  <div className="flex items-center">
     <div className="w-10 h-px bg-border" />
     <ArrowRight className="w-3 h-3 text-muted-foreground -ml-1.5" />
   </div>
@@ -103,10 +103,10 @@ const AgenticWorkflowSection = () => {
         {/* ── DIAGRAM ─────────────────────────────────── */}
         <div className="rounded-none border-y border-border bg-background p-6 lg:p-10 shadow-sm">
           {/* Row 1 — Ingestion */}
-          <p className="text-[11px] font-bold tracking-widest text-muted-foreground mb-1 uppercase">
+          <p className="text-[11px] font-bold tracking-widest text-muted-foreground mb-1 uppercase text-center">
             1 · Ingestion
           </p>
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0 mb-10">
+          <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
             <Node
               icon={<BookOpen className="w-6 h-6 text-foreground" />}
               label="Syllabus Upload"
@@ -133,10 +133,10 @@ const AgenticWorkflowSection = () => {
           </div>
 
           {/* Row 2 — Orchestration */}
-          <p className="text-[11px] font-bold tracking-widest text-muted-foreground mb-1 uppercase">
+          <p className="text-[11px] font-bold tracking-widest text-muted-foreground mb-1 uppercase text-center">
             2 · Orchestration
           </p>
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0 mb-10">
+          <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
             <Node
               icon={<Users className="w-6 h-6 text-foreground" />}
               label="User Profiler"
@@ -163,10 +163,10 @@ const AgenticWorkflowSection = () => {
           </div>
 
           {/* Row 3 — Delivery */}
-          <p className="text-[11px] font-bold tracking-widest text-muted-foreground mb-1 uppercase">
+          <p className="text-[11px] font-bold tracking-widest text-muted-foreground mb-1 uppercase text-center">
             3 · Multi-Modal Delivery
           </p>
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0">
+          <div className="flex flex-wrap items-center justify-center gap-4">
             <Node
               icon={<Bell className="w-6 h-6 text-foreground" />}
               label="In-App"
