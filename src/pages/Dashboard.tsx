@@ -90,10 +90,10 @@ const Dashboard = () => {
       >
         <button
           onClick={() => navigate("/")}
-          className="text-lg font-black tracking-tight"
+          className="text-2xl font-black tracking-tight"
           style={{ color: "hsla(0, 0%, 95%, 1)", letterSpacing: "-0.04em" }}
         >
-          Decagon
+          UniQ<sup className="text-xs font-semibold align-super ml-0.5 opacity-70">AI</sup>
         </button>
 
         <div className="hidden md:flex items-center gap-1">
