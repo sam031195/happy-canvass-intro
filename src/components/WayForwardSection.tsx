@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { GraduationCap, Shield, Briefcase, BookOpen, Users, Globe } from "lucide-react";
 import ctaFooter from "@/assets/cta-footer-new.png";
 import card1Img from "@/assets/card-1-img.png";
+import card2Img from "@/assets/card-2-img.png";
 
 const cards = [
   {
@@ -39,7 +40,7 @@ const cards2 = [
     description: "Ivy League students share course materials, faculty lists, and class notes.",
   },
   {
-    video: "/videos/product-hero-intelligence.webm",
+    image: card2Img,
     icon: <GraduationCap className="w-4 h-4" />,
     tag: "Scholars",
     title: "Global Learners\nAccess Ivy-Level Paths",
