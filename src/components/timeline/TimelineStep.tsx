@@ -1,10 +1,13 @@
 import { ReactNode, useEffect, useRef, useState } from "react";
+import timelineCircleBg from "@/assets/timeline-circle-bg.avif";
 
 export const TimelineCircle = ({ number }: { number: number }) => (
   <div
-    className="w-14 h-14 rounded-full flex items-center justify-center text-xl font-semibold text-white shrink-0"
+    className="w-14 h-14 rounded-full flex items-center justify-center text-xl font-semibold text-white shrink-0 overflow-hidden"
     style={{
-    background: "linear-gradient(180deg, hsl(0,0%,35%) 0%, hsl(0,0%,8%) 100%)",
+      backgroundImage: `url(${timelineCircleBg})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
       boxShadow: "0 4px 20px hsla(0,0%,0%,0.25), inset 0 1px 0 hsla(0,0%,100%,0.1)",
     }}
   >
