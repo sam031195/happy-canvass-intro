@@ -180,9 +180,7 @@ const Dashboard = () => {
           <span
             style={{
               color: "transparent",
-              backgroundImage: `url(${nextEraTexture})`,
-              backgroundSize: "300%",
-              backgroundPosition: "0% 50%",
+              backgroundImage: "linear-gradient(180deg, hsla(220,10%,65%,1) 0%, hsla(220,8%,45%,0.9) 100%)",
               WebkitBackgroundClip: "text",
               backgroundClip: "text",
             }}
