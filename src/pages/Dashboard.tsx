@@ -235,7 +235,6 @@ const Dashboard = () => {
       >
         <div className="flex items-center justify-center px-8 py-5 max-w-2xl mx-auto">
           {[
-            { value: "12", label: "Core Courses" },
             { value: "3", label: "Quarters" },
             { value: "4", label: "AI Models" },
           ].map((stat, i) => (
