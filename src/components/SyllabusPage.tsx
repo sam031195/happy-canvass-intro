@@ -224,12 +224,6 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
 
         {/* ── Hero header ── */}
         <div className="px-8 lg:px-14 pt-14 pb-12 max-w-[1300px] mx-auto w-full">
-          <p
-            className="text-[11px] font-bold tracking-[0.2em] uppercase mb-4"
-            style={{ color: "hsla(0, 0%, 30%, 0.9)" }}
-          >
-            {university}
-          </p>
           <div className="flex items-end justify-between gap-8">
             <div>
               <h1
