@@ -297,24 +297,23 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
 
           {/* ══ HEADER ══ */}
           <div className="mb-10">
-            <p className="text-xs font-semibold tracking-[0.18em] uppercase mb-4" style={{ color: "hsla(220, 15%, 48%, 0.85)" }}>
-              Graduate Course · {detail.code}
-            </p>
-            <div className="flex items-start gap-3 max-w-3xl mb-5">
-              <h1
-                className="text-4xl sm:text-5xl font-bold flex-1"
-                style={{ color: "hsla(0, 0%, 97%, 1)", letterSpacing: "-0.04em", lineHeight: 1.08 }}
-              >
-                {detail.name}
-              </h1>
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="text-xs font-semibold tracking-[0.18em] uppercase mb-4" style={{ color: "hsla(220, 15%, 48%, 0.85)" }}>
+                  Graduate Course · {detail.code}
+                </p>
+                <h1
+                  className="text-4xl sm:text-5xl font-bold max-w-3xl mb-5"
+                  style={{ color: "hsla(0, 0%, 97%, 1)", letterSpacing: "-0.04em", lineHeight: 1.08 }}
+                >
+                  {detail.name}
+                </h1>
+              </div>
               <button
-                className="shrink-0 mt-2 p-2 rounded transition-colors"
-                style={{ color: "hsla(220, 25%, 65%, 0.8)" }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.color = "hsla(220, 25%, 90%, 0.95)"; }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.color = "hsla(220, 25%, 65%, 0.8)"; }}
+                className="shrink-0 mt-6 p-2 rounded transition-opacity hover:opacity-80"
                 title="Add to list"
               >
-                <img src={bookmarkIcon} alt="Bookmark" className="h-5 w-5" />
+                <img src={bookmarkIcon} alt="Bookmark" className="h-6 w-6" />
               </button>
             </div>
             <p className="text-sm leading-relaxed max-w-2xl" style={{ color: "hsla(0, 0%, 50%, 0.85)" }}>
