@@ -307,7 +307,7 @@ const WayForwardSection = () => {
 
       {/* Footer section with video + text */}
       <section
-        className="w-full py-2 lg:py-3 flex items-center justify-center"
+        className="w-full py-1 flex items-center justify-center"
         style={{ background: "hsl(0, 0%, 98%)" }}>
 
         {/* Video */}
@@ -316,7 +316,7 @@ const WayForwardSection = () => {
           loop
           muted
           playsInline
-          className="max-w-xs w-full block"
+          className="max-w-[200px] w-full block"
           src="/videos/future-text-animation.webm" />
 
       </section>
@@ -335,7 +335,7 @@ const WayForwardSection = () => {
             background: "linear-gradient(to bottom, hsla(230,25%,4%,0.3) 0%, hsla(230,25%,4%,0.15) 40%, hsla(230,25%,4%,0.6) 65%, hsla(230,25%,4%,0.9) 100%)"
           }} />
 
-        <div className="absolute inset-0 flex flex-col md:px-8 lg:px-16 my-0 mx-0 px-[10px] py-[10px]">
+        <div className="absolute inset-0 flex flex-col md:px-8 lg:px-16 my-0 mx-0 px-5 py-4">
           {/* CTA content — centered in upper portion */}
           <div className="flex-1 flex flex-col items-center justify-center">
             <h3 className="text-3xl md:text-6xl lg:text-8xl font-bold text-center mb-4 md:mb-8 max-w-5xl text-white drop-shadow-lg leading-[1.05] tracking-tight">
@@ -359,7 +359,7 @@ const WayForwardSection = () => {
           </div>
 
           {/* Footer content — pinned to bottom */}
-          <div className="w-full px-2 md:px-8 lg:px-16 pb-8">
+          <div className="w-full px-1 md:px-8 lg:px-16 pb-10">
             {/* Top row */}
             <div className="flex flex-col lg:flex-row justify-between gap-10 mb-10">
               {/* Brand */}
