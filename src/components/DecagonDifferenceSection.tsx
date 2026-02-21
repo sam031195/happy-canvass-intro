@@ -33,8 +33,8 @@ const DecagonDifferenceSection = () => {
       <div className="ml-[5%] mr-[5%] px-8 lg:px-12">
 
         {/* Two-column: text + video */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-12">
-          {/* Left text */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          {/* Left: text + stats */}
           <div className="flex flex-col justify-start">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 rounded-full bg-[hsl(0,0%,92%)] px-4 py-2 text-sm font-medium text-foreground mb-3 w-fit">
@@ -50,9 +50,32 @@ const DecagonDifferenceSection = () => {
                 billions are locked out by geography, income, and access.
               </span>
             </p>
-            <p className="text-lg text-foreground/80 leading-relaxed">
+            <p className="text-lg text-foreground/80 leading-relaxed mb-8">
               UniQ<sup className="text-xs align-super opacity-70">AI</sup> bridges this divide — connecting elite academic resources with underserved talent through AI that adapts, personalizes, and scales.
             </p>
+
+            {/* Stats 2x2 grid under text */}
+            <div className="grid grid-cols-2 gap-4">
+              {stats.map((stat, i) => (
+                <div
+                  key={i}
+                  className="bg-background p-5 flex flex-col gap-2"
+                  style={{ borderRadius: "6px" }}
+                >
+                  <div
+                    className="w-10 h-10 rounded-lg flex items-center justify-center"
+                    style={{
+                      background: stat.accent.replace(")", ",0.1)").replace("hsl", "hsla"),
+                      color: stat.accent,
+                    }}
+                  >
+                    {stat.icon}
+                  </div>
+                  <div className="text-2xl lg:text-3xl font-bold text-foreground">{stat.value}</div>
+                  <p className="text-sm text-muted-foreground leading-snug">{stat.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Right video */}
@@ -66,29 +89,6 @@ const DecagonDifferenceSection = () => {
               src="/videos/opportunity-gap.webm"
             />
           </div>
-        </div>
-
-        {/* Stats row — full width, 4 columns */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          {stats.map((stat, i) => (
-            <div
-              key={i}
-              className="bg-background p-6 flex flex-col gap-3 hover:shadow-lg transition-shadow"
-              style={{ borderRadius: "6px" }}
-            >
-              <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center"
-                style={{
-                  background: stat.accent.replace(")", ",0.1)").replace("hsl", "hsla"),
-                  color: stat.accent,
-                }}
-              >
-                {stat.icon}
-              </div>
-              <div className="text-3xl lg:text-4xl font-bold text-foreground">{stat.value}</div>
-              <p className="text-sm text-muted-foreground leading-snug">{stat.label}</p>
-            </div>
-          ))}
         </div>
       </div>
     </section>
