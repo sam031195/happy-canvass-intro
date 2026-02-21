@@ -93,8 +93,8 @@ const HeroSection = () => {
         <div className="relative z-10 flex flex-col h-full">
           {/* Navbar */}
           <nav className="flex items-center justify-between px-8 lg:px-12 py-5">
-            <div className="text-2xl font-bold text-foreground tracking-tight">Global Academia</div>
-            <div className="hidden md:flex items-center gap-8 text-sm font-medium text-foreground/80">
+            <div className="text-3xl font-bold text-foreground tracking-tight">Global Academia</div>
+            <div className="hidden md:flex items-center gap-8 text-base font-medium text-foreground/80">
               <a href="#" className="hover:text-foreground transition-colors">Product</a>
               <a href="#" className="hover:text-foreground transition-colors">Industries</a>
               <a href="#" className="hover:text-foreground transition-colors">Customers</a>
