@@ -249,7 +249,7 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
               <img
                 src={uwLogo}
                 alt="University logo"
-                className="h-14 w-auto invert opacity-20 mix-blend-screen"
+                className="h-14 w-auto opacity-70"
               />
               <span
                 className="text-[10px] font-bold tracking-[0.2em] uppercase"
