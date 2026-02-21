@@ -29,7 +29,7 @@ const stats = [
 
 const DecagonDifferenceSection = () => {
   return (
-    <section className="bg-background py-16 lg:py-24">
+    <section className="bg-background py-10 lg:py-16">
       <div className="ml-[5%] mr-[5%] px-8 lg:px-12">
         {/* Badge */}
         <div className="inline-flex items-center gap-2 rounded-full bg-[hsl(0,0%,92%)] px-4 py-2 text-sm font-medium text-foreground mb-3">
