@@ -15,15 +15,15 @@ const UniversityMarquee = () => {
   const items = [...universities, ...universities];
 
   return (
-    <div className="w-full overflow-hidden relative py-12 z-20" style={{ background: "hsl(0, 0%, 5%)", position: "relative" }}>
+    <div className="w-full overflow-hidden relative py-12 z-20" style={{ background: "hsl(0, 0%, 100%)", position: "relative" }}>
       {/* Fade edges */}
       <div
         className="absolute inset-y-0 left-0 w-32 z-10 pointer-events-none"
-        style={{ background: "linear-gradient(to right, hsl(0, 0%, 5%), transparent)" }}
+        style={{ background: "linear-gradient(to right, hsl(0, 0%, 100%), transparent)" }}
       />
       <div
         className="absolute inset-y-0 right-0 w-32 z-10 pointer-events-none"
-        style={{ background: "linear-gradient(to left, hsl(0, 0%, 5%), transparent)" }}
+        style={{ background: "linear-gradient(to left, hsl(0, 0%, 100%), transparent)" }}
       />
 
       <div className="flex items-center gap-20 animate-marquee whitespace-nowrap">
@@ -34,7 +34,6 @@ const UniversityMarquee = () => {
               alt={uni.name}
               title={uni.name}
               className="h-10 w-auto object-contain"
-              style={{ filter: "brightness(0) invert(1)", opacity: 0.85 }}
             />
           </div>
         ))}
