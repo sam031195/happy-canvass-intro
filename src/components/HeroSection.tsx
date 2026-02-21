@@ -103,7 +103,7 @@ const HeroSection = () => {
             </div>
             <div className="flex items-center gap-3">
               <Button variant="hero-outline" size="default" onClick={() => navigate("/signin")}>Sign in</Button>
-              <Button variant="hero" size="default" onClick={() => navigate("/dashboard", { state: { openSyllabus: true } })}>
+              <Button variant="hero" size="default" onClick={() => navigate("/study")}>
                 <Sparkles className="w-4 h-4 mr-1.5" /> AI Study Page
               </Button>
             </div>
@@ -125,7 +125,7 @@ const HeroSection = () => {
                 placeholder="Enter your work email"
                 className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none"
               />
-              <Button variant="hero" size="default" className="gap-2" onClick={() => navigate("/dashboard", { state: { openSyllabus: true } })}>
+              <Button variant="hero" size="default" className="gap-2" onClick={() => navigate("/study")}>
                 Start learning <ArrowRight className="w-4 h-4" />
               </Button>
             </div>
