@@ -20,6 +20,15 @@ interface Quarter {
 const QUARTERS_BY_PROGRAM: Record<string, Quarter[]> = {
   "Masters in Information System / MSIS": [
     {
+      label: "Winter Quarter",
+      courses: [
+        { code: "MSIS 521 B", name: "Information Technology & Marketing in the New Economy", description: "Explores how digital technologies reshape marketing strategy, customer engagement, and brand building in an increasingly connected and data-driven global economy.", type: "Core", icon: <TrendingUp className="h-5 w-5" /> },
+        { code: "MSIS 522 B", name: "Advanced Machine Learning", description: "Deep dives into supervised and unsupervised learning, neural networks, and ensemble methods with a focus on practical implementation and model optimization.", type: "Core", icon: <BrainCircuit className="h-5 w-5" /> },
+        { code: "MSIS 549 B", name: "Machine Learning & AI for Business Applications", description: "Equips students to design, deploy, and evaluate generative AI systems — from LLMs and RAG pipelines to agentic workflows and multimodal solutions for enterprise transformation.", type: "Core", icon: <Bot className="h-5 w-5" /> },
+        { code: "MSIS 523 B", name: "Cyber Security Policy, Management, and Compliance", description: "Covers governance frameworks, regulatory compliance, risk management, and organizational policies for building resilient cybersecurity programs.", type: "Core", icon: <Lock className="h-5 w-5" /> },
+      ],
+    },
+    {
       label: "Summer Quarter",
       courses: [
         { code: "MSIS 502", name: "Business Data Analysis", description: "Develops analytical skills for interpreting and communicating insights from business data using statistical tools, visualization techniques, and data-driven decision frameworks.", type: "Core", icon: <BarChart2 className="h-5 w-5" /> },
@@ -35,15 +44,6 @@ const QUARTERS_BY_PROGRAM: Record<string, Quarter[]> = {
         { code: "MSIS 543", name: "Advanced Data Warehouse", description: "Covers advanced data warehousing architectures, ETL processes, dimensional modeling, and enterprise-scale analytics infrastructure design and management.", type: "Core", icon: <Database className="h-5 w-5" /> },
         { code: "MSIS 524", name: "Managing IT Projects", description: "Provides frameworks and methodologies for planning, executing, and delivering complex IT initiatives on time and within budget using agile and waterfall approaches.", type: "Core", icon: <FolderKanban className="h-5 w-5" /> },
         { code: "MSIS 512", name: "Information Security & Assurance in a Networked World", description: "Addresses cybersecurity principles, risk assessment, compliance frameworks, and strategies for protecting organizational assets in interconnected digital environments.", type: "Core", icon: <Shield className="h-5 w-5" /> },
-      ],
-    },
-    {
-      label: "Winter Quarter",
-      courses: [
-        { code: "MSIS 521 B", name: "Information Technology & Marketing in the New Economy", description: "Explores how digital technologies reshape marketing strategy, customer engagement, and brand building in an increasingly connected and data-driven global economy.", type: "Core", icon: <TrendingUp className="h-5 w-5" /> },
-        { code: "MSIS 522 B", name: "Advanced Machine Learning", description: "Deep dives into supervised and unsupervised learning, neural networks, and ensemble methods with a focus on practical implementation and model optimization.", type: "Core", icon: <BrainCircuit className="h-5 w-5" /> },
-        { code: "MSIS 549 B", name: "Machine Learning & AI for Business Applications", description: "Equips students to design, deploy, and evaluate generative AI systems — from LLMs and RAG pipelines to agentic workflows and multimodal solutions for enterprise transformation.", type: "Core", icon: <Bot className="h-5 w-5" /> },
-        { code: "MSIS 523 B", name: "Cyber Security Policy, Management, and Compliance", description: "Covers governance frameworks, regulatory compliance, risk management, and organizational policies for building resilient cybersecurity programs.", type: "Core", icon: <Lock className="h-5 w-5" /> },
       ],
     },
   ],
