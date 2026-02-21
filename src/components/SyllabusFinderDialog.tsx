@@ -91,10 +91,10 @@ const SyllabusFinderDialog = ({ open, onOpenChange, onProgramSelected }: Props) 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent
-        className="sm:max-w-[600px] p-0 border-0 overflow-hidden"
+        className="sm:max-w-[600px] p-0 border-0 overflow-hidden !bg-transparent"
         style={{
-          background: "hsl(230, 25%, 4%)",
-          boxShadow: "0 0 0 1px hsla(0,0%,100%,0.08), 0 32px 80px hsla(0,0%,0%,0.8)",
+          background: "hsl(230, 22%, 10%)",
+          boxShadow: "0 0 0 1px hsla(0,0%,100%,0.12), 0 32px 80px hsla(0,0%,0%,0.8)",
           borderRadius: "20px",
         }}
       >
