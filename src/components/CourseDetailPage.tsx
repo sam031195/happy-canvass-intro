@@ -11,6 +11,7 @@ import {
   CheckCircle2,
   Sparkles,
   Trophy,
+  Bookmark,
 } from "lucide-react";
 import { useState, useCallback } from "react";
 import AINotebookPage from "@/components/AINotebookPage";
@@ -312,7 +313,7 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
                 onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.color = "hsla(220, 25%, 65%, 0.8)"; }}
                 title="Add to list"
               >
-                <ListChecks className="h-5 w-5" />
+                <Bookmark className="h-5 w-5" />
               </button>
             </div>
             <p className="text-sm leading-relaxed max-w-2xl" style={{ color: "hsla(0, 0%, 50%, 0.85)" }}>
