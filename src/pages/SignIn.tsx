@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ArrowRight, Eye, EyeOff } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import heroSlide2 from "@/assets/hero-slide-2.png";
+import signinLeft from "@/assets/signin-left.png";
 
 const SignIn = () => {
   const navigate = useNavigate();
