@@ -1,4 +1,4 @@
-import { Bot, Plus, ArrowRight, ChevronLeft, ExternalLink, Clock, ChevronDown, Settings, User, Mail } from "lucide-react";
+import { Bot, Plus, ArrowRight, ChevronLeft, ExternalLink, Clock, ChevronDown, Settings, User, Mail, Briefcase } from "lucide-react";
 import ConnectedAppsDialog from "@/components/ConnectedAppsDialog";
 import ModelSelector from "@/components/ModelSelector";
 import { AIModel, getDefaultModel } from "@/config/aiModels";
@@ -448,6 +448,24 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
           >
             <Mail className="h-3.5 w-3.5" />
             Notify Professors
+          </button>
+          <button
+            onClick={() => {
+              const query = encodeURIComponent(`${program} jobs near me`);
+              window.open(`https://www.google.com/search?q=${query}&ibp=htl;jobs`, "_blank");
+            }}
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors"
+            style={{
+              background: "hsla(230, 22%, 11%, 1)",
+              border: `1px solid ${border}`,
+              borderRadius: "6px",
+              color: labelColor,
+            }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = surfaceHover; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "hsla(230, 22%, 11%, 1)"; }}
+          >
+            <Briefcase className="h-3.5 w-3.5" />
+            Job Recommendations
           </button>
         </div>
       </div>
