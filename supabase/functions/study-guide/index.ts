@@ -14,7 +14,7 @@ serve(async (req) => {
   try {
     const { courseName, moduleTitle, moduleNumber, moduleTopics, program, university, model } = await req.json();
 
-    const selectedModel = model || "openai/gpt-5";
+    const selectedModel = model || "google/gemini-2.5-flash";
 
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
