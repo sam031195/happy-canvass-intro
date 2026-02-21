@@ -490,12 +490,12 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
                       );
                       window.open(`https://mail.google.com/mail/?view=cm&to=${professors}&su=${subject}&body=${body}`, "_blank");
                     }}
-                    className="flex flex-col items-center gap-1.5 transition-opacity hover:opacity-80 cursor-pointer"
+                    className="flex flex-col items-center transition-opacity hover:opacity-80 cursor-pointer"
                     title="Share progress with your professor"
                   >
-                    <Medal className="h-7 w-7" style={{ color: "hsla(220, 70%, 65%, 0.85)" }} />
-                    <span className="text-[10px] font-medium leading-tight max-w-[80px]" style={{ color: "hsla(220, 18%, 60%, 0.85)" }}>
-                      Share progress with professor
+                    <Medal className="h-8 w-8 mb-2" style={{ color: "hsla(45, 80%, 60%, 0.85)" }} />
+                    <span className="text-sm font-bold" style={{ color: "hsla(210, 25%, 93%, 0.97)", letterSpacing: "-0.01em" }}>
+                      Share Progress
                     </span>
                   </button>
                 </div>
