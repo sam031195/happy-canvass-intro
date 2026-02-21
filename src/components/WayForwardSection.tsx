@@ -233,7 +233,7 @@ const WayForwardSection = () => {
           </div>
 
           {/* Footer content — pinned to bottom */}
-          <div className="max-w-7xl w-full mx-auto pb-8">
+          <div className="w-full px-8 lg:px-16 pb-8">
             {/* Top row */}
             <div className="flex flex-col lg:flex-row justify-between gap-10 mb-10">
               {/* Brand */}
