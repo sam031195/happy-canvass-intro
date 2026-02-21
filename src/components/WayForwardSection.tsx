@@ -223,6 +223,70 @@ const WayForwardSection = () => {
           </div>
         </div>
       </div>
+
+      {/* Site footer */}
+      <footer
+        className="w-full py-12 lg:py-16 px-8 lg:px-16"
+        style={{ background: "hsl(230, 25%, 4%)" }}
+      >
+        <div className="max-w-7xl mx-auto">
+          {/* Top row */}
+          <div className="flex flex-col lg:flex-row justify-between gap-12 mb-12">
+            {/* Brand */}
+            <div className="max-w-xs">
+              <div className="text-4xl font-bold text-white tracking-tight mb-4">
+                UniQ<sup className="text-sm font-semibold align-super ml-0.5 opacity-70">AI</sup>
+              </div>
+              <p className="text-sm leading-relaxed" style={{ color: "hsla(220, 25%, 70%, 0.8)" }}>
+                Bridging Ivy League rigor with global accessibility — AI-powered education for every learner, everywhere.
+              </p>
+            </div>
+
+            {/* Links */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
+              <div>
+                <h4 className="text-xs font-bold uppercase tracking-widest text-white/50 mb-4">Product</h4>
+                <ul className="space-y-3">
+                  <li><a href="#" className="text-sm hover:text-white transition-colors" style={{ color: "hsla(220, 25%, 70%, 0.8)" }}>AI Study Page</a></li>
+                  <li><a href="#" className="text-sm hover:text-white transition-colors" style={{ color: "hsla(220, 25%, 70%, 0.8)" }}>Syllabus Finder</a></li>
+                  <li><a href="#" className="text-sm hover:text-white transition-colors" style={{ color: "hsla(220, 25%, 70%, 0.8)" }}>Course Explorer</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-xs font-bold uppercase tracking-widest text-white/50 mb-4">Company</h4>
+                <ul className="space-y-3">
+                  <li><a href="#" className="text-sm hover:text-white transition-colors" style={{ color: "hsla(220, 25%, 70%, 0.8)" }}>About</a></li>
+                  <li><a href="#" className="text-sm hover:text-white transition-colors" style={{ color: "hsla(220, 25%, 70%, 0.8)" }}>Careers</a></li>
+                  <li><a href="#" className="text-sm hover:text-white transition-colors" style={{ color: "hsla(220, 25%, 70%, 0.8)" }}>Partners</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-xs font-bold uppercase tracking-widest text-white/50 mb-4">Legal</h4>
+                <ul className="space-y-3">
+                  <li><a href="#" className="text-sm hover:text-white transition-colors" style={{ color: "hsla(220, 25%, 70%, 0.8)" }}>Privacy</a></li>
+                  <li><a href="#" className="text-sm hover:text-white transition-colors" style={{ color: "hsla(220, 25%, 70%, 0.8)" }}>Terms</a></li>
+                  <li><a href="#" className="text-sm hover:text-white transition-colors" style={{ color: "hsla(220, 25%, 70%, 0.8)" }}>Security</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="w-full h-px" style={{ background: "hsla(220, 25%, 70%, 0.15)" }} />
+
+          {/* Bottom row */}
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8">
+            <p className="text-xs" style={{ color: "hsla(220, 25%, 70%, 0.5)" }}>
+              © 2026 UniQ AI. All rights reserved.
+            </p>
+            <div className="flex items-center gap-6">
+              <a href="#" className="text-xs hover:text-white transition-colors" style={{ color: "hsla(220, 25%, 70%, 0.5)" }}>Twitter</a>
+              <a href="#" className="text-xs hover:text-white transition-colors" style={{ color: "hsla(220, 25%, 70%, 0.5)" }}>LinkedIn</a>
+              <a href="#" className="text-xs hover:text-white transition-colors" style={{ color: "hsla(220, 25%, 70%, 0.5)" }}>GitHub</a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </>
   );
 };
