@@ -135,7 +135,7 @@ const HeroSection = () => {
           {/* Hero text content */}
           <div className="flex flex-col items-center justify-center text-center flex-1 px-4 md:px-8 lg:px-12 pt-[6vh] md:pt-[10vh]">
             <h1 className="text-2xl sm:text-4xl lg:text-6xl font-bold text-foreground leading-[1.05] tracking-tight max-w-5xl">
-              Ivy League rigor,<br />for every learner
+              Your AI-powered<br />academic companion
             </h1>
             <p className="mt-4 md:mt-8 text-sm sm:text-lg lg:text-2xl text-foreground/70 max-w-2xl leading-relaxed">
               We bring world-class curricula from the top 100 universities to 264 million students worldwide — powered by AI that understands academia.
