@@ -56,7 +56,7 @@ const DecagonDifferenceSection = () => {
           </div>
 
           {/* Right video */}
-          <div className="w-full min-h-[320px]" style={{ borderRadius: "6px", overflow: "hidden" }}>
+          <div className="w-[80%] min-h-[260px] ml-auto" style={{ borderRadius: "6px", overflow: "hidden" }}>
             <video
               autoPlay
               loop
