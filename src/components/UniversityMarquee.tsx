@@ -26,7 +26,7 @@ const UniversityMarquee = () => {
         style={{ background: "linear-gradient(to left, hsl(0, 0%, 100%), transparent)" }}
       />
 
-      <div className="flex items-center gap-20 animate-marquee whitespace-nowrap">
+      <div className="flex items-center gap-24 animate-marquee whitespace-nowrap">
         {items.map((uni, i) => (
           <div key={i} className="flex items-center shrink-0">
             <img
