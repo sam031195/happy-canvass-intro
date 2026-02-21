@@ -70,19 +70,19 @@ const AgenticWorkflowSection = () => {
   return (
     <section
       className="relative py-20 lg:py-28 overflow-hidden"
-      style={{ background: "hsl(0,0%,98%)" }}
+      style={{ background: "hsl(220,30%,95%)" }}
     >
-      {/* Subtle grid bg */}
+      {/* Subtle grid bg — visible on sides */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-40"
+        className="absolute inset-0 pointer-events-none opacity-50"
         style={{
           backgroundImage:
-            "linear-gradient(hsl(0,0%,88%) 1px, transparent 1px), linear-gradient(90deg, hsl(0,0%,88%) 1px, transparent 1px)",
+            "linear-gradient(hsl(220,25%,82%) 1px, transparent 1px), linear-gradient(90deg, hsl(220,25%,82%) 1px, transparent 1px)",
           backgroundSize: "48px 48px",
         }}
       />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-12">
+      <div className="relative z-10 w-full px-6 lg:px-12">
         {/* Badge */}
         <div className="flex justify-center mb-8">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium text-foreground">
@@ -92,7 +92,7 @@ const AgenticWorkflowSection = () => {
         </div>
 
         {/* Heading */}
-        <h2 className="text-3xl lg:text-5xl font-bold text-center text-foreground mb-4">
+        <h2 className="text-3xl lg:text-5xl font-bold text-center text-foreground mb-4 max-w-5xl mx-auto">
           How the AI agents work
         </h2>
         <p className="text-center text-muted-foreground text-base lg:text-lg max-w-2xl mx-auto mb-14">
@@ -101,7 +101,7 @@ const AgenticWorkflowSection = () => {
         </p>
 
         {/* ── DIAGRAM ─────────────────────────────────── */}
-        <div className="rounded-2xl border border-border bg-background p-6 lg:p-10 shadow-sm">
+        <div className="rounded-2xl border border-border bg-background p-6 lg:p-10 shadow-sm max-w-5xl mx-auto">
           {/* Row 1 — Ingestion */}
           <p className="text-[11px] font-bold tracking-widest text-muted-foreground mb-4 uppercase">
             1 · Ingestion
