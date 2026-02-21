@@ -69,7 +69,7 @@ const DecagonDifferenceSection = () => {
         </div>
 
         {/* Stats row — 4 in one line */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:w-[calc(50%-2rem)]">
           {stats.map((stat, i) => (
             <div
               key={i}
