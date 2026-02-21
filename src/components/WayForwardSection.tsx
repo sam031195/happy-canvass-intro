@@ -224,8 +224,7 @@ const WayForwardSection = () => {
               <Button
                 variant="hero-outline"
                 size="lg"
-                className="px-8 text-white border-white/40 hover:bg-white/10"
-                style={{ borderRadius: "4px" }}
+                className="px-8 text-white border-white/40 hover:bg-white/10 rounded-full"
               >
                 Partner with us
               </Button>
