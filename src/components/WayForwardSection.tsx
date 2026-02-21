@@ -235,39 +235,11 @@ const WayForwardSection = () => {
         />
         <div className="relative z-10 mx-auto px-4 lg:px-6" style={{ maxWidth: "100vw" }}>
           <h2
-            className="text-4xl lg:text-5xl font-bold text-center mb-12"
+            className="text-4xl lg:text-5xl font-bold text-center mb-16"
             style={{ color: "hsl(0,0%,10%)" }}
           >
-            The ecosystem that makes it work:
+            The changemakers who inspire us
           </h2>
-
-          <div className="max-w-4xl mx-auto mb-16 space-y-5 text-center">
-            <p
-              className="text-base lg:text-lg leading-relaxed"
-              style={{ color: "hsl(0,0%,25%)" }}
-            >
-              Education shouldn't be one-size-fits-all. Students don't want to
-              struggle alone.{" "}
-              <span
-                className="font-semibold"
-                style={{ color: "hsl(45,60%,35%)" }}
-              >
-                They want AI that understands their coursework — built on data from the world's best universities.
-              </span>
-            </p>
-            <p
-              className="text-base lg:text-lg leading-relaxed"
-              style={{ color: "hsl(0,0%,25%)" }}
-            >
-              Four distinct user groups power a flywheel: elite students contribute curricula, scholars consume personalized paths, faculty validate progress, and employers discover talent the traditional pipeline overlooks.
-            </p>
-            <p
-              className="text-base lg:text-lg leading-relaxed font-medium"
-              style={{ color: "hsl(0,0%,20%)" }}
-            >
-              A new era of AI-powered, globally accessible academia has arrived.
-            </p>
-          </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-16">
             {cards2.map((card, i) => (
