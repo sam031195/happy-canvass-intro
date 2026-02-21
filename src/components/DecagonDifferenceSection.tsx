@@ -41,18 +41,20 @@ const DecagonDifferenceSection = () => {
               <Globe className="w-4 h-4" />
               The opportunity gap
             </div>
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground leading-tight mb-5">
-              World-class education<br />shouldn't have borders
-            </h2>
-            <p className="text-lg text-foreground/80 leading-relaxed mb-5">
-              While Ivy League institutions produce groundbreaking research and curricula,{" "}
-              <span className="font-semibold" style={{ color: "hsl(45,60%,35%)" }}>
-                billions are locked out by geography, income, and access.
-              </span>
-            </p>
-            <p className="text-lg text-foreground/80 leading-relaxed mb-8">
-              UniQ<sup className="text-xs align-super opacity-70">AI</sup> bridges this divide — connecting elite academic resources with underserved talent through AI that adapts, personalizes, and scales.
-            </p>
+            <div className="mt-[30%]">
+              <h2 className="text-3xl lg:text-4xl font-bold text-foreground leading-tight mb-5">
+                World-class education<br />shouldn't have borders
+              </h2>
+              <p className="text-lg text-foreground/80 leading-relaxed mb-5">
+                While Ivy League institutions produce groundbreaking research and curricula,{" "}
+                <span className="font-semibold" style={{ color: "hsl(45,60%,35%)" }}>
+                  billions are locked out by geography, income, and access.
+                </span>
+              </p>
+              <p className="text-lg text-foreground/80 leading-relaxed mb-8">
+                UniQ<sup className="text-xs align-super opacity-70">AI</sup> bridges this divide — connecting elite academic resources with underserved talent through AI that adapts, personalizes, and scales.
+              </p>
+            </div>
 
             {/* Stats 2x2 grid under text */}
             <div className="grid grid-cols-2 gap-4">
