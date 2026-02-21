@@ -33,11 +33,9 @@ const ModelSelector = ({ selected, onChange }: Props) => {
     <div className="relative shrink-0" ref={ref}>
       <button
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-2 px-3 py-2 text-xs font-medium transition-colors"
+        className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium transition-colors rounded-full"
         style={{
-          background: "hsla(230, 22%, 9%, 1)",
-          border: `1px solid ${border}`,
-          borderRadius: "4px",
+          background: "transparent",
           color: textPrimary,
         }}
       >
