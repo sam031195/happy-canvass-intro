@@ -229,33 +229,6 @@ const Dashboard = () => {
         {/* ── Search bar removed ── */}
       </div>
 
-      {/* ── Bottom stat bar ── */}
-      <div
-        className="relative z-10 border-t"
-        style={{ borderColor: "hsla(0, 0%, 100%, 0.06)" }}
-      >
-        <div className="flex items-center justify-center px-8 py-5 max-w-2xl mx-auto">
-          {[
-            { value: "3", label: "Quarters" },
-            { value: "4", label: "AI Models" },
-          ].map((stat, i) => (
-            <div key={i} className="flex-1 text-center px-6" style={{ borderRight: i < 2 ? "1px solid hsla(0,0%,100%,0.06)" : "none" }}>
-              <div
-                className="text-2xl font-black"
-                style={{ color: "hsla(220, 15%, 90%, 0.95)", letterSpacing: "-0.04em" }}
-              >
-                {stat.value}
-              </div>
-              <div
-                className="text-[10px] font-semibold tracking-widest uppercase mt-0.5"
-                style={{ color: "hsla(220, 15%, 48%, 0.85)" }}
-              >
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
 
       
     </div>
