@@ -132,7 +132,7 @@ const HeroSection = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none"
+                className="flex-1 bg-transparent text-base text-foreground placeholder:text-muted-foreground outline-none"
               />
               <Button variant="hero" size="default" className="gap-2" onClick={() => navigate("/study")}>
                 Start learning <ArrowRight className="w-4 h-4" />
