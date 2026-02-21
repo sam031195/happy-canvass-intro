@@ -10,17 +10,17 @@ const slides = [
   {
     image: heroSlide1,
     popupIcon: <Sparkles className="w-5 h-5 text-primary" />,
-    popupText: "Your order has been upgraded to express.",
+    popupText: "Your study guide is ready for Module 3.",
   },
   {
     image: heroSlide2,
     popupIcon: <Sparkles className="w-5 h-5 text-primary" />,
-    popupText: "I've scheduled your callback for tomorrow.",
+    popupText: "Here's a breakdown of neural networks for you.",
   },
   {
     image: heroSlide3,
     popupIcon: <Sparkles className="w-5 h-5 text-primary" />,
-    popupText: "Your refund has been processed instantly.",
+    popupText: "Practice questions generated from your syllabus.",
   },
 ];
 
@@ -103,17 +103,17 @@ const HeroSection = () => {
             </div>
             <div className="flex items-center gap-3">
               <Button variant="hero-outline" size="default" onClick={() => navigate("/signin")}>Sign in</Button>
-              <Button variant="hero" size="default">Get a demo</Button>
+              <Button variant="hero" size="default">Get started</Button>
             </div>
           </nav>
 
           {/* Hero text content */}
           <div className="flex flex-col justify-center px-8 lg:px-12 pt-16 lg:pt-24 max-w-3xl">
             <h1 className="text-5xl lg:text-7xl font-bold text-foreground leading-[1.05] tracking-tight">
-              The AI concierge for every customer
+              Your AI-powered study companion
             </h1>
             <p className="mt-6 text-lg text-foreground/70 max-w-lg leading-relaxed">
-              Build, optimize, and scale AI agents that treat every customer like the only one.
+              Search smarter, learn faster. ChatGPT-level reasoning meets your coursework — all in one place.
             </p>
 
             {/* Email input bar */}
@@ -124,7 +124,7 @@ const HeroSection = () => {
                 className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none"
               />
               <Button variant="hero" size="default" className="gap-2">
-                Get a demo <ArrowRight className="w-4 h-4" />
+                Start learning <ArrowRight className="w-4 h-4" />
               </Button>
             </div>
           </div>
