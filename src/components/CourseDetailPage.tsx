@@ -310,7 +310,7 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
                 </h1>
               </div>
               <button
-                className="shrink-0 mt-6 p-2 rounded transition-opacity hover:opacity-80"
+                className="shrink-0 mt-14 p-2 rounded transition-opacity hover:opacity-80"
                 title="Add to list"
               >
                 <img src={bookmarkIcon} alt="Bookmark" className="h-6 w-6" />
