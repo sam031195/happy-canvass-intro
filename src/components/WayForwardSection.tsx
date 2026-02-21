@@ -308,24 +308,11 @@ const WayForwardSection = () => {
                     {card.title}
                   </h3>
                   <p
-                    className="text-xs leading-relaxed mb-3 flex-1"
+                    className="text-xs leading-relaxed flex-1"
                     style={{ color: "hsl(0,0%,40%)" }}
                   >
                     {card.description}
                   </p>
-                  <div>
-                    <Button
-                      variant="hero-outline"
-                      className="text-xs px-3 py-1.5"
-                      style={{
-                        borderColor: "hsl(0,0%,20%)",
-                        color: "hsl(0,0%,10%)",
-                        borderRadius: "4px",
-                      }}
-                    >
-                      Learn more →
-                    </Button>
-                  </div>
                 </div>
               </div>
             ))}
