@@ -298,12 +298,23 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
             <p className="text-xs font-semibold tracking-[0.18em] uppercase mb-4" style={{ color: "hsla(220, 15%, 48%, 0.85)" }}>
               Graduate Course · {detail.code}
             </p>
-            <h1
-              className="text-4xl sm:text-5xl font-bold max-w-3xl mb-5"
-              style={{ color: "hsla(0, 0%, 97%, 1)", letterSpacing: "-0.04em", lineHeight: 1.08 }}
-            >
-              {detail.name}
-            </h1>
+            <div className="flex items-start gap-3 max-w-3xl mb-5">
+              <h1
+                className="text-4xl sm:text-5xl font-bold flex-1"
+                style={{ color: "hsla(0, 0%, 97%, 1)", letterSpacing: "-0.04em", lineHeight: 1.08 }}
+              >
+                {detail.name}
+              </h1>
+              <button
+                className="shrink-0 mt-2 p-2 rounded transition-colors"
+                style={{ color: "hsla(220, 25%, 65%, 0.8)" }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.color = "hsla(220, 25%, 90%, 0.95)"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.color = "hsla(220, 25%, 65%, 0.8)"; }}
+                title="Add to list"
+              >
+                <ListChecks className="h-5 w-5" />
+              </button>
+            </div>
             <p className="text-sm leading-relaxed max-w-2xl" style={{ color: "hsla(0, 0%, 50%, 0.85)" }}>
               {detail.description}
             </p>
