@@ -182,7 +182,7 @@ const WayForwardSection = () => {
       {/* Video section with matching dark background */}
       <section
         className="w-full py-16 flex justify-center"
-        style={{ background: "hsl(230, 25%, 4%)" }}
+        style={{ background: "hsl(0, 0%, 12%)" }}
       >
         <video
           autoPlay
