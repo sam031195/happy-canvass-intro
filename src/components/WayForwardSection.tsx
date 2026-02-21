@@ -3,6 +3,7 @@ import { GraduationCap, Shield, Briefcase, BookOpen, Users, Globe } from "lucide
 import ctaFooter from "@/assets/cta-footer-new.png";
 import card1Img from "@/assets/card-1-img.png";
 import card2Img from "@/assets/card-2-img.png";
+import card3Img from "@/assets/card-3-img.png";
 
 const cards = [
   {
@@ -47,7 +48,7 @@ const cards2 = [
     description: "Students worldwide access curated learning paths and AI-guided modules.",
   },
   {
-    video: "/videos/product-hero-interfaces.webm",
+    image: card3Img,
     icon: <Briefcase className="w-4 h-4" />,
     tag: "Accelerators",
     title: "Employers & NGOs\nDiscover Talent",
