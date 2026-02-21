@@ -16,8 +16,8 @@ const SignIn = () => {
       <div className="hidden lg:block lg:w-1/2 relative overflow-hidden">
         <img
           src={signinLeft}
-          alt="Campus at twilight"
-          className="absolute inset-0 w-full h-full object-cover"
+          alt="Campus statue"
+          className="absolute inset-0 w-full h-full object-cover" style={{ transform: "scaleX(-1)" }}
         />
         <div
           className="absolute inset-0"
