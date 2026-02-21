@@ -449,24 +449,23 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
             <Mail className="h-3.5 w-3.5" />
             Notify Professors
           </button>
-          <button
-            onClick={() => {
-              const query = encodeURIComponent(`${program} jobs near me`);
-              window.open(`https://www.google.com/search?q=${query}&ibp=htl;jobs`, "_blank");
-            }}
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors"
+          <a
+            href={`https://www.google.com/search?q=${encodeURIComponent(`${program} jobs eligible after completing ${courseName || context} program`)}&ibp=htl;jobs`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors no-underline cursor-pointer"
             style={{
               background: "hsla(230, 22%, 11%, 1)",
               border: `1px solid ${border}`,
               borderRadius: "6px",
               color: labelColor,
             }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = surfaceHover; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "hsla(230, 22%, 11%, 1)"; }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = surfaceHover; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.background = "hsla(230, 22%, 11%, 1)"; }}
           >
             <Briefcase className="h-3.5 w-3.5" />
             Job Recommendations
-          </button>
+          </a>
         </div>
       </div>
 
