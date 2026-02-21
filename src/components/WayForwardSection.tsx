@@ -74,9 +74,9 @@ const cards2 = [
   {
     image: card6Img,
     icon: <Globe className="w-4 h-4" />,
-    tag: "Impact",
-    title: "Institutions\nScale Access",
-    description: "Universities and NGOs extend their reach to democratize world-class education.",
+    tag: "Who Inspire Us",
+    title: "Support System For Upskilling",
+    description: "Whether you are starting out or starting again, knowing available paths and access to skills give you momentum. #allofus #thechangemakers #peoplewhoinspire",
   },
 ];
 
