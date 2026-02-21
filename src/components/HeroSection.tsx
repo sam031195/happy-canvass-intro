@@ -101,9 +101,9 @@ const HeroSection = () => {
               <a href="#" className="hover:text-foreground transition-colors">Resources</a>
               <a href="#" className="hover:text-foreground transition-colors">Company</a>
             </div>
-            <div className="flex items-center gap-3">
-              <Button variant="hero-outline" size="lg" onClick={() => navigate("/signin")}>Sign in</Button>
-              <Button variant="hero" size="lg" onClick={() => navigate("/study")}>
+            <div className="flex items-center gap-3 text-lg">
+              <Button variant="hero-outline" size="lg" className="text-lg" onClick={() => navigate("/signin")}>Sign in</Button>
+              <Button variant="hero" size="lg" className="text-lg" onClick={() => navigate("/study")}>
                 <Sparkles className="w-5 h-5 mr-1.5" /> AI Study Page
               </Button>
             </div>
