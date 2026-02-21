@@ -189,7 +189,7 @@ const WayForwardSection = () => {
           loop
           muted
           playsInline
-          className="max-w-sm w-full block"
+          className="max-w-xs w-full block"
           src="/videos/future-text-animation.webm"
         />
       </section>
