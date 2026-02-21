@@ -241,7 +241,7 @@ const SyllabusPage = ({ university, program, onBack }: Props) => {
               >
                 Core
                 <br />
-                <span style={{ color: "hsla(0, 0%, 40%, 0.7)" }}>Curriculum</span>
+                <span style={{ color: "hsla(0, 0%, 97%, 1)" }}>Curriculum</span>
               </h1>
             </div>
             <div className="hidden lg:flex flex-col items-end gap-4 pb-2">
