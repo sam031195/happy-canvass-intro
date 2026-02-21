@@ -111,10 +111,10 @@ const HeroSection = () => {
 
           {/* Hero text content */}
           <div className="flex flex-col items-center justify-center text-center flex-1 px-8 lg:px-12">
-            <h1 className="text-5xl lg:text-7xl font-bold text-foreground leading-[1.05] tracking-tight max-w-4xl">
+            <h1 className="text-6xl lg:text-8xl font-bold text-foreground leading-[1.05] tracking-tight max-w-5xl">
               Your AI-powered academic companion
             </h1>
-            <p className="mt-6 text-lg text-foreground/70 max-w-lg leading-relaxed">
+            <p className="mt-8 text-xl lg:text-2xl text-foreground/70 max-w-2xl leading-relaxed">
               Search smarter, learn faster. ChatGPT-level reasoning meets your coursework — all in one place.
             </p>
 
