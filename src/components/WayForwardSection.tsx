@@ -194,99 +194,97 @@ const WayForwardSection = () => {
         />
       </section>
 
-      {/* CTA Footer Image with text overlay */}
+      {/* CTA Footer Image with all content overlay */}
       <div className="relative w-full">
         <img
           src={ctaFooter}
           alt="CTA Footer"
-          className="w-full block"
+          className="w-full block min-h-[90vh] object-cover"
         />
-        <div className="absolute inset-0 flex flex-col items-center justify-center px-6">
-          <h3 className="text-6xl lg:text-8xl font-bold text-center mb-8 max-w-5xl text-white drop-shadow-lg leading-[1.05] tracking-tight">
-            Built for the next generation of learners
-          </h3>
-          <p className="text-xl lg:text-2xl text-center max-w-2xl mb-10 leading-relaxed text-white/70 drop-shadow-sm">
-            From Harvard syllabi to a student in Nairobi — UniQ<sup className="text-xs align-super opacity-70">AI</sup> makes world-class education accessible, adaptive, and free.
-          </p>
-          <div className="flex items-center gap-4">
-            <Button variant="hero" size="lg" className="px-8">
-              Get started free
-            </Button>
-            <Button
-              variant="hero-outline"
-              size="lg"
-              className="px-8 text-white border-white/40 hover:bg-white/10"
-              style={{ borderRadius: "4px" }}
-            >
-              Partner with us
-            </Button>
+        <div className="absolute inset-0 flex flex-col px-8 lg:px-16">
+          {/* CTA content — centered in upper portion */}
+          <div className="flex-1 flex flex-col items-center justify-center">
+            <h3 className="text-6xl lg:text-8xl font-bold text-center mb-8 max-w-5xl text-white drop-shadow-lg leading-[1.05] tracking-tight">
+              Built for the next generation of learners
+            </h3>
+            <p className="text-xl lg:text-2xl text-center max-w-2xl mb-10 leading-relaxed text-white/70 drop-shadow-sm">
+              From Harvard syllabi to a student in Nairobi — UniQ<sup className="text-xs align-super opacity-70">AI</sup> makes world-class education accessible, adaptive, and free.
+            </p>
+            <div className="flex items-center gap-4">
+              <Button variant="hero" size="lg" className="px-8">
+                Get started free
+              </Button>
+              <Button
+                variant="hero-outline"
+                size="lg"
+                className="px-8 text-white border-white/40 hover:bg-white/10"
+                style={{ borderRadius: "4px" }}
+              >
+                Partner with us
+              </Button>
+            </div>
+          </div>
+
+          {/* Footer content — pinned to bottom */}
+          <div className="max-w-7xl w-full mx-auto pb-8">
+            {/* Top row */}
+            <div className="flex flex-col lg:flex-row justify-between gap-10 mb-10">
+              {/* Brand */}
+              <div className="max-w-xs">
+                <div className="text-4xl font-bold text-white tracking-tight mb-4">
+                  UniQ<sup className="text-sm font-semibold align-super ml-0.5 opacity-70">AI</sup>
+                </div>
+                <p className="text-sm leading-relaxed text-white/50">
+                  Bridging Ivy League rigor with global accessibility — AI-powered education for every learner, everywhere.
+                </p>
+              </div>
+
+              {/* Links */}
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
+                <div>
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-white/40 mb-4">Product</h4>
+                  <ul className="space-y-3">
+                    <li><a href="#" className="text-sm text-white/60 hover:text-white transition-colors">AI Study Page</a></li>
+                    <li><a href="#" className="text-sm text-white/60 hover:text-white transition-colors">Syllabus Finder</a></li>
+                    <li><a href="#" className="text-sm text-white/60 hover:text-white transition-colors">Course Explorer</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-white/40 mb-4">Company</h4>
+                  <ul className="space-y-3">
+                    <li><a href="#" className="text-sm text-white/60 hover:text-white transition-colors">About</a></li>
+                    <li><a href="#" className="text-sm text-white/60 hover:text-white transition-colors">Careers</a></li>
+                    <li><a href="#" className="text-sm text-white/60 hover:text-white transition-colors">Partners</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-white/40 mb-4">Legal</h4>
+                  <ul className="space-y-3">
+                    <li><a href="#" className="text-sm text-white/60 hover:text-white transition-colors">Privacy</a></li>
+                    <li><a href="#" className="text-sm text-white/60 hover:text-white transition-colors">Terms</a></li>
+                    <li><a href="#" className="text-sm text-white/60 hover:text-white transition-colors">Security</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Divider */}
+            <div className="w-full h-px bg-white/10 mb-6" />
+
+            {/* Bottom row */}
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+              <p className="text-xs text-white/30">
+                © 2026 UniQ AI. All rights reserved.
+              </p>
+              <div className="flex items-center gap-6">
+                <a href="#" className="text-xs text-white/30 hover:text-white transition-colors">Twitter</a>
+                <a href="#" className="text-xs text-white/30 hover:text-white transition-colors">LinkedIn</a>
+                <a href="#" className="text-xs text-white/30 hover:text-white transition-colors">GitHub</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      {/* Site footer */}
-      <footer
-        className="w-full py-12 lg:py-16 px-8 lg:px-16"
-        style={{ background: "hsl(230, 25%, 4%)" }}
-      >
-        <div className="max-w-7xl mx-auto">
-          {/* Top row */}
-          <div className="flex flex-col lg:flex-row justify-between gap-12 mb-12">
-            {/* Brand */}
-            <div className="max-w-xs">
-              <div className="text-4xl font-bold text-white tracking-tight mb-4">
-                UniQ<sup className="text-sm font-semibold align-super ml-0.5 opacity-70">AI</sup>
-              </div>
-              <p className="text-sm leading-relaxed" style={{ color: "hsla(220, 25%, 70%, 0.8)" }}>
-                Bridging Ivy League rigor with global accessibility — AI-powered education for every learner, everywhere.
-              </p>
-            </div>
-
-            {/* Links */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-widest text-white/50 mb-4">Product</h4>
-                <ul className="space-y-3">
-                  <li><a href="#" className="text-sm hover:text-white transition-colors" style={{ color: "hsla(220, 25%, 70%, 0.8)" }}>AI Study Page</a></li>
-                  <li><a href="#" className="text-sm hover:text-white transition-colors" style={{ color: "hsla(220, 25%, 70%, 0.8)" }}>Syllabus Finder</a></li>
-                  <li><a href="#" className="text-sm hover:text-white transition-colors" style={{ color: "hsla(220, 25%, 70%, 0.8)" }}>Course Explorer</a></li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-widest text-white/50 mb-4">Company</h4>
-                <ul className="space-y-3">
-                  <li><a href="#" className="text-sm hover:text-white transition-colors" style={{ color: "hsla(220, 25%, 70%, 0.8)" }}>About</a></li>
-                  <li><a href="#" className="text-sm hover:text-white transition-colors" style={{ color: "hsla(220, 25%, 70%, 0.8)" }}>Careers</a></li>
-                  <li><a href="#" className="text-sm hover:text-white transition-colors" style={{ color: "hsla(220, 25%, 70%, 0.8)" }}>Partners</a></li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-widest text-white/50 mb-4">Legal</h4>
-                <ul className="space-y-3">
-                  <li><a href="#" className="text-sm hover:text-white transition-colors" style={{ color: "hsla(220, 25%, 70%, 0.8)" }}>Privacy</a></li>
-                  <li><a href="#" className="text-sm hover:text-white transition-colors" style={{ color: "hsla(220, 25%, 70%, 0.8)" }}>Terms</a></li>
-                  <li><a href="#" className="text-sm hover:text-white transition-colors" style={{ color: "hsla(220, 25%, 70%, 0.8)" }}>Security</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* Divider */}
-          <div className="w-full h-px" style={{ background: "hsla(220, 25%, 70%, 0.15)" }} />
-
-          {/* Bottom row */}
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8">
-            <p className="text-xs" style={{ color: "hsla(220, 25%, 70%, 0.5)" }}>
-              © 2026 UniQ AI. All rights reserved.
-            </p>
-            <div className="flex items-center gap-6">
-              <a href="#" className="text-xs hover:text-white transition-colors" style={{ color: "hsla(220, 25%, 70%, 0.5)" }}>Twitter</a>
-              <a href="#" className="text-xs hover:text-white transition-colors" style={{ color: "hsla(220, 25%, 70%, 0.5)" }}>LinkedIn</a>
-              <a href="#" className="text-xs hover:text-white transition-colors" style={{ color: "hsla(220, 25%, 70%, 0.5)" }}>GitHub</a>
-            </div>
-          </div>
-        </div>
-      </footer>
     </>
   );
 };
