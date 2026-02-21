@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { GraduationCap, Shield, Briefcase, BookOpen, Users, Globe } from "lucide-react";
+import { GraduationCap, Shield, Briefcase, BookOpen, Users, Globe, Lightbulb, Heart, HandHeart, Languages, Rocket, Sparkles } from "lucide-react";
 import ctaFooter from "@/assets/cta-footer-new.png";
 import card1Img from "@/assets/card-1-img.png";
 import card2Img from "@/assets/card-2-img.png";
@@ -38,42 +38,42 @@ const cards = [
 const cards2 = [
   {
     image: card1Img,
-    icon: <BookOpen className="w-4 h-4" />,
+    icon: <Lightbulb className="w-4 h-4" />,
     tag: "Syazwan, Indonesia",
     title: "Trust them to Learn",
     description: "Change began with one informed child. Scale that knowledge, and you scale the impact.",
   },
   {
     image: card2Img,
-    icon: <GraduationCap className="w-4 h-4" />,
+    icon: <Rocket className="w-4 h-4" />,
     tag: "Luan Torres, São Bento, Brazil",
     title: "Lead Young",
     description: "If exposure to one subject can spark a movement, open access to knowledge can spark a generation.",
   },
   {
     image: card3Img,
-    icon: <Briefcase className="w-4 h-4" />,
+    icon: <Heart className="w-4 h-4" />,
     tag: "Payton Klein, Pittsburgh",
     title: "Empathy through Platform",
     description: "She saw exclusion, chose connection, and built a movement. Proved that inclusion begins with one open mind.",
   },
   {
     image: card4Img,
-    icon: <Shield className="w-4 h-4" />,
+    icon: <Languages className="w-4 h-4" />,
     tag: "Interviewee",
     title: "Lead for Literacy",
     description: "Question: Why do you wanna learn Spanish? His answer: So that I can find a job.",
   },
   {
     image: card5Img,
-    icon: <Users className="w-4 h-4" />,
+    icon: <HandHeart className="w-4 h-4" />,
     tag: "Joshua Williams, Florida",
     title: "Youth FWD",
     description: "If one supported child can feed hundreds of thousands, universal access to learning can empower millions to lead.",
   },
   {
     image: card6Img,
-    icon: <Globe className="w-4 h-4" />,
+    icon: <Sparkles className="w-4 h-4" />,
     tag: "Who Inspire Us",
     title: "Support System For Upskilling",
     description: "Whether you are starting out or starting again, knowing available paths and access to skills give you momentum. #thechangemakers #peoplewhoinspire",
