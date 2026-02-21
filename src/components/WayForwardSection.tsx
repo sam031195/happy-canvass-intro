@@ -9,84 +9,84 @@ import card5Img from "@/assets/card-5-img.png";
 import card6Img from "@/assets/card-6-img.png";
 
 const cards = [
-  {
-    video: "/videos/product-hero-data.webm",
-    icon: <BookOpen className="w-5 h-5" />,
-    tag: "Data Donors",
-    title: "Elite Students\nSync Curricula",
-    description:
-      "Ivy League and top-100 university students log in via .edu email to share course materials, faculty lists, and class notes — building the world's richest academic knowledge base.",
-  },
-  {
-    video: "/videos/product-hero-intelligence.webm",
-    icon: <GraduationCap className="w-5 h-5" />,
-    tag: "Scholars",
-    title: "Global Learners\nAccess Ivy-Level Paths",
-    description:
-      "Students from Sub-Saharan Africa to Southeast Asia access curated learning paths, AI-guided modules, and research papers — the same rigor, without the price tag.",
-  },
-  {
-    video: "/videos/product-hero-interfaces.webm",
-    icon: <Briefcase className="w-5 h-5" />,
-    tag: "Accelerators",
-    title: "Employers & NGOs\nDiscover Hidden Talent",
-    description:
-      "Organizations like the World Bank and leading tech companies identify exceptional, overlooked talent — smart students the traditional pipeline misses.",
-  },
-];
+{
+  video: "/videos/product-hero-data.webm",
+  icon: <BookOpen className="w-5 h-5" />,
+  tag: "Data Donors",
+  title: "Elite Students\nSync Curricula",
+  description:
+  "Ivy League and top-100 university students log in via .edu email to share course materials, faculty lists, and class notes — building the world's richest academic knowledge base."
+},
+{
+  video: "/videos/product-hero-intelligence.webm",
+  icon: <GraduationCap className="w-5 h-5" />,
+  tag: "Scholars",
+  title: "Global Learners\nAccess Ivy-Level Paths",
+  description:
+  "Students from Sub-Saharan Africa to Southeast Asia access curated learning paths, AI-guided modules, and research papers — the same rigor, without the price tag."
+},
+{
+  video: "/videos/product-hero-interfaces.webm",
+  icon: <Briefcase className="w-5 h-5" />,
+  tag: "Accelerators",
+  title: "Employers & NGOs\nDiscover Hidden Talent",
+  description:
+  "Organizations like the World Bank and leading tech companies identify exceptional, overlooked talent — smart students the traditional pipeline misses."
+}];
+
 
 const cards2 = [
-  {
-    image: card1Img,
-    icon: <Lightbulb className="w-4 h-4" />,
-    tag: "Syazwan, Indonesia",
-    title: "Trust them to Learn",
-    description: "Change began with one informed child. Scale that knowledge, and you scale the impact.",
-  },
-  {
-    image: card2Img,
-    icon: <Rocket className="w-4 h-4" />,
-    tag: "Luan Torres, São Bento, Brazil",
-    title: "Lead Young",
-    description: "If exposure to one subject can spark a movement, open access to knowledge can spark a generation.",
-  },
-  {
-    image: card3Img,
-    icon: <Heart className="w-4 h-4" />,
-    tag: "Payton Klein, Pittsburgh",
-    title: "Empathy through Platform",
-    description: "She saw exclusion, chose connection, and built a movement. Proved that inclusion begins with one open mind.",
-  },
-  {
-    image: card4Img,
-    icon: <Languages className="w-4 h-4" />,
-    tag: "Interviewee",
-    title: "Lead for Literacy",
-    description: "Question: Why do you wanna learn Spanish? His answer: So that I can find a job.",
-  },
-  {
-    image: card5Img,
-    icon: <HandHeart className="w-4 h-4" />,
-    tag: "Joshua Williams, Florida",
-    title: "Youth FWD",
-    description: "If one supported child can feed hundreds of thousands, universal access to learning can empower millions to lead.",
-  },
-  {
-    image: card6Img,
-    icon: <Sparkles className="w-4 h-4" />,
-    tag: "Who Inspire Us",
-    title: "Support System For Upskilling",
-    description: "Whether you are starting out or starting again, knowing available paths and access to skills give you momentum. #thechangemakers #peoplewhoinspire",
-  },
-];
+{
+  image: card1Img,
+  icon: <Lightbulb className="w-4 h-4" />,
+  tag: "Syazwan, Indonesia",
+  title: "Trust them to Learn",
+  description: "Change began with one informed child. Scale that knowledge, and you scale the impact."
+},
+{
+  image: card2Img,
+  icon: <Rocket className="w-4 h-4" />,
+  tag: "Luan Torres, São Bento, Brazil",
+  title: "Lead Young",
+  description: "If exposure to one subject can spark a movement, open access to knowledge can spark a generation."
+},
+{
+  image: card3Img,
+  icon: <Heart className="w-4 h-4" />,
+  tag: "Payton Klein, Pittsburgh",
+  title: "Empathy through Platform",
+  description: "She saw exclusion, chose connection, and built a movement. Proved that inclusion begins with one open mind."
+},
+{
+  image: card4Img,
+  icon: <Languages className="w-4 h-4" />,
+  tag: "Interviewee",
+  title: "Lead for Literacy",
+  description: "Question: Why do you wanna learn Spanish? His answer: So that I can find a job."
+},
+{
+  image: card5Img,
+  icon: <HandHeart className="w-4 h-4" />,
+  tag: "Joshua Williams, Florida",
+  title: "Youth FWD",
+  description: "If one supported child can feed hundreds of thousands, universal access to learning can empower millions to lead."
+},
+{
+  image: card6Img,
+  icon: <Sparkles className="w-4 h-4" />,
+  tag: "Who Inspire Us",
+  title: "Support System For Upskilling",
+  description: "Whether you are starting out or starting again, knowing available paths and access to skills give you momentum. #thechangemakers #peoplewhoinspire"
+}];
+
 
 const WayForwardSection = () => {
   return (
     <>
       <section
         className="relative py-24 lg:py-32 overflow-hidden"
-        style={{ background: "hsl(0,0%,100%)" }}
-      >
+        style={{ background: "hsl(0,0%,100%)" }}>
+
         {/* Grid background image */}
         <div
           className="absolute inset-0 pointer-events-none"
@@ -98,15 +98,15 @@ const WayForwardSection = () => {
             mask: "linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)",
             maskComposite: "intersect",
             WebkitMask: "linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)",
-            WebkitMaskComposite: "destination-in",
-          }}
-        />
+            WebkitMaskComposite: "destination-in"
+          }} />
+
         <div className="relative z-10 mx-auto px-4 md:px-8 lg:px-12" style={{ maxWidth: "96rem" }}>
           {/* Heading */}
           <h2
             className="text-2xl md:text-4xl lg:text-5xl font-bold text-center mb-8 md:mb-12"
-            style={{ color: "hsl(0,0%,10%)" }}
-          >
+            style={{ color: "hsl(0,0%,10%)" }}>
+
             The ecosystem that makes it work:
           </h2>
 
@@ -114,55 +114,55 @@ const WayForwardSection = () => {
           <div className="max-w-4xl mx-auto mb-16 space-y-5 text-center">
             <p
               className="text-base lg:text-lg leading-relaxed"
-              style={{ color: "hsl(0,0%,25%)" }}
-            >
+              style={{ color: "hsl(0,0%,25%)" }}>
+
               Education shouldn't be one-size-fits-all. Students don't want to
               struggle alone.{" "}
               <span
                 className="font-semibold"
-                style={{ color: "hsl(45,60%,35%)" }}
-              >
+                style={{ color: "hsl(45,60%,35%)" }}>
+
                 They want AI that understands their coursework — built on data from the world's best universities.
               </span>
             </p>
             <p
               className="text-base lg:text-lg leading-relaxed"
-              style={{ color: "hsl(0,0%,25%)" }}
-            >
+              style={{ color: "hsl(0,0%,25%)" }}>
+
               Four distinct user groups power a flywheel: elite students contribute curricula, scholars consume personalized paths, faculty validate progress, and employers discover talent the traditional pipeline overlooks.
             </p>
             <p
               className="text-base lg:text-lg leading-relaxed font-medium"
-              style={{ color: "hsl(0,0%,20%)" }}
-            >
+              style={{ color: "hsl(0,0%,20%)" }}>
+
               A new era of AI-powered, globally accessible academia has arrived.
             </p>
           </div>
 
           {/* Three cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {cards.map((card, i) => (
-              <div
-                key={i}
-                className="flex flex-col"
-                style={{
-                  background: "hsla(0,0%,100%,0.55)",
-                  backdropFilter: "blur(2px)",
-                  border: "1px solid hsl(0,0%,82%)",
-                  borderRadius: "4px",
-                }}
-              >
+            {cards.map((card, i) =>
+            <div
+              key={i}
+              className="flex flex-col"
+              style={{
+                background: "hsla(0,0%,100%,0.55)",
+                backdropFilter: "blur(2px)",
+                border: "1px solid hsl(0,0%,82%)",
+                borderRadius: "4px"
+              }}>
+
                 {/* Video */}
                 <div className="p-5 pb-3">
                   <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full aspect-[5/4] object-cover"
-                    style={{ borderRadius: "2px" }}
-                    src={card.video}
-                  />
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full aspect-[5/4] object-cover"
+                  style={{ borderRadius: "2px" }}
+                  src={card.video} />
+
                 </div>
 
                 {/* Text content */}
@@ -170,12 +170,12 @@ const WayForwardSection = () => {
                   {/* Tag */}
                   <div className="flex items-center gap-2 mb-3">
                     <div
-                      className="w-7 h-7 rounded-md flex items-center justify-center"
-                      style={{
-                        background: "hsl(240,45%,35%)",
-                        color: "white",
-                      }}
-                    >
+                    className="w-7 h-7 rounded-md flex items-center justify-center"
+                    style={{
+                      background: "hsl(240,45%,35%)",
+                      color: "white"
+                    }}>
+
                       {card.icon}
                     </div>
                     <span className="text-xs font-bold uppercase tracking-wider" style={{ color: "hsl(240,45%,35%)" }}>
@@ -183,33 +183,33 @@ const WayForwardSection = () => {
                     </span>
                   </div>
                   <h3
-                    className="text-2xl lg:text-[1.7rem] font-bold leading-tight mb-3 whitespace-pre-line"
-                    style={{ color: "hsl(0,0%,10%)" }}
-                  >
+                  className="text-2xl lg:text-[1.7rem] font-bold leading-tight mb-3 whitespace-pre-line"
+                  style={{ color: "hsl(0,0%,10%)" }}>
+
                     {card.title}
                   </h3>
                   <p
-                    className="text-sm leading-relaxed mb-5 flex-1"
-                    style={{ color: "hsl(0,0%,40%)" }}
-                  >
+                  className="text-sm leading-relaxed mb-5 flex-1"
+                  style={{ color: "hsl(0,0%,40%)" }}>
+
                     {card.description}
                   </p>
                   <div>
                     <Button
-                      variant="hero-outline"
-                      className="text-sm px-5 py-2"
-                      style={{
-                        borderColor: "hsl(0,0%,20%)",
-                        color: "hsl(0,0%,10%)",
-                        borderRadius: "4px",
-                      }}
-                    >
+                    variant="hero-outline"
+                    className="text-sm px-5 py-2"
+                    style={{
+                      borderColor: "hsl(0,0%,20%)",
+                      color: "hsl(0,0%,10%)",
+                      borderRadius: "4px"
+                    }}>
+
                       Learn more →
                     </Button>
                   </div>
                 </div>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -217,8 +217,8 @@ const WayForwardSection = () => {
       {/* Duplicate ecosystem section */}
       <section
         className="relative py-24 lg:py-32 overflow-hidden"
-        style={{ background: "hsl(0,0%,100%)" }}
-      >
+        style={{ background: "hsl(0,0%,100%)" }}>
+
         {/* Grid background image */}
         <div
           className="absolute inset-0 pointer-events-none"
@@ -230,56 +230,56 @@ const WayForwardSection = () => {
             mask: "linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)",
             maskComposite: "intersect",
             WebkitMask: "linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)",
-            WebkitMaskComposite: "destination-in",
-          }}
-        />
+            WebkitMaskComposite: "destination-in"
+          }} />
+
         <div className="relative z-10 mx-auto px-4 lg:px-6" style={{ maxWidth: "100vw" }}>
           <h2
             className="text-2xl md:text-4xl lg:text-5xl font-bold text-center mb-8 md:mb-16"
-            style={{ color: "hsl(0,0%,10%)" }}
-          >
+            style={{ color: "hsl(0,0%,10%)" }}>
+
             The changemakers who inspire us
           </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-16">
-            {cards2.map((card, i) => (
-              <div
-                key={i}
-                className="flex flex-col"
-                style={{
-                  background: "hsla(0,0%,100%,0.55)",
-                  backdropFilter: "blur(2px)",
-                }}
-              >
+            {cards2.map((card, i) =>
+            <div
+              key={i}
+              className="flex flex-col"
+              style={{
+                background: "hsla(0,0%,100%,0.55)",
+                backdropFilter: "blur(2px)"
+              }}>
+
                 <div className="p-3 pb-2">
-                  {"image" in card && card.image ? (
-                    <img
-                      src={card.image}
-                      alt={card.tag}
-                      className="w-full aspect-[5/4] object-cover"
-                      style={{ borderRadius: "6px" }}
-                    />
-                  ) : (
-                    <video
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full aspect-[5/4] object-cover"
-                      style={{ borderRadius: "6px" }}
-                      src={(card as any).video}
-                    />
-                  )}
+                  {"image" in card && card.image ?
+                <img
+                  src={card.image}
+                  alt={card.tag}
+                  className="w-full aspect-[5/4] object-cover"
+                  style={{ borderRadius: "6px" }} /> :
+
+
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full aspect-[5/4] object-cover"
+                  style={{ borderRadius: "6px" }}
+                  src={(card as any).video} />
+
+                }
                 </div>
                 <div className="px-3 pb-3 flex flex-col flex-1">
                   <div className="flex items-center gap-1.5 mb-2">
                     <div
-                      className="w-5 h-5 rounded flex items-center justify-center"
-                      style={{
-                        background: "hsl(240,45%,35%)",
-                        color: "white",
-                      }}
-                    >
+                    className="w-5 h-5 rounded flex items-center justify-center"
+                    style={{
+                      background: "hsl(240,45%,35%)",
+                      color: "white"
+                    }}>
+
                       {card.icon}
                     </div>
                     <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: "hsl(240,45%,35%)" }}>
@@ -287,20 +287,20 @@ const WayForwardSection = () => {
                     </span>
                   </div>
                   <h3
-                    className="text-sm lg:text-base font-bold leading-tight mb-2 whitespace-pre-line"
-                    style={{ color: "hsl(0,0%,10%)" }}
-                  >
+                  className="text-sm lg:text-base font-bold leading-tight mb-2 whitespace-pre-line"
+                  style={{ color: "hsl(0,0%,10%)" }}>
+
                     {card.title}
                   </h3>
                   <p
-                    className="text-xs leading-relaxed flex-1"
-                    style={{ color: "hsl(0,0%,40%)" }}
-                  >
+                  className="text-xs leading-relaxed flex-1"
+                  style={{ color: "hsl(0,0%,40%)" }}>
+
                     {card.description}
                   </p>
                 </div>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -308,8 +308,8 @@ const WayForwardSection = () => {
       {/* Footer section with video + text */}
       <section
         className="w-full py-2 lg:py-3 flex items-center justify-center"
-        style={{ background: "hsl(0, 0%, 98%)" }}
-      >
+        style={{ background: "hsl(0, 0%, 98%)" }}>
+
         {/* Video */}
         <video
           autoPlay
@@ -317,8 +317,8 @@ const WayForwardSection = () => {
           muted
           playsInline
           className="max-w-xs w-full block"
-          src="/videos/future-text-animation.webm"
-        />
+          src="/videos/future-text-animation.webm" />
+
       </section>
 
       {/* CTA Footer Image with all content overlay */}
@@ -326,16 +326,16 @@ const WayForwardSection = () => {
         <img
           src={ctaFooter}
           alt="CTA Footer"
-          className="w-full block min-h-[70vh] md:min-h-[90vh] object-cover"
-        />
+          className="w-full block min-h-[70vh] md:min-h-[90vh] object-cover" />
+
         {/* Dark gradient overlay for readability */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: "linear-gradient(to bottom, hsla(230,25%,4%,0.3) 0%, hsla(230,25%,4%,0.15) 40%, hsla(230,25%,4%,0.6) 65%, hsla(230,25%,4%,0.9) 100%)",
-          }}
-        />
-        <div className="absolute inset-0 flex flex-col px-4 md:px-8 lg:px-16">
+            background: "linear-gradient(to bottom, hsla(230,25%,4%,0.3) 0%, hsla(230,25%,4%,0.15) 40%, hsla(230,25%,4%,0.6) 65%, hsla(230,25%,4%,0.9) 100%)"
+          }} />
+
+        <div className="absolute inset-0 flex flex-col md:px-8 lg:px-16 my-0 mx-0 px-[10px] py-[10px]">
           {/* CTA content — centered in upper portion */}
           <div className="flex-1 flex flex-col items-center justify-center">
             <h3 className="text-3xl md:text-6xl lg:text-8xl font-bold text-center mb-4 md:mb-8 max-w-5xl text-white drop-shadow-lg leading-[1.05] tracking-tight">
@@ -351,15 +351,15 @@ const WayForwardSection = () => {
               <Button
                 variant="hero-outline"
                 size="default"
-                className="px-6 md:px-8 text-sm md:text-base text-white border-white/40 hover:bg-white/10 rounded-full"
-              >
+                className="px-6 md:px-8 text-sm md:text-base text-white border-white/40 hover:bg-white/10 rounded-full">
+
                 Partner with us
               </Button>
             </div>
           </div>
 
           {/* Footer content — pinned to bottom */}
-          <div className="w-full px-5 md:px-8 lg:px-16 pb-10 md:pb-8">
+          <div className="w-full px-2 md:px-8 lg:px-16 pb-8">
             {/* Top row */}
             <div className="flex flex-col lg:flex-row justify-between gap-10 mb-10">
               {/* Brand */}
@@ -418,8 +418,8 @@ const WayForwardSection = () => {
           </div>
         </div>
       </div>
-    </>
-  );
+    </>);
+
 };
 
 export default WayForwardSection;
