@@ -469,7 +469,7 @@ const CourseDetailPage = ({ courseCode, onBack }: Props) => {
 
               {/* Job Ready card */}
               <div className="flex flex-col items-center text-center py-6 gap-4">
-                <div className="flex items-center gap-6">
+                <div className="flex items-center gap-14">
                   <div className="flex flex-col items-center">
                     <Trophy className="h-8 w-8 mb-2" style={{ color: "hsla(45, 80%, 60%, 0.85)" }} />
                     <span className="text-sm font-bold" style={{ color: "hsla(210, 25%, 93%, 0.97)", letterSpacing: "-0.01em" }}>
