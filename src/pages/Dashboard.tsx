@@ -97,20 +97,6 @@ const Dashboard = () => {
           UniQ<sup className="text-base font-semibold align-super ml-0.5 opacity-70">AI</sup>
         </button>
 
-        <div className="hidden md:flex items-center gap-1">
-          {["Product", "Industries", "Customers", "Resources", "Company"].map((item) => (
-            <a
-              key={item}
-              href="#"
-              className="px-3.5 py-2 text-sm font-medium transition-colors duration-150"
-              style={{ color: "hsla(220, 15%, 62%, 0.9)" }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "hsla(220, 15%, 90%, 0.95)")}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "hsla(220, 15%, 62%, 0.9)")}
-            >
-              {item}
-            </a>
-          ))}
-        </div>
 
         <div className="flex items-center gap-2">
           <button
