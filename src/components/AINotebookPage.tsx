@@ -1,5 +1,4 @@
-import { Bot, Plus, ArrowRight, ChevronLeft, ExternalLink, Clock, ChevronDown, Settings, User, Mail, Briefcase, BookOpen, MessageSquare, List, GripVertical, FileText } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Bot, Plus, ArrowRight, ChevronLeft, ExternalLink, Clock, ChevronDown, Settings, User, Mail, Briefcase, BookOpen, MessageSquare, List, GripVertical } from "lucide-react";
 import ConnectedAppsDialog from "@/components/ConnectedAppsDialog";
 import ModelSelector from "@/components/ModelSelector";
 import { AIModel, getDefaultModel } from "@/config/aiModels";
@@ -455,19 +454,6 @@ const AINotebookPage = ({ context, courseName, modules = [], initialModuleIndex 
 
         {/* Right nav */}
         <div className="flex items-center gap-1.5 md:gap-2 shrink-0">
-          <Link
-            to="/report"
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors"
-            style={{
-              background: "hsla(230, 22%, 11%, 1)",
-              border: `1px solid ${border}`,
-              borderRadius: "6px",
-              color: labelColor,
-            }}
-          >
-            <FileText className="h-3.5 w-3.5" />
-            <span className="hidden md:inline">Report</span>
-          </Link>
           <button
             onClick={() => setSettingsOpen(true)}
             className="p-2 rounded-md transition-all duration-150"
