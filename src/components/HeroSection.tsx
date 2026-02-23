@@ -118,11 +118,6 @@ const HeroSection = () => {
           <nav className="flex items-center justify-between px-4 md:px-10 lg:px-16 py-4 md:py-8">
             <div className="text-3xl md:text-7xl font-bold text-foreground tracking-tight">UniQ<sup className="text-sm md:text-2xl font-semibold align-super ml-0.5 opacity-70">AI</sup></div>
             <div className="hidden md:flex items-center gap-10 text-xl font-medium text-foreground/80">
-              <a href="#" className="hover:text-foreground transition-colors">Product</a>
-              <a href="#" className="hover:text-foreground transition-colors">Industries</a>
-              <a href="#" className="hover:text-foreground transition-colors">Customers</a>
-              <a href="#" className="hover:text-foreground transition-colors">Resources</a>
-              <a href="#" className="hover:text-foreground transition-colors">Company</a>
             </div>
             <div className="flex items-center gap-2 md:gap-4 flex-shrink-0">
               <Button variant="hero-outline" size="sm" className="text-xs md:text-xl md:px-6 md:py-3 whitespace-nowrap" onClick={() => navigate("/signin")}>Sign in</Button>
