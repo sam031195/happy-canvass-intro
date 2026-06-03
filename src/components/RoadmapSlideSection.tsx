@@ -55,7 +55,7 @@ const HORIZONS: Horizon[] = [
 const RoadmapSlideSection = () => {
   return (
     <section
-      className="relative py-20 lg:py-24"
+      className="relative py-16 lg:py-20"
       style={{
         background: "hsl(0,0%,96%)",
         backgroundImage:
@@ -66,43 +66,33 @@ const RoadmapSlideSection = () => {
       <div className="mx-auto max-w-[1280px] px-6 md:px-10 lg:px-16">
 
         {/* ── Header / intro ────────────────────────────────── */}
-        <div className="text-center mb-14 lg:mb-16">
-          <h2 className="text-3xl lg:text-5xl font-bold text-foreground leading-[1.05] tracking-tight mb-8">
+        <div className="text-center mb-10 lg:mb-12">
+          <h2 className="text-3xl lg:text-4xl font-bold text-foreground leading-[1.05] tracking-tight mb-4">
             The roadmap that makes us{" "}
             <span style={{ color: GOLD }}>necessary:</span>
           </h2>
 
           <p
-            className="text-[15px] lg:text-[17px] leading-relaxed max-w-3xl mx-auto mb-4 font-semibold"
+            className="text-[14px] lg:text-[15px] leading-relaxed max-w-2xl mx-auto font-semibold"
             style={{ color: GOLD_DEEP }}
           >
-            A strategy is its sequencing. We don't fund everything equally —
-            we earn the right to the next horizon by winning the current one.
-          </p>
-
-          <p className="text-[15px] lg:text-[17px] text-foreground/75 leading-relaxed max-w-3xl mx-auto mb-3">
-            Three explicit horizons across 18–24 months: defend the accounts we
-            cannot afford to lose, build the moat that compounds, then turn the
-            moat into lock-in measured in net revenue retention.
-          </p>
-
-          <p className="text-[15px] lg:text-[17px] text-foreground/85 leading-relaxed max-w-3xl mx-auto">
-            We began at risk of optional. We intend to become necessary.
+            A strategy is its sequencing. Three horizons, 18–24 months — we
+            earn the next by winning the current.
           </p>
         </div>
 
         {/* ── 3 horizon cards ───────────────────────────────── */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-7">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
           {HORIZONS.map((h, i) => {
             const Icon = h.icon;
             return (
               <div
                 key={i}
-                className="rounded-[14px] bg-white border border-[hsl(0,0%,88%)] shadow-[0_1px_3px_hsla(0,0%,0%,0.05)] overflow-hidden flex flex-col"
+                className="rounded-[12px] bg-white border border-[hsl(0,0%,88%)] shadow-[0_1px_3px_hsla(0,0%,0%,0.05)] overflow-hidden flex flex-col"
               >
                 {/* hero visual */}
                 <div
-                  className="relative h-[280px] lg:h-[320px] overflow-hidden"
+                  className="relative h-[140px] lg:h-[160px] overflow-hidden"
                   style={{ background: h.gradient }}
                 >
                   {/* faint pixel grid overlay */}
@@ -111,50 +101,50 @@ const RoadmapSlideSection = () => {
                     style={{
                       backgroundImage:
                         "linear-gradient(hsl(0,0%,100%) 1px, transparent 1px), linear-gradient(90deg, hsl(0,0%,100%) 1px, transparent 1px)",
-                      backgroundSize: "18px 18px",
+                      backgroundSize: "16px 16px",
                     }}
                   />
                   {/* horizon number watermark */}
                   <div
-                    className="absolute right-6 bottom-4 text-white/85 font-bold leading-none"
-                    style={{ fontSize: "120px", letterSpacing: "-0.06em" }}
+                    className="absolute right-4 bottom-1 text-white/85 font-bold leading-none"
+                    style={{ fontSize: "78px", letterSpacing: "-0.06em" }}
                   >
                     0{i + 1}
                   </div>
                   {/* range tag */}
-                  <div className="absolute top-5 left-5 font-mono text-[11px] tracking-[0.18em] uppercase text-white/90 bg-black/25 backdrop-blur-sm rounded-full px-3 py-1.5">
+                  <div className="absolute top-3.5 left-3.5 font-mono text-[10px] tracking-[0.18em] uppercase text-white/90 bg-black/25 backdrop-blur-sm rounded-full px-2.5 py-1">
                     {h.range}
                   </div>
                 </div>
 
                 {/* body */}
-                <div className="p-6 lg:p-7 flex-1 flex flex-col">
-                  <div className="flex items-center gap-2.5 mb-5">
+                <div className="p-5 lg:p-5 flex-1 flex flex-col">
+                  <div className="flex items-center gap-2 mb-3">
                     <span
-                      className="w-8 h-8 rounded-[6px] flex items-center justify-center"
+                      className="w-7 h-7 rounded-[5px] flex items-center justify-center"
                       style={{ background: NAVY }}
                     >
-                      <Icon className="w-4 h-4 text-white" strokeWidth={2.25} />
+                      <Icon className="w-3.5 h-3.5 text-white" strokeWidth={2.25} />
                     </span>
                     <span
-                      className="font-mono text-[11px] tracking-[0.18em] uppercase font-semibold"
+                      className="font-mono text-[10px] tracking-[0.18em] uppercase font-semibold"
                       style={{ color: NAVY }}
                     >
                       {h.label}
                     </span>
                   </div>
 
-                  <h3 className="text-[26px] lg:text-[30px] font-bold text-foreground leading-[1.08] tracking-tight mb-4 whitespace-pre-line">
+                  <h3 className="text-[20px] lg:text-[22px] font-bold text-foreground leading-[1.1] tracking-tight mb-2.5 whitespace-pre-line">
                     {h.title}
                   </h3>
 
-                  <p className="text-[14px] lg:text-[15px] text-foreground/70 leading-relaxed mb-6 flex-1">
+                  <p className="text-[13px] lg:text-[13.5px] text-foreground/70 leading-snug mb-4 flex-1">
                     {h.body}
                   </p>
 
                   <button
                     type="button"
-                    className="self-start inline-flex items-center gap-2 border border-[hsl(0,0%,82%)] rounded-[6px] px-4 py-2.5 text-[13px] font-medium text-foreground hover:bg-[hsl(0,0%,96%)] transition-colors"
+                    className="self-start inline-flex items-center gap-2 border border-[hsl(0,0%,82%)] rounded-[6px] px-3.5 py-2 text-[12px] font-medium text-foreground hover:bg-[hsl(0,0%,96%)] transition-colors"
                   >
                     Learn more
                     <span aria-hidden>→</span>
