@@ -4,6 +4,7 @@ import TheProblemSlideSection from "@/components/TheProblemSlideSection";
 import BreakPointSlideSection from "@/components/BreakPointSlideSection";
 import OurRecommendationSlideSection from "@/components/OurRecommendationSlideSection";
 import EvidenceSlideSection from "@/components/EvidenceSlideSection";
+import WhoWeDefendSlideSection from "@/components/WhoWeDefendSlideSection";
 import DecagonDifferenceSection from "@/components/DecagonDifferenceSection";
 import EndToEndSection from "@/components/EndToEndSection";
 import WayForwardSection from "@/components/WayForwardSection";
@@ -18,6 +19,7 @@ const Index = () => {
       <BreakPointSlideSection />
       <OurRecommendationSlideSection />
       <EvidenceSlideSection />
+      <WhoWeDefendSlideSection />
       <DecagonDifferenceSection />
       <EndToEndSection />
       <AgenticWorkflowSection />
