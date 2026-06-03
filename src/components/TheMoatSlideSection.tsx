@@ -106,11 +106,48 @@ const TheMoatSlideSection = () => {
           </p>
         </div>
 
-        {/* Two-column: code on left, pillars on right */}
+        {/* Two-column: pillars on left, code mock on right */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 
-          {/* Left: code mock + caption */}
-          <div className="flex flex-col gap-6 w-full">
+          {/* Left: three pillars — stacked vertically in opportunity-gap stat format */}
+          <div className="flex flex-col gap-10">
+            {PILLARS.map((p, i) => {
+              const Icon = p.Icon;
+              return (
+                <div key={i} className="flex flex-col">
+                  <div
+                    className="flex items-center justify-center w-14 h-14 rounded-2xl mb-5"
+                    style={{ background: p.tileBg }}
+                  >
+                    <Icon className="w-7 h-7" style={{ color: p.tileFg }} strokeWidth={2.2} />
+                  </div>
+                  <div className="text-3xl lg:text-4xl font-bold text-foreground leading-none mb-3">
+                    {p.stat}
+                  </div>
+                  <div className="text-xs font-semibold tracking-[0.18em] uppercase text-muted-foreground mb-3">
+                    {p.kicker}
+                  </div>
+                  <div className="text-lg font-semibold text-foreground leading-snug mb-2 max-w-md">
+                    {p.title}
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
+                    {p.body}
+                  </p>
+                </div>
+              );
+            })}
+
+            <div className="mt-2 pt-5 border-t border-[hsl(0,0%,90%)]">
+              <p className="text-sm text-muted-foreground leading-snug">
+                <span className="font-semibold text-foreground">Defer:</span>{" "}
+                broad horizontal orchestration · inflated agent breadth · consumer-suite parity
+                — each widens surface, not depth.
+              </p>
+            </div>
+          </div>
+
+          {/* Right: code mock + caption (sticky on desktop) */}
+          <div className="flex flex-col gap-6 w-full lg:sticky lg:top-8">
             <CodeMock />
             <p className="text-sm text-muted-foreground leading-snug">
               The protocol is the bracket structure.{" "}
@@ -120,46 +157,6 @@ const TheMoatSlideSection = () => {
               — governed access, audit, customer-controlled retention — the layer
               a competitor can't fork from a repo.
             </p>
-          </div>
-
-          {/* Right: three pillars — horizontal row */}
-          <div className="flex flex-col gap-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {PILLARS.map((p, i) => {
-                const Icon = p.Icon;
-                return (
-                  <div key={i} className="flex flex-col">
-                    <div
-                      className="flex items-center justify-center w-12 h-12 rounded-xl mb-4"
-                      style={{ background: p.tileBg }}
-                    >
-                      <Icon className="w-6 h-6" style={{ color: p.tileFg }} strokeWidth={2.2} />
-                    </div>
-                    <div className="text-2xl lg:text-3xl font-bold text-foreground leading-none mb-2">
-                      {p.stat}
-                    </div>
-                    <div className="text-sm font-semibold tracking-wide uppercase text-muted-foreground mb-3">
-                      {p.kicker}
-                    </div>
-                    <div className="text-base font-semibold text-foreground leading-snug mb-1.5">
-                      {p.title}
-                    </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {p.body}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Defer line */}
-            <div className="mt-2 pt-5 border-t border-[hsl(0,0%,90%)]">
-              <p className="text-sm text-muted-foreground leading-snug">
-                <span className="font-semibold text-foreground">Defer:</span>{" "}
-                broad horizontal orchestration · inflated agent breadth · consumer-suite parity
-                — each widens surface, not depth.
-              </p>
-            </div>
           </div>
 
         </div>
