@@ -14,7 +14,6 @@ const INK = "hsl(230,25%,10%)";
 
 const REASONS = [
   {
-    n: "01",
     title: "Agentic, repo-scale work",
     body: "Up to 1M-token context — codebase reasoning, not autocomplete.",
     accent: GOLD,
@@ -23,7 +22,6 @@ const REASONS = [
     tileFg: "hsl(35,75%,40%)",
   },
   {
-    n: "02",
     title: "Org-wide deployment controls",
     body: "Enterprise governance built for engineering orgs.",
     accent: NAVY,
@@ -32,7 +30,6 @@ const REASONS = [
     tileFg: "hsl(240,55%,45%)",
   },
   {
-    n: "03",
     title: "Land-and-expand path",
     body: "Developer seats anchor the account, then pull governed workflows outward.",
     accent: GREEN,
