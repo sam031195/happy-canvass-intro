@@ -114,15 +114,17 @@ const TheMoatSlideSection = () => {
             {PILLARS.map((p, i) => {
               const Icon = p.Icon;
               return (
-                <div key={i} className="flex flex-col">
-                  <div
-                    className="flex items-center justify-center w-11 h-11 rounded-xl mb-3"
-                    style={{ background: p.tileBg }}
-                  >
-                    <Icon className="w-5 h-5" style={{ color: p.tileFg }} strokeWidth={2.2} />
-                  </div>
-                  <div className="text-2xl lg:text-3xl font-bold text-foreground leading-none mb-2">
-                    {p.stat}
+              <div key={i} className="flex flex-col">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div
+                      className="flex items-center justify-center w-11 h-11 rounded-xl shrink-0"
+                      style={{ background: p.tileBg }}
+                    >
+                      <Icon className="w-5 h-5" style={{ color: p.tileFg }} strokeWidth={2.2} />
+                    </div>
+                    <div className="text-2xl lg:text-3xl font-bold text-foreground leading-none">
+                      {p.stat}
+                    </div>
                   </div>
                   <div className="text-[11px] font-semibold tracking-[0.18em] uppercase text-muted-foreground mb-1.5">
                     {p.kicker}
