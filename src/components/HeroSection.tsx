@@ -121,7 +121,7 @@ const HeroSection = () => {
               boxShadow: `0 0 0 8px ${CREAM}, 0 0 0 9px ${GOLD_DEEP}`,
             }}
           >
-            UniQ AI
+            Academia
           </div>
 
           <p
