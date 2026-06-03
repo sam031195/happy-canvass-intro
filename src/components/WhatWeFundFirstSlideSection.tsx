@@ -115,7 +115,7 @@ const Tag = ({ label, tone }: { label: string; tone: Path["tagTone"] }) => {
 };
 
 const TimelineRow = ({ p }: { p: Path }) => (
-  <div className="grid grid-cols-[180px,1fr] gap-6 lg:gap-10 items-center py-4">
+  <div className="grid grid-cols-[180px,1fr] gap-6 lg:gap-10 items-center py-2.5">
     {/* Left: tag + code label */}
     <div className="flex flex-col gap-1.5">
       <Tag label={p.tag} tone={p.tagTone} />
