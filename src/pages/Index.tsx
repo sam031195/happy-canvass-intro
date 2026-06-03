@@ -8,6 +8,7 @@ import WhoWeDefendSlideSection from "@/components/WhoWeDefendSlideSection";
 import WhatWeFundFirstSlideSection from "@/components/WhatWeFundFirstSlideSection";
 import TheWedgeSlideSection from "@/components/TheWedgeSlideSection";
 import TheMoatSlideSection from "@/components/TheMoatSlideSection";
+import WhatWeAreNotDoingSlideSection from "@/components/WhatWeAreNotDoingSlideSection";
 import DecagonDifferenceSection from "@/components/DecagonDifferenceSection";
 import EndToEndSection from "@/components/EndToEndSection";
 import WayForwardSection from "@/components/WayForwardSection";
