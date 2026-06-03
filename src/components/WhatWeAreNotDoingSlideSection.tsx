@@ -53,7 +53,7 @@ const WhatWeAreNotDoingSlideSection = () => {
                   "0 18px 36px -10px hsla(262,70%,40%,0.55), inset 0 -8px 14px hsla(0,0%,0%,0.22)",
               }}
             >
-              9
+              <Ban className="w-6 h-6" strokeWidth={2.25} />
             </div>
           </div>
 
