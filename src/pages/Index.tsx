@@ -12,10 +12,6 @@ import WhatWeAreNotDoingSlideSection from "@/components/WhatWeAreNotDoingSlideSe
 import ReachWithoutDependenceSlideSection from "@/components/ReachWithoutDependenceSlideSection";
 import PentagonRiskSlideSection from "@/components/PentagonRiskSlideSection";
 import RoadmapSlideSection from "@/components/RoadmapSlideSection";
-import DecagonDifferenceSection from "@/components/DecagonDifferenceSection";
-import EndToEndSection from "@/components/EndToEndSection";
-import WayForwardSection from "@/components/WayForwardSection";
-import AgenticWorkflowSection from "@/components/AgenticWorkflowSection";
 
 const Index = () => {
   return (
