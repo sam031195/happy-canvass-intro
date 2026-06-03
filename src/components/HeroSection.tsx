@@ -30,7 +30,7 @@ const HeroSection = () => {
             style={{ background: GOLD }}
           />
           <span className="text-lg md:text-xl font-semibold tracking-tight">
-            UniQ<sup className="text-[10px] md:text-xs font-medium align-super ml-0.5 opacity-70">AI</sup> for Academia
+            Academia Brief
           </span>
         </div>
       </header>
@@ -121,7 +121,7 @@ const HeroSection = () => {
               boxShadow: `0 0 0 8px ${CREAM}, 0 0 0 9px ${GOLD_DEEP}`,
             }}
           >
-            UniQ AI
+            Academia
           </div>
 
           <p
@@ -147,7 +147,7 @@ const HeroSection = () => {
           </p>
         </div>
         <p className="font-mono text-[11px] md:text-[12px] tracking-[0.22em] uppercase pt-6">
-          UniQ AI vs The Status Quo
+          Education &amp; The Status Quo
         </p>
       </footer>
     </section>
