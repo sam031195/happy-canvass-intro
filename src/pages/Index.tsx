@@ -9,6 +9,7 @@ import WhatWeFundFirstSlideSection from "@/components/WhatWeFundFirstSlideSectio
 import TheWedgeSlideSection from "@/components/TheWedgeSlideSection";
 import TheMoatSlideSection from "@/components/TheMoatSlideSection";
 import WhatWeAreNotDoingSlideSection from "@/components/WhatWeAreNotDoingSlideSection";
+import ReachWithoutDependenceSlideSection from "@/components/ReachWithoutDependenceSlideSection";
 import DecagonDifferenceSection from "@/components/DecagonDifferenceSection";
 import EndToEndSection from "@/components/EndToEndSection";
 import WayForwardSection from "@/components/WayForwardSection";
@@ -28,6 +29,7 @@ const Index = () => {
       <TheWedgeSlideSection />
       <TheMoatSlideSection />
       <WhatWeAreNotDoingSlideSection />
+      <ReachWithoutDependenceSlideSection />
       <DecagonDifferenceSection />
       <EndToEndSection />
       <AgenticWorkflowSection />
