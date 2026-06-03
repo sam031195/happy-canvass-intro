@@ -1,4 +1,4 @@
-import { Terminal } from "lucide-react";
+import { Terminal, Bot, ShieldCheck, Rocket } from "lucide-react";
 
 /* ───────────────────────────────────────────────────────────────
    Board Deck · Slide 08 — "The Wedge · Technology strategy"
@@ -18,18 +18,27 @@ const REASONS = [
     title: "Agentic, repo-scale work",
     body: "Up to 1M-token context — codebase reasoning, not autocomplete.",
     accent: GOLD,
+    Icon: Bot,
+    tileBg: "hsl(45,80%,92%)",
+    tileFg: "hsl(35,75%,40%)",
   },
   {
     n: "02",
     title: "Org-wide deployment controls",
     body: "Enterprise governance built for engineering orgs.",
     accent: NAVY,
+    Icon: ShieldCheck,
+    tileBg: "hsl(235,70%,94%)",
+    tileFg: "hsl(240,55%,45%)",
   },
   {
     n: "03",
     title: "Land-and-expand path",
     body: "Developer seats anchor the account, then pull governed workflows outward.",
     accent: GREEN,
+    Icon: Rocket,
+    tileBg: "hsl(155,55%,92%)",
+    tileFg: "hsl(160,50%,32%)",
   },
 ];
 
