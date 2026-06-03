@@ -120,14 +120,14 @@ const TheWedgeSlideSection = () => {
               </span>
             </p>
 
-            {/* Three numbered reasons */}
+            {/* Three reasons — no numbers */}
             <div className="flex flex-col">
               {REASONS.map((r, i) => {
                 const Icon = r.Icon;
                 return (
                   <div
                     key={i}
-                    className={`grid grid-cols-[auto,auto,1fr] gap-5 items-start py-4 ${
+                    className={`grid grid-cols-[auto,1fr] gap-5 items-start py-4 ${
                       i < REASONS.length - 1 ? "border-b border-[hsl(0,0%,90%)]" : ""
                     }`}
                   >
@@ -137,12 +137,6 @@ const TheWedgeSlideSection = () => {
                     >
                       <Icon className="w-5 h-5" style={{ color: r.tileFg }} strokeWidth={2.2} />
                     </div>
-                    <span
-                      className="text-xs font-mono font-bold tracking-[0.22em] pt-3"
-                      style={{ color: r.accent }}
-                    >
-                      {r.n}
-                    </span>
                     <div className="pt-1">
                       <div className="text-base lg:text-lg font-bold text-foreground leading-snug">
                         {r.title}
