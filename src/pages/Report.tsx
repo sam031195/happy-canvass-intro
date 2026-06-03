@@ -794,35 +794,8 @@ dimension, pushing softmax into saturated regions...`}
           </p>
         </Section>
 
-        {BOARD_DECK_SLIDES.map((slide, i) => (
-          <section
-            key={i}
-            className="mb-10 print:mb-0 print:break-before-page print:break-inside-avoid"
-          >
-            <div className="flex items-baseline justify-between gap-3 mb-3 pb-2"
-              style={{ borderBottom: "2px solid hsl(240,45%,35%)" }}>
-              <div className="flex items-baseline gap-3 min-w-0">
-                <span className="text-xs font-black tracking-[0.2em]" style={{ color: "hsl(240,45%,35%)" }}>
-                  DECK · {String(i + 1).padStart(2, "0")} / {BOARD_DECK_SLIDES.length}
-                </span>
-                <h3 className="text-base font-bold truncate" style={{ color: "hsl(0,0%,10%)" }}>
-                  {slide.title}
-                </h3>
-              </div>
-              <span className="text-[10px] uppercase tracking-widest shrink-0" style={{ color: "hsl(0,0%,55%)" }}>
-                Board Deck
-              </span>
-            </div>
-            <figure className="rounded-lg overflow-hidden border border-[hsl(0,0%,85%)] shadow-sm print:shadow-none print:border-[hsl(0,0%,80%)]">
-              <img
-                src={slide.src}
-                alt={`Board deck slide ${i + 1}: ${slide.title}`}
-                className="block w-full h-auto"
-                loading="lazy"
-              />
-            </figure>
-          </section>
-        ))}
+        <BoardDeckSlides />
+
 
         {/* ═══════════ 12. AI DISCLOSURE ═══════════ */}
         <Section number={12} title="AI Disclosure">
