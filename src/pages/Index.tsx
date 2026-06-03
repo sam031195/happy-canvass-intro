@@ -1,5 +1,4 @@
 import HeroSection from "@/components/HeroSection";
-import UniversityMarquee from "@/components/UniversityMarquee";
 import TheProblemSlideSection from "@/components/TheProblemSlideSection";
 import BreakPointSlideSection from "@/components/BreakPointSlideSection";
 import OurRecommendationSlideSection from "@/components/OurRecommendationSlideSection";
@@ -17,7 +16,6 @@ const Index = () => {
   return (
     <main>
       <HeroSection />
-      <UniversityMarquee />
       <TheProblemSlideSection />
       <BreakPointSlideSection />
       <OurRecommendationSlideSection />
