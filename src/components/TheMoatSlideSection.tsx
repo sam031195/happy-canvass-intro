@@ -14,33 +14,34 @@ const INK = "hsl(230,25%,10%)";
 
 const PILLARS = [
   {
-    kicker: "The protocol · Already done",
+    stat: "Protocol",
+    kicker: "Already done",
     title: "Open standard, donated to the Linux Foundation",
     body: "Plumbing anyone can adopt — including Gemini. Free, and copyable. Necessary, but not a moat.",
-    accent: "hsl(0,0%,55%)",
     Icon: Network,
     tileBg: "hsl(0,0%,94%)",
     tileFg: "hsl(0,0%,35%)",
   },
   {
-    kicker: "The control plane · What Path B funds",
+    stat: "Control plane",
+    kicker: "What Path B funds",
     title: "Identity-aware access, permissions, audit, retention",
     body: "The governance Legal signs off on — layered on top of the open protocol. This is the new build, not the donation.",
-    accent: GOLD,
     Icon: Shield,
     tileBg: "hsl(45,80%,92%)",
     tileFg: "hsl(35,75%,40%)",
   },
   {
-    kicker: "The footprint · Why it can't be swapped",
+    stat: "Footprint",
+    kicker: "Why it can't be swapped",
     title: "Claude reading the customer's own data graph",
     body: "Once Drive, GitHub and Slack run through Claude under the customer's governance, the lock-in is their graph — not our code.",
-    accent: NAVY,
     Icon: Fingerprint,
     tileBg: "hsl(235,70%,94%)",
     tileFg: "hsl(240,55%,45%)",
   },
 ];
+
 
 const CodeMock = () => (
   <div
