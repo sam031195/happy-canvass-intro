@@ -196,7 +196,7 @@ const WhatWeFundFirstSlideSection = () => {
               <Coins className="w-4 h-4" />
               06 · What we fund first
             </div>
-            <h2 className="text-3xl lg:text-5xl font-bold text-foreground leading-[1.1] tracking-tight">
+            <h2 className="text-3xl lg:text-4xl font-bold text-foreground leading-[1.1] tracking-tight">
               Lead with the wedge, then fund the moat it{" "}
               <span style={{ color: GOLD }}>pays for.</span>
             </h2>

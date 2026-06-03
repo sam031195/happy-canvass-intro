@@ -22,7 +22,7 @@ const BreakPointSlideSection = () => {
 
         {/* Title block */}
         <div className="max-w-5xl mb-10 lg:mb-14">
-          <h2 className="text-3xl lg:text-5xl font-bold text-foreground leading-[1.1] tracking-tight">
+          <h2 className="text-3xl lg:text-4xl font-bold text-foreground leading-[1.1] tracking-tight">
             Distribution compounds on convenience —{" "}
             <span style={{ color: GOLD }}>until the work itself depends</span>{" "}
             on Claude.
