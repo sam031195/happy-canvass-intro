@@ -1,34 +1,36 @@
-const GOLD = "hsl(38, 70%, 62%)";
-const GOLD_DEEP = "hsl(38, 45%, 55%)";
-const BG = "hsl(0, 0%, 6%)";
-const SURFACE = "hsl(0, 0%, 9%)";
-const BORDER = "hsl(0, 0%, 16%)";
-const TEXT_MUTED = "hsl(0, 0%, 62%)";
+const GOLD = "hsl(45,60%,45%)";
+const GOLD_DEEP = "hsl(45,60%,35%)";
+const NAVY = "hsl(225,55%,28%)";
+const NAVY_SOFT = "hsl(225,30%,55%)";
+const CREAM = "hsl(45,60%,96%)";
+const INK = "hsl(225,30%,12%)";
+const MUTED = "hsl(225,15%,40%)";
+const BORDER = "hsl(0,0%,88%)";
 
 const nodes = [
-  { label: "Harvard", x: 50, y: 8 },
-  { label: "MIT", x: 88, y: 30 },
-  { label: "Stanford", x: 88, y: 70 },
-  { label: "Columbia", x: 50, y: 92 },
-  { label: "Oxford", x: 12, y: 70 },
-  { label: "Cambridge", x: 12, y: 30 },
+  { label: "Harvard", x: 50, y: 10 },
+  { label: "MIT", x: 86, y: 30 },
+  { label: "Stanford", x: 86, y: 70 },
+  { label: "Columbia", x: 50, y: 90 },
+  { label: "Oxford", x: 14, y: 70 },
+  { label: "Cambridge", x: 14, y: 30 },
 ];
 
 const HeroSection = () => {
   return (
     <section
       className="relative w-full min-h-screen flex flex-col"
-      style={{ background: BG, color: "white" }}
+      style={{ background: CREAM, color: INK, fontFamily: "DM Sans, sans-serif" }}
     >
       {/* Header */}
       <header className="px-8 md:px-16 lg:px-20 pt-8 md:pt-10 flex items-center">
         <div className="flex items-center gap-3">
           <span
-            className="inline-block w-3.5 h-3.5 rounded-sm"
+            className="inline-block w-3.5 h-3.5 rounded-[2px]"
             style={{ background: GOLD }}
           />
           <span className="text-lg md:text-xl font-semibold tracking-tight">
-            UniQ<sup className="text-[10px] md:text-xs font-medium align-super ml-0.5 opacity-80">AI</sup> for Academia
+            UniQ<sup className="text-[10px] md:text-xs font-medium align-super ml-0.5 opacity-70">AI</sup> for Academia
           </span>
         </div>
       </header>
@@ -38,11 +40,11 @@ const HeroSection = () => {
         {/* Left: memo content */}
         <div className="max-w-xl">
           <div
-            className="inline-flex items-center rounded-md px-4 py-2 mb-10 font-mono text-[11px] md:text-[12px] tracking-[0.18em]"
+            className="inline-flex items-center rounded-[6px] px-4 py-2 mb-10 font-mono text-[11px] md:text-[12px] tracking-[0.18em]"
             style={{
-              background: SURFACE,
+              background: "white",
               border: `1px solid ${BORDER}`,
-              color: TEXT_MUTED,
+              color: MUTED,
             }}
           >
             BOARD MEMORANDUM · FROZEN 03 JUN 2026
@@ -50,7 +52,7 @@ const HeroSection = () => {
 
           <p
             className="font-mono text-[11px] md:text-[12px] tracking-[0.22em] uppercase mb-5"
-            style={{ color: GOLD }}
+            style={{ color: GOLD_DEEP }}
           >
             The Opening Line
           </p>
@@ -61,8 +63,8 @@ const HeroSection = () => {
           </h1>
 
           <p
-            className="mt-8 text-base md:text-lg leading-relaxed max-w-lg"
-            style={{ color: TEXT_MUTED }}
+            className="mt-8 text-base md:text-lg leading-[1.7] max-w-lg"
+            style={{ color: MUTED }}
           >
             Bringing world-class curricula from the top 100 universities to 264 million students worldwide — a sequenced 24-month roadmap and the AI companion that makes it possible.
           </p>
@@ -84,7 +86,7 @@ const HeroSection = () => {
                 y2={n.y}
                 stroke={GOLD_DEEP}
                 strokeWidth="0.25"
-                strokeOpacity="0.7"
+                strokeOpacity="0.6"
               />
             ))}
           </svg>
@@ -92,15 +94,16 @@ const HeroSection = () => {
           {nodes.map((n, i) => (
             <div
               key={i}
-              className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full flex items-center justify-center text-[12px] md:text-sm"
+              className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full flex items-center justify-center text-[12px] md:text-sm font-medium"
               style={{
                 left: `${n.x}%`,
                 top: `${n.y}%`,
-                width: 84,
-                height: 84,
-                background: SURFACE,
+                width: 86,
+                height: 86,
+                background: "white",
                 border: `1px solid ${BORDER}`,
-                color: "hsl(0, 0%, 88%)",
+                color: NAVY,
+                boxShadow: "0 1px 2px hsla(0,0%,0%,0.04)",
               }}
             >
               {n.label}
@@ -111,11 +114,11 @@ const HeroSection = () => {
           <div
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full flex items-center justify-center font-semibold text-base md:text-lg"
             style={{
-              width: 130,
-              height: 130,
+              width: 132,
+              height: 132,
               background: GOLD,
-              color: "hsl(0, 0%, 8%)",
-              boxShadow: `0 0 0 8px ${BG}, 0 0 0 9px ${GOLD_DEEP}`,
+              color: "white",
+              boxShadow: `0 0 0 8px ${CREAM}, 0 0 0 9px ${GOLD_DEEP}`,
             }}
           >
             UniQ AI
@@ -123,7 +126,7 @@ const HeroSection = () => {
 
           <p
             className="absolute left-1/2 -translate-x-1/2 -bottom-10 font-mono text-[11px] md:text-[12px] tracking-[0.22em] whitespace-nowrap"
-            style={{ color: TEXT_MUTED }}
+            style={{ color: MUTED }}
           >
             THE CONNECTIVE LAYER, ABOVE THE CAMPUS
           </p>
@@ -132,18 +135,18 @@ const HeroSection = () => {
 
       {/* Footer */}
       <footer
-        className="px-8 md:px-16 lg:px-20 pb-8 md:pb-10 pt-6 flex flex-col md:flex-row md:items-end md:justify-between gap-4"
-        style={{ color: TEXT_MUTED }}
+        className="px-8 md:px-16 lg:px-20 pb-8 md:pb-10 pt-6 flex flex-col md:flex-row md:items-end md:justify-between gap-4 border-t"
+        style={{ color: MUTED, borderColor: BORDER }}
       >
-        <div>
-          <p className="font-mono text-[11px] md:text-[12px] tracking-[0.22em] uppercase text-white/90">
+        <div className="pt-6">
+          <p className="font-mono text-[11px] md:text-[12px] tracking-[0.22em] uppercase" style={{ color: INK }}>
             Presented to the Board of Directors
           </p>
           <p className="font-mono text-[11px] md:text-[12px] tracking-[0.18em] mt-1.5">
             By Product Leadership · Education &amp; Roadmap
           </p>
         </div>
-        <p className="font-mono text-[11px] md:text-[12px] tracking-[0.22em] uppercase">
+        <p className="font-mono text-[11px] md:text-[12px] tracking-[0.22em] uppercase pt-6">
           UniQ AI vs The Status Quo
         </p>
       </footer>
