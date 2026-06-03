@@ -83,22 +83,22 @@ const CodeMock = () => (
 
 const TheMoatSlideSection = () => {
   return (
-    <section className="bg-background py-10 lg:py-16">
+    <section className="bg-background py-8 lg:py-10">
       <div className="mx-4 md:ml-[5%] md:mr-[5%] px-4 md:px-8 lg:px-12">
 
         {/* Header chip + headline + lede */}
-        <div className="max-w-5xl mb-10">
+        <div className="max-w-5xl mb-6">
           <div className="inline-flex items-center gap-2 rounded-full bg-[hsl(0,0%,92%)] px-4 py-2 text-sm font-medium text-foreground mb-4 w-fit">
             <Layers className="w-4 h-4" />
             08 · The moat · Product strategy
           </div>
 
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground leading-tight mb-5">
+          <h2 className="text-3xl lg:text-4xl font-bold text-foreground leading-tight mb-3">
             MCP is the protocol. The moat is the{" "}
             <span style={{ color: GOLD }}>governed layer</span> we build on it.
           </h2>
 
-          <p className="text-lg text-foreground/80 leading-relaxed">
+          <p className="text-base text-foreground/80 leading-relaxed">
             "Don't we already have MCP?" Yes — that's the point. The protocol is done and given away;{" "}
             <span className="font-semibold" style={{ color: GOLD_DEEP }}>
               Path B funds what sits on top of it.
@@ -107,38 +107,38 @@ const TheMoatSlideSection = () => {
         </div>
 
         {/* Two-column: pillars on left, code mock on right */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
 
           {/* Left: three pillars — stacked vertically in opportunity-gap stat format */}
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-5">
             {PILLARS.map((p, i) => {
               const Icon = p.Icon;
               return (
                 <div key={i} className="flex flex-col">
                   <div
-                    className="flex items-center justify-center w-14 h-14 rounded-2xl mb-5"
+                    className="flex items-center justify-center w-11 h-11 rounded-xl mb-3"
                     style={{ background: p.tileBg }}
                   >
-                    <Icon className="w-7 h-7" style={{ color: p.tileFg }} strokeWidth={2.2} />
+                    <Icon className="w-5 h-5" style={{ color: p.tileFg }} strokeWidth={2.2} />
                   </div>
-                  <div className="text-3xl lg:text-4xl font-bold text-foreground leading-none mb-3">
+                  <div className="text-2xl lg:text-3xl font-bold text-foreground leading-none mb-2">
                     {p.stat}
                   </div>
-                  <div className="text-xs font-semibold tracking-[0.18em] uppercase text-muted-foreground mb-3">
+                  <div className="text-[11px] font-semibold tracking-[0.18em] uppercase text-muted-foreground mb-1.5">
                     {p.kicker}
                   </div>
-                  <div className="text-lg font-semibold text-foreground leading-snug mb-2 max-w-md">
+                  <div className="text-sm lg:text-base font-semibold text-foreground leading-snug mb-1 max-w-md">
                     {p.title}
                   </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
+                  <p className="text-xs lg:text-sm text-muted-foreground leading-snug max-w-md">
                     {p.body}
                   </p>
                 </div>
               );
             })}
 
-            <div className="mt-2 pt-5 border-t border-[hsl(0,0%,90%)]">
-              <p className="text-sm text-muted-foreground leading-snug">
+            <div className="mt-1 pt-3 border-t border-[hsl(0,0%,90%)]">
+              <p className="text-xs lg:text-sm text-muted-foreground leading-snug">
                 <span className="font-semibold text-foreground">Defer:</span>{" "}
                 broad horizontal orchestration · inflated agent breadth · consumer-suite parity
                 — each widens surface, not depth.
@@ -147,9 +147,9 @@ const TheMoatSlideSection = () => {
           </div>
 
           {/* Right: code mock + caption (sticky on desktop) */}
-          <div className="flex flex-col gap-6 w-full lg:sticky lg:top-8">
+          <div className="flex flex-col gap-4 w-full lg:sticky lg:top-6">
             <CodeMock />
-            <p className="text-sm text-muted-foreground leading-snug">
+            <p className="text-xs lg:text-sm text-muted-foreground leading-snug">
               The protocol is the bracket structure.{" "}
               <span className="font-semibold text-foreground">
                 The moat is every word in clay
@@ -162,7 +162,7 @@ const TheMoatSlideSection = () => {
         </div>
 
         {/* Slide chrome */}
-        <div className="mt-10 pt-6 border-t border-[hsl(0,0%,90%)] flex items-center justify-between text-xs tracking-[0.22em] uppercase text-muted-foreground">
+        <div className="mt-6 pt-4 border-t border-[hsl(0,0%,90%)] flex items-center justify-between text-xs tracking-[0.22em] uppercase text-muted-foreground">
           <span>Anthropic vs Google · Board Deck</span>
           <span>09 / 23</span>
         </div>
