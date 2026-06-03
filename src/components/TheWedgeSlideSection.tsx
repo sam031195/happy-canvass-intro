@@ -125,29 +125,38 @@ const TheWedgeSlideSection = () => {
 
             {/* Three numbered reasons */}
             <div className="flex flex-col">
-              {REASONS.map((r, i) => (
-                <div
-                  key={i}
-                  className={`grid grid-cols-[auto,1fr] gap-5 py-4 ${
-                    i < REASONS.length - 1 ? "border-b border-[hsl(0,0%,90%)]" : ""
-                  }`}
-                >
-                  <span
-                    className="text-xs font-mono font-bold tracking-[0.22em] pt-1"
-                    style={{ color: r.accent }}
+              {REASONS.map((r, i) => {
+                const Icon = r.Icon;
+                return (
+                  <div
+                    key={i}
+                    className={`grid grid-cols-[auto,auto,1fr] gap-5 items-start py-4 ${
+                      i < REASONS.length - 1 ? "border-b border-[hsl(0,0%,90%)]" : ""
+                    }`}
                   >
-                    {r.n}
-                  </span>
-                  <div>
-                    <div className="text-base lg:text-lg font-bold text-foreground leading-snug">
-                      {r.title}
+                    <div
+                      className="flex items-center justify-center w-11 h-11 rounded-xl shrink-0"
+                      style={{ background: r.tileBg }}
+                    >
+                      <Icon className="w-5 h-5" style={{ color: r.tileFg }} strokeWidth={2.2} />
                     </div>
-                    <p className="text-sm text-muted-foreground leading-snug mt-1">
-                      {r.body}
-                    </p>
+                    <span
+                      className="text-xs font-mono font-bold tracking-[0.22em] pt-3"
+                      style={{ color: r.accent }}
+                    >
+                      {r.n}
+                    </span>
+                    <div className="pt-1">
+                      <div className="text-base lg:text-lg font-bold text-foreground leading-snug">
+                        {r.title}
+                      </div>
+                      <p className="text-sm text-muted-foreground leading-snug mt-1">
+                        {r.body}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 
