@@ -30,7 +30,7 @@ const HeroSection = () => {
             style={{ background: GOLD }}
           />
           <span className="text-lg md:text-xl font-semibold tracking-tight">
-            UniQ<sup className="text-[10px] md:text-xs font-medium align-super ml-0.5 opacity-70">AI</sup> for Academia
+            Academia Brief
           </span>
         </div>
       </header>
