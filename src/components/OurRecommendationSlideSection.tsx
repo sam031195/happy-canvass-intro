@@ -59,63 +59,56 @@ const PILLARS: Pillar[] = [
 
 const PillarCard = ({ p }: { p: Pillar }) => {
   const primary = p.variant === "gold" || p.variant === "navy";
-
-  if (primary) {
-    const isGold = p.variant === "gold";
-    const bg = isGold ? GOLD : INK;
-    return (
-      <div
-        className="rounded-[6px] p-7 lg:p-8 flex flex-col justify-between min-h-[280px] lg:min-h-[300px] text-white"
-        style={{
-          background: bg,
-          boxShadow: isGold
-            ? "0 20px 40px -24px hsla(45,55%,38%,0.35)"
-            : "0 20px 40px -24px hsla(230,25%,10%,0.35)",
-        }}
-      >
-        <div className="flex items-start justify-between mb-10">
-          <span className="px-3 py-1 bg-white/15 rounded-full text-[10px] font-bold tracking-[0.18em] uppercase">
-            {p.label}
-          </span>
-          {p.meta && (
-            <span className="text-[10px] font-semibold opacity-80 uppercase tracking-[0.18em]">
-              {p.meta}
-            </span>
-          )}
-        </div>
-        <div>
-          <h3 className="text-2xl lg:text-[26px] font-bold leading-[1.15] mb-4 whitespace-pre-line">
-            {p.title}
-          </h3>
-          <p className="text-sm lg:text-[15px] leading-relaxed text-white/80">
-            {p.body}
-          </p>
-        </div>
-      </div>
-    );
-  }
-
   const isGuardrail = p.variant === "guardrail";
+  const isGold = p.variant === "gold";
+
+  const bg = primary
+    ? isGold
+      ? GOLD
+      : INK
+    : isGuardrail
+    ? "hsl(0,0%,99%)"
+    : "hsl(0,0%,100%)";
+
+  const textColor = primary ? "text-white" : "text-foreground";
+  const subTextColor = primary ? "text-white/80" : "text-foreground/60";
+  const labelColor = primary ? "text-white" : "text-foreground/50";
+  const labelBg = primary ? "bg-white/15" : "bg-foreground/5";
+
   return (
     <div
-      className="rounded-[6px] p-6 flex flex-col justify-between min-h-[200px] lg:min-h-[220px] border"
+      className={`rounded-[6px] p-6 lg:p-7 flex flex-col justify-between min-h-[280px] lg:min-h-[300px] ${textColor} ${
+        primary ? "" : "border"
+      }`}
       style={{
-        background: isGuardrail ? "hsl(0,0%,99%)" : "hsl(0,0%,100%)",
-        borderColor: "hsl(0,0%,88%)",
-        borderStyle: isGuardrail ? "dashed" : "solid",
+        background: bg,
+        borderColor: primary ? undefined : "hsl(0,0%,88%)",
+        borderStyle: primary ? undefined : isGuardrail ? "dashed" : "solid",
+        boxShadow: primary
+          ? isGold
+            ? "0 20px 40px -24px hsla(45,55%,38%,0.35)"
+            : "0 20px 40px -24px hsla(230,25%,10%,0.35)"
+          : undefined,
       }}
     >
-      <div>
-        <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-foreground/40">
+      <div className="flex items-start justify-between mb-8">
+        <span
+          className={`px-3 py-1 rounded-full text-[10px] font-bold tracking-[0.18em] uppercase ${labelBg} ${labelColor}`}
+        >
           {p.label}
         </span>
-        <h4 className="text-base lg:text-lg font-bold text-foreground mt-3 mb-3 leading-snug">
-          {p.title}
-        </h4>
+        {p.meta && (
+          <span className="text-[10px] font-semibold opacity-80 uppercase tracking-[0.18em]">
+            {p.meta}
+          </span>
+        )}
       </div>
-      <p className="text-[13px] lg:text-sm leading-relaxed text-foreground/60">
-        {p.body}
-      </p>
+      <div>
+        <h3 className="text-xl lg:text-[22px] font-bold leading-[1.15] mb-4 whitespace-pre-line">
+          {p.title}
+        </h3>
+        <p className={`text-sm leading-relaxed ${subTextColor}`}>{p.body}</p>
+      </div>
     </div>
   );
 };
@@ -169,14 +162,13 @@ const OurRecommendationSlideSection = () => {
           </div>
         </div>
 
-        {/* Pillars — 2 primary bets (wider) + 3 quieter supporting cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 lg:gap-5">
-          <div className="lg:col-span-3"><PillarCard p={PILLARS[0]} /></div>
-          <div className="lg:col-span-3"><PillarCard p={PILLARS[1]} /></div>
-          <div className="lg:col-span-2"><PillarCard p={PILLARS[2]} /></div>
-          <div className="lg:col-span-2"><PillarCard p={PILLARS[3]} /></div>
-          <div className="lg:col-span-2"><PillarCard p={PILLARS[4]} /></div>
+        {/* Pillars — 5 equal-size cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5">
+          {PILLARS.map((p, i) => (
+            <PillarCard key={i} p={p} />
+          ))}
         </div>
+
 
         {/* Slide chrome */}
         <div className="mt-12 pt-6 border-t border-foreground/10 flex items-center justify-between text-[11px] font-bold tracking-[0.22em] uppercase text-foreground/30">
