@@ -30,10 +30,6 @@ const Index = () => {
       <ReachWithoutDependenceSlideSection />
       <PentagonRiskSlideSection />
       <RoadmapSlideSection />
-      <DecagonDifferenceSection />
-      <EndToEndSection />
-      <AgenticWorkflowSection />
-      <WayForwardSection />
     </main>
   );
 };
