@@ -6,8 +6,8 @@ import { BarChart3 } from "lucide-react";
    idiom (matches slides 02–04).
    ─────────────────────────────────────────────────────────────── */
 
-const GOLD = "hsl(45,60%,45%)";       // warm gold (Anthropic) — matches AgenticWorkflow / WayForward
-const NEUTRAL = "hsl(240,45%,35%)";   // deep navy (Google bundle) — matches DecagonDifference
+const GOLD = "hsl(16,60%,59%)";       // Anthropic brand coral
+const NEUTRAL = "hsl(217,89%,61%)";   // Google brand blue
 const TRACK = "hsl(0,0%,90%)";
 const INK = "hsl(230,25%,10%)";
 
