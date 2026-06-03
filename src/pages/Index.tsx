@@ -1,5 +1,6 @@
 import HeroSection from "@/components/HeroSection";
 import UniversityMarquee from "@/components/UniversityMarquee";
+import TheProblemSlideSection from "@/components/TheProblemSlideSection";
 import DecagonDifferenceSection from "@/components/DecagonDifferenceSection";
 import EndToEndSection from "@/components/EndToEndSection";
 import WayForwardSection from "@/components/WayForwardSection";
@@ -10,6 +11,7 @@ const Index = () => {
     <main>
       <HeroSection />
       <UniversityMarquee />
+      <TheProblemSlideSection />
       <DecagonDifferenceSection />
       <EndToEndSection />
       <AgenticWorkflowSection />
