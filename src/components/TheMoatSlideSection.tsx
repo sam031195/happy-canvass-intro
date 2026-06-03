@@ -122,43 +122,36 @@ const TheMoatSlideSection = () => {
             </p>
           </div>
 
-          {/* Right: three pillars */}
-          <div className="flex flex-col">
+          {/* Right: three pillars — stat-grid style (icon on top, big label, body) */}
+          <div className="flex flex-col gap-10">
             {PILLARS.map((p, i) => {
               const Icon = p.Icon;
               return (
-                <div
-                  key={i}
-                  className={`grid grid-cols-[auto,1fr] gap-5 items-start py-5 ${
-                    i < PILLARS.length - 1 ? "border-b border-[hsl(0,0%,90%)]" : ""
-                  }`}
-                >
+                <div key={i} className="flex flex-col">
                   <div
-                    className="flex items-center justify-center w-11 h-11 rounded-xl shrink-0"
+                    className="flex items-center justify-center w-12 h-12 rounded-xl mb-4"
                     style={{ background: p.tileBg }}
                   >
-                    <Icon className="w-5 h-5" style={{ color: p.tileFg }} strokeWidth={2.2} />
+                    <Icon className="w-6 h-6" style={{ color: p.tileFg }} strokeWidth={2.2} />
                   </div>
-                  <div className="pt-0.5">
-                    <div
-                      className="text-[11px] font-semibold tracking-[0.18em] uppercase mb-1.5"
-                      style={{ color: p.accent }}
-                    >
-                      {p.kicker}
-                    </div>
-                    <div className="text-base lg:text-lg font-bold text-foreground leading-snug">
-                      {p.title}
-                    </div>
-                    <p className="text-sm text-muted-foreground leading-snug mt-1.5">
-                      {p.body}
-                    </p>
+                  <div className="text-3xl lg:text-4xl font-bold text-foreground leading-none mb-2">
+                    {p.stat}
                   </div>
+                  <div className="text-sm font-semibold tracking-wide uppercase text-muted-foreground mb-3">
+                    {p.kicker}
+                  </div>
+                  <div className="text-base lg:text-lg font-semibold text-foreground leading-snug mb-1.5">
+                    {p.title}
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
+                    {p.body}
+                  </p>
                 </div>
               );
             })}
 
             {/* Defer line */}
-            <div className="mt-6 pt-5 border-t border-[hsl(0,0%,90%)]">
+            <div className="mt-2 pt-5 border-t border-[hsl(0,0%,90%)]">
               <p className="text-sm text-muted-foreground leading-snug">
                 <span className="font-semibold text-foreground">Defer:</span>{" "}
                 broad horizontal orchestration · inflated agent breadth · consumer-suite parity
@@ -166,6 +159,7 @@ const TheMoatSlideSection = () => {
               </p>
             </div>
           </div>
+
         </div>
 
         {/* Slide chrome */}
