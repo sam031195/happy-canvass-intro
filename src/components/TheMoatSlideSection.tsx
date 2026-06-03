@@ -122,33 +122,35 @@ const TheMoatSlideSection = () => {
             </p>
           </div>
 
-          {/* Right: three pillars — stat-grid style (icon on top, big label, body) */}
-          <div className="flex flex-col gap-10">
-            {PILLARS.map((p, i) => {
-              const Icon = p.Icon;
-              return (
-                <div key={i} className="flex flex-col">
-                  <div
-                    className="flex items-center justify-center w-12 h-12 rounded-xl mb-4"
-                    style={{ background: p.tileBg }}
-                  >
-                    <Icon className="w-6 h-6" style={{ color: p.tileFg }} strokeWidth={2.2} />
+          {/* Right: three pillars — horizontal row */}
+          <div className="flex flex-col gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {PILLARS.map((p, i) => {
+                const Icon = p.Icon;
+                return (
+                  <div key={i} className="flex flex-col">
+                    <div
+                      className="flex items-center justify-center w-12 h-12 rounded-xl mb-4"
+                      style={{ background: p.tileBg }}
+                    >
+                      <Icon className="w-6 h-6" style={{ color: p.tileFg }} strokeWidth={2.2} />
+                    </div>
+                    <div className="text-2xl lg:text-3xl font-bold text-foreground leading-none mb-2">
+                      {p.stat}
+                    </div>
+                    <div className="text-sm font-semibold tracking-wide uppercase text-muted-foreground mb-3">
+                      {p.kicker}
+                    </div>
+                    <div className="text-base font-semibold text-foreground leading-snug mb-1.5">
+                      {p.title}
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {p.body}
+                    </p>
                   </div>
-                  <div className="text-3xl lg:text-4xl font-bold text-foreground leading-none mb-2">
-                    {p.stat}
-                  </div>
-                  <div className="text-sm font-semibold tracking-wide uppercase text-muted-foreground mb-3">
-                    {p.kicker}
-                  </div>
-                  <div className="text-base lg:text-lg font-semibold text-foreground leading-snug mb-1.5">
-                    {p.title}
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
-                    {p.body}
-                  </p>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
 
             {/* Defer line */}
             <div className="mt-2 pt-5 border-t border-[hsl(0,0%,90%)]">
