@@ -164,73 +164,68 @@ const WhoWeDefendSlideSection = () => {
   return (
     <section className="bg-background py-10 lg:py-16">
       <div className="mx-4 md:ml-[5%] md:mr-[5%] px-4 md:px-8 lg:px-12">
-        {/* Brand chip */}
-        <div className="inline-flex items-center gap-2 rounded-full bg-[hsl(0,0%,92%)] px-4 py-2 text-sm font-medium text-foreground mb-6 w-fit">
-          <Target className="w-4 h-4" />
-          05 · Who we defend
+
+        {/* Header row — title left, lede right (matches TheProblem layout) */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+          {/* Left column — title block */}
+          <div className="flex flex-col justify-start">
+            <div className="inline-flex items-center gap-2 rounded-full bg-[hsl(0,0%,92%)] px-4 py-2 text-sm font-medium text-foreground mb-3 w-fit">
+              <Target className="w-4 h-4" />
+              05 · Who we defend
+            </div>
+            <h2 className="text-3xl lg:text-5xl font-bold text-foreground leading-[1.1] tracking-tight">
+              Not every account is equally{" "}
+              <span style={{ color: GOLD }}>exposed</span> to the bundle.
+            </h2>
+          </div>
+
+          {/* Right column — lede */}
+          <div className="flex flex-col justify-center">
+            <p className="text-base lg:text-lg text-foreground/75 leading-relaxed">
+              300,000+ business customers don't share one risk profile — we sort
+              them by what the bundle can reach, then fund the moves that defend
+              each tier.
+            </p>
+          </div>
         </div>
 
-        {/* Headline + lede */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr,1fr] gap-8 lg:gap-16 items-end mb-12 lg:mb-14">
-          <h2 className="text-3xl lg:text-5xl font-bold text-foreground leading-[1.1] tracking-tight max-w-4xl">
-            Not every account is equally{" "}
-            <span style={{ color: GOLD }}>exposed</span> to the bundle.
-          </h2>
-          <p className="text-base lg:text-lg text-foreground/70 leading-relaxed max-w-md lg:justify-self-end">
-            300,000+ business customers don't share one risk profile — we sort
-            them by what the bundle can reach, then fund the moves that defend
-            each tier.
-          </p>
-        </div>
-
-        {/* Section sub-label */}
-        <div className="flex items-center gap-3 mb-6">
-          <Users className="w-4 h-4 text-muted-foreground" />
-          <span className="text-xs font-bold tracking-[0.22em] uppercase text-muted-foreground">
-            Three segments · Three moves
-          </span>
-          <div className="flex-1 h-px bg-[hsl(0,0%,90%)]" />
-        </div>
-
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+        {/* Three segments — stat-card grid in the Opportunity Gap idiom */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10 lg:mt-14">
           {SEGMENTS.map((s, i) => (
             <SegmentCard key={i} s={s} />
           ))}
         </div>
 
-        {/* Footer takeaway */}
+        {/* Asymmetry callout — closing line (matches TheProblem footer card) */}
         <div
-          className="mt-12 grid grid-cols-1 lg:grid-cols-[auto,1fr] gap-6 lg:gap-10 items-center p-6 lg:p-8"
+          className="mt-8 lg:mt-10 p-6 lg:p-8 grid grid-cols-1 md:grid-cols-[auto,1fr] items-center gap-4 md:gap-6"
           style={{
             borderRadius: "6px",
-            background: "hsl(0,0%,97%)",
-            border: "1px solid hsl(0,0%,90%)",
+            background: "hsl(45,60%,96%)",
+            border: "1px solid hsl(45,60%,85%)",
           }}
         >
-          <div className="flex items-baseline gap-3">
-            <span className="text-5xl lg:text-6xl font-bold" style={{ color: GOLD }}>
-              2 of 3
-            </span>
-            <span className="text-xs font-bold tracking-[0.22em] uppercase text-muted-foreground max-w-[160px] leading-tight">
-              segments are defensible with focused investment
-            </span>
+          <div
+            className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold tracking-[0.18em] uppercase w-fit"
+            style={{ background: "hsl(45,60%,35%)", color: "white" }}
+          >
+            The takeaway
           </div>
-          <p className="text-base lg:text-lg text-foreground/80 leading-relaxed lg:border-l lg:border-[hsl(0,0%,90%)] lg:pl-10">
-            We don't try to win the inbox.{" "}
-            <span className="font-bold text-foreground">
-              We win the workbench and the audit trail
-            </span>{" "}
-            — the surfaces where serious work actually happens, and where the
-            bundle's gravity is weakest.
+          <p className="text-base lg:text-lg text-foreground/85 leading-relaxed">
+            We don't try to win the <span className="font-bold text-foreground">inbox</span>.
+            We win the <span className="font-bold text-foreground">workbench</span> and the{" "}
+            <span className="font-bold text-foreground">audit trail</span> — the surfaces
+            where serious work actually happens.
           </p>
         </div>
 
         {/* Slide chrome */}
-        <div className="mt-12 pt-6 border-t border-[hsl(0,0%,90%)] flex items-center justify-between text-xs font-bold tracking-[0.22em] uppercase text-muted-foreground">
+        <div className="mt-6 flex items-center justify-between text-xs tracking-[0.22em] uppercase text-muted-foreground">
           <span>Anthropic vs Google · Board Deck</span>
-          <span className="text-foreground/60">06 / 23</span>
+          <span>06 / 23</span>
         </div>
+
       </div>
     </section>
   );
