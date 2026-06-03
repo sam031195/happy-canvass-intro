@@ -2,13 +2,13 @@ import { BarChart3 } from "lucide-react";
 
 /* ───────────────────────────────────────────────────────────────
    Board Deck · Slide 05 — "The Evidence · Harbridge Global"
-   Anthropic vs Google scorecard, reimagined as a landing-page
-   section in the cream/navy/gold deck idiom.
+   Anthropic vs Google scorecard, in the cream/navy/gold deck
+   idiom (matches slides 02–04).
    ─────────────────────────────────────────────────────────────── */
 
-const GOLD = "hsl(15,70%,52%)";       // warm terracotta (Anthropic)
-const NEUTRAL = "hsl(220,8%,62%)";    // cool grey (Google bundle)
-const TRACK = "hsl(0,0%,92%)";
+const GOLD = "hsl(45,55%,38%)";       // warm gold (Anthropic)
+const NEUTRAL = "hsl(230,15%,55%)";   // cool ink-grey (Google bundle)
+const TRACK = "hsl(0,0%,90%)";
 const INK = "hsl(230,25%,10%)";
 
 type Row = {
