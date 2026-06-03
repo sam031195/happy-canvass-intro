@@ -136,7 +136,7 @@ const OurRecommendationSlideSection = () => {
 
         {/* Hero: oversized headline + lede */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 mb-14 lg:mb-20">
-          <h2 className="lg:col-span-7 text-4xl lg:text-[58px] font-bold text-foreground leading-[1.05] tracking-[-0.02em]">
+          <h2 className="lg:col-span-7 text-3xl lg:text-4xl font-bold text-foreground leading-[1.05] tracking-[-0.02em]">
             One strategy: become the neutral layer enterprises run their{" "}
             <span style={{ color: GOLD }}>serious work</span> through.
           </h2>

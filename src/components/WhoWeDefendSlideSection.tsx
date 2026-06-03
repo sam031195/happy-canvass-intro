@@ -174,7 +174,7 @@ const WhoWeDefendSlideSection = () => {
               <Target className="w-4 h-4" />
               05 · Who we defend
             </div>
-            <h2 className="text-3xl lg:text-5xl font-bold text-foreground leading-[1.1] tracking-tight">
+            <h2 className="text-3xl lg:text-4xl font-bold text-foreground leading-[1.1] tracking-tight">
               Not every account is equally{" "}
               <span style={{ color: GOLD }}>exposed</span> to the bundle.
             </h2>

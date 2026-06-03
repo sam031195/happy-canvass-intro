@@ -96,7 +96,7 @@ const EvidenceSlideSection = () => {
         </div>
 
         {/* Headline */}
-        <h2 className="text-3xl lg:text-5xl font-bold text-foreground leading-[1.1] tracking-tight mb-10 lg:mb-14 max-w-5xl">
+        <h2 className="text-3xl lg:text-4xl font-bold text-foreground leading-[1.1] tracking-tight mb-10 lg:mb-14 max-w-5xl">
           Where Anthropic wins, and where the{" "}
           <span style={{ color: GOLD }}>bundle</span> wins.
         </h2>

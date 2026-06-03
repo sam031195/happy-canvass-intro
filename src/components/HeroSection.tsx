@@ -55,7 +55,7 @@ const HeroSection = () => {
             The Opening Line
           </p>
 
-          <h1 className="text-4xl md:text-5xl lg:text-[58px] font-bold leading-[1.05] tracking-tight">
+          <h1 className="text-3xl lg:text-4xl font-bold leading-[1.05] tracking-tight">
             Anthropic is not at risk of becoming irrelevant. It is at risk of becoming{" "}
             <span style={{ color: CORAL }}>optional.</span>
           </h1>
