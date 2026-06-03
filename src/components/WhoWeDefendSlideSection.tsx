@@ -6,9 +6,9 @@ import { Users, Code2, ShieldCheck, Mail, ArrowUpRight, Target } from "lucide-re
    idiom (matches slides 02–05).
    ─────────────────────────────────────────────────────────────── */
 
-const GOLD = "hsl(45,55%,38%)";
-const NAVY = "hsl(240,45%,18%)";
-const NEUTRAL = "hsl(230,15%,55%)";
+const GOLD = "hsl(45,60%,45%)";       // matches AgenticWorkflow / WayForward
+const NAVY = "hsl(240,45%,35%)";      // matches DecagonDifference
+const NEUTRAL = "hsl(160,45%,40%)";   // green accent from AgenticWorkflow palette
 const INK = "hsl(230,25%,10%)";
 
 type Segment = {
