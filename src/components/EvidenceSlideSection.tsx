@@ -183,17 +183,21 @@ const EvidenceSlideSection = () => {
             </p>
 
             <div
-              className="p-5 lg:p-6 rounded-[6px] border-l-2"
+              className="p-5 lg:p-6 border-l-2"
               style={{
-                background: "hsla(15,70%,52%,0.06)",
+                borderRadius: "6px",
+                background: "hsl(0,0%,97%)",
+                borderTop: "1px solid hsl(0,0%,90%)",
+                borderRight: "1px solid hsl(0,0%,90%)",
+                borderBottom: "1px solid hsl(0,0%,90%)",
                 borderLeftColor: GOLD,
               }}
             >
-              <p className="text-base lg:text-lg leading-relaxed" style={{ color: GOLD }}>
+              <p className="text-base lg:text-lg leading-relaxed text-foreground/85">
                 So we don't argue the weights — judges see through that.
                 Embedding (Path B) raises integration and deployment, the exact
                 scores dragging us down.{" "}
-                <span className="font-bold">
+                <span className="font-bold" style={{ color: GOLD }}>
                   We move the scoreboard; we don't dispute it.
                 </span>
               </p>
@@ -202,7 +206,7 @@ const EvidenceSlideSection = () => {
         </div>
 
         {/* Slide chrome */}
-        <div className="mt-12 pt-6 border-t border-foreground/10 flex items-center justify-between text-[11px] font-bold tracking-[0.22em] uppercase text-foreground/30">
+        <div className="mt-12 pt-6 border-t border-[hsl(0,0%,90%)] flex items-center justify-between text-xs font-bold tracking-[0.22em] uppercase text-muted-foreground">
           <span>Anthropic vs Google · Board Deck</span>
           <span className="text-foreground/60">05 / 23</span>
         </div>
