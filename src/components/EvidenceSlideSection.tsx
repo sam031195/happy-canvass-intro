@@ -2,13 +2,13 @@ import { BarChart3 } from "lucide-react";
 
 /* ───────────────────────────────────────────────────────────────
    Board Deck · Slide 05 — "The Evidence · Harbridge Global"
-   Anthropic vs Google scorecard, reimagined as a landing-page
-   section in the cream/navy/gold deck idiom.
+   Anthropic vs Google scorecard, in the cream/navy/gold deck
+   idiom (matches slides 02–04).
    ─────────────────────────────────────────────────────────────── */
 
-const GOLD = "hsl(15,70%,52%)";       // warm terracotta (Anthropic)
-const NEUTRAL = "hsl(220,8%,62%)";    // cool grey (Google bundle)
-const TRACK = "hsl(0,0%,92%)";
+const GOLD = "hsl(45,55%,38%)";       // warm gold (Anthropic)
+const NEUTRAL = "hsl(230,15%,55%)";   // cool ink-grey (Google bundle)
+const TRACK = "hsl(0,0%,90%)";
 const INK = "hsl(230,25%,10%)";
 
 type Row = {
@@ -86,17 +86,17 @@ const GroupHeader = ({
 
 const EvidenceSlideSection = () => {
   return (
-    <section className="bg-background py-12 lg:py-20">
+    <section className="bg-background py-10 lg:py-16">
       <div className="mx-4 md:ml-[5%] md:mr-[5%] px-4 md:px-8 lg:px-12">
 
-        {/* Chip */}
-        <div className="inline-flex items-center gap-2 rounded-full bg-white border border-foreground/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-foreground/70 mb-8 shadow-sm">
-          <BarChart3 className="w-3.5 h-3.5" style={{ color: GOLD }} />
+        {/* Brand chip — matches slides 02–04 */}
+        <div className="inline-flex items-center gap-2 rounded-full bg-[hsl(0,0%,92%)] px-4 py-2 text-sm font-medium text-foreground mb-6 w-fit">
+          <BarChart3 className="w-4 h-4" />
           04 · The evidence · Harbridge Global
         </div>
 
         {/* Headline */}
-        <h2 className="text-4xl lg:text-[54px] font-bold text-foreground leading-[1.05] tracking-[-0.02em] mb-10 lg:mb-14 max-w-5xl">
+        <h2 className="text-3xl lg:text-5xl font-bold text-foreground leading-[1.1] tracking-tight mb-10 lg:mb-14 max-w-5xl">
           Where Anthropic wins, and where the{" "}
           <span style={{ color: GOLD }}>bundle</span> wins.
         </h2>
@@ -183,17 +183,21 @@ const EvidenceSlideSection = () => {
             </p>
 
             <div
-              className="p-5 lg:p-6 rounded-[6px] border-l-2"
+              className="p-5 lg:p-6 border-l-2"
               style={{
-                background: "hsla(15,70%,52%,0.06)",
+                borderRadius: "6px",
+                background: "hsl(0,0%,97%)",
+                borderTop: "1px solid hsl(0,0%,90%)",
+                borderRight: "1px solid hsl(0,0%,90%)",
+                borderBottom: "1px solid hsl(0,0%,90%)",
                 borderLeftColor: GOLD,
               }}
             >
-              <p className="text-base lg:text-lg leading-relaxed" style={{ color: GOLD }}>
+              <p className="text-base lg:text-lg leading-relaxed text-foreground/85">
                 So we don't argue the weights — judges see through that.
                 Embedding (Path B) raises integration and deployment, the exact
                 scores dragging us down.{" "}
-                <span className="font-bold">
+                <span className="font-bold" style={{ color: GOLD }}>
                   We move the scoreboard; we don't dispute it.
                 </span>
               </p>
@@ -202,7 +206,7 @@ const EvidenceSlideSection = () => {
         </div>
 
         {/* Slide chrome */}
-        <div className="mt-12 pt-6 border-t border-foreground/10 flex items-center justify-between text-[11px] font-bold tracking-[0.22em] uppercase text-foreground/30">
+        <div className="mt-12 pt-6 border-t border-[hsl(0,0%,90%)] flex items-center justify-between text-xs font-bold tracking-[0.22em] uppercase text-muted-foreground">
           <span>Anthropic vs Google · Board Deck</span>
           <span className="text-foreground/60">05 / 23</span>
         </div>

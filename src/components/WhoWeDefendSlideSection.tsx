@@ -2,13 +2,14 @@ import { Users, Code2, ShieldCheck, Mail, ArrowUpRight, Target } from "lucide-re
 
 /* ───────────────────────────────────────────────────────────────
    Board Deck · Slide 06 — "Who We Defend"
-   Presented as a landing-page icon-card section in the
-   cream/navy/gold deck idiom.
+   Three-segment icon-card layout in the cream/navy/gold deck
+   idiom (matches slides 02–05).
    ─────────────────────────────────────────────────────────────── */
 
-const GOLD = "hsl(15,70%,52%)";
-const NAVY = "hsl(230,25%,10%)";
-const NEUTRAL = "hsl(220,8%,62%)";
+const GOLD = "hsl(45,55%,38%)";
+const NAVY = "hsl(240,45%,18%)";
+const NEUTRAL = "hsl(230,15%,55%)";
+const INK = "hsl(230,25%,10%)";
 
 type Segment = {
   icon: React.ReactNode;
@@ -69,27 +70,19 @@ const SEGMENTS: Segment[] = [
   },
 ];
 
-const toneStyles = (tone: Segment["tone"]) => {
-  switch (tone) {
-    case "gold":
-      return { dot: GOLD, ring: "hsla(15,70%,52%,0.18)", chip: "hsla(15,70%,52%,0.10)", chipInk: GOLD };
-    case "navy":
-      return { dot: NAVY, ring: "hsla(230,25%,10%,0.14)", chip: "hsla(230,25%,10%,0.06)", chipInk: NAVY };
-    case "neutral":
-      return { dot: NEUTRAL, ring: "hsla(220,8%,62%,0.25)", chip: "hsla(220,8%,62%,0.12)", chipInk: "hsl(220,8%,40%)" };
-  }
-};
+const toneColor = (tone: Segment["tone"]) =>
+  tone === "gold" ? GOLD : tone === "navy" ? NAVY : NEUTRAL;
 
 const Pip = ({ filled, color }: { filled: boolean; color: string }) => (
   <span
     className="w-2.5 h-2.5 rounded-full"
-    style={{ background: filled ? color : "hsl(0,0%,90%)" }}
+    style={{ background: filled ? color : "hsl(0,0%,88%)" }}
   />
 );
 
 const ScorePips = ({ value, color, label }: { value: number; color: string; label: string }) => (
   <div className="flex items-center justify-between gap-3">
-    <span className="text-[11px] font-semibold tracking-[0.14em] uppercase text-foreground/55">
+    <span className="text-xs font-bold tracking-[0.18em] uppercase text-muted-foreground">
       {label}
     </span>
     <div className="flex items-center gap-1">
@@ -104,44 +97,50 @@ const ScorePips = ({ value, color, label }: { value: number; color: string; labe
 );
 
 const SegmentCard = ({ s }: { s: Segment }) => {
-  const t = toneStyles(s.tone);
+  const accent = toneColor(s.tone);
   return (
     <article
-      className="group relative flex flex-col bg-white rounded-[6px] border border-foreground/10 p-7 lg:p-8 transition-shadow hover:shadow-[0_18px_40px_-22px_hsla(230,25%,10%,0.25)]"
-      style={{ boxShadow: `inset 0 0 0 1px ${t.ring}` }}
+      className="flex flex-col p-6 lg:p-8"
+      style={{
+        borderRadius: "6px",
+        background: "hsl(0,0%,97%)",
+        border: "1px solid hsl(0,0%,90%)",
+      }}
     >
-      {/* Top: icon + vulnerability chip */}
+      {/* Top: icon + vulnerability eyebrow */}
       <div className="flex items-start justify-between mb-6">
         <div
-          className="w-11 h-11 rounded-[4px] flex items-center justify-center"
-          style={{ background: t.chip, color: t.chipInk }}
+          className="w-11 h-11 flex items-center justify-center"
+          style={{
+            borderRadius: "4px",
+            background: "hsl(0,0%,100%)",
+            border: "1px solid hsl(0,0%,90%)",
+            color: accent,
+          }}
         >
           {s.icon}
         </div>
-        <div
-          className="text-[10px] font-bold tracking-[0.22em] uppercase px-2.5 py-1 rounded-full"
-          style={{ background: t.chip, color: t.chipInk }}
-        >
+        <div className="text-xs font-bold tracking-[0.22em] uppercase text-muted-foreground">
           {s.vuln} vulnerability
         </div>
       </div>
 
       {/* Title */}
-      <h3 className="text-xl lg:text-2xl font-bold text-foreground leading-tight tracking-[-0.01em] mb-2">
+      <h3 className="text-2xl lg:text-[28px] font-bold text-foreground leading-snug mb-2">
         {s.segment}
       </h3>
-      <p className="text-[13px] font-semibold text-foreground/70 mb-5">
+      <p className="text-sm font-semibold text-foreground/70 mb-5">
         {s.workflow}
       </p>
 
       {/* Evidence */}
-      <p className="text-[14px] lg:text-[15px] text-foreground/75 leading-relaxed mb-6">
+      <p className="text-base lg:text-lg text-foreground/75 leading-relaxed mb-6">
         {s.evidence}
       </p>
 
       {/* Score comparison */}
-      <div className="space-y-2.5 py-5 my-1 border-y border-foreground/10">
-        <div className="text-[10px] font-bold tracking-[0.22em] uppercase text-foreground/40 mb-2">
+      <div className="space-y-2.5 py-5 my-1 border-y border-[hsl(0,0%,90%)]">
+        <div className="text-xs font-bold tracking-[0.22em] uppercase text-muted-foreground mb-2">
           {s.scoreLabel}
         </div>
         <ScorePips value={s.scoreA} color={GOLD} label="Anthropic" />
@@ -151,19 +150,19 @@ const SegmentCard = ({ s }: { s: Segment }) => {
       {/* Move */}
       <div className="mt-6 flex items-start gap-3">
         <div
-          className="mt-0.5 w-6 h-6 rounded-full flex items-center justify-center shrink-0"
-          style={{ background: t.chip, color: t.chipInk }}
+          className="mt-0.5 w-6 h-6 flex items-center justify-center shrink-0"
+          style={{ borderRadius: "4px", background: "hsl(0,0%,100%)", border: "1px solid hsl(0,0%,90%)", color: accent }}
         >
           <ArrowUpRight className="w-3.5 h-3.5" />
         </div>
         <div>
           <div
-            className="text-[10px] font-bold tracking-[0.22em] uppercase mb-1"
-            style={{ color: t.chipInk }}
+            className="text-xs font-bold tracking-[0.22em] uppercase mb-1"
+            style={{ color: accent }}
           >
             Move · {s.moveLabel}
           </div>
-          <p className="text-[14px] font-semibold text-foreground leading-snug">
+          <p className="text-base font-semibold text-foreground leading-snug">
             {s.move}
           </p>
         </div>
@@ -174,17 +173,17 @@ const SegmentCard = ({ s }: { s: Segment }) => {
 
 const WhoWeDefendSlideSection = () => {
   return (
-    <section className="bg-background py-12 lg:py-20">
+    <section className="bg-background py-10 lg:py-16">
       <div className="mx-4 md:ml-[5%] md:mr-[5%] px-4 md:px-8 lg:px-12">
-        {/* Chip */}
-        <div className="inline-flex items-center gap-2 rounded-full bg-white border border-foreground/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-foreground/70 mb-8 shadow-sm">
-          <Target className="w-3.5 h-3.5" style={{ color: GOLD }} />
+        {/* Brand chip */}
+        <div className="inline-flex items-center gap-2 rounded-full bg-[hsl(0,0%,92%)] px-4 py-2 text-sm font-medium text-foreground mb-6 w-fit">
+          <Target className="w-4 h-4" />
           05 · Who we defend
         </div>
 
         {/* Headline + lede */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr,1fr] gap-8 lg:gap-16 items-end mb-12 lg:mb-16">
-          <h2 className="text-4xl lg:text-[54px] font-bold text-foreground leading-[1.05] tracking-[-0.02em] max-w-4xl">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr,1fr] gap-8 lg:gap-16 items-end mb-12 lg:mb-14">
+          <h2 className="text-3xl lg:text-5xl font-bold text-foreground leading-[1.1] tracking-tight max-w-4xl">
             Not every account is equally{" "}
             <span style={{ color: GOLD }}>exposed</span> to the bundle.
           </h2>
@@ -197,11 +196,11 @@ const WhoWeDefendSlideSection = () => {
 
         {/* Section sub-label */}
         <div className="flex items-center gap-3 mb-6">
-          <Users className="w-4 h-4 text-foreground/40" />
-          <span className="text-[11px] font-bold tracking-[0.22em] uppercase text-foreground/45">
+          <Users className="w-4 h-4 text-muted-foreground" />
+          <span className="text-xs font-bold tracking-[0.22em] uppercase text-muted-foreground">
             Three segments · Three moves
           </span>
-          <div className="flex-1 h-px bg-foreground/10" />
+          <div className="flex-1 h-px bg-[hsl(0,0%,90%)]" />
         </div>
 
         {/* Cards */}
@@ -212,16 +211,23 @@ const WhoWeDefendSlideSection = () => {
         </div>
 
         {/* Footer takeaway */}
-        <div className="mt-12 grid grid-cols-1 lg:grid-cols-[auto,1fr] gap-6 lg:gap-10 items-center p-6 lg:p-8 rounded-[6px] border border-foreground/10 bg-white">
+        <div
+          className="mt-12 grid grid-cols-1 lg:grid-cols-[auto,1fr] gap-6 lg:gap-10 items-center p-6 lg:p-8"
+          style={{
+            borderRadius: "6px",
+            background: "hsl(0,0%,97%)",
+            border: "1px solid hsl(0,0%,90%)",
+          }}
+        >
           <div className="flex items-baseline gap-3">
             <span className="text-5xl lg:text-6xl font-bold" style={{ color: GOLD }}>
               2 of 3
             </span>
-            <span className="text-[11px] font-bold tracking-[0.22em] uppercase text-foreground/50 max-w-[160px] leading-tight">
+            <span className="text-xs font-bold tracking-[0.22em] uppercase text-muted-foreground max-w-[160px] leading-tight">
               segments are defensible with focused investment
             </span>
           </div>
-          <p className="text-base lg:text-lg text-foreground/80 leading-relaxed lg:border-l lg:border-foreground/10 lg:pl-10">
+          <p className="text-base lg:text-lg text-foreground/80 leading-relaxed lg:border-l lg:border-[hsl(0,0%,90%)] lg:pl-10">
             We don't try to win the inbox.{" "}
             <span className="font-bold text-foreground">
               We win the workbench and the audit trail
@@ -232,7 +238,7 @@ const WhoWeDefendSlideSection = () => {
         </div>
 
         {/* Slide chrome */}
-        <div className="mt-12 pt-6 border-t border-foreground/10 flex items-center justify-between text-[11px] font-bold tracking-[0.22em] uppercase text-foreground/30">
+        <div className="mt-12 pt-6 border-t border-[hsl(0,0%,90%)] flex items-center justify-between text-xs font-bold tracking-[0.22em] uppercase text-muted-foreground">
           <span>Anthropic vs Google · Board Deck</span>
           <span className="text-foreground/60">06 / 23</span>
         </div>
