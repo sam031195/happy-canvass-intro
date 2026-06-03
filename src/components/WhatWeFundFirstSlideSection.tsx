@@ -115,7 +115,7 @@ const Tag = ({ label, tone }: { label: string; tone: Path["tagTone"] }) => {
 };
 
 const TimelineRow = ({ p }: { p: Path }) => (
-  <div className="grid grid-cols-[180px,1fr] gap-6 lg:gap-10 items-center py-4">
+  <div className="grid grid-cols-[180px,1fr] gap-6 lg:gap-10 items-center py-2.5">
     {/* Left: tag + code label */}
     <div className="flex flex-col gap-1.5">
       <Tag label={p.tag} tone={p.tagTone} />
@@ -214,7 +214,7 @@ const WhatWeFundFirstSlideSection = () => {
         </div>
 
         {/* Gantt — borderless, typographic */}
-        <div className="mt-12 lg:mt-16">
+        <div className="mt-8 lg:mt-10">
           <Axis />
           <div className="divide-y divide-[hsl(0,0%,92%)]">
             {PATHS.map((p, i) => (
@@ -224,16 +224,16 @@ const WhatWeFundFirstSlideSection = () => {
         </div>
 
         {/* Three "why" columns — borderless, hairline divider on top */}
-        <div className="mt-12 lg:mt-16 pt-8 border-t border-[hsl(0,0%,90%)] grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        <div className="mt-8 lg:mt-10 pt-6 border-t border-[hsl(0,0%,90%)] grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-10">
           {WHYS.map((w, i) => (
-            <div key={i} className="flex flex-col gap-3">
+            <div key={i} className="flex flex-col gap-2">
               <div
                 className="text-xs font-bold tracking-[0.22em] uppercase font-mono"
                 style={{ color: w.tone }}
               >
                 {w.label}
               </div>
-              <p className="text-base lg:text-lg text-foreground/80 leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-snug">
                 {w.body}
               </p>
             </div>
@@ -241,7 +241,7 @@ const WhatWeFundFirstSlideSection = () => {
         </div>
 
         {/* Slide chrome */}
-        <div className="mt-12 flex items-center justify-between text-xs tracking-[0.22em] uppercase text-muted-foreground">
+        <div className="mt-6 flex items-center justify-between text-xs tracking-[0.22em] uppercase text-muted-foreground">
           <span>Anthropic vs Google · Board Deck</span>
           <span>07 / 23</span>
         </div>
