@@ -1,9 +1,9 @@
 import { Ban } from "lucide-react";
 
 /* ───────────────────────────────────────────────────────────────
-   Board Deck · Slide 10 — "What we are deliberately not doing"
-   Same theme idiom as TheMoat/Wedge: light bg, gold accents.
-   Two-column row list: WE WILL NOT title (left) + reasoning (right).
+   Board Deck · Slide 09 — "What we are deliberately not doing"
+   Timeline-style layout: left headline + lede, center spine with
+   numbered orb, right card with the refusal list.
    ─────────────────────────────────────────────────────────────── */
 
 const GOLD = "hsl(45,60%,45%)";
@@ -56,57 +56,87 @@ const REFUSALS = [
 
 const WhatWeAreNotDoingSlideSection = () => {
   return (
-    <section className="bg-background py-8 lg:py-10">
-      <div className="mx-4 md:ml-[5%] md:mr-[5%] px-4 md:px-8 lg:px-12">
+    <section className="bg-[hsl(0,0%,94%)] py-16 lg:py-24">
+      <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_80px_1fr] gap-8 lg:gap-0 items-start">
 
-        {/* Header chip + headline + lede */}
-        <div className="max-w-5xl mb-8">
-          <div className="inline-flex items-center gap-2 rounded-full bg-[hsl(0,0%,92%)] px-4 py-2 text-sm font-medium text-foreground mb-4 w-fit">
-            <Ban className="w-4 h-4" />
-            09 · What we are not doing
+          {/* LEFT — icon tile + headline + lede */}
+          <div className="lg:pr-12">
+            <div className="inline-flex items-center justify-center w-14 h-14 rounded-[10px] bg-white border border-[hsl(0,0%,88%)] shadow-sm mb-10">
+              <Ban className="w-6 h-6 text-foreground" strokeWidth={1.8} />
+            </div>
+
+            <h2 className="text-5xl lg:text-6xl font-bold text-foreground leading-[1.05] tracking-tight mb-8">
+              What we are deliberately{" "}
+              <span style={{ color: GOLD }}>not</span> doing
+            </h2>
+
+            <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-md">
+              A strategy is its trade-offs. The CFO's mandate is explicit: a plan that
+              funds everything equally will not survive review. So we name what we
+              refuse —{" "}
+              <span className="font-semibold" style={{ color: GOLD_DEEP }}>
+                and why.
+              </span>
+            </p>
           </div>
 
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground leading-tight mb-3">
-            What we are deliberately{" "}
-            <span style={{ color: GOLD }}>not</span> doing
-          </h2>
-
-          <p className="text-base text-foreground/80 leading-relaxed max-w-3xl">
-            A strategy is its trade-offs. The CFO's mandate is explicit: a plan that funds
-            everything equally will not survive review. So we name what we refuse —{" "}
-            <span className="font-semibold" style={{ color: GOLD_DEEP }}>and why.</span>
-          </p>
-        </div>
-
-        {/* Refusal rows */}
-        <div className="border-t border-[hsl(0,0%,88%)]">
-          {REFUSALS.map((r, i) => (
+          {/* CENTER — vertical spine + numbered orb */}
+          <div className="hidden lg:flex flex-col items-center self-stretch relative">
+            <div className="absolute top-0 bottom-0 w-px bg-[hsl(0,0%,75%)]" />
             <div
-              key={i}
-              className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-4 lg:gap-12 py-5 lg:py-6 border-b border-[hsl(0,0%,88%)]"
+              className="relative z-10 mt-6 w-14 h-14 rounded-full flex items-center justify-center text-white text-xl font-semibold"
+              style={{
+                background:
+                  "radial-gradient(circle at 30% 30%, hsl(260,90%,75%), hsl(260,70%,45%) 70%, hsl(260,80%,35%))",
+                boxShadow:
+                  "0 12px 30px -8px hsla(260,70%,40%,0.5), inset 0 -6px 12px hsla(0,0%,0%,0.25)",
+              }}
             >
-              <div>
-                <div
-                  className="text-[11px] font-semibold tracking-[0.22em] uppercase mb-2"
-                  style={{ color: GOLD_DEEP }}
-                >
-                  We will not
-                </div>
-                <div className="text-base lg:text-lg font-semibold text-foreground leading-snug">
-                  {r.title}
-                </div>
-              </div>
-              <p className="text-sm lg:text-base text-muted-foreground leading-relaxed">
-                {r.body}
-              </p>
+              9
             </div>
-          ))}
-        </div>
+          </div>
 
-        {/* Slide chrome */}
-        <div className="mt-6 pt-4 border-t border-[hsl(0,0%,90%)] flex items-center justify-between text-xs tracking-[0.22em] uppercase text-muted-foreground">
-          <span>Anthropic vs Google · Board Deck</span>
-          <span>10 / 23</span>
+          {/* RIGHT — white card with refusal rows */}
+          <div className="lg:pl-12 lg:pt-2">
+            <div className="rounded-[14px] bg-white border border-[hsl(0,0%,88%)] shadow-[0_1px_2px_hsla(0,0%,0%,0.04)] overflow-hidden">
+              {REFUSALS.map((r, i) => (
+                <div
+                  key={i}
+                  className={`px-6 lg:px-8 py-5 ${
+                    i !== REFUSALS.length - 1 ? "border-b border-[hsl(0,0%,92%)]" : ""
+                  }`}
+                >
+                  <div
+                    className="text-[11px] font-semibold tracking-[0.22em] uppercase mb-2"
+                    style={{ color: GOLD_DEEP }}
+                  >
+                    We will not
+                  </div>
+                  <div className="text-base lg:text-lg font-semibold text-foreground leading-snug mb-2">
+                    {r.title}
+                  </div>
+                  <p className="text-sm lg:text-base text-muted-foreground leading-relaxed">
+                    {r.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* EVAL card */}
+            <div className="mt-5 rounded-[14px] bg-white border border-[hsl(0,0%,88%)] shadow-[0_1px_2px_hsla(0,0%,0%,0.04)] px-6 lg:px-8 py-5">
+              <div className="text-[11px] font-semibold tracking-[0.22em] uppercase text-muted-foreground mb-2">
+                Eval
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="text-base lg:text-lg font-semibold text-foreground">
+                  Strategic Trade-off Discipline
+                </div>
+                <div className="text-xl font-bold text-foreground">96</div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
