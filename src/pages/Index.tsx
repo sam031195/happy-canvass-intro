@@ -19,6 +19,7 @@ const Index = () => {
       <BreakPointSlideSection />
       <OurRecommendationSlideSection />
       <EvidenceSlideSection />
+      <WhoWeDefendSlideSection />
       <DecagonDifferenceSection />
       <EndToEndSection />
       <AgenticWorkflowSection />
