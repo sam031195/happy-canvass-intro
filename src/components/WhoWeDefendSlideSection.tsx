@@ -100,47 +100,41 @@ const SegmentCard = ({ s }: { s: Segment }) => {
   const accent = toneColor(s.tone);
   return (
     <article
-      className="flex flex-col p-6 lg:p-8"
-      style={{
-        borderRadius: "6px",
-        background: "hsl(0,0%,97%)",
-        border: "1px solid hsl(0,0%,90%)",
-      }}
+      className="bg-background p-5 flex flex-col gap-3 border border-[hsl(0,0%,90%)]"
+      style={{ borderRadius: "6px" }}
     >
       {/* Top: icon + vulnerability eyebrow */}
-      <div className="flex items-start justify-between mb-6">
+      <div className="flex items-center justify-between">
         <div
-          className="w-11 h-11 flex items-center justify-center"
+          className="w-10 h-10 rounded-lg flex items-center justify-center"
           style={{
-            borderRadius: "4px",
-            background: "hsl(0,0%,100%)",
-            border: "1px solid hsl(0,0%,90%)",
+            background: accent.replace(")", ",0.1)").replace("hsl", "hsla"),
             color: accent,
           }}
         >
           {s.icon}
         </div>
-        <div className="text-xs font-bold tracking-[0.22em] uppercase text-muted-foreground">
-          {s.vuln} vulnerability
+        <span className="text-xs font-bold tracking-[0.22em] text-muted-foreground">
+          {s.vuln.toUpperCase()}
+        </span>
+      </div>
+
+      {/* Title + workflow */}
+      <div>
+        <div className="text-xl lg:text-2xl font-bold text-foreground leading-tight">
+          {s.segment}
+        </div>
+        <div className="text-xs font-semibold text-foreground/60 mt-1">
+          {s.workflow}
         </div>
       </div>
 
-      {/* Title */}
-      <h3 className="text-2xl lg:text-[28px] font-bold text-foreground leading-snug mb-2">
-        {s.segment}
-      </h3>
-      <p className="text-sm font-semibold text-foreground/70 mb-5">
-        {s.workflow}
-      </p>
-
       {/* Evidence */}
-      <p className="text-base lg:text-lg text-foreground/75 leading-relaxed mb-6">
-        {s.evidence}
-      </p>
+      <p className="text-sm text-muted-foreground leading-snug">{s.evidence}</p>
 
       {/* Score comparison */}
-      <div className="space-y-2.5 py-5 my-1 border-y border-[hsl(0,0%,90%)]">
-        <div className="text-xs font-bold tracking-[0.22em] uppercase text-muted-foreground mb-2">
+      <div className="space-y-1.5 pt-3 mt-1 border-t border-[hsl(0,0%,90%)]">
+        <div className="text-[10px] font-bold tracking-[0.22em] uppercase text-muted-foreground mb-1">
           {s.scoreLabel}
         </div>
         <ScorePips value={s.scoreA} color={GOLD} label="Anthropic" />
@@ -148,23 +142,18 @@ const SegmentCard = ({ s }: { s: Segment }) => {
       </div>
 
       {/* Move */}
-      <div className="mt-6 flex items-start gap-3">
-        <div
-          className="mt-0.5 w-6 h-6 flex items-center justify-center shrink-0"
-          style={{ borderRadius: "4px", background: "hsl(0,0%,100%)", border: "1px solid hsl(0,0%,90%)", color: accent }}
-        >
-          <ArrowUpRight className="w-3.5 h-3.5" />
-        </div>
+      <div className="flex items-start gap-2 pt-3 border-t border-[hsl(0,0%,90%)]">
+        <ArrowUpRight className="w-3.5 h-3.5 mt-0.5 shrink-0" style={{ color: accent }} />
         <div>
-          <div
-            className="text-xs font-bold tracking-[0.22em] uppercase mb-1"
+          <span
+            className="text-[10px] font-bold tracking-[0.22em] uppercase mr-1.5"
             style={{ color: accent }}
           >
-            Move · {s.moveLabel}
-          </div>
-          <p className="text-base font-semibold text-foreground leading-snug">
+            {s.moveLabel} ·
+          </span>
+          <span className="text-sm font-semibold text-foreground leading-snug">
             {s.move}
-          </p>
+          </span>
         </div>
       </div>
     </article>
