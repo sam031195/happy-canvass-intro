@@ -23,6 +23,7 @@ const Index = () => {
       <EvidenceSlideSection />
       <WhoWeDefendSlideSection />
       <WhatWeFundFirstSlideSection />
+      <TheWedgeSlideSection />
       <DecagonDifferenceSection />
       <EndToEndSection />
       <AgenticWorkflowSection />
