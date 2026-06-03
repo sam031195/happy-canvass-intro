@@ -1,56 +1,7 @@
 import { Printer } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import BoardDeckSlides from "@/components/BoardDeckSlides";
 
-// Board deck slides (Anthropic vs Google — frozen 31 Mar 2026)
-import slide01 from "@/assets/board-deck/slide-01.jpg";
-import slide02 from "@/assets/board-deck/slide-02.jpg";
-import slide03 from "@/assets/board-deck/slide-03.jpg";
-import slide04 from "@/assets/board-deck/slide-04.jpg";
-import slide05 from "@/assets/board-deck/slide-05.jpg";
-import slide06 from "@/assets/board-deck/slide-06.jpg";
-import slide07 from "@/assets/board-deck/slide-07.jpg";
-import slide08 from "@/assets/board-deck/slide-08.jpg";
-import slide09 from "@/assets/board-deck/slide-09.jpg";
-import slide10 from "@/assets/board-deck/slide-10.jpg";
-import slide11 from "@/assets/board-deck/slide-11.jpg";
-import slide12 from "@/assets/board-deck/slide-12.jpg";
-import slide13 from "@/assets/board-deck/slide-13.jpg";
-import slide14 from "@/assets/board-deck/slide-14.jpg";
-import slide15 from "@/assets/board-deck/slide-15.jpg";
-import slide16 from "@/assets/board-deck/slide-16.jpg";
-import slide17 from "@/assets/board-deck/slide-17.jpg";
-import slide18 from "@/assets/board-deck/slide-18.jpg";
-import slide19 from "@/assets/board-deck/slide-19.jpg";
-import slide20 from "@/assets/board-deck/slide-20.jpg";
-import slide21 from "@/assets/board-deck/slide-21.jpg";
-import slide22 from "@/assets/board-deck/slide-22.jpg";
-import slide23 from "@/assets/board-deck/slide-23.jpg";
-
-const BOARD_DECK_SLIDES: { src: string; title: string }[] = [
-  { src: slide01, title: "Cover — The Connective Layer, Above the Suite" },
-  { src: slide02, title: "01 · The Problem — From Model Quality to Distribution" },
-  { src: slide03, title: "02 · The Break Point — Destination vs. Layer" },
-  { src: slide04, title: "03 · Our Recommendation — The Neutral Layer" },
-  { src: slide05, title: "04 · The Evidence — Harbridge Global Scorecard" },
-  { src: slide06, title: "05 · Who We Defend — Account Segmentation" },
-  { src: slide07, title: "06 · What We Fund First — Wedge Before Moat" },
-  { src: slide08, title: "07 · The Wedge — Claude Code Technology Strategy" },
-  { src: slide09, title: "08 · The Moat — MCP & the Governed Layer" },
-  { src: slide10, title: "09 · What We Are Deliberately Not Doing" },
-  { src: slide11, title: "10 · Reach Without Dependence" },
-  { src: slide12, title: "11 · Implementation & Risk — Pentagon Posture" },
-  { src: slide13, title: "12 · Roadmap & The Company We Remain" },
-  { src: slide14, title: "Appendix — Reference Exhibit Pack" },
-  { src: slide15, title: "Appendix · Business Impact Assessment" },
-  { src: slide16, title: "Appendix 1 · Financial Trajectory & Runway" },
-  { src: slide17, title: "Appendix 2 · Harbridge Weighted Matrix" },
-  { src: slide18, title: "Appendix 3 · Google Workspace + Gemini Pricing" },
-  { src: slide19, title: "Appendix 4 · Anthropic Enterprise Capabilities" },
-  { src: slide20, title: "Appendix 5 · Partnership & Channel Dependency" },
-  { src: slide21, title: "Appendix 6 · Pentagon Designation Timeline" },
-  { src: slide22, title: "Appendix 7 · 24-Month Capital Allocation" },
-  { src: slide23, title: "Appendix 8 · Scenario & Sensitivity Defense" },
-];
 
 /* ═══════════════════════════════════════════════════════════════
    MSIS 549 — Technical Report: UniQ AI
@@ -843,35 +794,8 @@ dimension, pushing softmax into saturated regions...`}
           </p>
         </Section>
 
-        {BOARD_DECK_SLIDES.map((slide, i) => (
-          <section
-            key={i}
-            className="mb-10 print:mb-0 print:break-before-page print:break-inside-avoid"
-          >
-            <div className="flex items-baseline justify-between gap-3 mb-3 pb-2"
-              style={{ borderBottom: "2px solid hsl(240,45%,35%)" }}>
-              <div className="flex items-baseline gap-3 min-w-0">
-                <span className="text-xs font-black tracking-[0.2em]" style={{ color: "hsl(240,45%,35%)" }}>
-                  DECK · {String(i + 1).padStart(2, "0")} / {BOARD_DECK_SLIDES.length}
-                </span>
-                <h3 className="text-base font-bold truncate" style={{ color: "hsl(0,0%,10%)" }}>
-                  {slide.title}
-                </h3>
-              </div>
-              <span className="text-[10px] uppercase tracking-widest shrink-0" style={{ color: "hsl(0,0%,55%)" }}>
-                Board Deck
-              </span>
-            </div>
-            <figure className="rounded-lg overflow-hidden border border-[hsl(0,0%,85%)] shadow-sm print:shadow-none print:border-[hsl(0,0%,80%)]">
-              <img
-                src={slide.src}
-                alt={`Board deck slide ${i + 1}: ${slide.title}`}
-                className="block w-full h-auto"
-                loading="lazy"
-              />
-            </figure>
-          </section>
-        ))}
+        <BoardDeckSlides />
+
 
         {/* ═══════════ 12. AI DISCLOSURE ═══════════ */}
         <Section number={12} title="AI Disclosure">
