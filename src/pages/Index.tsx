@@ -12,22 +12,28 @@ import ReachWithoutDependenceSlideSection from "@/components/ReachWithoutDepende
 import PentagonRiskSlideSection from "@/components/PentagonRiskSlideSection";
 import RoadmapSlideSection from "@/components/RoadmapSlideSection";
 
+const slideClass = "min-h-screen flex flex-col justify-center [&>section]:w-full";
+
+const Slide = ({ children }: { children: React.ReactNode }) => (
+  <div className={slideClass}>{children}</div>
+);
+
 const Index = () => {
   return (
     <main>
       <HeroSection />
-      <TheProblemSlideSection />
-      <BreakPointSlideSection />
-      <OurRecommendationSlideSection />
-      <EvidenceSlideSection />
-      <WhoWeDefendSlideSection />
-      <WhatWeFundFirstSlideSection />
-      <TheWedgeSlideSection />
-      <TheMoatSlideSection />
-      <WhatWeAreNotDoingSlideSection />
-      <ReachWithoutDependenceSlideSection />
-      <PentagonRiskSlideSection />
-      <RoadmapSlideSection />
+      <Slide><TheProblemSlideSection /></Slide>
+      <Slide><BreakPointSlideSection /></Slide>
+      <Slide><OurRecommendationSlideSection /></Slide>
+      <Slide><EvidenceSlideSection /></Slide>
+      <Slide><WhoWeDefendSlideSection /></Slide>
+      <Slide><WhatWeFundFirstSlideSection /></Slide>
+      <Slide><TheWedgeSlideSection /></Slide>
+      <Slide><TheMoatSlideSection /></Slide>
+      <Slide><WhatWeAreNotDoingSlideSection /></Slide>
+      <Slide><ReachWithoutDependenceSlideSection /></Slide>
+      <Slide><PentagonRiskSlideSection /></Slide>
+      <Slide><RoadmapSlideSection /></Slide>
     </main>
   );
 };
