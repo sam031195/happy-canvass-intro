@@ -11,6 +11,7 @@ import TheMoatSlideSection from "@/components/TheMoatSlideSection";
 import WhatWeAreNotDoingSlideSection from "@/components/WhatWeAreNotDoingSlideSection";
 import ReachWithoutDependenceSlideSection from "@/components/ReachWithoutDependenceSlideSection";
 import PentagonRiskSlideSection from "@/components/PentagonRiskSlideSection";
+import RoadmapSlideSection from "@/components/RoadmapSlideSection";
 import DecagonDifferenceSection from "@/components/DecagonDifferenceSection";
 import EndToEndSection from "@/components/EndToEndSection";
 import WayForwardSection from "@/components/WayForwardSection";
@@ -32,6 +33,7 @@ const Index = () => {
       <WhatWeAreNotDoingSlideSection />
       <ReachWithoutDependenceSlideSection />
       <PentagonRiskSlideSection />
+      <RoadmapSlideSection />
       <DecagonDifferenceSection />
       <EndToEndSection />
       <AgenticWorkflowSection />
