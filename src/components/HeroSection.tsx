@@ -147,7 +147,7 @@ const HeroSection = () => {
           </p>
         </div>
         <p className="font-mono text-[11px] md:text-[12px] tracking-[0.22em] uppercase pt-6">
-          UniQ AI vs The Status Quo
+          Education &amp; The Status Quo
         </p>
       </footer>
     </section>
