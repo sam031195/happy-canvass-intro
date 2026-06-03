@@ -7,7 +7,7 @@ import { BarChart3 } from "lucide-react";
    ─────────────────────────────────────────────────────────────── */
 
 const GOLD = "hsl(16,60%,59%)";       // Anthropic brand coral
-const NEUTRAL = "hsl(142,71%,38%)";   // Google brand green
+const NEUTRAL = "hsl(160,45%,40%)";   // green from slide palette
 const TRACK = "hsl(0,0%,90%)";
 const INK = "hsl(230,25%,10%)";
 
